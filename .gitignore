@@ -1,4 +1,5 @@
 *.iml
+/Gemfile.lock
 /*.ids
 /*.ipr
 /*.iws
