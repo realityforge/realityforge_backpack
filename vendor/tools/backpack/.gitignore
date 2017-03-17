@@ -1,0 +1,8 @@
+/pkg
+/rdoc
+/*.iml
+/*.ipr
+/*.iws
+/Gemfile.lock
+/tmp
+/patch.diff

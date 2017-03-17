@@ -1,0 +1,8 @@
+{
+  "vendor/tools/backpack": {
+    "url": "https://github.com/realityforge/backpack.git",
+    "branch": "master",
+    "squashed": true,
+    "revision": "a0f2f3caff2488995fc628c94e19679437cb854a"
+  }
+}
