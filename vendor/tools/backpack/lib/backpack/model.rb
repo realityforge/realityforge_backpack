@@ -23,6 +23,14 @@ module Backpack
     r.model_element(:repository_hook, :repository, :access_method => :hooks, :inverse_access_method => :hook)
   end
 
+  class Organization
+    attr_writer :is_user_account
+
+    def is_user_account?
+      @is_user_account.nil? ? false : !!@is_user_account
+    end
+  end
+
   class Branch
     def protect?
       required_status_checks?
@@ -197,6 +205,7 @@ module Backpack
     end
 
     def add_admin_team(team)
+      raise "Unable to add admin team '#{team}' to repository #{self.qualified_name} as it is a personal account" if self.organization.is_user_account?
       team = team.is_a?(Team) ? team : organization.team_by_name(team)
       @admin_teams << team
       team.admin_repositories << self
@@ -212,6 +221,7 @@ module Backpack
     end
 
     def add_pull_team(team)
+      raise "Unable to add pull team '#{team}' to repository #{self.qualified_name} as it is a personal account" if self.organization.is_user_account?
       team = team.is_a?(Team) ? team : organization.team_by_name(team)
       @pull_teams << team
       team.pull_repositories << self
@@ -227,6 +237,7 @@ module Backpack
     end
 
     def add_push_team(team)
+      raise "Unable to add push team '#{team}' to repository #{self.qualified_name} as it is a personal account" if self.organization.is_user_account?
       team = team.is_a?(Team) ? team : organization.team_by_name(team)
       @push_teams << team
       team.push_repositories << self
@@ -244,6 +255,7 @@ module Backpack
       @pull_repositories = []
       @push_repositories = []
       @permission = 'pull'
+      raise "Unable to define team for personal account #{self.organization.name}" if self.organization.is_user_account?
     end
 
     attr_accessor :permission

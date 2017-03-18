@@ -17,7 +17,7 @@ module Backpack #nodoc
     class << self
       def converge(context, organization)
         run_hook(context, :pre_organization, organization)
-        converge_teams(context, organization)
+        converge_teams(context, organization) unless organization.is_user_account?
         converge_repositories(context, organization)
         converge_hooks(context, organization)
         run_hook(context, :post_organization, organization)
@@ -56,7 +56,10 @@ module Backpack #nodoc
       end
 
       def converge_repositories(context, organization)
-        remote_repositories = context.client.organization_repositories(organization.name)
+        remote_repositories =
+          organization.is_user_account? ?
+            context.client.repositories(organization.name) :
+            context.client.organization_repositories(organization.name)
         remote_repositories.each do |remote_repository|
           name = remote_repository['name']
           if organization.repository_by_name?(name)
@@ -72,64 +75,66 @@ module Backpack #nodoc
           unless remote_repositories.any? { |r| r['name'] == repository.name }
             run_hook(context, :pre_repository, repository)
             puts "Creating repository #{repository.name}"
-            remote_repositories <<
-              context.client.create_repository(repository.name,
-                                               :organization => repository.organization.name,
-                                               :description => repository.description,
-                                               :homepage => repository.homepage,
-                                               :private => repository.private?,
-                                               :has_issues => repository.issues?,
-                                               :has_wiki => repository.wiki?,
-                                               :has_downloads => repository.downloads?)
+            config = {
+              :description => repository.description,
+              :homepage => repository.homepage,
+              :private => repository.private?,
+              :has_issues => repository.issues?,
+              :has_wiki => repository.wiki?,
+              :has_downloads => repository.downloads?
+            }
+            config[:organization] = repository.organization.name unless organization.is_user_account?
+            remote_repositories << context.client.create_repository(repository.name, config)
             run_hook(context, :post_repository, repository)
           end
         end
-
-        team_map = {}
-        context.client.organization_teams(organization.name).each do |remote_team|
-          id = remote_team['id']
-          team_map[id] = context.client.team_repositories(id)
-        end
-
-        remote_repositories.each do |remote_repository|
-          repository_name = remote_repository['name']
-          repository = organization.repository_by_name?(repository_name) ? organization.repository_by_name(repository_name) : nil
-
-          repository_full_name = "#{organization.name}/#{repository_name}"
-          remote_teams =
-            context.client.repository_teams(repository_full_name, :accept => 'application/vnd.github.v3.repository+json')
-          remote_teams.each do |remote_team|
-            name = remote_team['name']
-            if repository && repository.team_by_name?(name)
-              permission =
-                repository.admin_team_by_name?(name) ? 'admin' : repository.push_team_by_name?(name) ? 'push' : 'pull'
-
-              team = organization.team_by_name(name)
-              update = false
-
-              permissions = team_map[team.github_id].select { |t| t['name'] == repository.name }[0]['permissions']
-
-              update = true if (permission == 'admin' && !(permissions[:pull] && permissions[:push] && permissions[:admin]))
-              update = true if (permission == 'push' && !(permissions[:pull] && permissions[:push] && !permissions[:admin]))
-              update = true if (permission == 'pull' && !(permissions[:pull] && !permissions[:push] && !permissions[:admin]))
-
-              if update
-                puts "Updating repository team #{team.name} on #{repository_full_name}"
-                context.client.add_team_repository(team.github_id, repository_full_name, :permission => permission)
-              end
-            else
-              puts "Removing repository team #{remote_team['name']} from #{repository_full_name}"
-              context.client.remove_team_repository(remote_team['id'], repository_full_name)
-              remote_teams.delete(remote_team)
-            end
+        unless organization.is_user_account?
+          team_map = {}
+          context.client.organization_teams(organization.name).each do |remote_team|
+            id = remote_team['id']
+            team_map[id] = context.client.team_repositories(id)
           end
-          %w(admin pull push).each do |permission|
-            repository.send(:"#{permission}_teams").each do |team|
-              unless remote_teams.any? { |remote_team| remote_team['name'] == team.name }
-                puts "Adding #{permission} repository team #{team.name} to #{repository.name}"
-                context.client.add_team_repository(team.github_id, repository_full_name, :permission => permission)
+
+          remote_repositories.each do |remote_repository|
+            repository_name = remote_repository['name']
+            repository = organization.repository_by_name?(repository_name) ? organization.repository_by_name(repository_name) : nil
+
+            repository_full_name = "#{organization.name}/#{repository_name}"
+            remote_teams =
+              context.client.repository_teams(repository_full_name, :accept => 'application/vnd.github.v3.repository+json')
+            remote_teams.each do |remote_team|
+              name = remote_team['name']
+              if repository && repository.team_by_name?(name)
+                permission =
+                  repository.admin_team_by_name?(name) ? 'admin' : repository.push_team_by_name?(name) ? 'push' : 'pull'
+
+                team = organization.team_by_name(name)
+                update = false
+
+                permissions = team_map[team.github_id].select { |t| t['name'] == repository.name }[0]['permissions']
+
+                update = true if (permission == 'admin' && !(permissions[:pull] && permissions[:push] && permissions[:admin]))
+                update = true if (permission == 'push' && !(permissions[:pull] && permissions[:push] && !permissions[:admin]))
+                update = true if (permission == 'pull' && !(permissions[:pull] && !permissions[:push] && !permissions[:admin]))
+
+                if update
+                  puts "Updating repository team #{team.name} on #{repository_full_name}"
+                  context.client.add_team_repository(team.github_id, repository_full_name, :permission => permission)
+                end
+              else
+                puts "Removing repository team #{remote_team['name']} from #{repository_full_name}"
+                context.client.remove_team_repository(remote_team['id'], repository_full_name)
+                remote_teams.delete(remote_team)
               end
-            end if repository
+            end
+            %w(admin pull push).each do |permission|
+              repository.send(:"#{permission}_teams").each do |team|
+                unless remote_teams.any? { |remote_team| remote_team['name'] == team.name }
+                  puts "Adding #{permission} repository team #{team.name} to #{repository.name}"
+                  context.client.add_team_repository(team.github_id, repository_full_name, :permission => permission)
+                end
+              end if repository
+            end
           end
         end
       end
