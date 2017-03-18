@@ -4,5 +4,11 @@
     "branch": "master",
     "squashed": true,
     "revision": "a0f2f3caff2488995fc628c94e19679437cb854a"
+  },
+  "vendor/tools/kinjen": {
+    "url": "https://github.com/realityforge/kinjen.git",
+    "branch": "master",
+    "squashed": true,
+    "revision": "ca6264f169e7d4269437d75d035f29c06b78993a"
   }
 }
