@@ -199,7 +199,7 @@ Backpack.organization('realityforge') do |o|
 
     repository.email_hook('dse-iris-scm@stocksoftware.com.au') if repository.tags.include?('notify:stock')
 
-    # GITHUP_TOKEN is a top level constant that should be defined in `_backpack.rb` file
-    repository.travis_hook('realityforge', GITHUP_TOKEN) if repository.tags.include?('travis')
+    # GITHUB_TOKEN is an environment variable that should be defined in `_backpack.rb` file
+    repository.travis_hook('realityforge', ENV['GITHUB_TOKEN']) if repository.tags.include?('travis')
   end
 end

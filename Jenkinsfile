@@ -12,7 +12,9 @@ timestamps {
             sh 'echo "machine api.github.com login ${GITHUB_USER} password ${GITHUB_PASS}" > ~/.netrc'
             sh 'chmod 0600 ~/.netrc'
           }
-          retry(8) { sh './backpack' }
+          withCredentials([string(credentialsId: 'realityforge-oauth', variable: 'GITHUB_TOKEN')]) {
+            retry(8) { sh './backpack' }
+          }
         }
       }
     }
