@@ -13,16 +13,16 @@ Backpack.organization('realityforge') do |o|
   o.repository('rptman', :description => 'This tool includes code and a suite of rake tasks for uploading SSRS reports to a server. The tool can also generate project files for the "SQL Server Business Intelligence Development Studio".', :tags => %w(notify:stock))
   o.repository('resgen', :description => 'A tool to generate resource descriptors from resource assets.', :tags => %w(notify:stock travis))
   o.repository('swung_weave', :description => 'Bytecode weaving of annotated UI classes to ensure all UI updates occur in the Event Dispatch Thread', :tags => %w(notify:stock))
-  o.repository('zim', :description => 'Simple tool that performs mass transformations across codebases', :tags => %w(notify:stock))
+  o.repository('zim', :description => 'Simple tool that performs mass transformations across codebases')
 
   o.repository('guiceyloops', :description => 'GuiceyLoops is a minimalistic library for aiding the testing of JEE applications using Guice.', :tags => %w(notify:stock travis))
 
-  o.repository('keycloak-converger', :description => 'Converge the state of a keycloak realm', :tags => %w(notify:stock travis))
-  o.repository('keycloak-domgen-support', :description => 'KeyCloak Domgen Support', :tags => %w(notify:stock travis))
-  o.repository('glassfish-domain-patcher', :description => 'GlassFish Domain Patcher', :tags => %w(notify:stock travis))
-  o.repository('glassfish-timers', :description => 'GlassFish timers database sql', :tags => %w(notify:stock travis))
+  o.repository('keycloak-converger', :description => 'Converge the state of a keycloak realm', :tags => %w(travis))
+  o.repository('keycloak-domgen-support', :description => 'KeyCloak Domgen Support', :tags => %w(travis))
+  o.repository('glassfish-domain-patcher', :description => 'GlassFish Domain Patcher', :tags => %w(travis))
+  o.repository('glassfish-timers', :description => 'GlassFish timers database sql', :tags => %w(travis))
 
-  o.repository('backpack', :description => 'A simple tool to manage GitHub organisations using declarative DSL', :tags => %w(notify:stock))
+  o.repository('backpack', :description => 'A simple tool to manage GitHub organisations using declarative DSL')
 
   o.repository('dbdiff', :description => 'List differences between databases', :tags => %w(travis))
   o.repository('gelf4j', :description => 'Library for sending log messages using the GELF protocol using CLI, Log4j, JDK Logging and Logback', :homepage => 'https://github.com/realityforge/gelfj', :tags => %w(travis))
@@ -100,16 +100,16 @@ Backpack.organization('realityforge') do |o|
   o.repository('mgwt.showcase', :tags => %w(external historic))
 
   # Deprecated: rails projects that are unfortunately still in use
-  o.repository('rails-active-form', :description => 'A rails plugin for model objects that support validations but are not backed by database tables', :tags => %w(deprecated notify:stock))
-  o.repository('rails-assert-valid-asset', :description => 'A rails plugin to help validate your CSS and (X)HTML in functional tests', :tags => %w(deprecated notify:stock))
-  o.repository('rails-db_purge', :description => 'Clean the database prior to tests with db-purge', :tags => %w(deprecated notify:stock))
-  o.repository('rails-debug-view-helper', :description => 'Rails plugin to add a pop debug button useful during development', :tags => %w(deprecated notify:stock))
-  o.repository('rails-no-cache', :description => 'Simple rails plugin to disable browser caching', :tags => %w(deprecated notify:stock))
-  o.repository('rails-raaa', :description => 'Simple rails authentication plugin', :tags => %w(deprecated notify:stock))
-  o.repository('rails-system-settings', :description => 'A rails plugin that makes it easy to store application settings in the database as key-value pairs', :tags => %w(deprecated notify:stock))
+  o.repository('rails-active-form', :description => 'A rails plugin for model objects that support validations but are not backed by database tables', :tags => %w(deprecated))
+  o.repository('rails-assert-valid-asset', :description => 'A rails plugin to help validate your CSS and (X)HTML in functional tests', :tags => %w(deprecated))
+  o.repository('rails-db_purge', :description => 'Clean the database prior to tests with db-purge', :tags => %w(deprecated))
+  o.repository('rails-debug-view-helper', :description => 'Rails plugin to add a pop debug button useful during development', :tags => %w(deprecated))
+  o.repository('rails-no-cache', :description => 'Simple rails plugin to disable browser caching', :tags => %w(deprecated))
+  o.repository('rails-raaa', :description => 'Simple rails authentication plugin', :tags => %w(deprecated))
+  o.repository('rails-system-settings', :description => 'A rails plugin that makes it easy to store application settings in the database as key-value pairs', :tags => %w(deprecated))
 
   # Deprecated: Buildr extension that only used for rails projects
-  o.repository('itest', :description => 'Improved test tasks for ruby tests under rake or Buildr', :tags => %w(deprecated notify:stock))
+  o.repository('itest', :description => 'Improved test tasks for ruby tests under rake or Buildr', :tags => %w(deprecated))
 
   # Deprecated: May still be used by some old ant projects but should not use it or ant anymore
   o.repository('antix', :description => 'A set of ant tasks that are used across a range of projects', :tags => %w(deprecated))
