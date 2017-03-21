@@ -33,10 +33,25 @@ module Backpack
 
   class Branch
     def protect?
-      required_status_checks?
+      required_status_checks? || require_reviews?
     end
 
-    attr_writer :required_status_checks
+    attr_writer :require_reviews
+
+    # Require the branch to have a pull request review before merging?
+    def require_reviews?
+      @require_reviews.nil? ? false : @require_reviews
+    end
+
+    def review_checks_include_admins=(review_checks_include_admins)
+      self.require_reviews = true
+      @review_checks_include_admins = review_checks_include_admins
+    end
+
+    # Enforce required review checks for repository administrators?
+    def review_checks_include_admins?
+      @review_checks_include_admins.nil? ? false : @review_checks_include_admins
+    end
 
     # Require the branch to have successful status checks before merging?
     def required_status_checks?
