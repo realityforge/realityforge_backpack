@@ -187,6 +187,10 @@ Backpack.organization('realityforge') do |o|
   o.repositories.each do |repository|
     repository.private = false
 
+    if repository.tags.include?('notify:stock')
+      repository.email_hook('dse-iris-scm@stocksoftware.com.au')
+    end
+
     travis_projects = %w(braid chef-archive chef-authbind chef-blank chef-bonita chef-collectd chef-cutlery chef-dbt chef-elasticsearch chef-gdash chef-gelf_handler chef-glassfish chef-graphite chef-graphite_handler chef-graylog2 chef-hosts chef-jenkins chef-kibana chef-logstash chef-postgis chef-psql chef-smbfs chef-spydle chef-sqlshell chef-tomcat chef-winrm chef-xymon dbdiff dbt gelf4j geolatte-geom-eclipselink geolatte-geom-jpa getopt4j glassfish-domain-patcher glassfish-timers guiceyloops gwt-appcache gwt-appcache-example gwt-cache-filter gwt-cache-filter-example gwt-contacts gwt-datatypes gwt-eventsource gwt-eventsource-example gwt-ga gwt-keycloak gwt-lognice gwt-mmvp gwt-online gwt-online-example gwt-packetio-example gwt-presenter gwt-property-source gwt-property-source-example gwt-webpoller gwt-webpoller-example gwt-websockets gwt-websockets-example jeo jml jndikit jsyslog-message keycloak-converger keycloak-domgen-support knife-cookbook-doc proxy-servlet reality-core reality-facets reality-generators reality-mash reality-model reality-naming reality-orderedhash redfish replicant replicant-example resgen rest-criteria rest-field-filter simple-session-filter spydle sqlshell ssrs-api)
     repository.tags << 'travis' if travis_projects.include?(repository.name)
 
@@ -196,8 +200,6 @@ Backpack.organization('realityforge') do |o|
     repository.tags << 'travis' if repository.tags.include?('docker-hub')
 
     repository.docker_hook if repository.tags.include?('docker-hub')
-
-    repository.email_hook('dse-iris-scm@stocksoftware.com.au') if repository.tags.include?('notify:stock')
 
     # GITHUB_TOKEN is an environment variable that should be defined in `_backpack.rb` file
     repository.travis_hook('realityforge', ENV['GITHUB_TOKEN']) if repository.tags.include?('travis')
