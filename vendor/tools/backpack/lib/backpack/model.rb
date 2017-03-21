@@ -33,7 +33,7 @@ module Backpack
 
   class Branch
     def protect?
-      required_status_checks? || require_reviews?
+      require_status_check? || require_reviews?
     end
 
     attr_writer :require_reviews
@@ -53,13 +53,15 @@ module Backpack
       @review_checks_include_admins.nil? ? false : @review_checks_include_admins
     end
 
+    attr_writer :require_status_check
+
     # Require the branch to have successful status checks before merging?
-    def required_status_checks?
-      @required_status_checks.nil? ? false : @required_status_checks
+    def require_status_check?
+      @require_status_check.nil? ? false : @require_status_check
     end
 
     def strict_status_checks=(strict_status_checks)
-      self.required_status_checks = true
+      self.require_status_check = true
       @strict_status_checks = strict_status_checks
     end
 
@@ -69,7 +71,7 @@ module Backpack
     end
 
     def status_checks_include_admins=(status_checks_include_admins)
-      self.required_status_checks = true
+      self.require_status_check = true
       @status_checks_include_admins = status_checks_include_admins
     end
 

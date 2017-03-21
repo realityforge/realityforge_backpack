@@ -3,7 +3,7 @@
     "url": "https://github.com/realityforge/backpack.git",
     "branch": "master",
     "squashed": true,
-    "revision": "8c471f9ad769ebed75e85101dfe960bad9df21ec"
+    "revision": "ced23c8f5e155a6d914aa763003840fcddd2d722"
   },
   "vendor/tools/kinjen": {
     "url": "https://github.com/realityforge/kinjen.git",
