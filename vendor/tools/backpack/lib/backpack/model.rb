@@ -43,31 +43,31 @@ module Backpack
       @required_status_checks.nil? ? false : @required_status_checks
     end
 
-    def strict=(strict)
+    def strict_status_checks=(strict_status_checks)
       self.required_status_checks = true
-      @strict = strict
+      @strict_status_checks = strict_status_checks
     end
 
     # Require branches to be up to date before merging?
-    def strict?
-      @strict.nil? ? false : @strict
+    def strict_status_checks?
+      @strict_status_checks.nil? ? false : @strict_status_checks
     end
 
-    def include_admins=(include_admins)
+    def status_checks_include_admins=(status_checks_include_admins)
       self.required_status_checks = true
-      @include_admins = include_admins
+      @status_checks_include_admins = status_checks_include_admins
     end
 
     # Enforce required status checks for repository administrators.
-    def include_admins?
-      @include_admins.nil? ? false : @include_admins
+    def status_checks_include_admins?
+      @status_checks_include_admins.nil? ? false : @status_checks_include_admins
     end
 
-    attr_writer :contexts
+    attr_writer :status_check_contexts
 
     # The list of status checks to require in order to merge into this branch.
-    def contexts
-      @contexts ||= []
+    def status_check_contexts
+      @status_check_contexts ||= []
     end
   end
 

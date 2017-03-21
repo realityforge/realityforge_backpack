@@ -181,7 +181,7 @@ module Backpack #nodoc
             if protect
               puts "Updating protection on branch #{branch.name} in repository #{repository.qualified_name}"
               config = {:accept => Octokit::Preview::PREVIEW_TYPES[:branch_protection]}
-              config[:required_status_checks] = {:include_admins => branch.include_admins?, :strict => branch.strict?, :contexts => branch.contexts} if branch.required_status_checks?
+              config[:required_status_checks] = {:include_admins => branch.status_checks_include_admins?, :strict => branch.strict_status_checks?, :contexts => branch.status_check_contexts} if branch.required_status_checks?
               client.protect_branch(repository.qualified_name, branch.name, config)
             end
           elsif protection
