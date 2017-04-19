@@ -69,6 +69,7 @@ Backpack.organization('realityforge') do |o|
   o.repository('rest-criteria', :description => 'A simple library for parsing criteria in rest services')
   o.repository('rest-field-filter', :description => 'A simple library parsing field filters in rest APIs.')
   o.repository('simple-session-filter', :description => 'A simple servlet filter for implementing custom session management')
+  o.repository('simple-keycloak-service', :description => 'A simple service interface and base classes to be used by keycloak secured services')
   o.repository('sqlshell', :description => 'A simple cross platform shell used to automate databases')
   o.repository('ssrs-api', :description => 'Generated SOAP interface to SSRS server')
 
