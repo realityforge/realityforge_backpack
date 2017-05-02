@@ -43,16 +43,6 @@ module Backpack
       @require_reviews.nil? ? false : @require_reviews
     end
 
-    def review_checks_include_admins=(review_checks_include_admins)
-      self.require_reviews = true
-      @review_checks_include_admins = review_checks_include_admins
-    end
-
-    # Enforce required review checks for repository administrators?
-    def review_checks_include_admins?
-      @review_checks_include_admins.nil? ? false : @review_checks_include_admins
-    end
-
     attr_writer :require_status_check
 
     # Require the branch to have successful status checks before merging?
@@ -70,21 +60,17 @@ module Backpack
       @strict_status_checks.nil? ? false : @strict_status_checks
     end
 
-    def status_checks_include_admins=(status_checks_include_admins)
-      self.require_status_check = true
-      @status_checks_include_admins = status_checks_include_admins
-    end
-
-    # Enforce required status checks for repository administrators.
-    def status_checks_include_admins?
-      @status_checks_include_admins.nil? ? false : @status_checks_include_admins
-    end
-
     attr_writer :status_check_contexts
 
     # The list of status checks to require in order to merge into this branch.
     def status_check_contexts
       @status_check_contexts ||= []
+    end
+
+    attr_writer :enforce_admins
+
+    def enforce_admins?
+      @enforce_admins.nil? ? false : !!@enforce_admins
     end
   end
 

@@ -171,7 +171,6 @@ module Backpack #nodoc
                 protect = true unless protection[:required_status_checks]
                 if protection[:required_status_checks]
                   checks = protection[:required_status_checks]
-                  protect = true if checks[:include_admins] != branch.status_checks_include_admins?
                   protect = true if checks[:strict] != branch.strict_status_checks?
                   protect = true if checks[:contexts].sort != branch.status_check_contexts.sort
                 end
@@ -181,17 +180,16 @@ module Backpack #nodoc
               protect = true if protection.nil?
               if protection
                 protect = true unless protection[:required_pull_request_reviews]
-                if protection[:required_pull_request_reviews]
-                  checks = protection[:required_pull_request_reviews]
-                  protect = true if checks[:include_admins] != branch.review_checks_include_admins?
-                end
               end
             end
+            protect = true if protection[:enforce_admins][:enabled] != branch.enforce_admins?
+
             if protect
               puts "Updating protection on branch #{branch.name} in repository #{repository.qualified_name}"
               config = {:accept => Octokit::Preview::PREVIEW_TYPES[:branch_protection]}
-              config[:required_status_checks] = {:include_admins => branch.status_checks_include_admins?, :strict => branch.strict_status_checks?, :contexts => branch.status_check_contexts} if branch.require_status_check?
-              config[:required_pull_request_reviews] = {:include_admins => branch.review_checks_include_admins?} if branch.require_reviews?
+              config[:required_status_checks] = {:strict => branch.strict_status_checks?, :contexts => branch.status_check_contexts} if branch.require_status_check?
+              config[:required_pull_request_reviews] = {} if branch.require_reviews?
+              config[:enforce_admins] = branch.enforce_admins?
               client.protect_branch(repository.qualified_name, branch.name, config)
             end
           elsif protection
