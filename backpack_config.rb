@@ -7,6 +7,7 @@ Backpack.organization('realityforge') do |o|
 
   o.repository('buildr_plus', :description => 'A simple set of extensions that patch and customize buildr to our requirements.', :tags => %w(notify:stock))
   o.repository('dbt', :description => 'A simple tool designed to simplify the creation, migration and deletion of databases.', :homepage => 'http://realityforge.github.io/dbt', :tags => %w(notify:stock travis))
+  o.repository('noft', :description => 'A tool to extract svg icons from icon fonts and generate helpers to render the icons.', :tags => %w(notify:stock travis))
   o.repository('domgen', :description => 'Domgen generates code from a simple domain model leaving the developer to focus on implementing high-value features of the application.', :homepage => 'http://realityforge.org/domgen/', :tags => %w(notify:stock))
   o.repository('kinjen', :description => 'A library of groovy scripts to use from a Jenkinsfile', :tags => %w(notify:stock))
   o.repository('redfish', :description => 'A lightweight library for configuring GlassFish/Payara servers.', :tags => %w(notify:stock travis))
