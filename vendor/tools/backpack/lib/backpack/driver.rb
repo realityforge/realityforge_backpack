@@ -182,7 +182,7 @@ module Backpack #nodoc
                 protect = true unless protection[:required_pull_request_reviews]
               end
             end
-            protect = true if (protection[:enforce_admins] && protection[:enforce_admins][:enabled]) != branch.enforce_admins?
+            protect = true if (protection && protection[:enforce_admins] && protection[:enforce_admins][:enabled]) != branch.enforce_admins?
 
             if protect
               puts "Updating protection on branch #{branch.name} in repository #{repository.qualified_name}"
