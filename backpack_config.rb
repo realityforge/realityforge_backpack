@@ -16,6 +16,8 @@ Backpack.organization('realityforge') do |o|
   o.repository('swung_weave', :description => 'Bytecode weaving of annotated UI classes to ensure all UI updates occur in the Event Dispatch Thread', :tags => %w(notify:stock))
   o.repository('zim', :description => 'Simple tool that performs mass transformations across codebases')
 
+  o.repository('assets-font-awesome', :description => 'An extraction of all the icons from font-awesome.')
+
   o.repository('guiceyloops', :description => 'GuiceyLoops is a minimalistic library for aiding the testing of JEE applications using Guice.', :tags => %w(notify:stock travis))
 
   o.repository('keycloak-converger', :description => 'Converge the state of a keycloak realm', :tags => %w(travis))
