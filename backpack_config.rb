@@ -44,6 +44,7 @@ Backpack.organization('realityforge') do |o|
   o.repository('gwt-keycloak', :description => 'A simple library to provide keycloak support to GWT', :issues => true)
   o.repository('gwt-lognice', :description => 'A super simple gwt library that makes the log messages nicer.')
   o.repository('gwt-mmvp', :description => 'A micro MVP library that enhances the Activities and Places library.')
+  o.repository('gwt-gin-extensions', :description => 'Simple utilities when using gin injection framework.')
   o.repository('gwt-online', :description => 'A gwt wrapper to determine when the browser is online')
   o.repository('gwt-online-example', :description => 'A simple application demonstrating the use of the gwt-online library')
   o.repository('gwt-packetio-example', :description => 'A sample application that demonstrates the use of the gwt-packetio library.')
