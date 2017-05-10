@@ -1,4 +1,4 @@
-Backpack.context.add_hook(BackpackPlus::TravisHook.new)
+BackpackPlus::TravisHook.enable
 
 Backpack.organization('realityforge') do |o|
   o.is_user_account = true

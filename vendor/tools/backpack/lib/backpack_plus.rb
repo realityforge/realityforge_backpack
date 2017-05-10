@@ -12,6 +12,7 @@
 # limitations under the License.
 #
 
+require 'netrc'
 require 'backpack'
 
 require 'backpack_plus/repository'
