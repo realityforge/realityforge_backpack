@@ -2,7 +2,7 @@
   "vendor/tools/backpack": {
     "url": "https://github.com/realityforge/backpack.git",
     "branch": "master",
-    "revision": "223a1492f7877e6fd1d34ee3da40948ea281d686"
+    "revision": "a3ece1663acc74e546439f6c4b32f1b632de7176"
   },
   "vendor/tools/kinjen": {
     "url": "https://github.com/realityforge/kinjen.git",
