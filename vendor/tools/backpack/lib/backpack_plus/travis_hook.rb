@@ -48,7 +48,7 @@ module BackpackPlus
     end
 
     def post_repository(repository)
-      if Travis.access_token
+      if Travis.access_token && !repository.private?
         r =
           begin
             Travis::Repository.find(repository.qualified_name)
