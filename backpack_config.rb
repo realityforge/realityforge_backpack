@@ -57,6 +57,7 @@ Backpack.organization('realityforge') do |o|
   o.repository('jndikit', :description => 'a toolkit designed to help with the construction of JNDI providers', :tags => %w(travis))
   o.repository('napts', :description => 'Quiz application that records and tracks students progress across a number of subjects')
   o.repository('proxy-servlet', :description => 'A servlet for creating proxy services', :tags => %w(travis))
+  o.repository('reality-mda', :description => 'The glue that blends reality-core, reality-model, reality-generators and reality-facets into an model driven application.', :tags => %w(travis))
   o.repository('reality-core', :description => 'Basic classes used to help defining libraries.', :tags => %w(travis))
   o.repository('reality-facets', :description => 'A basic toolkit for binding facets or extensions to model objects.', :tags => %w(travis))
   o.repository('reality-generators', :description => 'A basic toolkit for abstracting the generation of files from model objects.', :tags => %w(travis))
