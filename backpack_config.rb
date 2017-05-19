@@ -17,6 +17,7 @@ Backpack.organization('realityforge') do |o|
   o.repository('zim', :description => 'Simple tool that performs mass transformations across codebases')
 
   o.repository('assets-font-awesome', :description => 'An extraction of all the icons from font-awesome.', :tags => %w(travis))
+  o.repository('assets-glyphicons-halflings-regular', :description => 'An extraction of all the icons from glyphicons font included in bootstrap.', :tags => %w(travis))
 
   o.repository('guiceyloops', :description => 'GuiceyLoops is a minimalistic library for aiding the testing of JEE applications using Guice.', :tags => %w(notify:stock travis))
 
