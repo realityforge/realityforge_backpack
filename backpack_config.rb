@@ -21,6 +21,7 @@ Backpack.organization('realityforge') do |o|
 
   o.repository('guiceyloops', :description => 'GuiceyLoops is a minimalistic library for aiding the testing of JEE applications using Guice.', :tags => %w(notify:stock travis))
 
+  o.repository('keycloak-jaxrs-client-authfilter', :description => 'Filter for accessing keycloak secured services', :tags => %w(travis))
   o.repository('keycloak-converger', :description => 'Converge the state of a keycloak realm', :tags => %w(travis))
   o.repository('keycloak-domgen-support', :description => 'KeyCloak Domgen Support', :tags => %w(travis))
   o.repository('glassfish-domain-patcher', :description => 'GlassFish Domain Patcher', :tags => %w(travis))
