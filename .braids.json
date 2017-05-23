@@ -8,5 +8,10 @@
     "url": "https://github.com/realityforge/kinjen.git",
     "branch": "master",
     "revision": "ca6264f169e7d4269437d75d035f29c06b78993a"
+  },
+  "vendor/tools/zim": {
+    "url": "https://github.com/realityforge/zim.git",
+    "branch": "master",
+    "revision": "2f9f42e0e9b8c19de3efaeec45bac04c8299cd74"
   }
 }
