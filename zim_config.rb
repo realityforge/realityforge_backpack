@@ -42,16 +42,4 @@ command(:remove_custom_pom) do |app|
   end
 end
 
-require File.expand_path('belt_config.rb')
-
-Zim.suite('RF') do |suite|
-  Belt.scope_by_name('realityforge').projects.each do |project|
-    next if project.tags.include?('historic')
-    next if project.tags.include?('external')
-    next if project.tags.include?('deprecated')
-    next if project.tags.include?('zim=no')
-    suite.application(project.name,
-                      'git_url' => "https://github.com/realityforge/#{project.name}.git",
-                      'tags' => project.tags.dup)
-  end
-end
+Zim::Belt.load_suites_from_belt

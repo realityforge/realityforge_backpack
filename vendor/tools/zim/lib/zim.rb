@@ -25,3 +25,5 @@ require 'zim/config'
 require 'zim/driver'
 require 'zim/runtime'
 require 'zim/support'
+
+require 'zim/belt_integration'
