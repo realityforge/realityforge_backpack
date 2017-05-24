@@ -25,6 +25,15 @@ ruby_upgrade('2.1.3', '2.3.1')
 patch_gem('buildr', %w(1.4.20 1.4.23 1.4.24 1.4.25 1.5.0 1.5.1 1.5.2), '1.5.3')
 patch_gem('braid', %w(1.0.10 1.0.11 1.0.12 1.0.13 1.0.14 1.0.15 1.0.16 1.0.17 1.0.18 1.0.19), '1.0.20')
 
+command(:remove_custom_pom) do |app|
+  patched = patch_file('buildfile') do |content|
+    content.gsub("require 'buildr/custom_pom'\n", '')
+  end
+  if patched
+    mysystem("git commit -m \"Remove obsolete usage of 'custom_pom' addon\"")
+  end
+end
+
 require File.expand_path('belt_config.rb')
 
 Zim.suite('RF') do |suite|
