@@ -19,11 +19,21 @@ module Zim # nodoc
     class << self
 
       def process(args)
-
         initial_args = args.dup
 
         customization_file = "#{Dir.pwd}/_zim.rb"
         require customization_file if File.exist?(customization_file)
+
+        ::Zim.context do
+          filename = 'zim_config.rb'
+          if File.exist?(filename)
+            instance_eval IO.read(filename), filename
+          else
+            puts "Expected to find configuration file #{filename} to drive Zim."
+            puts 'Please create such a file before re-running the zim command.'
+            exit 1
+          end
+        end
 
         optparse = OptionParser.new do |opts|
           opts.on('-s', '--suite SUITE', 'Specify the suite of applications to process') do |suite_key|

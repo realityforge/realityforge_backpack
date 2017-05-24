@@ -14,15 +14,4 @@
 
 require 'zim'
 
-Zim.context do
-  filename = 'zim_config.rb'
-  if File.exist?(filename)
-    instance_eval IO.read(filename), filename
-  else
-    puts "Expected to find configuration file #{filename} to drive Zim."
-    puts 'Please create such a file before re-running the zim command.'
-    exit 1
-  end
-end
-
 Zim::Driver.process(ARGV)
