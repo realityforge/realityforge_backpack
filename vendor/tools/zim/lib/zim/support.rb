@@ -673,7 +673,10 @@ module Zim # nodoc
       command(:clone, :in_app_dir => false) do |app|
         url = Zim.current_suite.application_by_name(app).git_url
 
-        directory_exists = File.directory?(dir_for_app(app))
+        app_directory = dir_for_app(app)
+        container_directory = File.dirname(app_directory)
+        FileUtils.mkdir_p container_directory unless File.exists?(container_directory)
+        directory_exists = File.directory?(app_directory)
 
         if directory_exists
           found = false
@@ -687,7 +690,7 @@ module Zim # nodoc
             end
           end
           unless found
-            mysystem("rm -rf #{dir_for_app(app)}")
+            mysystem("rm -rf #{app_directory}")
             directory_exists = false
           end
         end
