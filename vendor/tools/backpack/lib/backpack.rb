@@ -22,3 +22,5 @@ require 'backpack/context'
 require 'backpack/base_hook'
 require 'backpack/model'
 require 'backpack/driver'
+
+require 'backpack/belt_integration'
