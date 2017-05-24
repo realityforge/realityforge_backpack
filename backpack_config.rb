@@ -15,6 +15,7 @@ Backpack.organization('realityforge') do |o|
   o.repository('resgen', :description => 'A tool to generate resource descriptors from resource assets.', :tags => %w(notify:stock travis))
   o.repository('swung_weave', :description => 'Bytecode weaving of annotated UI classes to ensure all UI updates occur in the Event Dispatch Thread', :tags => %w(notify:stock))
   o.repository('zim', :description => 'Simple tool that performs mass transformations across codebases')
+  o.repository('reality-belt', :description => 'A super simple domain model to represent projects.')
 
   o.repository('assets-font-awesome', :description => 'An extraction of all the icons from font-awesome.', :tags => %w(travis))
   o.repository('assets-glyphicons-halflings-regular', :description => 'An extraction of all the icons from glyphicons font included in bootstrap.', :tags => %w(travis))
