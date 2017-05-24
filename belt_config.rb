@@ -74,6 +74,7 @@ Belt.scope('realityforge') do |o|
   o.project('simple-keycloak-service', :description => 'A simple service interface and base classes to be used by keycloak secured services', :tags => %w(travis))
   o.project('sqlshell', :description => 'A simple cross platform shell used to automate databases', :tags => %w(travis))
   o.project('ssrs-api', :description => 'Generated SOAP interface to SSRS server', :tags => %w(travis))
+  o.project('gwt-router', :description => 'Experiments building a router for GWT', :tags => %w(travis))
 
   # Chef related code still in use until we get rid of chef
   o.project('chef-archive', :description => 'Chef cookbook that provides utility LWRPs to download and unpack archives.', :tags => %w(travis))
@@ -93,6 +94,19 @@ Belt.scope('realityforge') do |o|
   o.project('knife-windows', :description => 'Plugin for Chef' 's knife tool for working with Windows nodes', :tags => %w(homepage=http://tickets.opscode.com/browse/KNIFE_WINDOWS))
   o.project('ohai-system_packages')
 
+  # Projects created during learning of new technology
+  o.project('reactjs-redux-blog', :description => 'Simple blog app for learning redux', :tags => %w(historic))
+  o.project('reactjs-redux-weather-forecast-browser', :tags => %w(historic))
+  o.project('reactjs-redux-book-app', :description => 'An experiment with redux and reactjs', :tags => %w(historic))
+  o.project('reactjs-youtube-clone', :description => 'A simple reactjs used during learning process', :tags => %w(historic))
+  o.project('footprints', :description => 'A project to prototype ideas in JEE6', :tags => %w(historic))
+  o.project('gae-guestbook', :description => 'Sample Google App Engine application', :tags => %w(historic))
+  o.project('ios', :description => 'A repository containing the simple iOS applications developed when working through the course', :tags => %w(historic))
+  o.project('gwttle', :description => 'GWT Training test applications', :tags => %w(historic))
+  o.project('jamex', :description => 'A test bed for OSGi, git, buildr and jms code', :tags => %w(historic))
+  o.project('primefaces-starter', :description => 'A primefaces/JSF application used to learn about the framework', :tags => %w(historic))
+  o.project('Bootstrap-JSF2.2', :description => 'Twitter Bootstrap integration with JSF 2.2 on Java EE 7', :tags => %w(historic))
+
   # External projects that have been forked to submit pull requests
   o.project('schmooze', :description => 'Schmooze lets Ruby and Node.js work together intimately.', :tags => %w(external))
   o.project('keycloak', :description => 'Open Source Identity and Access Management For Modern Applications and Services', :tags => %w(external homepage=http://www.keycloak.org))
@@ -100,6 +114,7 @@ Belt.scope('realityforge') do |o|
   o.project('Payara', :description => 'Payara Server is derived from GlassFish Server Open Source Edition and 100% open source', :tags => %w(external homepage=http://www.payara.fish))
 
   # External projects that have been forked to submit pull requests but we never intend to use
+  o.project('gwt-leaflet', :description => 'GWT library for Leaflet', :tags => %w(external historic))
   o.project('mgwt', :description => 'Clone of master branch of mgwt', :tags => %w(external historic homepage=http://www.m-gwt.com))
   o.project('mgwt.showcase', :tags => %w(external historic))
 
@@ -148,6 +163,10 @@ Belt.scope('realityforge') do |o|
   o.project('chef-gelf_handler', :description => 'A Chef handler that reports to Graylog2 servers.', :tags => %w(historic))
 
   # Historic: Various experiments
+  o.project('proxymusic', :description => 'ProxyMusic provides a binding between Java objects in memory and data formatted according to MusicXML 3.0', :tags => %w(historic))
+  o.project('lesscss4j', :description => 'Less CSS For Java', :tags => %w(historic))
+  o.project('tarrabah', :description => 'An experimental gelf + syslog server', :tags => %w(historic))
+  o.project('gwt-performance-timing', :tags => %w(historic))
   o.project('gwt-online', :description => 'A gwt wrapper to determine when the browser is online', :tags => %w(historic))
   o.project('gwt-online-example', :description => 'A simple application demonstrating the use of the gwt-online library', :tags => %w(historic))
   o.project('gwt-packetio-example', :description => 'A sample application that demonstrates the use of the gwt-packetio library.', :tags => %w(historic))
@@ -159,6 +178,14 @@ Belt.scope('realityforge') do |o|
   o.project('jeo', :description => 'Java Geojson library', :tags => %w(historic))
   o.project('jml', :description => 'A library to ease routing JMS messages between destinations, transforming and validating the message content', :tags => %w(historic))
   o.project('spydle', :description => 'Spydle collects metrics from your services and feeds it to your metric collection system.', :tags => %w(historic))
+  o.project('star-punk', :description => 'An experiment to build a little space game', :tags => %w(historic))
+  o.project('tyrian', :description => 'A re-imagining of the tyrian tutorial game', :tags => %w(historic))
+  o.project('gwt-space-shooter-game', :description => 'space shooter game developed with GWT and gwt-voices sound library', :tags => %w(historic))
+
+  # FGIS Experiment
+  o.project('fgis-java', :description => 'Fire Ground Information System java experiment', :tags => %w(historic))
+  o.project('fgis-infrastructure', :description => 'A chef repository for building out the nodes.', :tags => %w(historic))
+  o.project('fgis-geoserver', :description => 'A repository containing the configuration for Geoserver.', :tags => %w(historic))
 
   # Historic: Never got to production
   o.project('glassfish-bonita', :description => 'A repackaging of bonita to work under glassfish', :tags => %w(historic))
@@ -193,6 +220,7 @@ Belt.scope('realityforge') do |o|
   o.project('buildr-ipojo', :description => 'A Buildr extension for processing OSGi bundles using IPojo ', :tags => %w(historic))
   o.project('buildr-jaxb-xjc', :description => 'Buildr extension to execute the XJC binding compiler. WARNING: Integrated into buildr as of version 1.4.5', :tags => %w(historic))
   o.project('buildr-osgi-assembler', :description => 'A Buildr extension for packaging osgi applications', :tags => %w(historic))
+  o.project('buildr-jacoco', :description => 'Experiments to try using jacoco in Buildr', :tags => %w(historic))
 
   o.projects.each do |project|
     project.tags << "homepage=http://realityforge.org/#{project.name}" if project.tags.include?('pages')
