@@ -17,6 +17,7 @@ require 'travis'
 require 'fileutils'
 require 'reality/base_element'
 require 'reality/model'
+require 'belt'
 
 require 'backpack/context'
 require 'backpack/base_hook'
