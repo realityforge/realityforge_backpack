@@ -163,6 +163,7 @@ Belt.scope('realityforge') do |o|
   o.project('chef-gelf_handler', :description => 'A Chef handler that reports to Graylog2 servers.', :tags => %w(historic))
 
   # Historic: Various experiments
+  o.project('swinkar', :description => 'A project exploring Swing+OSGi', :tags => %w(historic))
   o.project('proxymusic', :description => 'ProxyMusic provides a binding between Java objects in memory and data formatted according to MusicXML 3.0', :tags => %w(historic))
   o.project('lesscss4j', :description => 'Less CSS For Java', :tags => %w(historic))
   o.project('tarrabah', :description => 'An experimental gelf + syslog server', :tags => %w(historic))
