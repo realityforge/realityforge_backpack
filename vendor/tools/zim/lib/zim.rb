@@ -18,6 +18,7 @@ require 'optparse'
 require 'reality/logging'
 require 'reality/model'
 require 'reality/base_element'
+require 'belt'
 
 require 'zim/core'
 require 'zim/model'
