@@ -1,20 +1,9 @@
 BackpackPlus::TravisHook.enable
 
-Backpack.organization('realityforge') do |o|
+Backpack::Belt.load_organizations_from_belt
+
+Backpack.organization_by_name('realityforge').tap do |o|
   o.is_user_account = true
-
-  require File.expand_path('belt_config.rb')
-
-  Belt.scope_by_name(o.name).projects.each do |project|
-    tags = project.tags.dup
-    issues = project.tags.include?('issues')
-    homepage = project.tag_value('homepage')
-    o.repository(project.name,
-                 :description => project.description,
-                 :homepage => homepage,
-                 :issues => issues,
-                 :tags => tags)
-  end
 
   o.repositories.each do |repository|
     repository.private = false
