@@ -70,7 +70,6 @@ Belt.scope('realityforge') do |o|
   o.project('replicant-example', :description => 'A simple application demonstrating the use of the replicant library', :tags => %w(travis))
   o.project('rest-criteria', :description => 'A simple library for parsing criteria in rest services', :tags => %w(travis))
   o.project('rest-field-filter', :description => 'A simple library parsing field filters in rest APIs.', :tags => %w(travis))
-  o.project('simple-session-filter', :description => 'A simple servlet filter for implementing custom session management', :tags => %w(travis))
   o.project('simple-keycloak-service', :description => 'A simple service interface and base classes to be used by keycloak secured services', :tags => %w(travis))
   o.project('sqlshell', :description => 'A simple cross platform shell used to automate databases', :tags => %w(travis))
   o.project('ssrs-api', :description => 'Generated SOAP interface to SSRS server', :tags => %w(travis))
@@ -141,6 +140,9 @@ Belt.scope('realityforge') do |o|
 
   # Deprecated: Example project is no longer representative of the way we build GWT apps.
   o.project('gwt-contacts', :description => 'A version of the gwt "contacts" example from google', :tags => %w(travis deprecated))
+
+  # Historic: Inlined the code into all downstream libraries
+  o.project('simple-session-filter', :description => 'A simple servlet filter for implementing custom session management', :tags => %w(historic))
 
   # Historic: Old chef related code
   o.project('knife-spoon', :description => 'A knife extension supporting cookbook workflow', :tags => %w(historic))
