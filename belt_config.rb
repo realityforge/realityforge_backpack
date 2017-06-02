@@ -51,7 +51,7 @@ Belt.scope('realityforge') do |o|
   o.project('gwt-websockets', :description => 'GWT WebSocket Library', :tags => %w(travis issues))
   o.project('gwt-websockets-example', :description => 'A simple application demonstrating the use of the gwt-websockets library', :tags => %w(travis issues))
   o.project('housekeeping-scripts', :description => 'Sets of scripts used to perform housekeeping at home and in the wild')
-  o.project('idea-configuration', :description => 'A repository containing configuration for IntelliJ IDEA')
+  o.project('idea-configuration', :description => 'A repository containing configuration for IntelliJ IDEA', :tags => %w(zim=no))
 
   o.project('jndikit', :description => 'a toolkit designed to help with the construction of JNDI providers', :tags => %w(travis))
   o.project('napts', :description => 'Quiz application that records and tracks students progress across a number of subjects')
