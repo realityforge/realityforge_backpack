@@ -94,6 +94,7 @@ Belt.scope('realityforge') do |o|
   o.project('ohai-system_packages')
 
   # Projects created during learning of new technology
+  o.project('course-advanced-react-and-redux', :description => 'Coursework for Advanced React and Redux course')
   o.project('reactjs-redux-blog', :description => 'Simple blog app for learning redux', :tags => %w(historic))
   o.project('reactjs-redux-weather-forecast-browser', :tags => %w(historic))
   o.project('reactjs-redux-book-app', :description => 'An experiment with redux and reactjs', :tags => %w(historic))
