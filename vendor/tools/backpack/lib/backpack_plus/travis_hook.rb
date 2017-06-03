@@ -54,6 +54,8 @@ module BackpackPlus
             Travis::Repository.find(repository.qualified_name)
           rescue Travis::Client::NotFound
             Travis.user.sync
+            Travis::Repository.clear_cache
+            Travis::Repository.clear_cache!
             Travis::Repository.find(repository.qualified_name)
           end
         should_be_enabled = repository.tags.include?('travis')
