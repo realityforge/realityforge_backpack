@@ -95,6 +95,7 @@ Belt.scope('realityforge') do |o|
 
   # Projects created during learning of new technology
   o.project('course-advanced-react-and-redux', :description => 'Coursework for Advanced React and Redux course')
+  o.project('course-graphql-with-react', :description => 'Coursework for GraphQL with React course')
   o.project('course-modern-react-with-redux', :description => 'Coursework for Modern React with Redux course', :tags => %w(historic))
   o.project('footprints', :description => 'A project to prototype ideas in JEE6', :tags => %w(historic))
   o.project('gae-guestbook', :description => 'Sample Google App Engine application', :tags => %w(historic))
