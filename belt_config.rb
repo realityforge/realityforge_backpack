@@ -139,8 +139,8 @@ Belt.scope('realityforge') do |o|
   o.project('gwt-contacts', :description => 'A version of the gwt "contacts" example from google', :tags => %w(travis deprecated))
 
   # Historic: Moved to using a simpler + GWT 3.0 compatible strategy of System.getProperty() instead
-  o.project('gwt-property-source', :description => 'Provides a convenient way of compiling GWT property values into your module.', :tags => %w(travis issues deprecated))
-  o.project('gwt-property-source-example', :description => 'A sample application that demonstrates the use of the gwt-property-source', :tags => %w(travis issues deprecated))
+  o.project('gwt-property-source', :description => 'Provides a convenient way of compiling GWT property values into your module.', :tags => %w(travis issues historic))
+  o.project('gwt-property-source-example', :description => 'A sample application that demonstrates the use of the gwt-property-source', :tags => %w(travis issues historic))
 
   # Historic: Inlined the code into all downstream libraries
   o.project('simple-session-filter', :description => 'A simple servlet filter for implementing custom session management', :tags => %w(historic))
