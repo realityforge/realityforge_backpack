@@ -44,8 +44,6 @@ Belt.scope('realityforge') do |o|
   o.project('gwt-lognice', :description => 'A super simple gwt library that makes the log messages nicer.', :tags => %w(travis))
   o.project('gwt-mmvp', :description => 'A micro MVP library that enhances the Activities and Places library.', :tags => %w(travis))
   o.project('gwt-gin-extensions', :description => 'Simple utilities when using gin injection framework.', :tags => %w(travis))
-  o.project('gwt-property-source', :description => 'Provides a convenient way of compiling GWT property values into your module.', :tags => %w(travis issues))
-  o.project('gwt-property-source-example', :description => 'A sample application that demonstrates the use of the gwt-property-source', :tags => %w(travis issues))
   o.project('gwt-webpoller', :description => 'A gwt library to simplify periodic polling and long-poll based transport layers', :tags => %w(travis issues))
   o.project('gwt-webpoller-example', :description => 'A simple application demonstrating the use of the gwt-webpoller library', :tags => %w(travis issues))
   o.project('gwt-websockets', :description => 'GWT WebSocket Library', :tags => %w(travis issues))
@@ -139,6 +137,10 @@ Belt.scope('realityforge') do |o|
 
   # Deprecated: Example project is no longer representative of the way we build GWT apps.
   o.project('gwt-contacts', :description => 'A version of the gwt "contacts" example from google', :tags => %w(travis deprecated))
+
+  # Historic: Moved to using a simpler + GWT 3.0 compatible strategy of System.getProperty() instead
+  o.project('gwt-property-source', :description => 'Provides a convenient way of compiling GWT property values into your module.', :tags => %w(travis issues deprecated))
+  o.project('gwt-property-source-example', :description => 'A sample application that demonstrates the use of the gwt-property-source', :tags => %w(travis issues deprecated))
 
   # Historic: Inlined the code into all downstream libraries
   o.project('simple-session-filter', :description => 'A simple servlet filter for implementing custom session management', :tags => %w(historic))
