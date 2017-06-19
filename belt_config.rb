@@ -39,7 +39,6 @@ Belt.scope('realityforge') do |o|
   o.project('gwt-datatypes', :description => 'A simple library that consolidates the common data types and associated infrastructure used across a range of GWT projects.', :tags => %w(travis))
   o.project('gwt-eventsource', :description => 'GWT EventSource Library', :tags => %w(travis issues))
   o.project('gwt-eventsource-example', :description => 'A simple application demonstrating the use of the gwt-eventsource library', :tags => %w(travis issues))
-  o.project('gwt-ga', :description => 'A simple GWT library for interacting with Google Analytics', :tags => %w(travis))
   o.project('gwt-keycloak', :description => 'A simple library to provide keycloak support to GWT', :tags => %w(travis issues))
   o.project('gwt-lognice', :description => 'A super simple gwt library that makes the log messages nicer.', :tags => %w(travis))
   o.project('gwt-mmvp', :description => 'A micro MVP library that enhances the Activities and Places library.', :tags => %w(travis))
@@ -137,6 +136,9 @@ Belt.scope('realityforge') do |o|
 
   # Deprecated: Example project is no longer representative of the way we build GWT apps.
   o.project('gwt-contacts', :description => 'A version of the gwt "contacts" example from google', :tags => %w(travis deprecated))
+
+  # Historic: Not used in projects anymore
+  o.project('gwt-ga', :description => 'A simple GWT library for interacting with Google Analytics', :tags => %w(travis historic))
 
   # Historic: Moved to using a simpler + GWT 3.0 compatible strategy of System.getProperty() instead
   o.project('gwt-property-source', :description => 'Provides a convenient way of compiling GWT property values into your module.', :tags => %w(travis issues historic))
