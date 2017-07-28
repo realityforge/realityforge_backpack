@@ -107,6 +107,7 @@ Belt.scope('realityforge') do |o|
   o.project('Bootstrap-JSF2.2', :description => 'Twitter Bootstrap integration with JSF 2.2 on Java EE 7', :tags => %w(historic))
 
   # External projects that have been forked to submit pull requests
+  o.project('mobx', :description => 'Simple, scalable state management. ', :tags => %w(external homepage=http://mobx.js.org))
   o.project('schmooze', :description => 'Schmooze lets Ruby and Node.js work together intimately.', :tags => %w(external))
   o.project('keycloak', :description => 'Open Source Identity and Access Management For Modern Applications and Services', :tags => %w(external homepage=http://www.keycloak.org))
   o.project('docker-keycloak', :description => 'Docker image for Keycloak project', :tags => %w(external))
