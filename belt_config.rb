@@ -65,6 +65,7 @@ Belt.scope('realityforge') do |o|
   o.project('reality-naming', :description => 'A library to convert names between different naming conventions.', :tags => %w(travis))
   o.project('reality-orderedhash', :description => 'A library providing a hash with preserved order and some array-like extensions.', :tags => %w(travis))
   o.project('reality-belt', :description => 'A super simple domain model to represent projects.', :tags => %w(travis))
+  o.project('gitattributes', :description => 'Class to parse gitattributes files.', :tags => %w(travis))
   o.project('realityforge.github.io', :description => 'My personal website and blog', :tags => %w(homepage=https://realityforge.github.io))
   o.project('replicant', :description => 'Client-side state representation infrastructure for GWT', :tags => %w(travis))
   o.project('replicant-example', :description => 'A simple application demonstrating the use of the replicant library', :tags => %w(travis))
