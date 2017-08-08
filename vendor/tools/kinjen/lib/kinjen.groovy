@@ -32,9 +32,17 @@ static prepare_stage( script, Map options = [:] )
     def versions_envs = options.versions_envs == null ? true : options.versions_envs
     if ( versions_envs )
     {
-      script.env.BUILD_NUMBER = "${script.env.BUILD_NUMBER}"
-      script.env.PRODUCT_VERSION =
-        script.sh( script: 'echo $BUILD_NUMBER-`git rev-parse --short HEAD`', returnStdout: true ).trim()
+      script.env.GIT_SHORT_HASH = script.sh( script: 'echo `git rev-parse --short HEAD`', returnStdout: true ).trim()
+      script.env.PRODUCT_VERSION = "${script.env.BUILD_NUMBER}-${script.env.GIT_SHORT_HASH}"
+    }
+    def include_node = options.node == null ? false : options.node
+    if ( include_node )
+    {
+      def include_yarn = options.yarn == null ? true : options.yarn
+      if ( include_yarn )
+      {
+        script.retry( 2 ) { script.sh 'yarn install; nodenv rehash' }
+      }
     }
     def include_ruby = options.ruby == null ? true : options.ruby
     if ( include_ruby )
@@ -215,21 +223,35 @@ bundle exec buildr ci:publish"""
   }
 }
 
-static deploy_stage( script, project_key )
+static deploy_stage( script, project_key, deployment_environment = 'development' )
 {
   script.stage( 'Deploy' ) {
-    script.build job: "${project_key}/deploy-to-development",
-                 parameters: [script.string( name: 'PRODUCT_ENVIRONMENT', value: 'development' ),
+    cancel_queued_deploys( script, project_key, deployment_environment )
+    script.build job: "${project_key}/deploy-to-${deployment_environment}",
+                 parameters: [script.string( name: 'PRODUCT_ENVIRONMENT', value: deployment_environment ),
                               script.string( name: 'PRODUCT_NAME', value: project_key ),
                               script.string( name: 'PRODUCT_VERSION', value: "${script.env.PRODUCT_VERSION}" )],
                  wait: false
   }
 }
 
+@NonCPS
+def static cancel_queued_deploys( script, project_key, deployment_environment = 'development' )
+{
+  def q = Jenkins.instance.queue
+  for ( def i = q.items.size() - 1; i >= 0; i-- )
+  {
+    if ( q.items[ i ].task.getOwnerTask().getFullName() == "${project_key}/deploy-to-${deployment_environment}" )
+    {
+      script.echo "Cancelling queued deploy job ${q.items[ i ].task.getOwnerTask().getFullName()}"
+      q.cancel( q.items[ i ].task )
+    }
+  }
+}
+
 /**
  * The builtin jenkins capabilities do not deal well with api rate limiting, as a result jenkins believes
- * the status has been set but it has not been. Hence the need for custom ruby code. However this may need
- * to run prior to ruby having being setup so it falls back to the old methods in this scenario.
+ * the status has been set but it has not been. Hence the need for custom ruby code.
  */
 static set_github_status( script, state, message, Map options = [:] )
 {
@@ -237,36 +259,29 @@ static set_github_status( script, state, message, Map options = [:] )
   def git_commit = options.git_commit == null ? script.env.GIT_COMMIT : options.git_commit
   def target_url = options.target_url == null ? script.env.BUILD_URL : options.target_url
   def git_project = options.git_project == null ? script.env.GIT_PROJECT : options.git_project
-  def use_ruby =
-    options.use_ruby == null ?
-    ( script.sh( script: 'gem list | grep octokit', returnStatus: true ) == 0 ) :
-    options.use_ruby
 
-  script.echo "Set Github Status -- Git Project: ${git_project}, Use Ruby: ${use_ruby}, Context: ${build_context}, SHA1: ${git_commit}, Target URL: ${target_url}"
+  script.sh "ruby -e \"require 'octokit';Octokit::Client.new(:netrc => true).create_status('${git_project}', '${git_commit}', '${state}', :context => '${build_context}', :description => '${message}', :target_url => '${target_url}')\""
+}
 
-  if ( use_ruby )
-  {
-    script.sh "ruby -e \"require 'octokit';Octokit::Client.new(:netrc => true).create_status('${git_project}', '${git_commit}', '${state}', :context => '${build_context}', :description => '${message}', :target_url => '${target_url}')\""
-  }
-  else if ( options.git_commit != null )
-  {
-    script.step( [
-      $class            : 'GitHubCommitStatusSetter',
-      commitShaSource   : [$class: 'ManuallyEnteredShaSource', sha: options.git_commit],
-      contextSource     : [$class: 'ManuallyEnteredCommitContextSource', context: build_context],
-      errorHandlers     : [[$class: 'ChangingBuildStatusErrorHandler', result: 'UNSTABLE']],
-      statusResultSource: [$class: 'ConditionalStatusResultSource', results: [[$class: 'AnyBuildResult', message: message, state: state]]]
-    ] )
-  }
-  else
-  {
-    script.step( [
-      $class            : 'GitHubCommitStatusSetter',
-      contextSource     : [$class: 'ManuallyEnteredCommitContextSource', context: build_context],
-      errorHandlers     : [[$class: 'ChangingBuildStatusErrorHandler', result: 'UNSTABLE']],
-      statusResultSource: [$class: 'ConditionalStatusResultSource', results: [[$class: 'AnyBuildResult', message: message, state: state]]]
-    ] )
-  }
+/**
+ * Return true if status for specified context is successful.
+ * As it uses the installed octokit it can only be run after the initial prepare phase.
+ */
+static is_github_status_success( script, build_context, Map options = [:] )
+{
+  def git_commit = options.git_commit == null ? script.env.GIT_COMMIT : options.git_commit
+  def git_project = options.git_project == null ? script.env.GIT_PROJECT : options.git_project
+
+  def present = script.sh(
+    script: "ruby -e \"require 'octokit';puts Octokit::Client.new(:netrc => true).statuses('${git_project}', '${git_commit}').any?{|s| s[:state] == 'success' && s[:context] == '${build_context}'}\"",
+    returnStdout: true ).trim()
+
+  present.equals( 'true' )
+}
+
+static complete_downstream_actions( script )
+{
+  set_github_status( script, 'success', 'Downstream actions completed', [build_context: 'downstream_updated'] )
 }
 
 static do_guard_build( script, Map options = [:], actions )
@@ -274,8 +289,17 @@ static do_guard_build( script, Map options = [:], actions )
   def notify_github = options.notify_github == null ? true : options.notify_github
   def build_context = options.build_context == null ? 'jenkins' : options.build_context
   def email = options.email == null ? true : options.email
+  def always_run = options.always_run == null ? false : options.always_run
   def err = null
 
+  if ( !always_run && is_github_status_success( script, 'downstream_updated' ) )
+  {
+    script.echo 'Build already occurred (on automerge branch?). Marking build as successful and terminating build.'
+    script.currentBuild.result = 'SUCCESS'
+    script.env.SKIP_DOWNSTREAM = 'true'
+    send_notifications( script )
+    return
+  }
   try
   {
     script.currentBuild.result = 'SUCCESS'
@@ -321,12 +345,12 @@ static guard_build( script, Map options = [:], actions )
   if ( options.lock_name && '' != options.lock_name )
   {
     script.lock( resource: "${script.env.GIT_PROJECT.replaceAll( /\//, '_' )}_${options.lock_name}" ) {
-      script.kinjen.do_guard_build( script, options, actions )
+      do_guard_build( script, options, actions )
     }
   }
   else
   {
-    script.kinjen.do_guard_build( script, options, actions )
+    do_guard_build( script, options, actions )
   }
 }
 
@@ -361,35 +385,56 @@ static complete_auto_merge( script, target_branch, Map options = [:] )
     if ( script.env.GIT_COMMIT == script.env.LATEST_REMOTE_GIT_COMMIT )
     {
       script.echo( "Merging changes from ${target_branch} to kick off another build cycle." )
+      def pre_merge_git_commit = script.sh( script: 'git rev-parse HEAD', returnStdout: true ).trim()
       script.sh( "git merge origin/${target_branch}" )
-      script.echo( 'Changes merged.' )
-      script.sh( "git push origin HEAD:${script.env.BRANCH_NAME}" )
+      def post_merge_git_commit = script.sh( script: 'git rev-parse HEAD', returnStdout: true ).trim()
+      if ( pre_merge_git_commit != post_merge_git_commit )
+      {
+        script.echo( 'Changes merged.' )
+        script.sh( "git push origin HEAD:${script.env.BRANCH_NAME}" )
+      }
+      else
+      {
+        /*
+         * The target branch has been updated but current branch was includes the changes in the target
+         * branch. This can occur if branch A was merged into the target branch but the current branch was
+         * branched off branch A. In this case it is safe to merge it into master.
+         */
+        perform_auto_merge( script, target_branch, build_context )
+      }
     }
   }
   else
   {
     if ( script.env.GIT_COMMIT == script.env.LATEST_REMOTE_GIT_COMMIT )
     {
-      script.echo "Merging automerge branch ${script.env.BRANCH_NAME}."
-      def git_commit = script.sh( script: 'git rev-parse HEAD', returnStdout: true ).trim()
-      if ( script.env.GIT_COMMIT != git_commit )
-      {
-        script.sh( "git push origin HEAD:${script.env.BRANCH_NAME}" )
-        set_github_status( script,
-                           'success',
-                           'Successfully built',
-                           [build_context: build_context, git_commit: git_commit] )
-      }
-      script.sh( "git push origin HEAD:${target_branch}" )
-      script.sh( "git push origin :${script.env.BRANCH_NAME}" )
+      perform_auto_merge( script, target_branch, build_context )
     }
   }
+}
+
+static perform_auto_merge( script, target_branch, build_context )
+{
+  script.echo "Merging automerge branch ${script.env.BRANCH_NAME}."
+  def git_commit = script.sh( script: 'git rev-parse HEAD', returnStdout: true ).trim()
+  if ( script.env.GIT_COMMIT != git_commit )
+  {
+    script.sh( "git push origin HEAD:${script.env.BRANCH_NAME}" )
+    set_github_status( script,
+                       'success',
+                       'Successfully built',
+                       [build_context: build_context, git_commit: git_commit] )
+  }
+  script.sh( "git push origin HEAD:${target_branch}" )
+  script.sh( "git push origin :${script.env.BRANCH_NAME}" )
+  script.env.AUTO_MERGE_COMPLETE = 'true'
 }
 
 static config_git( script, Map options = [:] )
 {
   script.sh( "git config --global user.email \"${script.env.BUILD_NOTIFICATION_EMAIL}\"" )
   script.sh( 'git config --global user.name "Build Tool"' )
+  script.sh( 'git config --global core.autocrlf false' )
   script.env.GIT_COMMIT = script.sh( script: 'git rev-parse HEAD', returnStdout: true ).trim()
   script.env.GIT_ORIGIN = script.sh( script: 'git remote get-url origin', returnStdout: true ).trim()
   script.env.GIT_PROJECT =
@@ -485,6 +530,34 @@ static send_notifications( script )
                     replyTo: "${script.env.BUILD_NOTIFICATION_EMAIL}",
                     subject: "\ud83d\udca3 ${script.env.JOB_NAME.replaceAll( '%2F', '/' )} - #${script.env.BUILD_NUMBER} - FAILED",
                     to: "${script.env.BUILD_NOTIFICATION_EMAIL}"
+  }
+}
+
+/**
+ * Method called to complete the build.
+ * Accepts an optional block which contains the downstream actions.
+ */
+static complete_build( script, actions = null )
+{
+  if ( script.currentBuild.result == 'SUCCESS' && script.env.SKIP_DOWNSTREAM != 'true' )
+  {
+    if ( '' != script.env.AUTO_MERGE_TARGET_BRANCH )
+    {
+      complete_auto_merge( script, script.env.AUTO_MERGE_TARGET_BRANCH )
+    }
+    if ( null != actions )
+    {
+      if ( script.env.BRANCH_NAME == 'master' ||
+           ( script.env.AUTO_MERGE_TARGET_BRANCH == 'master' && script.env.AUTO_MERGE_COMPLETE == 'true' ) )
+      {
+        actions()
+        complete_downstream_actions( script )
+      }
+    }
+    else
+    {
+      complete_downstream_actions( script )
+    }
   }
 }
 
