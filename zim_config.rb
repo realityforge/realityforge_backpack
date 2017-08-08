@@ -29,6 +29,10 @@ command(:patch_jsr305) do |app|
   patch_versions(app, %w(com.google.code.findbugs:jsr305:jar), '3.0.1')
 end
 
+command(:patch_getopt4j) do |app|
+  patch_versions(app, %w(org.realityforge.getopt4j:getopt4j:jar), '1.2')
+end
+
 command(:patch_gwt_version) do |app|
   patch_versions(app, %w(com.google.gwt:gwt-user:jar com.google.gwt:gwt-dev:jar com.google.gwt:gwt-servlet:jar), '2.8.1')
 end
