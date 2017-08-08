@@ -68,6 +68,20 @@ in the `./zim_config.rb` file and run something like:
 
     $ ./zim clean patch_mercury_dep push
 
+## TODO
+
+In the future a number of enhancements may be made.
+
+* Visual inline-inspection with optional manual intervention. Currently changes are made across a codebase often with
+  a regex and the developer has the responsibility of getting the regex right and potentially visually inspecting code
+  before pushing to the remote repository. Often this is done through the use of the `gitk` task. However an improvement
+  would allow a visual inspection at the time of code change and the ability to accept, reject or manually override the
+  change at the time Zim transforms a particular file. This is something available in Facebook's
+  [codemod](https://github.com/facebook/codemod) tool.
+* Another major enhancement would be to use a transformation tool that can parse the target file types and operate on
+  some sort of AST. [Spoon](https://github.com/INRIA/spoon) does this for java and [Jscodeshift](https://github.com/facebook/jscodeshift)
+  does this for javascript. A good article on this approach is [Getting started with Codemods](https://www.sitepoint.com/getting-started-with-codemods/).
+
 ## Epilogue
 
 We might write some more help in the future, but for now, just look at all the other commands in there and you'll get
