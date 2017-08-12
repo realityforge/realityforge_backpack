@@ -26,7 +26,7 @@ Belt.scope('realityforge') do |o|
   o.project('glassfish-domain-patcher', :description => 'GlassFish Domain Patcher', :tags => %w(travis))
   o.project('glassfish-timers', :description => 'GlassFish timers database sql', :tags => %w(travis))
 
-  o.project('backpack', :description => 'A simple tool to manage GitHub organisations using declarative DSL')
+  o.project('backpack', :description => '🎒 A simple tool to manage GitHub organisations using declarative DSL')
 
   o.project('arez', :description => 'A reactive entity infrastructure library', :tags => %w(travis))
   o.project('dbdiff', :description => 'List differences between databases', :tags => %w(travis))
