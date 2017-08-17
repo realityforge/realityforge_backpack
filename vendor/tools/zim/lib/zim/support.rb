@@ -819,6 +819,7 @@ module Zim # nodoc
           bundle_exec('buildr gitattributes:fix')
           git_reset_index
           git_add_all_files
+          mysystem('git add --all --force .gitattributes 2> /dev/null > /dev/null')
           git_commit('Normalize .gitattributes', false)
         end
       end
