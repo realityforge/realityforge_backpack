@@ -1,7 +1,7 @@
 require 'belt'
 
 Belt.scope('realityforge') do |o|
-  o.project('realityforge_backpack', :description => 'Project for managing realityforge repositories.')
+  o.project('realityforge_backpack', :description => 'Project for managing realityforge repositories.', :tags => %w(zapwhite=no))
   o.project('bash.d', :description => 'A set of bash scripts that run on shell startup.')
 
   o.project('buildr_plus', :description => 'A simple set of extensions that patch and customize buildr to our requirements.', :tags => %w(notify:stock))
@@ -15,8 +15,8 @@ Belt.scope('realityforge') do |o|
   o.project('swung_weave', :description => 'Bytecode weaving of annotated UI classes to ensure all UI updates occur in the Event Dispatch Thread', :tags => %w(notify:stock))
   o.project('zim', :description => 'Simple tool that performs mass transformations across codebases')
 
-  o.project('assets-font-awesome', :description => 'An extraction of all the icons from font-awesome.', :tags => %w(travis))
-  o.project('assets-glyphicons-halflings-regular', :description => 'An extraction of all the icons from glyphicons font included in bootstrap.', :tags => %w(travis))
+  o.project('assets-font-awesome', :description => 'An extraction of all the icons from font-awesome.', :tags => %w(travis zapwhite=no))
+  o.project('assets-glyphicons-halflings-regular', :description => 'An extraction of all the icons from glyphicons font included in bootstrap.', :tags => %w(travis zapwhite=no))
 
   o.project('guiceyloops', :description => 'GuiceyLoops is a minimalistic library for aiding the testing of JEE applications using Guice.', :tags => %w(notify:stock travis))
 
@@ -26,7 +26,7 @@ Belt.scope('realityforge') do |o|
   o.project('glassfish-domain-patcher', :description => 'GlassFish Domain Patcher', :tags => %w(travis))
   o.project('glassfish-timers', :description => 'GlassFish timers database sql', :tags => %w(travis))
 
-  o.project('backpack', :description => '🎒 A simple tool to manage GitHub organisations using declarative DSL')
+  o.project('backpack', :description => '🎒 A simple tool to manage GitHub organisations using declarative DSL', :tags => %w(zapwhite=no))
 
   o.project('arez', :description => 'A reactive entity infrastructure library', :tags => %w(travis))
   o.project('dbdiff', :description => 'List differences between databases', :tags => %w(travis))
@@ -55,7 +55,7 @@ Belt.scope('realityforge') do |o|
   o.project('jndikit', :description => 'a toolkit designed to help with the construction of JNDI providers', :tags => %w(travis))
   o.project('napts', :description => 'Quiz application that records and tracks students progress across a number of subjects')
   o.project('proxy-servlet', :description => 'A servlet for creating proxy services', :tags => %w(travis))
-  o.project('reality-idea', :description => 'An ruby model to represent and generate intellij idea project files.', :tags => %w(travis))
+  o.project('reality-idea', :description => 'An ruby model to represent and generate intellij idea project files.', :tags => %w(travis zapwhite=no))
   o.project('reality-mda', :description => 'The glue that blends reality-core, reality-model, reality-generators and reality-facets into an model driven application.', :tags => %w(travis))
   o.project('reality-core', :description => 'Basic classes used to help defining libraries.', :tags => %w(travis))
   o.project('reality-facets', :description => 'A basic toolkit for binding facets or extensions to model objects.', :tags => %w(travis))
@@ -67,7 +67,7 @@ Belt.scope('realityforge') do |o|
   o.project('reality-belt', :description => 'A super simple domain model to represent projects.', :tags => %w(travis))
   o.project('gitattributes', :description => 'Class to parse gitattributes files.', :tags => %w(travis))
   o.project('zapwhite', :description => 'A simple tool to normalize whitespace in git repositories.', :tags => %w(travis))
-  o.project('realityforge.github.io', :description => 'My personal website and blog', :tags => %w(homepage=https://realityforge.github.io))
+  o.project('realityforge.github.io', :description => 'My personal website and blog', :tags => %w(homepage=https://realityforge.github.io zapwhite=no))
   o.project('replicant', :description => 'Client-side state representation infrastructure for GWT', :tags => %w(travis))
   o.project('replicant-example', :description => 'A simple application demonstrating the use of the replicant library', :tags => %w(travis))
   o.project('rest-criteria', :description => 'A simple library for parsing criteria in rest services', :tags => %w(travis))
