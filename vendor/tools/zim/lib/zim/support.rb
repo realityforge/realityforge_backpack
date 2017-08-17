@@ -35,7 +35,7 @@ module Zim # nodoc
     end
 
     def changes_between_refs?(from_branch, to_branch)
-      `git log #{from_branch}..#{to_branch} 2>&1`.split.select { |l| l.size != 0 }.size > 0
+      `git log #{from_branch}..#{to_branch} 2>&1`.split.select {|l| l.size != 0}.size > 0
     end
 
     # Execute a ruby command within the context of rbenv environment.
@@ -45,7 +45,7 @@ module Zim # nodoc
     #
     def rbenv_exec(command, fail_on_error = true)
       envs = %w(GEM_PATH GEM_HOME BUNDLE_ORIG_PATH BUNDLE_BIN_PATH BUNDLE_GEMFILE RBENV_DIR RUBYLIB RBENV_VERSION RBENV_ROOT RBENV_HOOK_PATH RUBYOPT RBENV_SHELL)
-      mysystem("#{envs.collect { |e| "unset #{e}" }.join('; ')}; rbenv exec #{command}", fail_on_error)
+      mysystem("#{envs.collect {|e| "unset #{e}"}.join('; ')}; rbenv exec #{command}", fail_on_error)
     end
 
     # Execute a ruby command within the context of bundle environment.
@@ -75,7 +75,7 @@ module Zim # nodoc
         contents = IO.read(filename)
         new_contents = block.call(contents.dup)
         if contents != new_contents
-          File.open(filename, 'wb') { |f| f.write new_contents }
+          File.open(filename, 'wb') {|f| f.write new_contents}
           mysystem("git add #{file}")
           return true
         end
@@ -188,7 +188,7 @@ module Zim # nodoc
         contents = IO.read(filename)
         new_contents = block.call(contents.dup)
         if contents != new_contents
-          File.open(filename, 'wb') { |f| f.write new_contents }
+          File.open(filename, 'wb') {|f| f.write new_contents}
           mysystem('rm -f Gemfile.lock')
           rbenv_exec('bundle install')
           mysystem('git add Gemfile')
@@ -410,7 +410,7 @@ module Zim # nodoc
       groups = [groups] unless groups.is_a?(Array)
       names = [names] unless names.is_a?(Array)
 
-      artifacts = groups.collect { |g| names.collect { |n| "#{g}:#{n}" } }.flatten
+      artifacts = groups.collect {|g| names.collect {|n| "#{g}:#{n}"}}.flatten
 
       options = options.dup
 
@@ -428,7 +428,7 @@ module Zim # nodoc
               name_changes.each_pair do |source_name, target_name|
                 changes["#{source_group}:#{source_name}"] = "#{target_group}:#{target_name}"
               end
-              names.select { |n| !name_changes.values.include?(n) }.each do |name|
+              names.select {|n| !name_changes.values.include?(n)}.each do |name|
                 changes["#{source_group}:#{name}"] = "#{target_group}:#{name}"
               end
             end
@@ -540,7 +540,7 @@ module Zim # nodoc
     end
 
     def git_local_branch_list
-      `git branch`.gsub('* ', '').split("\n").collect { |s| s.strip }
+      `git branch`.gsub('* ', '').split("\n").collect {|s| s.strip}
     end
 
     # Diff against a specific branch
@@ -583,7 +583,7 @@ module Zim # nodoc
 
     # Add all files that are part of the checkout
     def git_add_all_files
-      files = `git ls-files`.split("\n").collect { |f| "'#{f}'" }
+      files = `git ls-files`.split("\n").collect {|f| "'#{f}'"}
       index = 0
       while index < files.size
         block_size = 100
@@ -595,7 +595,7 @@ module Zim # nodoc
 
     # Checkout specified branch, creating branch if create is enabled
     def git_checkout(branch = 'master', create = false)
-      if !create || `git branch -a`.split.collect { |l| l.gsub('remotes/origin/', '') }.sort.uniq.include?(branch)
+      if !create || `git branch -a`.split.collect {|l| l.gsub('remotes/origin/', '')}.sort.uniq.include?(branch)
         mysystem("git checkout #{branch} > /dev/null 2> /dev/null")
       else
         mysystem("git checkout -b #{branch} > /dev/null 2> /dev/null")
@@ -613,7 +613,7 @@ module Zim # nodoc
 
         files_to_dedupe_nl = Dir['etc/checkstyle/*.xml'].flatten + Dir['tasks/*.rake'].flatten + Dir['doc/*.md'].flatten + Dir['*.md'].flatten + Dir['config/*.sh'].flatten + %w(buildfile Gemfile README.md)
 
-        files = full_filenames.collect { |file| Dir["**/#{file}"] }.flatten + extensions.collect { |extension| Dir["**/*.#{extension}"] + Dir["**/.#{extension}"] }.flatten
+        files = full_filenames.collect {|file| Dir["**/#{file}"]}.flatten + extensions.collect {|extension| Dir["**/*.#{extension}"] + Dir["**/.#{extension}"]}.flatten
 
         files.each do |f|
           next if /^vendor\/.*/ =~ f
@@ -664,7 +664,7 @@ module Zim # nodoc
 
     # Scan dependencies and find group part of spec that is shortest
     def get_shortest_group_name(dependencies)
-      dependencies.collect { |s| s.gsub(/\:.*/, '') }.sort { |a, b| a.length <=> b.length }[0]
+      dependencies.collect {|s| s.gsub(/\:.*/, '')}.sort {|a, b| a.length <=> b.length}[0]
     end
 
     # Add standard set of commands for interacting with git
@@ -744,7 +744,7 @@ module Zim # nodoc
       end
 
       command(:remove_local_branches) do |app|
-        git_local_branch_list.select { |b| b != 'master' }.each do |branch|
+        git_local_branch_list.select {|b| b != 'master'}.each do |branch|
           mysystem("git branch -D #{branch}")
         end
       end
