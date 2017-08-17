@@ -823,14 +823,31 @@ module Zim # nodoc
         end
       end
 
-      desc 'Normalize the whitespace in files based on buildr_plus rules'
-      command(:normalize_whitespace) do |app|
-        if File.exist?('vendor/tools/buildr_plus')
-          git_clean_filesystem
-          bundle_exec('buildr whitespace:fix')
-          git_reset_index
-          git_add_all_files
-          git_commit('Normalize whitespace', false)
+      desc 'Normalize the whitespace in files based on zapwhite rules'
+      command(:normalize_whitespace, :in_app_dir => false) do |app|
+        unless Zim.current_suite.application_by_name(app).tags.include?('zapwhite=no')
+          app_directory = dir_for_app(app)
+          if File.exist?("#{app_directory}/vendor/tools/buildr_plus")
+            Zim.in_dir(app_directory) do
+              git_clean_filesystem
+              bundle_exec('buildr zapwhite:fix')
+              git_reset_index
+              git_add_all_files
+              mysystem('git add --all --force .gitattributes 2> /dev/null > /dev/null')
+              git_commit('Normalize whitespace', false)
+            end
+          elsif File.exist?("#{app_directory}")
+            Zim.in_dir(app_directory) do
+              git_clean_filesystem
+            end
+            mysystem("bundle exec zapwhite -d #{app_directory}", false)
+            Zim.in_dir(app_directory) do
+              git_reset_index
+              git_add_all_files
+              mysystem('git add --all --force .gitattributes 2> /dev/null > /dev/null')
+              git_commit('Normalize whitespace', false)
+            end
+          end
         end
       end
 
