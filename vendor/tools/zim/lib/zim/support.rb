@@ -819,6 +819,7 @@ module Zim # nodoc
           bundle_exec('buildr gitignore:fix')
           git_reset_index
           git_add_all_files
+          mysystem('git add --all --force .gitignore 2> /dev/null > /dev/null')
           git_commit('Normalize .gitignore', false)
         end
       end
@@ -858,6 +859,7 @@ module Zim # nodoc
           bundle_exec('buildr travis:fix')
           git_reset_index
           git_add_all_files
+          mysystem('git add --all --force .travis.yml 2> /dev/null > /dev/null')
           git_commit('Normalize travis configuration', false)
         end
       end
@@ -869,6 +871,7 @@ module Zim # nodoc
           bundle_exec('buildr jenkins:fix')
           git_reset_index
           git_add_all_files
+          mysystem('git add --all --force Jenkinsfile .jenkins 2> /dev/null > /dev/null')
           git_commit('Normalize jenkins configuration', false)
         end
       end
@@ -881,6 +884,7 @@ module Zim # nodoc
           bundle_exec('buildr gems:fix')
           git_reset_index
           git_add_all_files
+          mysystem('git add --all --force Gemfile Gemfile.lock 2> /dev/null > /dev/null')
           git_commit('Normalize Gemfile', false)
         end
       end
