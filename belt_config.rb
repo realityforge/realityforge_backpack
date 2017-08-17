@@ -75,7 +75,6 @@ Belt.scope('realityforge') do |o|
   o.project('simple-keycloak-service', :description => 'A simple service interface and base classes to be used by keycloak secured services', :tags => %w(travis))
   o.project('sqlshell', :description => 'A simple cross platform shell used to automate databases', :tags => %w(travis))
   o.project('ssrs-api', :description => 'Generated SOAP interface to SSRS server', :tags => %w(travis))
-  o.project('gwt-router', :description => 'Experiments building a router for GWT', :tags => %w(travis))
 
   # Chef related code still in use until we get rid of chef
   o.project('chef-archive', :description => 'Chef cookbook that provides utility LWRPs to download and unpack archives.', :tags => %w(travis))
@@ -174,6 +173,7 @@ Belt.scope('realityforge') do |o|
   o.project('chef-gelf_handler', :description => 'A Chef handler that reports to Graylog2 servers.', :tags => %w(historic))
 
   # Historic: Various experiments
+  o.project('gwt-router', :description => 'Experiments building a router for GWT', :tags => %w(historic))
   o.project('swinkar', :description => 'A project exploring Swing+OSGi', :tags => %w(historic))
   o.project('proxymusic', :description => 'ProxyMusic provides a binding between Java objects in memory and data formatted according to MusicXML 3.0', :tags => %w(historic))
   o.project('lesscss4j', :description => 'Less CSS For Java', :tags => %w(historic))
