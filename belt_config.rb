@@ -120,6 +120,7 @@ Belt.scope('realityforge') do |o|
   o.project('gwt-leaflet', :description => 'GWT library for Leaflet', :tags => %w(external historic))
   o.project('mgwt', :description => 'Clone of master branch of mgwt', :tags => %w(external historic homepage=http://www.m-gwt.com))
   o.project('mgwt.showcase', :tags => %w(external historic))
+  o.project('RxJS', :description => 'The Reactive Extensions for JavaScript', :tags => %w(external historic homepage=http://reactivex.io))
 
   # Deprecated: rails projects that are unfortunately still in use
   o.project('rails-active-form', :description => 'A rails plugin for model objects that support validations but are not backed by database tables', :tags => %w(deprecated))
