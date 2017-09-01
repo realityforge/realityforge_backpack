@@ -69,7 +69,7 @@ Belt.scope('realityforge') do |o|
   o.project('gitattributes', :description => 'Class to parse gitattributes files.', :tags => %w(travis))
   o.project('zapwhite', :description => 'A simple tool to normalize whitespace in git repositories.', :tags => %w(travis))
   o.project('realityforge.github.io', :description => 'My personal website and blog', :tags => %w(homepage=https://realityforge.github.io zapwhite=no))
-  o.project('replicant', :description => 'Client-side state representation infrastructure for GWT', :tags => %w(travis))
+  o.project('replicant', :description => 'Client-side state representation infrastructure for GWT', :tags => %w(notify:stock travis))
   o.project('replicant-example', :description => 'A simple application demonstrating the use of the replicant library', :tags => %w(travis))
   o.project('rest-criteria', :description => 'A simple library for parsing criteria in rest services', :tags => %w(travis))
   o.project('rest-field-filter', :description => 'A simple library parsing field filters in rest APIs.', :tags => %w(travis))
