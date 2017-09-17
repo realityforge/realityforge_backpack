@@ -116,6 +116,7 @@ Belt.scope('realityforge') do |o|
   o.project('mobx', :description => 'Simple, scalable state management.', :tags => %w(external homepage=http://mobx.js.org))
   o.project('mobx-react', :description => 'React bindings for MobX', :tags => %w(external))
   o.project('mobx-utils', :description => 'Utility functions and common patterns for MobX', :tags => %w(external))
+  o.project('mobx-react-devtools', :description => 'Tools to perform runtime analyses of React applications powered by MobX and React', :tags => %w(external))
   o.project('mobx-react-typescript-boilerplate', :description => 'Minimal boilerplate for a single-page app using React, TypeScript, TSX, Webpack', :tags => %w(external))
   o.project('schmooze', :description => 'Schmooze lets Ruby and Node.js work together intimately.', :tags => %w(external))
   o.project('keycloak', :description => 'Open Source Identity and Access Management For Modern Applications and Services', :tags => %w(external homepage=http://www.keycloak.org))
