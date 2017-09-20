@@ -107,6 +107,7 @@ Belt.scope('realityforge') do |o|
   o.project('ios', :description => 'A repository containing the simple iOS applications developed when working through the course', :tags => %w(historic))
   o.project('gwttle', :description => 'GWT Training test applications', :tags => %w(historic))
   o.project('jamex', :description => 'A test bed for OSGi, git, buildr and jms code', :tags => %w(historic))
+  o.project('gwt-react-playground', :description => 'A play ground for experimenting with gwt+react+Arez')
   o.project('primefaces-starter', :description => 'A primefaces/JSF application used to learn about the framework', :tags => %w(historic))
   o.project('Bootstrap-JSF2.2', :description => 'Twitter Bootstrap integration with JSF 2.2 on Java EE 7', :tags => %w(historic))
 
