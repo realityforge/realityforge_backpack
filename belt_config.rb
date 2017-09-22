@@ -113,6 +113,7 @@ Belt.scope('realityforge') do |o|
   o.project('Bootstrap-JSF2.2', :description => 'Twitter Bootstrap integration with JSF 2.2 on Java EE 7', :tags => %w(historic))
 
   # External projects that have been forked to submit pull requests
+  o.project('gwt-react', :description => 'GWT Java bindings for React', :tags => %w(external))
   o.project('graphql-java', :description => 'GraphQL Java implementation', :tags => %w(external))
   o.project('auto', :description => 'A collection of source code generators for Java.', :tags => %w(external))
   o.project('mobx', :description => 'Simple, scalable state management.', :tags => %w(external homepage=http://mobx.js.org))
