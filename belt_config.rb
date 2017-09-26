@@ -258,4 +258,3 @@ Belt.scope('realityforge') do |o|
     project.tags << "name=#{project.name}"
   end
 end
-
