@@ -32,6 +32,7 @@ Belt.scope('realityforge') do |o|
 
   # TODO: Arez has a custom deploy key. Figure out a way to automate this?
   o.project('arez', :description => 'A reactive entity infrastructure library', :tags => %w(travis issues pages))
+  o.project('react4j', :description => 'An opinioned react java binding', :tags => %w(travis issues pages))
   o.project('dbdiff', :description => 'List differences between databases', :tags => %w(travis))
   o.project('gelf4j', :description => 'Library for sending log messages using the GELF protocol using CLI, Log4j, JDK Logging and Logback', :tags => %w(travis))
   o.project('geolatte-geom-jpa', :description => 'Converter for mapping Geolatte geometry types to JPA attributes', :tags => %w(travis))
@@ -109,7 +110,6 @@ Belt.scope('realityforge') do |o|
   o.project('ios', :description => 'A repository containing the simple iOS applications developed when working through the course', :tags => %w(historic))
   o.project('gwttle', :description => 'GWT Training test applications', :tags => %w(historic))
   o.project('jamex', :description => 'A test bed for OSGi, git, buildr and jms code', :tags => %w(historic))
-  o.project('gwt-react-playground', :description => 'A play ground for experimenting with gwt+react+Arez', :tags => %w(travis))
   o.project('primefaces-starter', :description => 'A primefaces/JSF application used to learn about the framework', :tags => %w(historic))
   o.project('Bootstrap-JSF2.2', :description => 'Twitter Bootstrap integration with JSF 2.2 on Java EE 7', :tags => %w(historic))
 
