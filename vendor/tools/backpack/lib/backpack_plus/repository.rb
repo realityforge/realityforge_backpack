@@ -47,4 +47,16 @@ class Backpack::Repository
          :password_config_keys => %w(token),
          :config => {:domain => 'notify.travis-ci.org', :token => token, :user => user})
   end
+
+  def codecov_hook(token)
+    hook('codecov',
+         :type => 'web',
+         :config_key => :url,
+         :events => %w(delete public pull_request push repository status),
+         :password_config_keys => %w(secret),
+         :config => { :content_type => 'json',
+                      :secret => token,
+                      :url => 'https://codecov.io/webhooks/github',
+                      :insecure_ssl => '0' })
+  end
 end
