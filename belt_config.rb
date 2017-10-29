@@ -33,7 +33,9 @@ Belt.scope('realityforge') do |o|
   o.project('backpack', :description => '🎒 A simple tool to manage GitHub organisations using declarative DSL', :tags => %w(zapwhite=no))
 
   # TODO: Arez has a custom deploy key. Figure out a way to automate this?
+  # TODO: Arez has hook for codecov - automate this.
   o.project('arez', :description => 'A reactive entity infrastructure library', :tags => %w(travis issues pages))
+  # TODO: React4j has a custom deploy key. Figure out a way to automate this?
   o.project('react4j', :description => 'An opinioned react java binding', :tags => %w(travis issues pages))
   o.project('dbdiff', :description => 'List differences between databases', :tags => %w(travis))
   o.project('gelf4j', :description => 'Library for sending log messages using the GELF protocol using CLI, Log4j, JDK Logging and Logback', :tags => %w(travis))
