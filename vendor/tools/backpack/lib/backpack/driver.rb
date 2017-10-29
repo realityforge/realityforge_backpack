@@ -251,7 +251,7 @@ module Backpack #nodoc
             end
           end
           remote_hooks.each do |remote_hook|
-            puts "Removing #{remote_hook['name']}:#{remote_hook['id']} hook on repository #{repository.qualified_name}"
+            puts "Removing #{remote_hook['name']}:#{remote_hook['id']} hook on repository #{repository.qualified_name}. Config: #{remote_hook.inspect}"
             context.client.remove_hook(repository.qualified_name, remote_hook['id'])
           end
         end
