@@ -13,6 +13,12 @@ Backpack.organization_by_name('realityforge').tap do |o|
     # GITHUB_TOKEN is an environment variable that should be defined in `_backpack.rb` file
     repository.travis_hook('realityforge', ENV['GITHUB_TOKEN']) if repository.tags.include?('travis')
 
+    if repository.tags.include?('codecov')
+      token = ENV["CODECOV_#{repository.name}"]
+      raise "Unable to locate CODECOV token for repository #{repository.name}" unless token
+      repository.codecov_hook(token)
+    end
+
     repository.tag_values('protect').each do |branch|
       repository.branch(branch, :require_reviews => true)
     end

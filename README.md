@@ -13,6 +13,15 @@ The simple instructions are update the file `backpack_config.rb` and converge vi
 
     $ ./backpack
 
+### Codecov
+
+Codecov requires a per repository secret token. When backpack is running under TravisCI run the
+following command:
+
+    travis encrypt CODECOV_myrepository=00000000-0000-0000-0000-000000000000 --add
+
+When running locally or in jenkins in can be added to `_backpack.rb` file.
+
 ## Zim
 
 Zim is a really simple tool used to perform mechanical transformation of multiple code bases.
