@@ -36,6 +36,7 @@ Belt.scope('realityforge') do |o|
   o.project('arez', :description => 'A reactive entity infrastructure library', :tags => %w(codecov travis issues pages))
   # TODO: React4j has a custom deploy key. Figure out a way to automate this?
   o.project('react4j', :description => 'An opinioned react java binding', :tags => %w(travis issues pages))
+  o.project('router-fu', :description => 'A framework agnostic, state producing router', :tags => %w(travis issues))
   o.project('dbdiff', :description => 'List differences between databases', :tags => %w(travis))
   o.project('gelf4j', :description => 'Library for sending log messages using the GELF protocol using CLI, Log4j, JDK Logging and Logback', :tags => %w(travis))
   o.project('geolatte-geom-jpa', :description => 'Converter for mapping Geolatte geometry types to JPA attributes', :tags => %w(travis))
