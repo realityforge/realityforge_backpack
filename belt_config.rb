@@ -1,5 +1,16 @@
 require 'belt'
 
+Belt.scope('arez') do |o|
+  # TODO: Arez has a custom deploy key. Figure out a way to automate this?
+  o.project('arez', :description => 'A reactive entity infrastructure library', :tags => %w(codecov travis issues pages))
+
+  o.projects.each do |project|
+    project.tags << "homepage=http://arez.github.io/#{project.name}" if project.tags.include?('pages')
+    project.tags << 'protect=master' if project.tags.include?('notify:stock')
+    project.tags << "name=#{project.name}"
+  end
+end
+
 Belt.scope('realityforge') do |o|
   o.project('realityforge_backpack', :description => 'Project for managing realityforge repositories.', :tags => %w(zapwhite=no))
   o.project('bash.d', :description => 'A set of bash scripts that run on shell startup.')
@@ -32,8 +43,6 @@ Belt.scope('realityforge') do |o|
 
   o.project('backpack', :description => '🎒 A simple tool to manage GitHub organisations using declarative DSL', :tags => %w(zapwhite=no))
 
-  # TODO: Arez has a custom deploy key. Figure out a way to automate this?
-  o.project('arez', :description => 'A reactive entity infrastructure library', :tags => %w(codecov travis issues pages))
   # TODO: React4j has a custom deploy key. Figure out a way to automate this?
   o.project('react4j', :description => 'An opinioned react java binding', :tags => %w(travis issues pages))
   o.project('router-fu', :description => 'A framework agnostic, state producing router', :tags => %w(travis issues))
