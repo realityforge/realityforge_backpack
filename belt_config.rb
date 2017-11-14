@@ -11,6 +11,17 @@ Belt.scope('arez') do |o|
   end
 end
 
+Belt.scope('react4j') do |o|
+  # TODO: React4j has a custom deploy key. Figure out a way to automate this?
+  o.project('react4j', :description => 'An opinioned react java binding', :tags => %w(travis issues pages))
+
+  o.projects.each do |project|
+    project.tags << "homepage=http://react4j.github.io/#{project.name}" if project.tags.include?('pages')
+    project.tags << 'protect=master' if project.tags.include?('notify:stock')
+    project.tags << "name=#{project.name}"
+  end
+end
+
 Belt.scope('realityforge') do |o|
   o.project('realityforge_backpack', :description => 'Project for managing realityforge repositories.', :tags => %w(zapwhite=no))
   o.project('bash.d', :description => 'A set of bash scripts that run on shell startup.')
@@ -43,8 +54,6 @@ Belt.scope('realityforge') do |o|
 
   o.project('backpack', :description => '🎒 A simple tool to manage GitHub organisations using declarative DSL', :tags => %w(zapwhite=no))
 
-  # TODO: React4j has a custom deploy key. Figure out a way to automate this?
-  o.project('react4j', :description => 'An opinioned react java binding', :tags => %w(travis issues pages))
   o.project('router-fu', :description => 'A framework agnostic, state producing router', :tags => %w(travis issues))
   o.project('dbdiff', :description => 'List differences between databases', :tags => %w(travis))
   o.project('gelf4j', :description => 'Library for sending log messages using the GELF protocol using CLI, Log4j, JDK Logging and Logback', :tags => %w(travis))
