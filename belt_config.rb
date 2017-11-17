@@ -241,7 +241,7 @@ Belt.scope('realityforge') do |o|
   o.project('glassfish-guvnor', :description => 'A script to build a glassfish version of the Drools Guvnor war', :tags => %w(historic))
 
   # Historic: Braid has been merged back upstream
-  o.project('braid', :description => 'Simple tool to help track git vendor branches in a git repository. WARNING: Changes integrated to upstream', :tags => %w(historic pages))
+  o.project('braid', :description => 'Simple tool to help track git vendor branches in a git repository. WARNING: Changes integrated to upstream', :tags => %w(historic))
 
   # Historic - Replaced by guiceyloops
   o.project('guiceyfruit', :description => 'A collection of utilities for working with Guice (Fork)', :tags => %w(historic homepage=http://code.google.com/p/guiceyfruit/))
