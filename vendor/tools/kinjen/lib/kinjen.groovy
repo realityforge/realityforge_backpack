@@ -203,6 +203,7 @@ static import_variant_stage( script, variant )
 static zim_stage( script, name, dependencies )
 {
   script.stage( 'Zim' ) {
+    cancel_queued_zims( script, name, dependencies )
     script.build job: 'zim/upgrade_dependency',
                  parameters: [script.string( name: 'DEPENDENCIES', value: dependencies ),
                               script.string( name: 'NAME', value: name ),
@@ -244,6 +245,22 @@ def static cancel_queued_deploys( script, project_key, deployment_environment = 
     if ( q.items[ i ].task.getOwnerTask().getFullName() == "${project_key}/deploy-to-${deployment_environment}" )
     {
       script.echo "Cancelling queued deploy job ${q.items[ i ].task.getOwnerTask().getFullName()}"
+      q.cancel( q.items[ i ].task )
+    }
+  }
+}
+
+@NonCPS
+def static cancel_queued_zims( script, name, dependencies )
+{
+  def q = Jenkins.instance.queue
+  for ( def i = q.items.size() - 1; i >= 0; i-- )
+  {
+    if ( q.items[ i ].task.getOwnerTask().getFullName() == "zim/upgrade_dependency" &&
+         q.items[ i ].params =~ /NAME=${name.replaceAll("\\.", "\\\\.")}[^.]/ &&
+         q.items[ i ].params =~ /DEPENDENCIES=${dependencies.replaceAll("\\.", "\\\\.")}/)
+    {
+      script.echo "Cancelling queued zim update job: ${q.items[ i ].params}"
       q.cancel( q.items[ i ].task )
     }
   }
