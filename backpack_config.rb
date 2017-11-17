@@ -7,6 +7,7 @@ Backpack.organizations.each do |o|
 
   o.repositories.each do |repository|
     repository.private = false
+    repository.archived = true if repository.tags.include?('historic')
 
     repository.email_hook('dse-iris-scm@stocksoftware.com.au') if repository.tags.include?('notify:stock')
     repository.docker_hook if repository.tags.include?('docker-hub')

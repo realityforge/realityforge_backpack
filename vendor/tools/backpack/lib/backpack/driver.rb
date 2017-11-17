@@ -80,6 +80,7 @@ module Backpack #nodoc
               :homepage => repository.homepage,
               :private => repository.private?,
               :has_issues => repository.issues?,
+              :archived => repository.archived?,
               :has_wiki => repository.wiki?,
               :has_downloads => repository.downloads?
             }
@@ -147,14 +148,25 @@ module Backpack #nodoc
         update = true if remote_repository['has_issues'].to_s != repository.issues?.to_s
         update = true if remote_repository['has_wiki'].to_s != repository.wiki?.to_s
         update = true if remote_repository['has_downloads'].to_s != repository.downloads?.to_s
+        if remote_repository['archived'].to_s != repository.archived?.to_s
+          if 'true' == remote_repository['archived'].to_s
+            raise "Can not un-archive repository #{repository.name} via the API"
+          end
+          update = true
+        end
 
         if update
+          if 'true' == remote_repository['archived'].to_s
+            raise "Can not modify repository #{repository.name} as it is archived."
+          end
+
           puts "Updating repository #{repository.name}"
           client.edit_repository(remote_repository['full_name'],
                                  :description => repository.description,
                                  :homepage => repository.homepage,
                                  :private => repository.private?,
                                  :has_issues => repository.issues?,
+                                 :archived => repository.archived?,
                                  :has_wiki => repository.wiki?,
                                  :has_downloads => repository.downloads?)
         end
