@@ -37,7 +37,7 @@ module Backpack #nodoc
           end
         end
         organization.teams.each do |team|
-          unless remote_teams.any? { |r| r['name'] == team.name }
+          unless remote_teams.any? {|r| r['name'] == team.name}
             puts "Creating team #{team.name}"
             remote_team = context.client.create_team(organization.name, :name => team.name, :permission => team.permission)
             team.github_id = remote_team['id']
@@ -72,7 +72,7 @@ module Backpack #nodoc
           end
         end
         organization.repositories.each do |repository|
-          unless remote_repositories.any? { |r| r['name'] == repository.name }
+          unless remote_repositories.any? {|r| r['name'] == repository.name}
             run_hook(context, :pre_repository, repository)
             puts "Creating repository #{repository.name}"
             config = {
@@ -111,7 +111,7 @@ module Backpack #nodoc
                 team = organization.team_by_name(name)
                 update = false
 
-                permissions = team_map[team.github_id].select { |t| t['name'] == repository.name }[0]['permissions']
+                permissions = team_map[team.github_id].select {|t| t['name'] == repository.name}[0]['permissions']
 
                 update = true if (permission == 'admin' && !(permissions[:pull] && permissions[:push] && permissions[:admin]))
                 update = true if (permission == 'push' && !(permissions[:pull] && permissions[:push] && !permissions[:admin]))
@@ -129,7 +129,7 @@ module Backpack #nodoc
             end
             %w(admin pull push).each do |permission|
               repository.send(:"#{permission}_teams").each do |team|
-                unless remote_teams.any? { |remote_team| remote_team['name'] == team.name }
+                unless remote_teams.any? {|remote_team| remote_team['name'] == team.name}
                   puts "Adding #{permission} repository team #{team.name} to #{repository.name}"
                   context.client.add_team_repository(team.github_id, repository_full_name, :permission => permission)
                 end
@@ -186,8 +186,8 @@ module Backpack #nodoc
 
             if protect
               puts "Updating protection on branch #{branch.name} in repository #{repository.qualified_name}"
-              config = {:accept => Octokit::Preview::PREVIEW_TYPES[:branch_protection]}
-              config[:required_status_checks] = {:strict => branch.strict_status_checks?, :contexts => branch.status_check_contexts} if branch.require_status_check?
+              config = { :accept => Octokit::Preview::PREVIEW_TYPES[:branch_protection] }
+              config[:required_status_checks] = { :strict => branch.strict_status_checks?, :contexts => branch.status_check_contexts } if branch.require_status_check?
               config[:required_pull_request_reviews] = {} if branch.require_reviews?
               config[:enforce_admins] = branch.enforce_admins?
               client.protect_branch(repository.qualified_name, branch.name, config)
