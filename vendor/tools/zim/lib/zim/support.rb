@@ -871,7 +871,8 @@ module Zim # nodoc
           bundle_exec('buildr jenkins:fix')
           git_reset_index
           git_add_all_files
-          mysystem('git add --all --force Jenkinsfile .jenkins 2> /dev/null > /dev/null')
+          mysystem('git add --all --force Jenkinsfile 2> /dev/null > /dev/null')
+          mysystem('git add --all --force .jenkins 2> /dev/null > /dev/null', false)
           git_commit('Normalize jenkins configuration', false)
         end
       end
