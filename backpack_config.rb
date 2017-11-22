@@ -3,7 +3,7 @@ BackpackPlus::TravisHook.enable
 Backpack::Belt.load_organizations_from_belt
 
 Backpack.organizations.each do |o|
-  o.is_user_account = true
+  o.is_user_account = o.name == 'realityforge'
 
   o.repositories.each do |repository|
     repository.private = false
