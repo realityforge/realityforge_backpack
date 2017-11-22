@@ -10,7 +10,7 @@ Belt.scope('arez') do |o|
     project.tags << 'protect=master' if project.tags.include?('notify:stock')
     project.tags << "name=#{project.name}"
   end
-end if false
+end
 
 Belt.scope('react4j') do |o|
   # TODO: React4j has a custom deploy key. Figure out a way to automate this?
@@ -282,4 +282,4 @@ Belt.scope('realityforge') do |o|
     project.tags << 'travis' if project.tags.include?('docker-hub')
     project.tags << "name=#{project.name}"
   end
-end if false
+end
