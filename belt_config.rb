@@ -123,6 +123,7 @@ Belt.scope('realityforge') do |o|
   o.project('ohai-system_packages')
 
   # Projects created during learning of new technology
+  o.project('course-advanced-css-and-sass', :description => 'Coursework for "Advanced CSS and Sass" course')
   o.project('course-creating-reusable-react-components', :description => 'Coursework for "Creating Reusable React Components" course', :tags => %w(historic))
   o.project('course-cycle-js-fundamentals', :description => 'Coursework for "Cycle.js Fundamentals" course', :tags => %w(historic))
   o.project('course-closure-library', :description => 'Coursework for "Closure Library: Build Complex JavaScript Applications" course', :tags => %w(historic))
