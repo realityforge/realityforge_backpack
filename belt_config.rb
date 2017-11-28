@@ -138,6 +138,9 @@ Belt.scope('realityforge') do |o|
   o.project('primefaces-starter', :description => 'A primefaces/JSF application used to learn about the framework', :tags => %w(historic))
   o.project('Bootstrap-JSF2.2', :description => 'Twitter Bootstrap integration with JSF 2.2 on Java EE 7', :tags => %w(historic))
 
+  # External projects that have been forked to keep a copy of source
+  o.project('ant-shade-task', :description => 'Apache Maven Shade Plugin adapter for Apache Ant', :tags => %w(external))
+
   # External projects that have been forked to submit pull requests
   o.project('gwt-react', :description => 'GWT Java bindings for React', :tags => %w(external))
   o.project('graphql-java', :description => 'GraphQL Java implementation', :tags => %w(external))
