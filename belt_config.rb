@@ -183,13 +183,13 @@ Belt.scope('realityforge') do |o|
   o.project('geolatte-geom-eclipselink', :description => 'Converter for mapping Geolatte geometry types to eclipselink JPA provider', :tags => %w(deprecated travis))
 
   # Deprecated: Example project is no longer representative of the way we build GWT apps.
-  o.project('gwt-contacts', :description => 'A version of the gwt "contacts" example from google', :tags => %w(travis historic))
+  o.project('gwt-contacts', :description => 'A version of the gwt "contacts" example from google', :tags => %w(historic))
 
   # Historic: No longer relevant or up to date
   o.project('replicant-example', :description => 'A simple application demonstrating the use of the replicant library', :tags => %w(historic))
 
   # Historic: Not used in projects anymore
-  o.project('gwt-ga', :description => 'A simple GWT library for interacting with Google Analytics', :tags => %w(travis historic))
+  o.project('gwt-ga', :description => 'A simple GWT library for interacting with Google Analytics', :tags => %w(historic))
 
   # Historic: Moved to using a simpler + GWT 3.0 compatible strategy of System.getProperty() instead
   o.project('gwt-property-source', :description => 'Provides a convenient way of compiling GWT property values into your module.', :tags => %w(travis issues historic))
