@@ -98,7 +98,6 @@ Belt.scope('realityforge') do |o|
   o.project('zapwhite', :description => 'A simple tool to normalize whitespace in git repositories.', :tags => %w(travis))
   o.project('realityforge.github.io', :description => 'My personal website and blog', :tags => %w(homepage=https://realityforge.github.io zapwhite=no))
   o.project('replicant', :description => 'Client-side state representation infrastructure for GWT', :tags => %w(codecov notify:stock travis issues))
-  o.project('replicant-example', :description => 'A simple application demonstrating the use of the replicant library', :tags => %w(travis))
   o.project('rest-criteria', :description => 'A simple library for parsing criteria in rest services', :tags => %w(travis))
   o.project('rest-field-filter', :description => 'A simple library parsing field filters in rest APIs.', :tags => %w(travis))
   o.project('simple-keycloak-service', :description => 'A simple service interface and base classes to be used by keycloak secured services', :tags => %w(travis))
@@ -185,6 +184,9 @@ Belt.scope('realityforge') do |o|
 
   # Deprecated: Example project is no longer representative of the way we build GWT apps.
   o.project('gwt-contacts', :description => 'A version of the gwt "contacts" example from google', :tags => %w(travis historic))
+
+  # Historic: No longer relevant or up to date
+  o.project('replicant-example', :description => 'A simple application demonstrating the use of the replicant library', :tags => %w(historic))
 
   # Historic: Not used in projects anymore
   o.project('gwt-ga', :description => 'A simple GWT library for interacting with Google Analytics', :tags => %w(travis historic))
