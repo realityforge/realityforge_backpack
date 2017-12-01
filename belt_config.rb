@@ -179,8 +179,8 @@ Belt.scope('realityforge') do |o|
   # Deprecated: Still used by iris but should be decomissioned
   o.project('panmx', :description => 'A java library that builds JMX beans at runtime using annotations', :tags => %w(deprecated))
 
-  # Deprecated: Only useful if you are still on EE6
-  o.project('geolatte-geom-eclipselink', :description => 'Converter for mapping Geolatte geometry types to eclipselink JPA provider', :tags => %w(deprecated travis))
+  # Historic: Only useful if you are still on EE6 and we no longer use this
+  o.project('geolatte-geom-eclipselink', :description => 'Converter for mapping Geolatte geometry types to eclipselink JPA provider', :tags => %w(historic))
 
   # Deprecated: Example project is no longer representative of the way we build GWT apps.
   o.project('gwt-contacts', :description => 'A version of the gwt "contacts" example from google', :tags => %w(historic))
