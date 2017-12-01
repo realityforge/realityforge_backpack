@@ -37,6 +37,15 @@ command(:patch_gwt_version) do |app|
   patch_versions(app, %w(com.google.gwt:gwt-user:jar com.google.gwt:gwt-dev:jar com.google.gwt:gwt-servlet:jar), '2.8.2')
 end
 
+command(:remove_travis_java) do |app|
+  patched = patch_file('.travis.yml') do |content|
+    content.gsub('oraclejdk7', 'oraclejdk8')
+  end
+  if patched
+    mysystem("git commit -m \"Build using Java 8 as Java 7 has been removed from some TravisCI nodes\"")
+  end
+end
+
 command(:remove_custom_pom) do |app|
   patched = patch_file('buildfile') do |content|
     content.gsub("require 'buildr/custom_pom'\n", '')
