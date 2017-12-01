@@ -161,17 +161,17 @@ Belt.scope('realityforge') do |o|
   o.project('mgwt.showcase', :tags => %w(external historic))
   o.project('RxJS', :description => 'The Reactive Extensions for JavaScript', :tags => %w(external historic))
 
-  # Deprecated: rails projects that are unfortunately still in use
-  o.project('rails-active-form', :description => 'A rails plugin for model objects that support validations but are not backed by database tables', :tags => %w(deprecated))
-  o.project('rails-assert-valid-asset', :description => 'A rails plugin to help validate your CSS and (X)HTML in functional tests', :tags => %w(deprecated))
-  o.project('rails-db_purge', :description => 'Clean the database prior to tests with db-purge', :tags => %w(deprecated))
-  o.project('rails-debug-view-helper', :description => 'Rails plugin to add a pop debug button useful during development', :tags => %w(deprecated))
-  o.project('rails-no-cache', :description => 'Simple rails plugin to disable browser caching', :tags => %w(deprecated))
-  o.project('rails-raaa', :description => 'Simple rails authentication plugin', :tags => %w(deprecated))
-  o.project('rails-system-settings', :description => 'A rails plugin that makes it easy to store application settings in the database as key-value pairs', :tags => %w(deprecated))
+  # Historic: rails projects that are no longer in use
+  o.project('rails-active-form', :description => 'A rails plugin for model objects that support validations but are not backed by database tables', :tags => %w(historic))
+  o.project('rails-assert-valid-asset', :description => 'A rails plugin to help validate your CSS and (X)HTML in functional tests', :tags => %w(historic))
+  o.project('rails-db_purge', :description => 'Clean the database prior to tests with db-purge', :tags => %w(historic))
+  o.project('rails-debug-view-helper', :description => 'Rails plugin to add a pop debug button useful during development', :tags => %w(historic))
+  o.project('rails-no-cache', :description => 'Simple rails plugin to disable browser caching', :tags => %w(historic))
+  o.project('rails-raaa', :description => 'Simple rails authentication plugin', :tags => %w(historic))
+  o.project('rails-system-settings', :description => 'A rails plugin that makes it easy to store application settings in the database as key-value pairs', :tags => %w(historic))
 
-  # Deprecated: Buildr extension that only used for rails projects
-  o.project('itest', :description => 'Improved test tasks for ruby tests under rake or Buildr', :tags => %w(deprecated))
+  # Historic: Buildr extension that only used for rails projects
+  o.project('itest', :description => 'Improved test tasks for ruby tests under rake or Buildr', :tags => %w(historic))
 
   # Historic: No longer used by any of our builds
   o.project('antix', :description => 'A set of ant tasks that are used across a range of projects', :tags => %w(historic))
