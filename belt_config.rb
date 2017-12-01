@@ -286,7 +286,7 @@ Belt.scope('realityforge') do |o|
     project.tags << 'chef' if project.name =~ /^chef-/
     project.tags << 'chef' if project.name =~ /^knife-/
     project.tags << 'docker-hub' if project.name =~ /^docker-/
-    project.tags << 'travis' if project.tags.include?('docker-hub')
+    project.tags << 'travis' if project.tags.include?('docker-hub') && !project.tags.include?('historic')
     project.tags << "name=#{project.name}"
   end
 end
