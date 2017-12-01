@@ -34,7 +34,7 @@ command(:patch_getopt4j) do |app|
 end
 
 command(:patch_gwt_version) do |app|
-  patch_versions(app, %w(com.google.gwt:gwt-user:jar com.google.gwt:gwt-dev:jar com.google.gwt:gwt-servlet:jar), '2.8.1')
+  patch_versions(app, %w(com.google.gwt:gwt-user:jar com.google.gwt:gwt-dev:jar com.google.gwt:gwt-servlet:jar), '2.8.2')
 end
 
 command(:remove_custom_pom) do |app|
