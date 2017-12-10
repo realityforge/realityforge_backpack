@@ -38,7 +38,7 @@ module Zim # nodoc
         optparse = OptionParser.new do |opts|
           opts.on('-s', '--suite SUITE', 'Specify the suite of applications to process') do |suite_key|
             unless Zim.suite_by_name?(suite_key)
-              puts "Bad suite set #{suite_key} specified. Specify one of:\n#{Zim.suite_keys.collect { |c| "  * #{c}" }.join("\n")}"
+              puts "Bad suite set #{suite_key} specified. Specify one of:\n#{Zim.suite_names.collect { |c| "  * #{c}" }.join("\n")}"
               exit
             end
             Zim.current_suite = Zim.suite_by_name(suite_key)
