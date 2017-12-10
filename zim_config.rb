@@ -37,6 +37,18 @@ command(:patch_gwt_version) do |app|
   patch_versions(app, %w(com.google.gwt:gwt-user:jar com.google.gwt:gwt-dev:jar com.google.gwt:gwt-servlet:jar), '2.8.2')
 end
 
+command(:patch_jsinterop_version) do |app|
+  patch_versions(app, %w(com.google.jsinterop:jsinterop-annotations:jar com.google.jsinterop:jsinterop-annotations:jar:sources), '1.0.2')
+end
+
+command(:patch_jsinterop_base_version) do |app|
+  patch_versions(app, %w(com.google.jsinterop:base:jar com.google.jsinterop:base:jar:sources), '1.0.0-beta-3')
+end
+
+command(:patch_elemental2_version) do |app|
+  patch_versions(app, %w(com.google.elemental2:elemental2-core:jar com.google.elemental2:elemental2-dom:jar com.google.elemental2:elemental2-promise:jar), '1.0.0-beta-3')
+end
+
 command(:remove_travis_java) do |app|
   patched = patch_file('.travis.yml') do |content|
     content.gsub('oraclejdk7', 'oraclejdk8')
