@@ -122,7 +122,7 @@ module Zim # nodoc
               content.gsub!("#{dependency}:#{source_version}", "#{dependency}:#{target_version}")
             end
           else
-            content.gsub!(/#{dependency.gsub(':', "\\:").gsub('.', "\\.")}\:.*/, "#{dependency}:#{target_version}")
+            content.gsub!(/#{dependency.gsub(':', "\\:").gsub('.', "\\.")}\:[a-zA-Z0-9\\-_.]*([ \t\r\n])/m, "#{dependency}:#{target_version}\\1")
           end
         end
         content
