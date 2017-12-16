@@ -68,11 +68,9 @@ command(:remove_custom_pom) do |app|
 end
 
 command(:add_code_of_conduct) do |app|
-  unless File.exist?('CODE_OF_CONDUCT.md')
-    FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/code-of-conduct.md", 'CODE_OF_CONDUCT.md'
-    mysystem('git add CODE_OF_CONDUCT.md')
-    mysystem("git commit -m \"Add a code of conduct\"")
-  end
+  FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/code-of-conduct.md", 'CODE_OF_CONDUCT.md'
+  mysystem('git add CODE_OF_CONDUCT.md')
+  mysystem("git commit -m \"Add a code of conduct\"")
 end
 
 Zim::Belt.load_suites_from_belt
