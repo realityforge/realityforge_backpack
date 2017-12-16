@@ -25,7 +25,7 @@ module Zim # nodoc
         require customization_file if File.exist?(customization_file)
 
         ::Zim.context do
-          filename = 'zim_config.rb'
+          filename = File.expand_path('zim_config.rb')
           if File.exist?(filename)
             instance_eval IO.read(filename), filename
           else
