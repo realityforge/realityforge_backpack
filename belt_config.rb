@@ -3,7 +3,7 @@ require 'belt'
 Belt.scope('arez') do |o|
   # TODO: Arez has a custom deploy key. Figure out a way to automate this?
   o.project('arez', :description => 'A reactive entity infrastructure library', :tags => %w(codecov travis issues homepage=https://arez.github.io))
-  o.project('arez.github.io', :description => 'Arez website', :tags => %w(pages homepage=https://arez.github.io))
+  o.project('arez.github.io', :description => 'Arez website', :tags => %w(pages homepage=https://arez.github.io zim=no))
 
   o.projects.each do |project|
     project.tags << "homepage=http://arez.github.io/#{project.name}" if project.tags.include?('pages') && project.tag_value('homepage').nil?
@@ -15,7 +15,7 @@ end
 Belt.scope('react4j') do |o|
   # TODO: React4j has a custom deploy key. Figure out a way to automate this?
   o.project('react4j', :description => 'An opinionated react java binding', :tags => %w(travis issues homepage=https://react4j.github.io))
-  o.project('react4j.github.io', :description => 'React4j website', :tags => %w(pages homepage=https://react4j.github.io))
+  o.project('react4j.github.io', :description => 'React4j website', :tags => %w(pages homepage=https://react4j.github.io zim=no))
   o.project('react4j-todomvc', :description => 'React4j TodoMVC implementation', :tags => %w(travis))
 
   o.projects.each do |project|
