@@ -284,7 +284,7 @@ Belt.scope('realityforge') do |o|
   o.project('buildr-jacoco', :description => 'Experiments to try using jacoco in Buildr', :tags => %w(historic))
 
   o.projects.each do |project|
-    project.tags << "homepage=http://realityforge.org/#{project.name}" if project.tags.include?('pages')
+    project.tags << "homepage=http://realityforge.org/#{project.name}" if project.tags.include?('pages') && project.tag_value('homepage').nil?
     project.tags << 'protect=master' if project.tags.include?('notify:stock')
     project.tags << 'chef' if project.name =~ /^chef-/
     project.tags << 'chef' if project.name =~ /^knife-/
