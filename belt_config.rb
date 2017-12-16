@@ -115,7 +115,6 @@ Belt.scope('realityforge') do |o|
   o.project('chef-sqlshell', :description => 'Simple cookbook to aid in automating database contents', :tags => %w(travis))
   o.project('chef-winrm', :description => 'Simple winrm cookbook for chef', :tags => %w(travis))
   o.project('chef-xymon', :description => 'A cookbook that installs the xymon monitoring software.', :tags => %w(travis))
-  o.project('cookbook-reusability-presentation', :description => 'Presentation on cookbook reusability', :tags => %w(historic))
   o.project('em-winrm', :description => 'EventMachine based, asynchronous parallel client for Windows Remote Management (WinRM).')
   o.project('knife-cookbook-doc', :description => 'Knife plugin to document cookbooks', :tags => %w(travis pages))
   o.project('knife-windows', :description => "Plugin for Chef's knife tool for working with Windows nodes", :tags => %w(homepage=http://tickets.opscode.com/browse/KNIFE_WINDOWS))
@@ -218,6 +217,9 @@ Belt.scope('realityforge') do |o|
   o.project('chef-collectd', :description => 'A collectd cookbook for chef', :tags => %w(historic))
   o.project('chef-gelf_handler', :description => 'A Chef handler that reports to Graylog2 servers.', :tags => %w(historic))
   o.project('chef-glassfish-example', :description => 'A simple chef repository that demonstrates the use of the chef-glassfish cookbook', :tags => %w(historic))
+
+  # Historic: Old Presentation
+  o.project('cookbook-reusability-presentation', :description => 'Presentation on cookbook reusability', :tags => %w(historic))
 
   # Historic: Various experiments
   o.project('gwt-router', :description => 'Experiments building a router for GWT', :tags => %w(historic))
