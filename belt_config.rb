@@ -110,7 +110,6 @@ Belt.scope('realityforge') do |o|
   o.project('chef-cutlery', :description => 'Cutlery is a Chef cookbook containing a collection useful library code.', :tags => %w(travis))
   o.project('chef-dbt', :description => 'Simple cookbook that aids in database migrations through dbt', :tags => %w(travis))
   o.project('chef-glassfish', :description => 'A cookbook for managing GlassFish', :tags => %w(travis))
-  o.project('chef-glassfish-example', :description => 'A simple chef repository that demonstrates the use of the chef-glassfish cookbook')
   o.project('chef-hosts', :description => 'Chef cookbook to manage /etc/hosts file', :tags => %w(travis))
   o.project('chef-kibana', :description => 'A chef cookbook that installs/configures kibana (the logstash UI)')
   o.project('chef-sqlshell', :description => 'Simple cookbook to aid in automating database contents', :tags => %w(travis))
@@ -218,6 +217,7 @@ Belt.scope('realityforge') do |o|
   o.project('chef-bonita', :description => 'A cookbook for installing the Bonita BPM software', :tags => %w(historic))
   o.project('chef-collectd', :description => 'A collectd cookbook for chef', :tags => %w(historic))
   o.project('chef-gelf_handler', :description => 'A Chef handler that reports to Graylog2 servers.', :tags => %w(historic))
+  o.project('chef-glassfish-example', :description => 'A simple chef repository that demonstrates the use of the chef-glassfish cookbook', :tags => %w(historic))
 
   # Historic: Various experiments
   o.project('gwt-router', :description => 'Experiments building a router for GWT', :tags => %w(historic))
