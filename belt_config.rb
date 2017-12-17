@@ -96,7 +96,6 @@ Belt.scope('realityforge') do |o|
   o.project('reality-belt', :description => 'A super simple domain model to represent projects.', :tags => %w(travis))
   o.project('gitattributes', :description => 'Class to parse gitattributes files.', :tags => %w(travis))
   o.project('zapwhite', :description => 'A simple tool to normalize whitespace in git repositories.', :tags => %w(travis))
-  o.project('realityforge.github.io', :description => 'My personal website and blog', :tags => %w(homepage=https://realityforge.github.io zapwhite=no))
   o.project('replicant', :description => 'Client-side state representation infrastructure for GWT', :tags => %w(codecov notify:stock travis issues))
   o.project('rest-criteria', :description => 'A simple library for parsing criteria in rest services', :tags => %w(travis))
   o.project('rest-field-filter', :description => 'A simple library parsing field filters in rest APIs.', :tags => %w(travis))
@@ -119,6 +118,9 @@ Belt.scope('realityforge') do |o|
   o.project('knife-cookbook-doc', :description => 'Knife plugin to document cookbooks', :tags => %w(travis pages))
   o.project('knife-windows', :description => "Plugin for Chef's knife tool for working with Windows nodes", :tags => %w(homepage=http://tickets.opscode.com/browse/KNIFE_WINDOWS))
   o.project('ohai-system_packages')
+
+  # Old blog that was long ago abandoned...
+  o.project('realityforge.github.io', :description => 'My personal website and blog', :tags => %w(homepage=https://realityforge.github.io zapwhite=no historic))
 
   # Projects created during learning of new technology
   o.project('course-advanced-react-component-patterns', :description => 'Coursework for "Advanced React Component Patterns" course', :tags => %w(historic))
