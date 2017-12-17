@@ -73,4 +73,12 @@ command(:add_code_of_conduct) do |app|
   mysystem("git commit -m \"Add a code of conduct\"")
 end
 
+command(:update_publish_task) do |app|
+  if File.exist?('tasks/publish.rake')
+    FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/publish.rake", 'tasks/publish.rake'
+    mysystem('git add tasks/publish.rake')
+    mysystem("git commit -m \"Change the publish task so that it only publishes tag as an artifact if the tag is on the master branch.\"")
+  end
+end
+
 Zim::Belt.load_suites_from_belt
