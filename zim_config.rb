@@ -42,11 +42,11 @@ command(:patch_jsinterop_version) do |app|
 end
 
 command(:patch_jsinterop_base_version) do |app|
-  patch_versions(app, %w(com.google.jsinterop:base:jar com.google.jsinterop:base:jar:sources), '1.0.0-beta-3')
+  patch_versions(app, %w(com.google.jsinterop:base:jar com.google.jsinterop:base:jar:sources), '1.0.0-RC1')
 end
 
 command(:patch_elemental2_version) do |app|
-  patch_versions(app, %w(com.google.elemental2:elemental2-core:jar com.google.elemental2:elemental2-dom:jar com.google.elemental2:elemental2-promise:jar), '1.0.0-beta-3')
+  patch_versions(app, %w(com.google.elemental2:elemental2-core:jar com.google.elemental2:elemental2-dom:jar com.google.elemental2:elemental2-promise:jar), '1.0.0-RC1')
 end
 
 command(:remove_travis_java) do |app|
