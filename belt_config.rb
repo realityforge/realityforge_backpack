@@ -143,18 +143,20 @@ Belt.scope('realityforge') do |o|
   o.project('ant-shade-task', :description => 'Apache Maven Shade Plugin adapter for Apache Ant', :tags => %w(external))
 
   # External projects that have been forked to submit pull requests
-  o.project('gwt-react', :description => 'GWT Java bindings for React', :tags => %w(external))
   o.project('graphql-java', :description => 'GraphQL Java implementation', :tags => %w(external))
-  o.project('auto', :description => 'A collection of source code generators for Java.', :tags => %w(external))
-  o.project('mobx', :description => 'Simple, scalable state management.', :tags => %w(external homepage=http://mobx.js.org))
-  o.project('mobx-react', :description => 'React bindings for MobX', :tags => %w(external))
-  o.project('mobx-utils', :description => 'Utility functions and common patterns for MobX', :tags => %w(external))
-  o.project('mobx-react-devtools', :description => 'Tools to perform runtime analyses of React applications powered by MobX and React', :tags => %w(external))
-  o.project('mobx-react-typescript-boilerplate', :description => 'Minimal boilerplate for a single-page app using React, TypeScript, TSX, Webpack', :tags => %w(external))
   o.project('schmooze', :description => 'Schmooze lets Ruby and Node.js work together intimately.', :tags => %w(external))
-  o.project('keycloak', :description => 'Open Source Identity and Access Management For Modern Applications and Services', :tags => %w(external homepage=http://www.keycloak.org))
   o.project('docker-keycloak', :description => 'Docker image for Keycloak project', :tags => %w(external))
-  o.project('Payara', :description => 'Payara Server is derived from GlassFish Server Open Source Edition and 100% open source', :tags => %w(external homepage=http://www.payara.fish))
+
+  # External projects that have been forked to submit pull requests but we do not expect to issue pull requests in future
+  o.project('gwt-react', :description => 'GWT Java bindings for React', :tags => %w(external historic))
+  o.project('auto', :description => 'A collection of source code generators for Java.', :tags => %w(external historic))
+  o.project('mobx', :description => 'Simple, scalable state management.', :tags => %w(external historic homepage=http://mobx.js.org))
+  o.project('mobx-react', :description => 'React bindings for MobX', :tags => %w(external historic))
+  o.project('mobx-utils', :description => 'Utility functions and common patterns for MobX', :tags => %w(external historic))
+  o.project('mobx-react-devtools', :description => 'Tools to perform runtime analyses of React applications powered by MobX and React', :tags => %w(external historic))
+  o.project('mobx-react-typescript-boilerplate', :description => 'Minimal boilerplate for a single-page app using React, TypeScript, TSX, Webpack', :tags => %w(external historic))
+  o.project('keycloak', :description => 'Open Source Identity and Access Management For Modern Applications and Services', :tags => %w(external historic homepage=http://www.keycloak.org))
+  o.project('Payara', :description => 'Payara Server is derived from GlassFish Server Open Source Edition and 100% open source', :tags => %w(external historic homepage=http://www.payara.fish))
 
   # External projects that have been forked to submit pull requests but we do not use at his stage or possibly ever
   o.project('gwt-leaflet', :description => 'GWT library for Leaflet', :tags => %w(external historic))
