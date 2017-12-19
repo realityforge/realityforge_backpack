@@ -77,8 +77,12 @@ command(:update_publish_task) do |app|
   if File.exist?('tasks/publish.rake')
     FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/publish.rake", 'tasks/publish.rake'
     begin
+      patched = patch_file('.travis.yml') do |content|
+        content.gsub("  depth: 10\n", "  depth: false\n")
+      end
+      mysystem('git add .travis.yml') if patched
       mysystem('git add tasks/publish.rake')
-      mysystem("git commit -m \"Patch the 'publish_if_tagged' task so it pulls remote branches prior to checking if tag is present.\"")
+      mysystem("git commit -m \"Change the 'publish_if_tagged' task to stop working around shallow git checkouts on TravisCI.\"")
     rescue Exception
       # ignored
     end
