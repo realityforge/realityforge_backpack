@@ -2,7 +2,7 @@ require 'belt'
 
 Belt.scope('arez') do |o|
   # TODO: Arez has a custom deploy key. Figure out a way to automate this?
-  o.project('arez', :description => 'A reactive entity infrastructure library', :tags => %w(codecov travis issues homepage=https://arez.github.io))
+  o.project('arez', :description => 'Fast, easy, reactive state', :tags => %w(codecov travis issues homepage=https://arez.github.io))
   o.project('arez.github.io', :description => 'Arez website', :tags => %w(pages homepage=https://arez.github.io zim=no))
 
   o.projects.each do |project|
