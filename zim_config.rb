@@ -22,7 +22,7 @@ braid_tasks('way_of_stock' => 'vendor/docs/way_of_stock',
 
 ruby_upgrade('2.1.3', '2.3.1')
 
-patch_gem('buildr', %w(1.5.3), '1.5.4')
+patch_gem('buildr', %w(1.5.4), '1.5.5')
 patch_gem('braid', %w(1.0.8 1.0.20 1.0.21), '1.0.22')
 
 command(:patch_jsr305) do |app|
