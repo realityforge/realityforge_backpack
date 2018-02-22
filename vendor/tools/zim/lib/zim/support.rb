@@ -301,6 +301,16 @@ module Zim # nodoc
       bundle_exec('braid diff') if 0 == $?.exitstatus
     end
 
+    # Execute braid upgrade-config if braid is present.
+    # e.g.
+    #
+    #    braid_update_config()
+    #
+    def braid_update_config
+      bundle_exec('braid setup 2>&1 > /dev/null', false)
+      bundle_exec('braid upgrade-config') if 0 == $?.exitstatus
+    end
+
     # Execute braid update if braid is present.
     # e.g.
     #
@@ -467,6 +477,11 @@ module Zim # nodoc
       desc 'Perform diffs against all braids'
       command(:braid_diff_all) do |app|
         braid_diff_all
+      end
+
+      desc 'Update braid config to the latest version supported by braid'
+      command(:braid_update_config) do |app|
+        braid_update_config if File.exist?('.braids.json')
       end
 
       desc 'Perform updates for all braids'
