@@ -40,7 +40,7 @@ So a good way to start is to clone into your new base directory:
 
     $ ./zim --verbose --source-tree-set GITHUB clone
 
-There are also some useful composite commands such as clean, which does a [clone, fetch, reset, goto_master, pull]
+There are also some useful composite commands such as clean, which does a `clone, fetch, reset, goto_master, pull`
 basically getting ready to apply some patches.
 
 Also `standard_update` is useful for updating `domgen` and `dbt` plus doing some general cleaning of whitespace issues.
