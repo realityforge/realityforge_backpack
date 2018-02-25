@@ -210,7 +210,8 @@ Belt.scope('realityforge') do |o|
   o.project('chef-jenkins', :description => 'Heavywater modifications to the Jenkins cookbook for Chef', :tags => %w(historic))
   o.project('chef-logstash', :description => 'A chef cookbook that installs/configures logstash', :tags => %w(historic))
   o.project('chef-postgis', :description => 'A cookbook for installing and managing Postgis', :tags => %w(historic))
-  o.project('chef-psql', :description => 'A Chef cookbook that provides a set of LWRPs for interacting with postgres using the CLI.', :tags => %w(historic))
+  # TODO: This should be converted back to historic at some point in future
+  o.project('chef-psql', :description => 'A Chef cookbook that provides a set of LWRPs for interacting with postgres using the CLI.')
   o.project('chef-slack_handler', :description => 'Chef handler for SlackHQ', :tags => %w(historic))
   o.project('chef-smbfs', :description => 'A recipe that installs smbfs on linux hosts. It also includes a recipe for adding managed mounts.', :tags => %w(historic))
   o.project('chef-spydle', :description => 'Cookbook for installing Spydle Monitoring Server on system', :tags => %w(historic))
