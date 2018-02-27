@@ -39,7 +39,7 @@ Belt.scope('realityforge') do |o|
   o.project('resgen', :description => 'A tool to generate resource descriptors from resource assets.', :tags => %w(notify:stock travis))
   o.project('swung_weave', :description => 'Bytecode weaving of annotated UI classes to ensure all UI updates occur in the Event Dispatch Thread', :tags => %w(notify:stock))
   o.project('zim', :description => 'Simple tool that performs mass transformations across codebases')
-  o.project('zam', :description => 'Library to perform mechanical operations across codebases', :tags => %w(codecov travis))
+  o.project('gir', :description => 'Library to perform mechanical operations across codebases', :tags => %w(codecov travis))
   o.project('braincheck', :description => 'BrainCheck: A very simply invariant verification library', :tags => %w(travis pages))
   o.project('mcrt', :description => 'Maven Central Release Tool: A ruby tool to close, promote and drop staging repositories', :tags => %w(travis))
   o.project('anodoc', :description => 'Annotations for documenting java code', :tags => %w(travis pages))
