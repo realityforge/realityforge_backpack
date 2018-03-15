@@ -16,8 +16,12 @@ Backpack.organizations.each do |o|
 
     if repository.tags.include?('codecov')
       token = ENV["CODECOV_#{repository.name}"]
-      raise "Unable to locate CODECOV token for repository #{repository.name}" unless token
-      repository.codecov_hook(token)
+      if token
+        repository.codecov_hook(token)
+      else
+        puts "Unable to locate CODECOV token for repository #{repository.name}. Skipping Codecov setup."
+        repository.codecov_hook('00000000-0000-0000-0000-000000000000')
+      end
     end
 
     repository.tag_values('protect').each do |branch|
