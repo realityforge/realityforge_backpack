@@ -162,6 +162,7 @@ Belt.scope('realityforge') do |o|
   o.project('keycloak', :description => 'Open Source Identity and Access Management For Modern Applications and Services', :tags => %w(external historic homepage=http://www.keycloak.org))
   o.project('Payara', :description => 'Payara Server is derived from GlassFish Server Open Source Edition and 100% open source', :tags => %w(external historic homepage=http://www.payara.fish))
   o.project('ode', :description => 'Mirror of Apache ODE', :tags => %w(external historic))
+  o.project('design', :description => 'eWASM Design Overview and Specification', :tags => %w(external historic))
 
   # External projects that have been forked to submit pull requests but we do not use at his stage or possibly ever
   o.project('gwt-leaflet', :description => 'GWT library for Leaflet', :tags => %w(external historic))
