@@ -18,6 +18,7 @@ Belt.scope('react4j') do |o|
   o.project('react4j.github.io', :description => 'React4j website', :tags => %w(pages homepage=https://react4j.github.io zim=no))
   o.project('react4j-todomvc', :description => 'React4j TodoMVC implementation', :tags => %w(travis pages))
   o.project('react4j-widget', :description => 'React4j interoperability with GWT Widget API', :tags => %w(travis))
+  o.project('react4j-windowportal', :description => 'React4j portal that renders into a Window', :tags => %w(travis))
 
   o.projects.each do |project|
     project.tags << "homepage=http://react4j.github.io/#{project.name}" if project.tags.include?('pages') && project.tag_value('homepage').nil?
