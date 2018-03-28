@@ -24,6 +24,7 @@ ruby_upgrade('2.1.3', '2.3.1')
 
 patch_gem('buildr', %w(1.5.4), '1.5.5')
 patch_gem('braid', %w(1.0.22), '1.1.0')
+patch_gem('mcrt', %w(1.7.0), '1.8.0')
 
 command(:patch_jsr305) do |app|
   patch_versions(app, %w(com.google.code.findbugs:jsr305:jar), '3.0.1')
