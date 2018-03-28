@@ -23,16 +23,6 @@ braid_tasks('way_of_stock' => 'vendor/docs/way_of_stock',
 ruby_upgrade('2.1.3', '2.3.1')
 
 patch_gem('buildr', %w(1.5.4), '1.5.5')
-patch_gem('braid', %w(1.0.22), '1.1.0')
-patch_gem('mcrt', %w(1.7.0), '1.8.0')
-
-command(:patch_jsr305) do |app|
-  patch_versions(app, %w(com.google.code.findbugs:jsr305:jar), '3.0.1')
-end
-
-command(:patch_getopt4j) do |app|
-  patch_versions(app, %w(org.realityforge.getopt4j:getopt4j:jar), '1.2')
-end
 
 command(:patch_gwt_version) do |app|
   patch_versions(app, %w(com.google.gwt:gwt-user:jar com.google.gwt:gwt-dev:jar com.google.gwt:gwt-servlet:jar), '2.8.2')
@@ -56,15 +46,6 @@ command(:remove_travis_java) do |app|
   end
   if patched
     mysystem("git commit -m \"Build using Java 8 as Java 7 has been removed from some TravisCI nodes\"")
-  end
-end
-
-command(:remove_custom_pom) do |app|
-  patched = patch_file('buildfile') do |content|
-    content.gsub("require 'buildr/custom_pom'\n", '')
-  end
-  if patched
-    mysystem("git commit -m \"Remove obsolete usage of 'custom_pom' addon\"")
   end
 end
 
