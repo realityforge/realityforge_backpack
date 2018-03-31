@@ -71,4 +71,21 @@ command(:update_publish_task) do |app|
   end
 end
 
+command(:fix_tags) do |app|
+  bad_tags = `git tag | grep -v -- v`.strip.split("\n").select {|t| t =~ /^[0-9\.]+$/}
+  if !bad_tags.empty? && !(app =~ /^chef-.*/) && app != 'knife-cookbook-doc'
+    puts "#{app}: Contains #{bad_tags.size} malformed tags: #{bad_tags.inspect}"
+    if true
+      bad_tags.each do |tag|
+        mysystem("git checkout #{tag}")
+        mysystem("git tag -f v#{tag}")
+        mysystem("git checkout v#{tag}")
+        mysystem("git tag -d #{tag}")
+        mysystem("git push origin :#{tag}")
+      end
+      mysystem('git push --tags')
+    end
+  end
+end
+
 Zim::Belt.load_suites_from_belt
