@@ -75,6 +75,7 @@ Belt.scope('realityforge') do |o|
   o.project('gwt-eventsource-example', :description => 'A simple application demonstrating the use of the gwt-eventsource library', :tags => %w(travis issues))
   o.project('gwt-keycloak', :description => 'A simple library to provide keycloak support to GWT', :tags => %w(travis issues))
   o.project('gwt-qr-code', :description => 'GWT QR Code Generation', :tags => %w(travis issues))
+  o.project('gwt-ethereum-qr-code', :description => 'GWT Ethereum QR Code Generation', :tags => %w(travis issues))
   o.project('gwt-lognice', :description => 'A super simple gwt library that makes the log messages nicer.', :tags => %w(travis))
   o.project('gwt-mmvp', :description => 'A micro MVP library that enhances the Activities and Places library.', :tags => %w(travis))
   o.project('gwt-gin-extensions', :description => 'Simple utilities when using gin injection framework.', :tags => %w(travis))
