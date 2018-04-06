@@ -476,7 +476,7 @@ module Zim # nodoc
 
       desc 'Perform diffs against all braids'
       command(:braid_diff_all) do |app|
-        braid_diff_all
+        braid_diff_all if File.exist?('.braids.json')
       end
 
       desc 'Update braid config to the latest version supported by braid'
@@ -486,7 +486,7 @@ module Zim # nodoc
 
       desc 'Perform updates for all braids'
       command(:braid_update_all) do
-        braid_update_all
+        braid_update_all if File.exist?('.braids.json')
       end
 
       desc 'Perform diffs against all braids in braid list'
@@ -501,7 +501,7 @@ module Zim # nodoc
       desc 'Perform updates for all braids in braid list'
       command(:braid_update_all_configured) do |app|
         braids.keys.each do |key|
-          run(:"braid_update_#{key}", app)
+          run(:"braid_update_#{key}", app) if File.exist?('.braids.json')
         end
       end
     end
