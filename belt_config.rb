@@ -9,6 +9,8 @@ Belt.scope('arez') do |o|
   o.project('arez-browserlocation', :description => 'Arez component for the browser''s location hash', :tags => %w(travis issues))
   o.project('arez-promise', :description => 'Arez component that wraps a Promise and makes it observable', :tags => %w(travis issues))
   o.project('arez-ticker', :description => 'Arez component that ticks at a specified interval', :tags => %w(travis issues))
+  o.project('arez-timeddisposer', :description => 'Arez utility that will dispose specified node after a delay.', :tags => %w(travis issues))
+  o.project('arez-spytools', :description => 'Arez utilities that enhance the spy capabilities.', :tags => %w(travis issues))
 
   o.projects.each do |project|
     project.tags << "homepage=http://arez.github.io/#{project.name}" if project.tags.include?('pages') && project.tag_value('homepage').nil?
