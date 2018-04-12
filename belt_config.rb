@@ -162,6 +162,7 @@ Belt.scope('realityforge') do |o|
   o.project('graphql-java', :description => 'GraphQL Java implementation', :tags => %w(external))
   o.project('schmooze', :description => 'Schmooze lets Ruby and Node.js work together intimately.', :tags => %w(external))
   o.project('docker-keycloak', :description => 'Docker image for Keycloak project', :tags => %w(external))
+  o.project('elemental2', :description => 'Type checked access to browser APIs for Java code.', :tags => %w(external))
 
   # External projects that have been forked to submit pull requests but we do not expect to issue pull requests in future
   o.project('gwt-react', :description => 'GWT Java bindings for React', :tags => %w(external historic))
