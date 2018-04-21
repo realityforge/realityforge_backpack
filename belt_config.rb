@@ -21,7 +21,7 @@ Belt.scope('react4j') do |o|
   o.project('react4j', :description => 'An opinionated react java binding', :tags => %w(travis issues homepage=https://react4j.github.io))
   # TODO: react4j.github.io has several custom deploy keys. Figure out a way to automate this?
   o.project('react4j.github.io', :description => 'React4j website', :tags => %w(pages homepage=https://react4j.github.io zim=no))
-  o.project('react4j-todomvc', :description => 'React4j TodoMVC implementation', :tags => %w(travis pages))
+  o.project('react4j-todomvc', :description => 'React4j TodoMVC implementation', :tags => %w(travis homepage=https://react4j.github.io/todomvc))
   o.project('react4j-widget', :description => 'React4j interoperability with GWT Widget API', :tags => %w(travis))
   o.project('react4j-windowportal', :description => 'React4j portal that renders into a Window', :tags => %w(travis))
 
