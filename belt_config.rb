@@ -4,13 +4,13 @@ Belt.scope('arez') do |o|
   o.project('arez', :description => 'Fast, easy, reactive state', :tags => %w(codecov travis issues homepage=https://arez.github.io))
   # TODO: arez.github.io has several custom deploy keys. Figure out a way to automate this?
   o.project('arez.github.io', :description => 'Arez website', :tags => %w(pages homepage=https://arez.github.io zim=no))
-  o.project('arez-idlestatus', :description => 'Arez Browser component that tracks when the user is idle', :tags => %w(travis issues))
-  o.project('arez-networkstatus', :description => 'Arez Browser component that tracks when the user is online', :tags => %w(travis issues))
-  o.project('arez-browserlocation', :description => 'Arez component for the browser''s location hash', :tags => %w(travis issues))
-  o.project('arez-promise', :description => 'Arez component that wraps a Promise and makes it observable', :tags => %w(travis issues))
-  o.project('arez-ticker', :description => 'Arez component that ticks at a specified interval', :tags => %w(travis issues))
-  o.project('arez-timeddisposer', :description => 'Arez utility that will dispose specified node after a delay', :tags => %w(travis issues))
-  o.project('arez-spytools', :description => 'Arez utilities that enhance the spy capabilities', :tags => %w(travis issues))
+  o.project('arez-idlestatus', :description => 'Arez Browser component that tracks when the user is idle', :tags => %w(travis issues homepage=https://arez.github.io/idlestatus))
+  o.project('arez-networkstatus', :description => 'Arez Browser component that tracks when the user is online', :tags => %w(travis issues homepage=https://arez.github.io/networkstatus))
+  o.project('arez-browserlocation', :description => 'Arez component for the browser''s location hash', :tags => %w(travis issues homepage=https://arez.github.io/browserlocation))
+  o.project('arez-promise', :description => 'Arez component that wraps a Promise and makes it observable', :tags => %w(travis issues homepage=https://arez.github.io/promise))
+  o.project('arez-ticker', :description => 'Arez component that ticks at a specified interval', :tags => %w(travis issues homepage=https://arez.github.io/ticker))
+  o.project('arez-timeddisposer', :description => 'Arez utility that will dispose specified node after a delay', :tags => %w(travis issues homepage=https://arez.github.io/timeddisposer))
+  o.project('arez-spytools', :description => 'Arez utilities that enhance the spy capabilities', :tags => %w(travis issues homepage=https://arez.github.io/spytools))
 
   o.projects.each do |project|
     project.tags << "name=#{project.name}"
@@ -22,8 +22,8 @@ Belt.scope('react4j') do |o|
   # TODO: react4j.github.io has several custom deploy keys. Figure out a way to automate this?
   o.project('react4j.github.io', :description => 'React4j website', :tags => %w(pages homepage=https://react4j.github.io zim=no))
   o.project('react4j-todomvc', :description => 'React4j TodoMVC implementation', :tags => %w(travis homepage=https://react4j.github.io/todomvc))
-  o.project('react4j-widget', :description => 'React4j interoperability with GWT Widget API', :tags => %w(travis))
-  o.project('react4j-windowportal', :description => 'React4j portal that renders into a Window', :tags => %w(travis))
+  o.project('react4j-widget', :description => 'React4j interoperability with GWT Widget API', :tags => %w(travis homepage=https://react4j.github.io/widget))
+  o.project('react4j-windowportal', :description => 'React4j portal that renders into a Window', :tags => %w(travis homepage=https://react4j.github.io/windowportal))
 
   o.projects.each do |project|
     project.tags << "name=#{project.name}"
