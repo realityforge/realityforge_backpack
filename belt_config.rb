@@ -1,8 +1,8 @@
 require 'belt'
 
 Belt.scope('arez') do |o|
-  # TODO: Arez has a custom deploy key. Figure out a way to automate this?
   o.project('arez', :description => 'Fast, easy, reactive state', :tags => %w(codecov travis issues homepage=https://arez.github.io))
+  # TODO: arez.github.io has several custom deploy keys. Figure out a way to automate this?
   o.project('arez.github.io', :description => 'Arez website', :tags => %w(pages homepage=https://arez.github.io zim=no))
   o.project('arez-idlestatus', :description => 'Arez Browser component that tracks when the user is idle', :tags => %w(travis issues))
   o.project('arez-networkstatus', :description => 'Arez Browser component that tracks when the user is online', :tags => %w(travis issues))
@@ -20,8 +20,8 @@ Belt.scope('arez') do |o|
 end
 
 Belt.scope('react4j') do |o|
-  # TODO: React4j has a custom deploy key. Figure out a way to automate this?
   o.project('react4j', :description => 'An opinionated react java binding', :tags => %w(travis issues homepage=https://react4j.github.io))
+  # TODO: react4j.github.io has several custom deploy keys. Figure out a way to automate this?
   o.project('react4j.github.io', :description => 'React4j website', :tags => %w(pages homepage=https://react4j.github.io zim=no))
   o.project('react4j-todomvc', :description => 'React4j TodoMVC implementation', :tags => %w(travis pages))
   o.project('react4j-widget', :description => 'React4j interoperability with GWT Widget API', :tags => %w(travis))
