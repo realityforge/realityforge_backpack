@@ -14,7 +14,6 @@ Belt.scope('arez') do |o|
 
   o.projects.each do |project|
     project.tags << "homepage=http://arez.github.io/#{project.name}" if project.tags.include?('pages') && project.tag_value('homepage').nil?
-    project.tags << 'protect=master' if project.tags.include?('notify:stock')
     project.tags << "name=#{project.name}"
   end
 end
@@ -29,7 +28,6 @@ Belt.scope('react4j') do |o|
 
   o.projects.each do |project|
     project.tags << "homepage=http://react4j.github.io/#{project.name}" if project.tags.include?('pages') && project.tag_value('homepage').nil?
-    project.tags << 'protect=master' if project.tags.include?('notify:stock')
     project.tags << "name=#{project.name}"
   end
 end
