@@ -196,8 +196,8 @@ Belt.scope('realityforge') do |o|
   # Historic: No longer used by any of our builds
   o.project('antix', :description => 'A set of ant tasks that are used across a range of projects', :tags => %w(historic))
 
-  # Deprecated: Still used by iris but should be decomissioned
-  o.project('panmx', :description => 'A java library that builds JMX beans at runtime using annotations', :tags => %w(deprecated))
+  # Historic: Still used by iris but iris is being decomissioned
+  o.project('panmx', :description => 'A java library that builds JMX beans at runtime using annotations', :tags => %w(historic))
 
   # Historic: Only useful if you are still on EE6 and we no longer use this
   o.project('geolatte-geom-eclipselink', :description => 'Converter for mapping Geolatte geometry types to eclipselink JPA provider', :tags => %w(historic))
