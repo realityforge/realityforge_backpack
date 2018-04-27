@@ -81,7 +81,6 @@ Belt.scope('realityforge') do |o|
   o.project('gwt-ethereum-qr-code', :description => 'GWT Ethereum QR Code Generation', :tags => %w(travis issues))
   o.project('gwt-lognice', :description => 'A super simple gwt library that makes the log messages nicer.', :tags => %w(travis))
   o.project('gwt-mmvp', :description => 'A micro MVP library that enhances the Activities and Places library.', :tags => %w(travis))
-  o.project('gwt-gin-extensions', :description => 'Simple utilities when using gin injection framework.', :tags => %w(travis))
   o.project('gwt-symbolmap', :description => 'GWT SymbolMap Assertions Library.', :tags => %w(travis codecov))
   o.project('gwt-webpoller', :description => 'A gwt library to simplify periodic polling and long-poll based transport layers', :tags => %w(travis issues))
   o.project('gwt-webpoller-example', :description => 'A simple application demonstrating the use of the gwt-webpoller library', :tags => %w(travis issues))
@@ -208,6 +207,9 @@ Belt.scope('realityforge') do |o|
 
   # Historic: No longer relevant or up to date
   o.project('replicant-example', :description => 'A simple application demonstrating the use of the replicant library', :tags => %w(historic))
+
+  # Historic: The plan is to move away from Gin completely
+  o.project('gwt-gin-extensions', :description => 'Simple utilities when using gin injection framework.', :tags => %w(historic))
 
   # Historic: Not used in projects anymore
   o.project('gwt-ga', :description => 'A simple GWT library for interacting with Google Analytics', :tags => %w(historic))
