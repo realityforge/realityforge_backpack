@@ -130,6 +130,7 @@ Belt.scope('realityforge') do |o|
   o.project('realityforge.github.io', :description => 'My personal website and blog', :tags => %w(homepage=https://realityforge.github.io zapwhite=no historic))
 
   # Projects created during learning of new technology
+  o.project('wasm-contract-experiments', :description => 'Experiments using eWasm and Parity')
   o.project('course-rust-lang', :description => 'Coursework for "The Rust Programming Language" Udemy course')
   o.project('course-get-started-using-webassembly-wasm', :description => 'Coursework for "Get Started Using WebAssembly" course', :tags => %w(historic))
   o.project('course-getting-started-with-ethereum-solidity-development', :description => 'Coursework for "Getting Started with Ethereum Solidity Development" course', :tags => %w(historic))
