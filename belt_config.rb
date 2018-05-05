@@ -11,6 +11,7 @@ Belt.scope('arez') do |o|
   o.project('arez-ticker', :description => 'Arez component that ticks at a specified interval', :tags => %w(travis issues homepage=https://arez.github.io/ticker))
   o.project('arez-timeddisposer', :description => 'Arez utility that will dispose specified node after a delay', :tags => %w(travis issues homepage=https://arez.github.io/timeddisposer))
   o.project('arez-spytools', :description => 'Arez utilities that enhance the spy capabilities', :tags => %w(travis issues homepage=https://arez.github.io/spytools))
+  o.project('arez-devtools', :description => 'Browser-based Arez DevTools', :tags => %w(travis issues))
 
   o.projects.each do |project|
     project.tags << "name=#{project.name}"
