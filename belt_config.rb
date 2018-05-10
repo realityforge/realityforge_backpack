@@ -1,5 +1,9 @@
 require 'belt'
 
+Belt.scope('buidl') do |o|
+  o.project('dfinity', :description => 'Musings and thoughts on Dfinity', :tags => %w(issues))
+end
+
 Belt.scope('arez') do |o|
   o.project('arez', :description => 'Fast, easy, reactive state', :tags => %w(codecov travis issues homepage=https://arez.github.io))
   # TODO: arez.github.io has several custom deploy keys. Figure out a way to automate this?
