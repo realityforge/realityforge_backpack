@@ -6,7 +6,7 @@ Belt.scope('arez') do |o|
   o.project('arez.github.io', :description => 'Arez website', :tags => %w(pages homepage=https://arez.github.io zim=no))
   o.project('arez-idlestatus', :description => 'Arez Browser component that tracks when the user is idle', :tags => %w(travis issues homepage=https://arez.github.io/idlestatus))
   o.project('arez-networkstatus', :description => 'Arez Browser component that tracks when the user is online', :tags => %w(travis issues homepage=https://arez.github.io/networkstatus))
-  o.project('arez-browserlocation', :description => 'Arez component for the browser''s location hash', :tags => %w(travis issues homepage=https://arez.github.io/browserlocation))
+  o.project('arez-browserlocation', :description => 'Arez component for the browser' 's location hash', :tags => %w(travis issues homepage=https://arez.github.io/browserlocation))
   o.project('arez-promise', :description => 'Arez component that wraps a Promise and makes it observable', :tags => %w(travis issues homepage=https://arez.github.io/promise))
   o.project('arez-ticker', :description => 'Arez component that ticks at a specified interval', :tags => %w(travis issues homepage=https://arez.github.io/ticker))
   o.project('arez-timeddisposer', :description => 'Arez utility that will dispose specified node after a delay', :tags => %w(travis issues homepage=https://arez.github.io/timeddisposer))
