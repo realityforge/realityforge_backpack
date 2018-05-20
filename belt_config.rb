@@ -1,5 +1,7 @@
 require 'belt'
 
+# TODO: Figure out a mechanism via which any archived project should be unwatched by host account.
+
 Belt.scope('arez') do |o|
   o.project('arez', :description => 'Fast, easy, reactive state', :tags => %w(codecov travis issues homepage=https://arez.github.io))
   # TODO: arez.github.io has several custom deploy keys. Figure out a way to automate this?
