@@ -112,4 +112,17 @@ command(:update_contributing) do |app|
   end
 end
 
+command(:add_issue_template) do |app|
+  if File.exist?('CONTRIBUTING.md')
+    FileUtils.mkdir_p '.github'
+    FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/ISSUE_TEMPLATE.md", '.github/ISSUE_TEMPLATE.md'
+    begin
+      mysystem('git add .github/ISSUE_TEMPLATE.md')
+      mysystem("git commit -m \"Add issue template.\"")
+    rescue Exception
+      # ignored
+    end
+  end
+end
+
 Zim::Belt.load_suites_from_belt
