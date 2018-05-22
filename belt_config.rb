@@ -135,7 +135,7 @@ Belt.scope('realityforge') do |o|
   o.project('realityforge.github.io', :description => 'My personal website and blog', :tags => %w(homepage=https://realityforge.github.io zapwhite=no historic))
 
   # Projects created during learning of new technology
-  o.project('wasm-contract-experiments', :description => 'Experiments using eWasm and Parity')
+  o.project('wasm-contract-experiments', :description => 'Experiments using eWasm and Parity', :tags => %w(historic))
   o.project('course-rust-lang', :description => 'Coursework for "The Rust Programming Language" Udemy course')
   o.project('course-get-started-using-webassembly-wasm', :description => 'Coursework for "Get Started Using WebAssembly" course', :tags => %w(historic))
   o.project('course-getting-started-with-ethereum-solidity-development', :description => 'Coursework for "Getting Started with Ethereum Solidity Development" course', :tags => %w(historic))
@@ -167,6 +167,7 @@ Belt.scope('realityforge') do |o|
   o.project('gwt', :description => 'GWT Open Source Project', :tags => %w(external homepage=http://www.gwtproject.org))
 
   # External projects that have been forked to submit pull requests but we do not expect to issue pull requests in future
+  o.project('pwasm-tutorial', :description => 'A step-by-step tutorial on how to write contracts in Wasm for Kovan', :tags => %w(external historic))
   o.project('gwt-react', :description => 'GWT Java bindings for React', :tags => %w(external historic))
   o.project('auto', :description => 'A collection of source code generators for Java.', :tags => %w(external historic))
   o.project('mobx', :description => 'Simple, scalable state management.', :tags => %w(external historic homepage=http://mobx.js.org))
@@ -234,8 +235,7 @@ Belt.scope('realityforge') do |o|
   o.project('chef-jenkins', :description => 'Heavywater modifications to the Jenkins cookbook for Chef', :tags => %w(historic))
   o.project('chef-logstash', :description => 'A chef cookbook that installs/configures logstash', :tags => %w(historic))
   o.project('chef-postgis', :description => 'A cookbook for installing and managing Postgis', :tags => %w(historic))
-  # TODO: This should be converted back to historic at some point in future
-  o.project('chef-psql', :description => 'A Chef cookbook that provides a set of LWRPs for interacting with postgres using the CLI.')
+  o.project('chef-psql', :description => 'A Chef cookbook that provides a set of LWRPs for interacting with postgres using the CLI.', :tags => %w(historic))
   o.project('chef-slack_handler', :description => 'Chef handler for SlackHQ', :tags => %w(historic))
   o.project('chef-smbfs', :description => 'A recipe that installs smbfs on linux hosts. It also includes a recipe for adding managed mounts.', :tags => %w(historic))
   o.project('chef-spydle', :description => 'Cookbook for installing Spydle Monitoring Server on system', :tags => %w(historic))
