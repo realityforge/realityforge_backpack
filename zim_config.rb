@@ -100,4 +100,16 @@ command(:fix_tags) do |app|
   end
 end
 
+command(:update_contributing) do |app|
+  if File.exist?('CONTRIBUTING.md')
+    FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/CONTRIBUTING.md", 'CONTRIBUTING.md'
+    begin
+      mysystem('git add CONTRIBUTING.md')
+      mysystem("git commit -m \"Improve the notes on contributing.\"")
+    rescue Exception
+      # ignored
+    end
+  end
+end
+
 Zim::Belt.load_suites_from_belt
