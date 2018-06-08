@@ -122,7 +122,7 @@ Belt.scope('realityforge') do |o|
   o.project('chef-dbt', :description => 'Simple cookbook that aids in database migrations through dbt', :tags => %w(travis))
   o.project('chef-glassfish', :description => 'A cookbook for managing GlassFish', :tags => %w(travis))
   o.project('chef-hosts', :description => 'Chef cookbook to manage /etc/hosts file', :tags => %w(travis))
-  o.project('chef-kibana', :description => 'A chef cookbook that installs/configures kibana (the logstash UI)', :tags => %w(travis))
+  o.project('chef-kibana', :description => 'A chef cookbook that installs/configures kibana (the logstash UI)', :tags => %w(issues travis))
   o.project('chef-sqlshell', :description => 'Simple cookbook to aid in automating database contents', :tags => %w(travis))
   o.project('chef-winrm', :description => 'Simple winrm cookbook for chef', :tags => %w(travis))
   o.project('chef-xymon', :description => 'A cookbook that installs the xymon monitoring software.', :tags => %w(travis))
