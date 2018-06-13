@@ -174,7 +174,7 @@ module Backpack #nodoc
         remote_branches.each do |remote_branch|
           branch_name = remote_branch['name']
           branch = repository.branch_by_name?(branch_name) ? repository.branch_by_name(branch_name) : nil
-          protection = client.branch_protection(repository.qualified_name, branch_name, :accept => Octokit::Preview::PREVIEW_TYPES[:branch_protection])
+          protection = client.branch_protection(repository.qualified_name, branch_name, :accept => 'application/vnd.github.luke-cage-preview+json')
           if branch && branch.protect?
             protect = false
             if branch.require_status_check?
