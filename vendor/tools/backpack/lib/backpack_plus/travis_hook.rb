@@ -59,7 +59,7 @@ module BackpackPlus
           begin
             Travis::Repository.find(repository.qualified_name)
           rescue Travis::Client::NotFound
-            Travis.user.sync
+            Travis.user.sync unless Travis.user.is_syncing
             while Travis.user.is_syncing
               sleep 2
               Travis.user.reload
