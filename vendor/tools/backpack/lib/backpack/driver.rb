@@ -182,6 +182,9 @@ module Backpack #nodoc
               nil
             rescue Octokit::NotFound
               nil
+            rescue Error => e
+              puts "Error #{e}"
+              nil
             end
           if branch && branch.protect?
             protect = false
