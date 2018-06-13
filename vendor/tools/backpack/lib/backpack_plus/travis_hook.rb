@@ -41,9 +41,9 @@ module BackpackPlus
 
           # drop_token will make the token a temporary one
           github = Travis::Tools::Github.new(drop_token: true) do |g|
-            g.ask_login = -> { login }
-            g.ask_password = -> { password }
-            g.ask_otp = -> { nil }
+            g.ask_login = -> {login}
+            g.ask_password = -> {password}
+            g.ask_otp = -> {nil}
           end
 
           github.with_token do |token|
