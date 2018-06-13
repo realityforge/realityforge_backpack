@@ -64,7 +64,11 @@ module BackpackPlus
               sleep 2
               Travis.user.reload
             end
-            Travis::Repository.find(repository.qualified_name)
+            begin
+              Travis::Repository.find(repository.qualified_name)
+            rescue Travis::Client::NotFound
+              raise "Failed to locate repository #{repository.qualified_name} after syncing. This probably means you need to authorize access of the TravisCI application to the organization"
+            end
           end
         should_be_enabled = repository.tags.include?('travis')
         active = !!r.attributes['active']
