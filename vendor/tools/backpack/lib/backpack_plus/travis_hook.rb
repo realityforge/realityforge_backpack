@@ -15,8 +15,12 @@
 module BackpackPlus
   class TravisHook < Backpack::BaseHook
     class << self
-      def enable
-        configure_travis_token
+      def enable(options = {})
+        if options[:access_token]
+          Travis.access_token = options[:access_token]
+        else
+          configure_travis_token
+        end
         Backpack.context.add_hook(TravisHook.new)
       end
 
