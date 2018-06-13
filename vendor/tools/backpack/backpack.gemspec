@@ -27,7 +27,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'reality-core', '>= 1.8.0'
   s.add_dependency 'reality-model', '>= 1.2.0'
   s.add_dependency 'reality-belt', '>= 1.0.0'
-  s.add_dependency(%q<octokit>, ['~> 4.0'])
+  s.add_dependency(%q<octokit>, ['>= 4.9'])
   s.add_dependency(%q<netrc>, ['~> 0.11'])
   s.add_dependency(%q<travis>, ['= 1.8.8'])
 end
