@@ -180,6 +180,8 @@ module Backpack #nodoc
               protection = client.branch_protection(repository.qualified_name, branch_name, :accept => 'application/vnd.github.luke-cage-preview+json')
             rescue Octokit::BranchNotProtected
               nil
+            rescue Octokit::NotFound
+              nil
             end
           if branch && branch.protect?
             protect = false
