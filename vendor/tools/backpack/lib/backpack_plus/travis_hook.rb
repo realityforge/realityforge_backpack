@@ -20,6 +20,8 @@ module BackpackPlus
         Backpack.context.add_hook(TravisHook.new)
       end
 
+      # Try to authenticate against travis using github credentials
+      # and retrieve the TravisCI Token from travis using these mechanisms
       def configure_travis_token
         info = Netrc.read Octokit::Default.netrc_file
         endpoint_url = 'github.com'
