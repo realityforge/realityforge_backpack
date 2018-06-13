@@ -102,7 +102,7 @@ module Backpack #nodoc
 
             repository_full_name = "#{organization.name}/#{repository_name}"
             remote_teams =
-              context.client.repository_teams(repository_full_name, :accept => 'application/vnd.github.v3.repository+json')
+              context.client.repository_teams(repository_full_name, :accept => 'application/vnd.github.hellcat-preview+json')
             remote_teams.each do |remote_team|
               name = remote_team['name']
               if repository && repository.team_by_name?(name)
