@@ -210,7 +210,7 @@ module Backpack #nodoc
 
             if protect
               puts "Updating protection on branch #{branch.name} in repository #{repository.qualified_name}"
-              config = { :accept => Octokit::Preview::PREVIEW_TYPES[:branch_protection] }
+              config = { :accept => 'application/vnd.github.luke-cage-preview+json' }
               config[:required_status_checks] = { :strict => branch.strict_status_checks?, :contexts => branch.status_check_contexts } if branch.require_status_check?
               config[:required_pull_request_reviews] = {} if branch.require_reviews?
               config[:enforce_admins] = branch.enforce_admins?
