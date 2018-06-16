@@ -4,8 +4,6 @@ Belt.scope('buidl') do |o|
   o.project('dfinity', :description => 'Musings and thoughts on Dfinity', :tags => %w(issues))
 end
 
-if false
-
 Belt.scope('arez') do |o|
   o.project('arez', :description => 'Fast, easy, reactive state', :tags => %w(codecov travis issues homepage=https://arez.github.io))
   # TODO: arez.github.io has several custom deploy keys. Figure out a way to automate this?
@@ -326,5 +324,4 @@ Belt.scope('realityforge') do |o|
     project.tags << 'travis' if project.tags.include?('docker-hub') && !project.tags.include?('historic')
     project.tags << "name=#{project.name}"
   end
-end
 end
