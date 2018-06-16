@@ -161,6 +161,7 @@ Belt.scope('realityforge') do |o|
   o.project('ant-shade-task', :description => 'Apache Maven Shade Plugin adapter for Apache Ant', :tags => %w(external))
 
   # External projects that have been forked to submit pull requests
+  o.project('connected', :tags => %w(external))
   o.project('graphql-java', :description => 'GraphQL Java implementation', :tags => %w(external))
   o.project('schmooze', :description => 'Schmooze lets Ruby and Node.js work together intimately.', :tags => %w(external))
   o.project('docker-keycloak', :description => 'Docker image for Keycloak project', :tags => %w(external))
