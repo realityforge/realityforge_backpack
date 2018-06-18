@@ -33,7 +33,7 @@ command(:upgrade_braid) do |app|
 end
 
 command(:patch_braincheck_version) do |app|
-  patch_versions(app, %w(org.realityforge.braincheck:braincheck:jar), '1.6.0')
+  patch_versions(app, %w(org.realityforge.braincheck:braincheck:jar), '1.9.0')
 end
 
 command(:patch_gwt_version) do |app|
