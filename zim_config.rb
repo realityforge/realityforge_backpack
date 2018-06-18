@@ -36,6 +36,19 @@ command(:patch_idea_codestyle_version) do |app|
   patch_versions(app, %w(au.com.stocksoftware.idea.codestyle:idea-codestyle:xml), '1.13')
 end
 
+command(:patch_javax_annotations_version) do |app|
+  patch_dependency_coordinates(app,
+                               { 'com.google.code.findbugs:jsr305:jar' => 'org.realityforge.javax.annotation:javax.annotation:jar' },
+                               '1.0.0')
+
+  if File.exist?('buildfile') && File.exist?('build.yaml')
+    patched =
+      patch_file('build.yaml') {|content| content.gsub('javax_jsr305', 'javax_annotation')} ||
+        patch_file('buildfile') {|content| content.gsub('javax_jsr305', 'javax_annotation')}
+    mysystem("git commit -m \"Update the dependency key from javax_jsr305 to javax_annotation to more accurately reflect dependency.\"") if patched
+  end
+end
+
 command(:patch_braincheck_version) do |app|
   patch_versions(app, %w(org.realityforge.braincheck:braincheck:jar), '1.9.0')
 end
