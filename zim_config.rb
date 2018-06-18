@@ -45,7 +45,7 @@ command(:patch_gwt_version) do |app|
 end
 
 command(:patch_jsinterop_version) do |app|
-  patch_versions(app, %w(com.google.jsinterop:jsinterop-annotations:jar com.google.jsinterop:jsinterop-annotations:jar:sources), '1.0.2')
+  patch_versions(app, %w(com.google.jsinterop:jsinterop-annotations:jar), '1.0.2')
 end
 
 command(:patch_jsinterop_base_version) do |app|
