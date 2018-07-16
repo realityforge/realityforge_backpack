@@ -61,6 +61,10 @@ command(:patch_jsinterop_version) do |app|
   patch_versions(app, %w(com.google.jsinterop:jsinterop-annotations:jar), '1.0.2')
 end
 
+command(:patch_guiceyloops_version) do |app|
+  patch_versions(app, %w(org.realityforge.guiceyloops:guiceyloops:jar), '0.95')
+end
+
 command(:patch_jsinterop_base_version) do |app|
   patch_versions(app, %w(com.google.jsinterop:base:jar com.google.jsinterop:base:jar:sources), '1.0.0-RC1')
 end
