@@ -62,7 +62,7 @@ command(:patch_jsinterop_version) do |app|
 end
 
 command(:patch_guiceyloops_version) do |app|
-  patch_versions(app, %w(org.realityforge.guiceyloops:guiceyloops:jar), '0.95')
+  patch_versions(app, %w(org.realityforge.guiceyloops:guiceyloops:jar), '0.96')
 end
 
 command(:patch_jsinterop_base_version) do |app|
