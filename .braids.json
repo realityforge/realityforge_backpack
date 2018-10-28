@@ -9,7 +9,7 @@
     "vendor/tools/kinjen": {
       "url": "https://github.com/realityforge/kinjen.git",
       "branch": "master",
-      "revision": "eef45bca813441616c66d3b8584f0b0ca2683111"
+      "revision": "ad148ce41ff3fc821c3697372cc16d901854fb89"
     },
     "vendor/tools/zim": {
       "url": "https://github.com/realityforge/zim.git",
