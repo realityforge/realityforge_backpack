@@ -49,6 +49,14 @@ command(:patch_javax_annotations_version) do |app|
   end
 end
 
+command(:change_travis_ci_badges_to_svg) do |app|
+  if File.exist?('README.md')
+    patched =
+      patch_file('README.md') {|content| content.gsub(/https:\/\/secure\.travis-ci\.org\/(.+)\.png\?branch=/, "https://secure.travis-ci.org/\\1.svg?branch=")}
+    mysystem("git commit -m \"Change the TravisCI build badge to svg for improved readability ✨.\"") if patched
+  end
+end
+
 command(:patch_braincheck_version) do |app|
   patch_versions(app, %w(org.realityforge.braincheck:braincheck:jar), '1.9.0')
 end
