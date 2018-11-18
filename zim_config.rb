@@ -57,6 +57,13 @@ command(:change_travis_ci_badges_to_svg) do |app|
   end
 end
 
+command(:use_https_to_fetch_metadata) do |app|
+  if File.exist?('Gemfile')
+    patched =
+      patch_file('Gemfile') {|content| content.gsub(/http:\/\/rubygems.org/, "https://rubygems.org")}
+    mysystem("git commit -m \"Update the Gemfile to use HTTPS to fetch its metadata\"") if patched
+  end
+end
 
 command(:remove_deprecated_gem_config) do |app|
   puts Dir['*.gemspec']
