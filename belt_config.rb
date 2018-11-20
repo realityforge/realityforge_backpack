@@ -224,6 +224,9 @@ Belt.scope('realityforge') do |o|
   # Historic: The plan is to move away from Gin completely
   o.project('gwt-gin-extensions', :description => 'Simple utilities when using gin injection framework.', :tags => %w(historic))
 
+  # Historic: Only used in historic projects. Should see no changes and will migrate to something else using jsinterop if necessary
+  o.project('gwt-datatypes', :description => 'A simple library that consolidates the common data types and associated infrastructure used across a range of GWT projects.', :tags => %w(historic))
+
   # Historic: Not used in projects anymore
   o.project('gwt-ga', :description => 'A simple GWT library for interacting with Google Analytics', :tags => %w(historic))
 
