@@ -132,9 +132,7 @@ Belt.scope('realityforge') do |o|
   o.project('chef-sqlshell', :description => 'Simple cookbook to aid in automating database contents', :tags => %w(travis))
   o.project('chef-winrm', :description => 'Simple winrm cookbook for chef', :tags => %w(travis))
   o.project('chef-xymon', :description => 'A cookbook that installs the xymon monitoring software.', :tags => %w(travis))
-  o.project('em-winrm', :description => 'EventMachine based, asynchronous parallel client for Windows Remote Management (WinRM).')
   o.project('knife-cookbook-doc', :description => 'Knife plugin to document cookbooks', :tags => %w(travis pages issues))
-  o.project('knife-windows', :description => "Plugin for Chef's knife tool for working with Windows nodes", :tags => %w(homepage=http://tickets.opscode.com/browse/KNIFE_WINDOWS))
   o.project('ohai-system_packages')
 
   # Old blog that was long ago abandoned...
@@ -237,6 +235,8 @@ Belt.scope('realityforge') do |o|
   o.project('simple-session-filter', :description => 'A simple servlet filter for implementing custom session management', :tags => %w(historic))
 
   # Historic: Old chef related code
+  o.project('em-winrm', :description => 'EventMachine based, asynchronous parallel client for Windows Remote Management (WinRM).', :tags => %w(historic))
+  o.project('knife-windows', :description => "Plugin for Chef's knife tool for working with Windows nodes", :tags => %w(homepage=http://tickets.opscode.com/browse/KNIFE_WINDOWS historic))
   o.project('knife-spoon', :description => 'A knife extension supporting cookbook workflow', :tags => %w(historic))
   o.project('chef-blank', :description => 'A blank chef repository', :tags => %w(historic))
   o.project('chef-jenkins', :description => 'Heavywater modifications to the Jenkins cookbook for Chef', :tags => %w(historic))
