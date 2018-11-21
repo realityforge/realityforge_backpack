@@ -171,6 +171,7 @@ Belt.scope('realityforge') do |o|
 
   # External projects that have been forked to submit pull requests but we do not expect to issue pull requests in future
   o.project('pwasm-tutorial', :description => 'A step-by-step tutorial on how to write contracts in Wasm for Kovan', :tags => %w(external historic))
+  o.project('domino-ui', :description => 'Domino-UI', :tags => %w(external historic))
   o.project('gwt-react', :description => 'GWT Java bindings for React', :tags => %w(external historic))
   o.project('auto', :description => 'A collection of source code generators for Java.', :tags => %w(external historic))
   o.project('mobx', :description => 'Simple, scalable state management.', :tags => %w(external historic homepage=http://mobx.js.org))
