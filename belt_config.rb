@@ -88,7 +88,6 @@ Belt.scope('realityforge') do |o|
   o.project('gwt-eventsource-example', :description => 'A simple application demonstrating the use of the gwt-eventsource library', :tags => %w(travis issues))
   o.project('gwt-keycloak', :description => 'A simple library to provide keycloak support to GWT', :tags => %w(travis issues))
   o.project('gwt-qr-code', :description => 'GWT QR Code Generation', :tags => %w(travis issues))
-  o.project('gwt-ethereum-qr-code', :description => 'GWT Ethereum QR Code Generation', :tags => %w(travis issues))
   o.project('gwt-lognice', :description => 'A super simple gwt library that makes the log messages nicer.', :tags => %w(travis))
   o.project('gwt-mmvp', :description => 'A micro MVP library that enhances the Activities and Places library.', :tags => %w(travis))
   o.project('gwt-symbolmap', :description => 'GWT SymbolMap Assertions Library.', :tags => %w(travis codecov))
@@ -283,6 +282,9 @@ Belt.scope('realityforge') do |o|
   o.project('star-punk', :description => 'An experiment to build a little space game', :tags => %w(historic))
   o.project('tyrian', :description => 'A re-imagining of the tyrian tutorial game', :tags => %w(historic))
   o.project('gwt-space-shooter-game', :description => 'space shooter game developed with GWT and gwt-voices sound library', :tags => %w(historic))
+
+  # Experiment never completed for Ethereum QR codes
+  o.project('gwt-ethereum-qr-code', :description => 'GWT Ethereum QR Code Generation', :tags => %w(historic))
 
   # FGIS Experiment
   o.project('fgis-java', :description => 'Fire Ground Information System java experiment', :tags => %w(historic))
