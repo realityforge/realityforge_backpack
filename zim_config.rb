@@ -65,6 +65,17 @@ command(:use_https_to_fetch_metadata) do |app|
   end
 end
 
+command(:remove_sudo_from_travis) do |app|
+  if File.exist?('.travis.yml')
+    patched = patch_file('.travis.yml') do |content|
+      content.
+        gsub(/\n *sudo: false\n/m, "\n").
+        gsub(/\n *sudo: true\n/m, "\n")
+    end
+    mysystem("git commit -m \"Remove unrecognized sudo configuration section\"") if patched
+  end
+end
+
 command(:remove_deprecated_gem_config) do |app|
   puts Dir['*.gemspec']
   Dir['*.gemspec'].each do |filename|
