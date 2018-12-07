@@ -80,7 +80,7 @@ command(:remove_deprecated_gem_config) do |app|
   puts Dir['*.gemspec']
   Dir['*.gemspec'].each do |filename|
     patched =
-      patch_file(filename) {|content| content.gsub(/\n *spec\.has_rdoc *=[^\n]*\n/m, "\n").gsub(/\n *s\.has_rdoc *=[^\n]*\n/m, "\n")}
+      patch_file(filename) {|content| content.gsub(/\n *spec\.default_executable *=[^\n]*\n/m, "\n").gsub(/\n *s\.default_executable *=[^\n]*\n/m, "\n")}
     mysystem("git commit -m \"Remove deprecated gem method\"") if patched
   end
 end
