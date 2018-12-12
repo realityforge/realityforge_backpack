@@ -8,6 +8,7 @@ Belt.scope('arez') do |o|
   o.project('arez', :description => 'Fast, easy, reactive state', :tags => %w(codecov travis issues homepage=https://arez.github.io))
   # TODO: arez.github.io has several custom deploy keys. Figure out a way to automate this?
   o.project('arez.github.io', :description => 'Arez website', :tags => %w(pages homepage=https://arez.github.io zim=no))
+  o.project('arez-dom', :description => 'Arez browser components that make DOM properties observable', :tags => %w(travis issues homepage=https://arez.github.io/dom))
   o.project('arez-idlestatus', :description => 'Arez Browser component that tracks when the user is idle', :tags => %w(travis issues homepage=https://arez.github.io/idlestatus))
   o.project('arez-mediaquery', :description => 'Arez browser component that exposes when a CSS media query is matched', :tags => %w(travis issues homepage=https://arez.github.io/mediaquery))
   o.project('arez-networkstatus', :description => 'Arez Browser component that tracks when the user is online', :tags => %w(travis issues homepage=https://arez.github.io/networkstatus))
