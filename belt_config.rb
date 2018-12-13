@@ -57,7 +57,6 @@ Belt.scope('realityforge') do |o|
   o.project('gir', :description => 'Library to perform mechanical operations across codebases', :tags => %w(codecov travis))
   o.project('braincheck', :description => 'BrainCheck: A very simply invariant verification library', :tags => %w(travis pages))
   o.project('mcrt', :description => 'Maven Central Release Tool: A ruby tool to close, promote and drop staging repositories', :tags => %w(travis))
-  o.project('anodoc', :description => 'Annotations for documenting java code', :tags => %w(travis pages))
   o.project('javax.annotation', :description => 'A minimal, J2CL compatible javax.annotation library', :tags => %w(travis))
   o.project('org.jetbrains.annotations', :description => 'A minimal, J2CL compatible org.jetbrains.annotations library', :tags => %w(travis))
 
@@ -225,6 +224,9 @@ Belt.scope('realityforge') do |o|
 
   # Historic: The plan is to move away from Gin completely
   o.project('gwt-gin-extensions', :description => 'Simple utilities when using gin injection framework.', :tags => %w(historic))
+
+  # Historic: No longer used
+  o.project('anodoc', :description => 'Annotations for documenting java code', :tags => %w(historic))
 
   # Historic: Only used in historic projects. Should see no changes and will migrate to something else using jsinterop if necessary
   o.project('gwt-datatypes', :description => 'A simple library that consolidates the common data types and associated infrastructure used across a range of GWT projects.', :tags => %w(historic))
