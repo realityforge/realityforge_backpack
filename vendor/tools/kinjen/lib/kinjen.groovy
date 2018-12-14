@@ -84,12 +84,12 @@ static commit_stage( script, project_key, Map options = [:] )
                                    reportFiles          : 'checkstyle.html',
                                    reportName           : 'Checkstyle issues'] )
     }
-    def include_findbugs = options.findbugs == null ? false : options.findbugs
-    if ( include_findbugs )
+    def include_spotbugs = options.spotbugs == null ? false : options.spotbugs
+    if ( include_spotbugs )
     {
       analysis = true
       script.step( [$class             : 'FindBugsPublisher',
-                    pattern            : "reports/${project_key}/findbugs/findbugs.xml",
+                    pattern            : "reports/${project_key}/spotbugs/spotbugs.xml",
                     unstableTotalAll   : '1',
                     failedTotalAll     : '1',
                     isRankActivated    : true,
@@ -101,9 +101,9 @@ static commit_stage( script, project_key, Map options = [:] )
       script.publishHTML( target: [allowMissing         : false,
                                    alwaysLinkToLastBuild: false,
                                    keepAll              : true,
-                                   reportDir            : "reports/${project_key}/findbugs",
-                                   reportFiles          : 'findbugs.html',
-                                   reportName           : 'Findbugs issues'] )
+                                   reportDir            : "reports/${project_key}/spotbugs",
+                                   reportFiles          : 'spotbugs.html',
+                                   reportName           : 'Spotbugs issues'] )
     }
     def include_pmd = options.pmd == null ? false : options.pmd
     if ( include_pmd )

@@ -3,7 +3,7 @@ timestamps {
   node {
     checkout scm
     kinjen = load 'vendor/tools/kinjen/lib/kinjen.groovy'
-    kinjen.run_in_container(this, 'stocksoftware/build:java-8.92.14_ruby-2.3.1') {
+    kinjen.run_in_container(this, 'stocksoftware/build') {
       kinjen.config_git(this)
       kinjen.guard_build(this, [notify_github: false]) {
         kinjen.prepare_stage(this, [buildr: false])

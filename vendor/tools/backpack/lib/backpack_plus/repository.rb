@@ -33,7 +33,7 @@ class Backpack::Repository
          :type => 'web',
          :config_key => :url,
          :events => %w(issue_comment pull_request),
-         :config => {:insecure_ssl => '1', :url => hook_endpoint_url, :content_type=> 'form'})
+         :config => {:insecure_ssl => '1', :url => hook_endpoint_url, :content_type => 'form'})
 
   end
 
@@ -43,9 +43,11 @@ class Backpack::Repository
 
   def travis_hook(user, token)
     hook('travis',
+         :type => 'web',
+         :config_key => :url,
          :events => %w(issue_comment member public pull_request push),
-         :password_config_keys => %w(token),
-         :config => {:domain => 'notify.travis-ci.org', :token => token, :user => user})
+         :password_config_keys => %w(secret),
+         :config => { :url => 'https://notify.travis-ci.org/', :secret => token, :insecure_ssl => '0', :content_type => 'form' })
   end
 
   def codecov_hook(token)

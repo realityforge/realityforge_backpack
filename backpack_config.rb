@@ -1,4 +1,4 @@
-BackpackPlus::TravisHook.enable
+BackpackPlus::TravisHook.enable(:access_token => ENV['TRAVIS_ACCESS_TOKEN'])
 
 Backpack::Belt.load_organizations_from_belt
 

@@ -4,17 +4,17 @@
     "vendor/tools/backpack": {
       "url": "https://github.com/realityforge/backpack.git",
       "branch": "master",
-      "revision": "76b501e6b8d4f73cdc4dcfff52c75f8c3c119e65"
+      "revision": "1711efa1e89440e53eda9e3b77d3e879bdd0deca"
     },
     "vendor/tools/kinjen": {
       "url": "https://github.com/realityforge/kinjen.git",
       "branch": "master",
-      "revision": "e1d713b4726676ca20bd4d8c17fca3195066f173"
+      "revision": "ad148ce41ff3fc821c3697372cc16d901854fb89"
     },
     "vendor/tools/zim": {
       "url": "https://github.com/realityforge/zim.git",
       "branch": "master",
-      "revision": "675a111941568897294cd2a83f2a47e2b7f6a779"
+      "revision": "44a5a183d0562ac3ce95b91c757c978c0b5282e6"
     }
   }
 }

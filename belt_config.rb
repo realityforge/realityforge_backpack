@@ -2,17 +2,24 @@ require 'belt'
 
 # TODO: Figure out a mechanism via which any archived project should be unwatched by host account.
 
+Belt.scope('buidl') do |o|
+  o.project('dfinity', :description => 'Musings and thoughts on Dfinity', :tags => %w(issues))
+end
+
 Belt.scope('arez') do |o|
   o.project('arez', :description => 'Fast, easy, reactive state', :tags => %w(codecov travis issues homepage=https://arez.github.io))
   # TODO: arez.github.io has several custom deploy keys. Figure out a way to automate this?
   o.project('arez.github.io', :description => 'Arez website', :tags => %w(pages homepage=https://arez.github.io zim=no))
+  o.project('arez-dom', :description => 'Arez browser components that make DOM properties observable', :tags => %w(travis issues homepage=https://arez.github.io/dom))
   o.project('arez-idlestatus', :description => 'Arez Browser component that tracks when the user is idle', :tags => %w(travis issues homepage=https://arez.github.io/idlestatus))
+  o.project('arez-mediaquery', :description => 'Arez browser component that exposes when a CSS media query is matched', :tags => %w(travis issues homepage=https://arez.github.io/mediaquery))
   o.project('arez-networkstatus', :description => 'Arez Browser component that tracks when the user is online', :tags => %w(travis issues homepage=https://arez.github.io/networkstatus))
-  o.project('arez-browserlocation', :description => 'Arez component for the browser''s location hash', :tags => %w(travis issues homepage=https://arez.github.io/browserlocation))
+  o.project('arez-browserlocation', :description => 'Arez component for the browser' 's location hash', :tags => %w(travis issues homepage=https://arez.github.io/browserlocation))
   o.project('arez-promise', :description => 'Arez component that wraps a Promise and makes it observable', :tags => %w(travis issues homepage=https://arez.github.io/promise))
   o.project('arez-ticker', :description => 'Arez component that ticks at a specified interval', :tags => %w(travis issues homepage=https://arez.github.io/ticker))
   o.project('arez-timeddisposer', :description => 'Arez utility that will dispose specified node after a delay', :tags => %w(travis issues homepage=https://arez.github.io/timeddisposer))
   o.project('arez-spytools', :description => 'Arez utilities that enhance the spy capabilities', :tags => %w(travis issues homepage=https://arez.github.io/spytools))
+  o.project('arez-when', :description => 'Arez component that waits until a condition is true and then runs an effect action', :tags => %w(travis issues homepage=https://arez.github.io/when))
   o.project('arez-devtools', :description => 'Browser-based Arez DevTools', :tags => %w(travis issues))
 
   o.projects.each do |project|
@@ -37,6 +44,8 @@ Belt.scope('realityforge') do |o|
   o.project('realityforge_backpack', :description => 'Project for managing realityforge repositories.', :tags => %w(zapwhite=no))
   o.project('bash.d', :description => 'A set of bash scripts that run on shell startup.')
 
+  o.project('repackr', :description => 'A bunch of scripts for releasing patched versions of OSS projects')
+
   o.project('buildr_plus', :description => 'A simple set of extensions that patch and customize buildr to our requirements.', :tags => %w(notify:stock))
   o.project('dbt', :description => 'A simple tool designed to simplify the creation, migration and deletion of databases.', :tags => %w(notify:stock travis pages))
   o.project('noft', :description => 'A tool to extract svg icons from icon fonts and generate helpers to render the icons.', :tags => %w(notify:stock travis))
@@ -50,7 +59,8 @@ Belt.scope('realityforge') do |o|
   o.project('gir', :description => 'Library to perform mechanical operations across codebases', :tags => %w(codecov travis))
   o.project('braincheck', :description => 'BrainCheck: A very simply invariant verification library', :tags => %w(travis pages))
   o.project('mcrt', :description => 'Maven Central Release Tool: A ruby tool to close, promote and drop staging repositories', :tags => %w(travis))
-  o.project('anodoc', :description => 'Annotations for documenting java code', :tags => %w(travis pages))
+  o.project('javax.annotation', :description => 'A minimal, J2CL compatible javax.annotation library', :tags => %w(travis))
+  o.project('org.jetbrains.annotations', :description => 'A minimal, J2CL compatible org.jetbrains.annotations library', :tags => %w(travis))
 
   o.project('assets-font-awesome', :description => 'An extraction of all the icons from font-awesome.', :tags => %w(travis zapwhite=no))
   o.project('assets-glyphicons-halflings-regular', :description => 'An extraction of all the icons from glyphicons font included in bootstrap.', :tags => %w(travis zapwhite=no))
@@ -72,16 +82,15 @@ Belt.scope('realityforge') do |o|
   o.project('geolatte-geom-jpa', :description => 'Converter for mapping Geolatte geometry types to JPA attributes', :tags => %w(travis))
   o.project('getopt4j', :description => 'A library to parse command line arguments according to the GNU style', :tags => %w(travis))
 
+  o.project('dagger-gwt-lite', :description => 'SuperSourced elements to optimize Dagger for GWT/J2CL', :tags => %w(travis issues))
   o.project('gwt-appcache', :description => 'GWT AppCache Support Library', :tags => %w(travis issues pages))
   o.project('gwt-appcache-example', :description => 'A simple application demonstrating the use of the gwt-appcache library', :tags => %w(travis))
   o.project('gwt-cache-filter', :description => 'A servlet filter that adds the appropriate http caching headers to GWT generated files based on *.cache.* and *.nocache.* naming patterns.', :tags => %w(travis issues))
   o.project('gwt-cache-filter-example', :description => 'A simple application demonstrating the use of the gwt-cache-filter library', :tags => %w(travis))
-  o.project('gwt-datatypes', :description => 'A simple library that consolidates the common data types and associated infrastructure used across a range of GWT projects.', :tags => %w(travis))
   o.project('gwt-eventsource', :description => 'GWT EventSource Library', :tags => %w(travis issues))
   o.project('gwt-eventsource-example', :description => 'A simple application demonstrating the use of the gwt-eventsource library', :tags => %w(travis issues))
   o.project('gwt-keycloak', :description => 'A simple library to provide keycloak support to GWT', :tags => %w(travis issues))
   o.project('gwt-qr-code', :description => 'GWT QR Code Generation', :tags => %w(travis issues))
-  o.project('gwt-ethereum-qr-code', :description => 'GWT Ethereum QR Code Generation', :tags => %w(travis issues))
   o.project('gwt-lognice', :description => 'A super simple gwt library that makes the log messages nicer.', :tags => %w(travis))
   o.project('gwt-mmvp', :description => 'A micro MVP library that enhances the Activities and Places library.', :tags => %w(travis))
   o.project('gwt-symbolmap', :description => 'GWT SymbolMap Assertions Library.', :tags => %w(travis codecov))
@@ -120,13 +129,11 @@ Belt.scope('realityforge') do |o|
   o.project('chef-dbt', :description => 'Simple cookbook that aids in database migrations through dbt', :tags => %w(travis))
   o.project('chef-glassfish', :description => 'A cookbook for managing GlassFish', :tags => %w(travis))
   o.project('chef-hosts', :description => 'Chef cookbook to manage /etc/hosts file', :tags => %w(travis))
-  o.project('chef-kibana', :description => 'A chef cookbook that installs/configures kibana (the logstash UI)', :tags => %w(travis))
+  o.project('chef-kibana', :description => 'A chef cookbook that installs/configures kibana (the logstash UI)', :tags => %w(issues travis))
   o.project('chef-sqlshell', :description => 'Simple cookbook to aid in automating database contents', :tags => %w(travis))
   o.project('chef-winrm', :description => 'Simple winrm cookbook for chef', :tags => %w(travis))
   o.project('chef-xymon', :description => 'A cookbook that installs the xymon monitoring software.', :tags => %w(travis))
-  o.project('em-winrm', :description => 'EventMachine based, asynchronous parallel client for Windows Remote Management (WinRM).')
   o.project('knife-cookbook-doc', :description => 'Knife plugin to document cookbooks', :tags => %w(travis pages issues))
-  o.project('knife-windows', :description => "Plugin for Chef's knife tool for working with Windows nodes", :tags => %w(homepage=http://tickets.opscode.com/browse/KNIFE_WINDOWS))
   o.project('ohai-system_packages')
 
   # Old blog that was long ago abandoned...
@@ -158,6 +165,7 @@ Belt.scope('realityforge') do |o|
   o.project('ant-shade-task', :description => 'Apache Maven Shade Plugin adapter for Apache Ant', :tags => %w(external))
 
   # External projects that have been forked to submit pull requests
+  o.project('connected', :tags => %w(external))
   o.project('graphql-java', :description => 'GraphQL Java implementation', :tags => %w(external))
   o.project('schmooze', :description => 'Schmooze lets Ruby and Node.js work together intimately.', :tags => %w(external))
   o.project('docker-keycloak', :description => 'Docker image for Keycloak project', :tags => %w(external))
@@ -166,6 +174,8 @@ Belt.scope('realityforge') do |o|
 
   # External projects that have been forked to submit pull requests but we do not expect to issue pull requests in future
   o.project('pwasm-tutorial', :description => 'A step-by-step tutorial on how to write contracts in Wasm for Kovan', :tags => %w(external historic))
+  o.project('javapoet', :description => '\A Java API for generating .java source files.', :tags => %w(external historic))
+  o.project('domino-ui', :description => 'Domino-UI', :tags => %w(external historic))
   o.project('gwt-react', :description => 'GWT Java bindings for React', :tags => %w(external historic))
   o.project('auto', :description => 'A collection of source code generators for Java.', :tags => %w(external historic))
   o.project('mobx', :description => 'Simple, scalable state management.', :tags => %w(external historic homepage=http://mobx.js.org))
@@ -217,6 +227,12 @@ Belt.scope('realityforge') do |o|
   # Historic: The plan is to move away from Gin completely
   o.project('gwt-gin-extensions', :description => 'Simple utilities when using gin injection framework.', :tags => %w(historic))
 
+  # Historic: No longer used
+  o.project('anodoc', :description => 'Annotations for documenting java code', :tags => %w(historic))
+
+  # Historic: Only used in historic projects. Should see no changes and will migrate to something else using jsinterop if necessary
+  o.project('gwt-datatypes', :description => 'A simple library that consolidates the common data types and associated infrastructure used across a range of GWT projects.', :tags => %w(historic))
+
   # Historic: Not used in projects anymore
   o.project('gwt-ga', :description => 'A simple GWT library for interacting with Google Analytics', :tags => %w(historic))
 
@@ -228,6 +244,8 @@ Belt.scope('realityforge') do |o|
   o.project('simple-session-filter', :description => 'A simple servlet filter for implementing custom session management', :tags => %w(historic))
 
   # Historic: Old chef related code
+  o.project('em-winrm', :description => 'EventMachine based, asynchronous parallel client for Windows Remote Management (WinRM).', :tags => %w(historic))
+  o.project('knife-windows', :description => "Plugin for Chef's knife tool for working with Windows nodes", :tags => %w(homepage=http://tickets.opscode.com/browse/KNIFE_WINDOWS historic))
   o.project('knife-spoon', :description => 'A knife extension supporting cookbook workflow', :tags => %w(historic))
   o.project('chef-blank', :description => 'A blank chef repository', :tags => %w(historic))
   o.project('chef-jenkins', :description => 'Heavywater modifications to the Jenkins cookbook for Chef', :tags => %w(historic))
@@ -272,6 +290,9 @@ Belt.scope('realityforge') do |o|
   o.project('star-punk', :description => 'An experiment to build a little space game', :tags => %w(historic))
   o.project('tyrian', :description => 'A re-imagining of the tyrian tutorial game', :tags => %w(historic))
   o.project('gwt-space-shooter-game', :description => 'space shooter game developed with GWT and gwt-voices sound library', :tags => %w(historic))
+
+  # Experiment never completed for Ethereum QR codes
+  o.project('gwt-ethereum-qr-code', :description => 'GWT Ethereum QR Code Generation', :tags => %w(historic))
 
   # FGIS Experiment
   o.project('fgis-java', :description => 'Fire Ground Information System java experiment', :tags => %w(historic))

@@ -104,7 +104,7 @@ module Backpack
     attr_writer :password_config_keys
 
     def password_config_keys
-      @password_config_keys ||= []
+      @password_config_keys ||= [:secret]
     end
 
     attr_accessor :events

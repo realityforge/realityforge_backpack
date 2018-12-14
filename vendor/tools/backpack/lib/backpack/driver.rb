@@ -102,7 +102,11 @@ module Backpack #nodoc
 
             repository_full_name = "#{organization.name}/#{repository_name}"
             remote_teams =
-              context.client.repository_teams(repository_full_name, :accept => 'application/vnd.github.v3.repository+json')
+              begin
+                context.client.repository_teams(repository_full_name, :accept => 'application/vnd.github.hellcat-preview+json')
+              rescue Octokit::NotFound
+                []
+              end
             remote_teams.each do |remote_team|
               name = remote_team['name']
               if repository && repository.team_by_name?(name)
@@ -174,7 +178,15 @@ module Backpack #nodoc
         remote_branches.each do |remote_branch|
           branch_name = remote_branch['name']
           branch = repository.branch_by_name?(branch_name) ? repository.branch_by_name(branch_name) : nil
-          protection = client.branch_protection(repository.qualified_name, branch_name, :accept => Octokit::Preview::PREVIEW_TYPES[:branch_protection])
+
+          protection =
+            begin
+              client.branch_protection(repository.qualified_name, branch_name, :accept => 'application/vnd.github.luke-cage-preview+json')
+            rescue Octokit::BranchNotProtected
+              nil
+            rescue Octokit::NotFound
+              nil
+            end
           if branch && branch.protect?
             protect = false
             if branch.require_status_check?
@@ -198,7 +210,7 @@ module Backpack #nodoc
 
             if protect
               puts "Updating protection on branch #{branch.name} in repository #{repository.qualified_name}"
-              config = { :accept => Octokit::Preview::PREVIEW_TYPES[:branch_protection] }
+              config = { :accept => 'application/vnd.github.luke-cage-preview+json' }
               config[:required_status_checks] = { :strict => branch.strict_status_checks?, :contexts => branch.status_check_contexts } if branch.require_status_check?
               config[:required_pull_request_reviews] = {} if branch.require_reviews?
               config[:enforce_admins] = branch.enforce_admins?

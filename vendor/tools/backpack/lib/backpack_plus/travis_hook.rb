@@ -15,11 +15,17 @@
 module BackpackPlus
   class TravisHook < Backpack::BaseHook
     class << self
-      def enable
-        configure_travis_token
+      def enable(options = {})
+        if options[:access_token]
+          Travis.access_token = options[:access_token]
+        else
+          configure_travis_token
+        end
         Backpack.context.add_hook(TravisHook.new)
       end
 
+      # Try to authenticate against travis using github credentials
+      # and retrieve the TravisCI Token from travis using these mechanisms
       def configure_travis_token
         info = Netrc.read Octokit::Default.netrc_file
         endpoint_url = 'github.com'
@@ -35,9 +41,9 @@ module BackpackPlus
 
           # drop_token will make the token a temporary one
           github = Travis::Tools::Github.new(drop_token: true) do |g|
-            g.ask_login = -> { login }
-            g.ask_password = -> { password }
-            g.ask_otp = -> { nil }
+            g.ask_login = -> {login}
+            g.ask_password = -> {password}
+            g.ask_otp = -> {nil}
           end
 
           github.with_token do |token|
@@ -53,12 +59,16 @@ module BackpackPlus
           begin
             Travis::Repository.find(repository.qualified_name)
           rescue Travis::Client::NotFound
-            Travis.user.sync
+            Travis.user.sync unless Travis.user.is_syncing
             while Travis.user.is_syncing
               sleep 2
               Travis.user.reload
             end
-            Travis::Repository.find(repository.qualified_name)
+            begin
+              Travis::Repository.find(repository.qualified_name)
+            rescue Travis::Client::NotFound
+              raise "Failed to locate repository #{repository.qualified_name} after syncing. This probably means you need to authorize access of the TravisCI application to the organization"
+            end
           end
         should_be_enabled = repository.tags.include?('travis')
         active = !!r.attributes['active']
