@@ -76,7 +76,7 @@ Belt.scope('realityforge') do |o|
 
   o.project('backpack', :description => '🎒 A simple tool to manage GitHub organisations using declarative DSL', :tags => %w(zapwhite=no))
 
-  o.project('router-fu', :description => 'A framework agnostic, state producing router', :tags => %w(notify:stock travis issues))
+  o.project('router-fu', :description => 'A framework agnostic, state producing router', :tags => %w(protect=master travis issues))
   o.project('dbdiff', :description => 'List differences between databases', :tags => %w(travis))
   o.project('gelf4j', :description => 'Library for sending log messages using the GELF protocol using CLI, Log4j, JDK Logging and Logback', :tags => %w(travis))
   o.project('geolatte-geom-jpa', :description => 'Converter for mapping Geolatte geometry types to JPA attributes', :tags => %w(travis))
