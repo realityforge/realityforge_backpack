@@ -34,6 +34,7 @@ Belt.scope('react4j') do |o|
   o.project('react4j-todomvc', :description => 'React4j TodoMVC implementation', :tags => %w(travis homepage=https://react4j.github.io/docs/todomvc.html))
   o.project('react4j-widget', :description => 'React4j interoperability with GWT Widget API', :tags => %w(travis homepage=https://react4j.github.io/widget))
   o.project('react4j-windowportal', :description => 'React4j portal that renders into a Window', :tags => %w(travis homepage=https://react4j.github.io/windowportal))
+  o.project('react4j-flux-challenge', :description => 'React4j Flux Challenge implementation', :tags => %w(travis))
 
   o.projects.each do |project|
     project.tags << "name=#{project.name}"
