@@ -170,12 +170,11 @@ command(:update_contributing) do |app|
 end
 
 command(:add_issue_template) do |app|
-  if File.exist?('CONTRIBUTING.md')
-    FileUtils.mkdir_p '.github'
+  if File.exist?('.github/ISSUE_TEMPLATE.md')
     FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/ISSUE_TEMPLATE.md", '.github/ISSUE_TEMPLATE.md'
     begin
       mysystem('git add .github/ISSUE_TEMPLATE.md')
-      mysystem("git commit -m \"Add issue template.\"")
+      mysystem("git commit -m \"Update issue template to reference 'How to create a Minimal, Complete, and Verifiable example' document.\"")
     rescue Exception
       # ignored
     end
