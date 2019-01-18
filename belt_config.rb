@@ -249,6 +249,9 @@ Belt.scope('realityforge') do |o|
   # Historic: Inlined the code into all downstream libraries
   o.project('simple-session-filter', :description => 'A simple servlet filter for implementing custom session management', :tags => %w(historic))
 
+  # Historic: An old experiment with SASS architecture
+  o.project('docssa', :description => 'DoCSSa - Sass based CSS architecture and methodology', :tags => %w(historic))
+
   # Historic: Old chef related code
   o.project('em-winrm', :description => 'EventMachine based, asynchronous parallel client for Windows Remote Management (WinRM).', :tags => %w(historic))
   o.project('knife-windows', :description => "Plugin for Chef's knife tool for working with Windows nodes", :tags => %w(homepage=http://tickets.opscode.com/browse/KNIFE_WINDOWS historic))
