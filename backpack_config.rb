@@ -6,7 +6,7 @@ Backpack.organizations.each do |o|
   o.is_user_account = o.name == 'realityforge'
 
   o.repositories.each do |repository|
-    repository.private = false
+    repository.private = repository.tags.include?('private')
     repository.archived = true if repository.tags.include?('historic')
 
     repository.email_hook('dse-iris-scm@stocksoftware.com.au') if repository.tags.include?('notify:stock')

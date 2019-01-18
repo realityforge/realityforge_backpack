@@ -140,6 +140,10 @@ Belt.scope('realityforge') do |o|
   o.project('knife-cookbook-doc', :description => 'Knife plugin to document cookbooks', :tags => %w(travis pages issues))
   o.project('ohai-system_packages')
 
+  # Personal Music Exploration
+  o.project('scores', :description => 'Scores etched during self-education', :tags => %w(private))
+  o.project('MusicBook', :description => 'Collections of thoughts on Music Theory', :tags => %w(private))
+
   # Old blog that was long ago abandoned...
   o.project('realityforge.github.io', :description => 'My personal website and blog', :tags => %w(homepage=https://realityforge.github.io zapwhite=no historic))
 
