@@ -173,6 +173,7 @@ Belt.scope('realityforge') do |o|
   # External projects that have been forked to keep a copy of source
   o.project('ant-shade-task', :description => 'Apache Maven Shade Plugin adapter for Apache Ant', :tags => %w(external))
   o.project('gwt-cal', :tags => %w(external historic))
+  o.project('Piano-Trainer', :description => 'A web-app for training sheet reading skills by using your MIDI-enabled piano.', :tags => %w(external historic))
 
   # External projects that have been forked to submit pull requests
   o.project('connected', :tags => %w(external))
