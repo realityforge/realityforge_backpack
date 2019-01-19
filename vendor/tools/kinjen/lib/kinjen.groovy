@@ -457,6 +457,7 @@ static config_git( script, Map options = [:] )
   script.env.GIT_PROJECT =
     script.env.GIT_ORIGIN.replaceAll( /^https:\/\/github\.com\//, '' ).replaceAll( /\.git$/, '' )
   setup_git_credentials( script, options )
+  script.sh( 'git reset --hard' )
 }
 
 static setup_git_credentials( script, Map options = [:] )
