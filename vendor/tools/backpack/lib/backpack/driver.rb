@@ -58,7 +58,11 @@ module Backpack #nodoc
       def converge_repositories(context, organization)
         remote_repositories =
           organization.is_user_account? ?
-            context.client.repositories(organization.name) :
+            (
+              context.client.login == organization.name ?
+                context.client.repositories.select{|r| r[:full_name] == "#{organization.name}/#{r[:name]}"} :
+                context.client.repositories(organization.name)
+            ) :
             context.client.organization_repositories(organization.name)
         remote_repositories.each do |remote_repository|
           name = remote_repository['name']
