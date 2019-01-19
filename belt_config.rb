@@ -172,6 +172,7 @@ Belt.scope('realityforge') do |o|
   o.project('Piano-Trainer', :description => 'A web-app for training sheet reading skills by using your MIDI-enabled piano.', :tags => %w(external historic))
 
   # External projects that have been forked to submit pull requests
+  o.project('j2cl', :description => 'Java to closure style javascript transpiler', :tags => %w(external))
   o.project('connected', :tags => %w(external))
   o.project('graphql-java', :description => 'GraphQL Java implementation', :tags => %w(external))
   o.project('schmooze', :description => 'Schmooze lets Ruby and Node.js work together intimately.', :tags => %w(external))
