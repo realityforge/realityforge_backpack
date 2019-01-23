@@ -173,6 +173,7 @@ Belt.scope('realityforge') do |o|
 
   # External projects that have been forked to submit pull requests
   o.project('j2cl', :description => 'Java to closure style javascript transpiler', :tags => %w(external))
+  o.project('closure-compiler', :description => 'A JavaScript checker and optimizer.', :tags => %w(external homepage=https://developers.google.com/closure/compiler/))
   o.project('connected', :tags => %w(external))
   o.project('graphql-java', :description => 'GraphQL Java implementation', :tags => %w(external))
   o.project('schmooze', :description => 'Schmooze lets Ruby and Node.js work together intimately.', :tags => %w(external))
