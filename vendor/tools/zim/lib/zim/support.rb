@@ -158,7 +158,11 @@ module Zim # nodoc
                 gsub!(":#{source_dependency}:#{source_version}", ": #{target_dependency}:#{target_version}")
             end
           else
-            content.gsub!(/#{source_dependency.gsub(':', "\\:").gsub('.', "\\.")}\:.*/, "#{target_dependency}:#{target_version}")
+            content.
+              gsub!(/ #{source_dependency.gsub(':', "\\:").gsub('.', "\\.")}\:.*/,
+                    " #{target_dependency}:#{target_version}").
+              gsub!(/:#{source_dependency.gsub(':', "\\:").gsub('.', "\\.")}\:.*/,
+                    ":#{target_dependency}:#{target_version}")
           end
         end
         content
