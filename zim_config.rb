@@ -132,6 +132,14 @@ command(:upgrade_elemental2) do |app|
   ), version)
 end
 
+command(:fix_elemental2) do |app|
+  if File.exist?('build.yaml')
+    patched =
+      patch_file('build.yaml') {|content| content.gsub('org.realityforge.org.realityforge.com.google.elemental2', 'org.realityforge.com.google.elemental2')}
+    mysystem("git commit -m \"Fix dependency coordinates mangled via automated upgrade process\"") if patched
+  end
+end
+
 command(:remove_travis_java) do |app|
   patched = patch_file('.travis.yml') do |content|
     content.gsub('oraclejdk7', 'oraclejdk8')
