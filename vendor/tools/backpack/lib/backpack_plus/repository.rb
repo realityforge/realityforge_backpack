@@ -31,10 +31,6 @@ class Backpack::Repository
 
   end
 
-  def docker_hook
-    hook('docker', :events => %w(push), :config => {})
-  end
-
   def travis_hook(user, token)
     hook('travis',
          :type => 'web',
