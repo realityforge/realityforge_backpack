@@ -13,12 +13,6 @@
 #
 
 class Backpack::Repository
-  def email_hook(email_address)
-    hook('email',
-         :events => %w(push pull_request),
-         :config => {:address => email_address, :send_from_author => '0'})
-  end
-
   def jira_hook(jira_endpoint_url, options = {})
     insecure_ssl = options[:insecure_ssl].nil? ? '0' : !!options[:insecure_ssl] ? '1' : '0'
     hook('jira-hook',
