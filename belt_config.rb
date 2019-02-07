@@ -7,6 +7,10 @@ Belt.scope('spritz') do |o|
   o.project('spritz.github.io', :description => 'Spritz website', :tags => %w(pages homepage=https://spritz.github.io zim=no))
 end
 
+Belt.scope('replicant4j') do |o|
+  o.project('replicant', :description => 'Client-side state representation infrastructure for GWT', :tags => %w(codecov notify:stock travis issues))
+end
+
 Belt.scope('arez') do |o|
   o.project('arez', :description => 'Fast, easy, reactive state', :tags => %w(codecov travis issues homepage=https://arez.github.io))
   # TODO: arez.github.io has several custom deploy keys. Figure out a way to automate this?
@@ -116,7 +120,6 @@ Belt.scope('realityforge') do |o|
   o.project('reality-belt', :description => 'A super simple domain model to represent projects.', :tags => %w(travis))
   o.project('gitattributes', :description => 'Class to parse gitattributes files.', :tags => %w(travis))
   o.project('zapwhite', :description => 'A simple tool to normalize whitespace in git repositories.', :tags => %w(travis))
-  o.project('replicant', :description => 'Client-side state representation infrastructure for GWT', :tags => %w(codecov notify:stock travis issues))
   o.project('rest-criteria', :description => 'A simple library for parsing criteria in rest services', :tags => %w(travis))
   o.project('rest-field-filter', :description => 'A simple library parsing field filters in rest APIs.', :tags => %w(travis))
   o.project('simple-keycloak-service', :description => 'A simple service interface and base classes to be used by keycloak secured services', :tags => %w(travis))
