@@ -129,7 +129,7 @@ module Zim # nodoc
 
         if Zim::Config.verbose?
           puts "Application Suite: #{Zim::Config.suite_directory}"
-          puts "Commands specified: #{args.collect { |c| c.to_s }.join(', ')}"
+          puts "Commands specified: #{args.collect(&:to_s).join(', ')}"
         end
 
         FileUtils.mkdir_p Zim::Config.suite_directory
