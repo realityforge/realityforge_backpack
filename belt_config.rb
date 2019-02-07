@@ -185,6 +185,7 @@ Belt.scope('realityforge') do |o|
   o.project('docker-keycloak', :description => 'Docker image for Keycloak project', :tags => %w(external))
   o.project('elemental2', :description => 'Type checked access to browser APIs for Java code.', :tags => %w(external travis))
   o.project('jsinterop-generator', :description => 'Generates Java annotated with JsInterop from JavaScript extern sources', :tags => %w(external travis))
+  o.project('jsinterop-base', :description => 'Utilities for GWT and J2CL to interact with JavaScript beyond JsInterop', :tags => %w(external travis))
   o.project('gwt', :description => 'GWT Open Source Project', :tags => %w(external homepage=http://www.gwtproject.org))
 
   # External projects that have been forked to submit pull requests but we do not expect to issue pull requests in future
