@@ -101,6 +101,11 @@ module Zim # nodoc
             Zim::Config.filters << filter
           end
 
+          opts.on('-t', '--tasks', 'Display the tasks') do
+            puts "#{Zim.commands.sort.collect {|c| "  * #{c.help_text}"}.join("\n")}"
+            exit
+          end
+
           opts.on('-h', '--help', 'Display this screen') do
             puts opts
             exit
