@@ -35,6 +35,8 @@ module Zim # nodoc
           end
         end
 
+        all_suites = false
+
         optparse = OptionParser.new do |opts|
           opts.on('-s', '--suite SUITE', 'Specify the suite of applications to process') do |suite_key|
             unless Zim.suite_by_name?(suite_key)
@@ -42,6 +44,10 @@ module Zim # nodoc
               exit
             end
             Zim.current_suite = Zim.suite_by_name(suite_key)
+          end
+
+          opts.on('-a', '--all-suites', 'Process every suite of applications') do
+            all_suites = true
           end
 
           opts.on('--first-app APP_NAME', 'The first app to process actions for') do |app_key|
@@ -115,8 +121,12 @@ module Zim # nodoc
           exit
         end
 
-        unless Zim.current_suite?
-          puts 'No suite set. Set one by passing parameters: -s SET'
+        if all_suites && Zim.current_suite?
+          puts 'User specified both a specific suite and all suites to perform processing which is an invalid combination'
+          exit
+        end
+        if !all_suites && !Zim.current_suite?
+          puts 'No suite set. Set one by passing parameters "-s SET" or specify all suites by passing parameter "--all-suites"'
           exit
         end
 
@@ -128,10 +138,26 @@ module Zim # nodoc
         end
 
         if Zim::Config.verbose?
-          puts "Application Suite: #{Zim::Config.suite_directory}"
+          if all_suites
+            puts "Process all Application Suites"
+          else
+            puts "Application Suite: #{Zim::Config.suite_directory}"
+          end
           puts "Commands specified: #{args.collect(&:to_s).join(', ')}"
         end
 
+        if all_suites
+          Zim.suites.each do |suite|
+            puts "Processing Application Suites: #{suite.key}" if Zim::Config.verbose?
+            Zim.current_suite = suite
+            process_suite_directory(args, initial_args)
+          end
+        else
+          process_suite_directory(args, initial_args)
+        end
+      end
+
+      def process_suite_directory(args, initial_args)
         FileUtils.mkdir_p Zim::Config.suite_directory
 
         expected_dirs = []
