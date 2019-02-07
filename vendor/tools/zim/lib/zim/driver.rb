@@ -38,7 +38,7 @@ module Zim # nodoc
         optparse = OptionParser.new do |opts|
           opts.on('-s', '--suite SUITE', 'Specify the suite of applications to process') do |suite_key|
             unless Zim.suite_by_name?(suite_key)
-              puts "Bad suite set #{suite_key} specified. Specify one of:\n#{Zim.suite_names.collect { |c| "  * #{c}" }.join("\n")}"
+              puts "Bad suite set #{suite_key} specified. Specify one of:\n#{Zim.suite_names.collect {|c| "  * #{c}"}.join("\n")}"
               exit
             end
             Zim.current_suite = Zim.suite_by_name(suite_key)
@@ -111,7 +111,7 @@ module Zim # nodoc
         end
 
         if 0 == args.size
-          puts "No commands specified. Specify one of:\n#{Zim.commands.sort.collect { |c| "  * #{c.help_text}" }.join("\n")}"
+          puts "No commands specified. Specify one of:\n#{Zim.commands.sort.collect {|c| "  * #{c.help_text}"}.join("\n")}"
           exit
         end
 
@@ -146,10 +146,10 @@ module Zim # nodoc
             else
               if Zim::Config.include_tags.size > 0 || Zim::Config.exclude_tags.size > 0
                 if Zim::Config.include_tags.size > 0
-                  next unless Zim::Config.include_tags.all? { |t| app.tags.include?(t) }
+                  next unless Zim::Config.include_tags.all? {|t| app.tags.include?(t)}
                 end
                 if Zim::Config.exclude_tags.size > 0
-                  next if Zim::Config.exclude_tags.any? { |t| app.tags.include?(t) }
+                  next if Zim::Config.exclude_tags.any? {|t| app.tags.include?(t)}
                 end
               end
               if Zim::Config.filters.size > 0
@@ -184,7 +184,7 @@ module Zim # nodoc
             unless unknown_dirs.empty?
               unless Zim::Config.quiet?
                 puts 'Removing unknown files/directories in source directory:'
-                puts unknown_dirs.collect { |d| "  * #{File.basename(d)}" }.join("\n")
+                puts unknown_dirs.collect {|d| "  * #{File.basename(d)}"}.join("\n")
                 puts "\n\n"
               end
               unknown_dirs.each do |d|
