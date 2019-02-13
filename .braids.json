@@ -14,7 +14,7 @@
     "vendor/tools/zim": {
       "url": "https://github.com/realityforge/zim.git",
       "branch": "master",
-      "revision": "710e4253fe82790b246205bb76e902ad5492cd29"
+      "revision": "9b28119a671682c705f40b5d98b3e2ce97580c0b"
     }
   }
 }
