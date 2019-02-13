@@ -107,7 +107,7 @@ end
 
 desc 'Move to org.realityforge variants of elemental and upgrade version'
 command(:upgrade_elemental2) do |app|
-  version = '1.0.0-b15-7a28038'
+  version = '1.0.0-b16-6897368'
   patch_dependency_coordinates(app, {
     'com.google.elemental2:elemental2-core:jar' => 'org.realityforge.com.google.elemental2:elemental2-core:jar',
     'com.google.elemental2:elemental2-promise:jar' => 'org.realityforge.com.google.elemental2:elemental2-promise:jar',
