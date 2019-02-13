@@ -153,16 +153,16 @@ module Zim # nodoc
         dependencies.each do |source_dependency, target_dependency|
           if source_versions
             source_versions.each do |source_version|
-              content.
-                gsub!(" #{source_dependency}:#{source_version}", " #{target_dependency}:#{target_version}").
-                gsub!(":#{source_dependency}:#{source_version}", ": #{target_dependency}:#{target_version}")
+              content =
+                content.
+                  gsub(" #{source_dependency}:#{source_version}", " #{target_dependency}:#{target_version}").
+                  gsub(":#{source_dependency}:#{source_version}", ": #{target_dependency}:#{target_version}")
             end
           else
-            content.
-              gsub!(/ #{source_dependency.gsub(':', "\\:").gsub('.', "\\.")}\:.*/,
-                    " #{target_dependency}:#{target_version}").
-              gsub!(/:#{source_dependency.gsub(':', "\\:").gsub('.', "\\.")}\:.*/,
-                    ":#{target_dependency}:#{target_version}")
+            content =
+              content.
+                gsub(/ #{Regexp.escape(source_dependency)}\:.*/, " #{target_dependency}:#{target_version}").
+                gsub(/:#{Regexp.escape(source_dependency)}\:.*/, ":#{target_dependency}:#{target_version}")
           end
         end
         content
