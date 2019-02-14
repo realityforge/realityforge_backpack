@@ -19,7 +19,7 @@ module Zim # nodoc
     class << self
 
       def process(args)
-        initial_args = args.dup
+        Zim.initial_args = args.dup
 
         customization_file = "#{Dir.pwd}/_zim.rb"
         require customization_file if File.exist?(customization_file)
@@ -155,14 +155,14 @@ module Zim # nodoc
           Zim.suites.each do |suite|
             puts "Processing Application Suites: #{suite.key}" if Zim::Config.verbose?
             Zim.current_suite = suite
-            process_suite_directory(args, initial_args)
+            process_suite_directory(args)
           end
         else
-          process_suite_directory(args, initial_args)
+          process_suite_directory(args)
         end
       end
 
-      def process_suite_directory(args, initial_args)
+      def process_suite_directory(args)
         FileUtils.mkdir_p Zim::Config.suite_directory
 
         expected_dirs = []
@@ -200,7 +200,6 @@ module Zim # nodoc
                     begin
                       run(key, app.name)
                     rescue Exception => e
-                      Zim::Driver.print_command_error(app.name, initial_args, "Error processing stage #{key} on application '#{app.name}'.")
                       raise e
                     end
                   end
@@ -228,13 +227,13 @@ module Zim # nodoc
         end
       end
 
-      def print_command_error(app, initial_args, message)
+      def print_command_error(app, message)
         puts message
         puts 'Fix the problem and rerun the command via:'
 
         args = []
         skip_next = false
-        initial_args.each do |arg|
+        Zim.initial_args.each do |arg|
           if skip_next
             skip_next = false
             next

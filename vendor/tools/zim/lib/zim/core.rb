@@ -30,6 +30,8 @@ module Zim # nodoc
       current_suite
     end
 
+    attr_accessor :initial_args
+
     # Set the description for the next command defined
     def desc(description)
       @next_description = description
