@@ -64,7 +64,8 @@ module Zim
       command = Zim.command_by_name(name)
       raise "Unknown command specified: #{name}" unless command
       puts "Processing #{command.name} on #{app}" if Zim::Config.verbose?
-      command.run(app)
+      result = command.run(app)
+      command.block_command? ? !!result : true
     end
   end
 end

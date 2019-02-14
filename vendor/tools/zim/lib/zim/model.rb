@@ -39,6 +39,14 @@ module Zim # nodoc
       perform_init(name, options)
     end
 
+    # Flag indicating whether this command is the head of a block and thus all subsequent
+    # commands passed on commandline are executed by this command
+    attr_writer :block_command
+
+    def block_command?
+      @block_command.nil? ? false : !!@block_command
+    end
+
     def help_text
       @description.nil? ? self.name.to_s : "#{name} : #{@description}"
     end
@@ -49,14 +57,17 @@ module Zim # nodoc
       @in_app_dir.nil? ? true : !!@in_app_dir
     end
 
+    # Return true if next command should be invoked
     def run(app)
       if in_app_dir?
         Zim.in_app_dir(app) do
-          action.call(app)
+          result = action.call(app)
+          return block_command? ? !!result : true
         end
       else
         Zim.in_base_dir do
-          action.call(app)
+          result = action.call(app)
+          return block_command? ? !!result : true
         end
       end
     end

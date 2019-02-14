@@ -32,6 +32,12 @@ module Zim # nodoc
 
     attr_accessor :initial_args
 
+    attr_writer :current_commands
+
+    def current_commands
+      @current_commands || (Zim.error('current_commands invoke but no commands specified.'))
+    end
+
     # Set the description for the next command defined
     def desc(description)
       @next_description = description

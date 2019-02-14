@@ -196,13 +196,7 @@ module Zim # nodoc
               if run?(app)
                 puts "Processing #{app.name}" unless Zim::Config.quiet?
                 in_base_dir do
-                  args.each do |key|
-                    begin
-                      run(key, app.name)
-                    rescue Exception => e
-                      raise e
-                    end
-                  end
+                  Zim::Driver.run_commands(app, args)
                 end
               end
             end
@@ -223,6 +217,20 @@ module Zim # nodoc
                 puts "Remove completed for #{File.basename(d)}." unless Zim::Config.quiet?
               end
             end
+          end
+        end
+      end
+
+      def run_commands(app, commands)
+        commands = commands.dup
+        commands.each_with_index do |key, index|
+          Zim.current_commands = commands.dup[index + 1, 1000000]
+          begin
+            keep_running = Zim.run(key, app.name)
+            return unless keep_running
+          rescue Exception => e
+            Zim::Driver.print_command_error(app.name, "Error processing stage #{key} on application '#{app.name}'.")
+            raise e
           end
         end
       end
