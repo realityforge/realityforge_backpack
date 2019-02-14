@@ -793,6 +793,26 @@ module Zim # nodoc
         run(:git_prune, app)
         run(:git_gc, app)
       end
+
+      desc 'Run following commands for each branch in the tag zim:branches (comma separated)'
+      command(:each_zim_branch, :block_command => true) do |app_key|
+        app = Zim.current_suite.application_by_name(app_key)
+        branches = (app.tag_value('zim:branches') || 'master').split(',')
+        branches.each do |branch|
+          git_checkout(branch)
+          Zim::Driver.run_commands(app, Zim.current_commands)
+        end
+
+        # Return false so subsequent tasks not run
+        false
+      end
+
+      desc 'Run ultra_clean and then each_zim_branch. Typically the first task.'
+      command(:zimup, :in_app_dir => false, :block_command => true) do |app|
+        run(:ultra_clean, app)
+        run(:each_zim_branch, app)
+        false
+      end
     end
 
     # Add standard set of commands for interacting with bundler
