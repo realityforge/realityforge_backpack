@@ -224,7 +224,7 @@ module Zim # nodoc
       def run_commands(app, commands)
         commands = commands.dup
         commands.each_with_index do |key, index|
-          Zim.current_commands = commands.dup[index + 1, 1000000]
+          Zim.push_current_commands(commands.dup[index + 1, 1000000])
           begin
             keep_running = Zim.run(key, app.name)
             return unless keep_running
@@ -232,6 +232,7 @@ module Zim # nodoc
             Zim::Driver.print_command_error(app.name, "Error processing stage #{key} on application '#{app.name}'.")
             raise e
           end
+          Zim.pop_current_commands
         end
       end
 
