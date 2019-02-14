@@ -87,6 +87,25 @@ module Zim # nodoc
       @tags ||= []
     end
 
+    def tag_value(key)
+      self.tags.each do |tag|
+        if tag =~ /^#{Regexp.escape(key)}=/
+          return tag[(key.size + 1)...100000]
+        end
+      end
+      nil
+    end
+
+    def tag_values(key)
+      values = []
+      self.tags.each do |tag|
+        if tag =~ /^#{Regexp.escape(key)}=/
+          values << tag[(key.size + 1)...100000]
+        end
+      end
+      values
+    end
+
     def git_url
       git_url = @git_url || self.key.to_s
       git_url = "#{source_tree.base_git_url}/#{git_url}.git" unless git_url.include?(':')
