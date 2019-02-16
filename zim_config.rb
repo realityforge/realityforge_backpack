@@ -53,6 +53,17 @@ command(:upgrade_buildr) do |app|
   end
 end
 
+command(:readd_javadoc_patch) do |app|
+
+  candidates = %w(arez/arez-mediaquery arez/arez-browserlocation arez/arez-networkstatus replicant4j/replicant react4j/react4j-windowportal arez/arez-dom arez/arez-ticker react4j/react4j arez/arez realityforge/gwt-appcache realityforge/gwt-eventsource realityforge/gwt-keycloak realityforge/gwt-webpoller realityforge/gwt-websockets)
+  if candidates.include?("#{Zim.current_suite.name}/#{app}")
+    mysystem('mkdir -p tasks')
+    FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/javadoc_patch.rake", 'tasks/javadoc_patch.rake'
+    mysystem('git add tasks/javadoc_patch.rake')
+    mysystem("git commit -m \"Readd patch still required in Buildr 1.5.7.\"")
+  end
+end
+
 command(:patch_idea_codestyle_version) do |app|
   patch_versions(app, %w(au.com.stocksoftware.idea.codestyle:idea-codestyle:xml), '1.13')
 end
