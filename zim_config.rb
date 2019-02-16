@@ -22,7 +22,7 @@ braid_tasks('way_of_stock' => 'vendor/docs/way_of_stock',
 
 ruby_upgrade('2.1.3', '2.3.1')
 
-patch_gem('buildr', %w(1.5.4 1.5.5), '1.5.6')
+patch_gem('buildr', %w(1.5.4 1.5.5 1.5.6), '1.5.7')
 patch_gem('braid', %w(1.0.18 1.0.19 1.0.20 1.0.21 1.0.22 1.0.3 1.1.0), '1.1.0')
 patch_gem('zapwhite', %w(2.9.0), '2.10.0')
 patch_gem('mcrt', %w(1.9.0 1.10.0 1.11.0 1.12.0), '1.13.0')
@@ -30,6 +30,27 @@ patch_gem('mcrt', %w(1.9.0 1.10.0 1.11.0 1.12.0), '1.13.0')
 command(:upgrade_braid) do |app|
   run(:patch_braid_gem, app)
   run(:braid_update_config, app)
+end
+
+command(:upgrade_buildr) do |app|
+  run(:patch_buildr_gem, app)
+  patched = false
+  if File.exist?('tasks/buildr_artifact_patch.rake')
+    mysystem('git rm -f tasks/buildr_artifact_patch.rake')
+    patched = true
+  end
+  if File.exist?('tasks/javadoc_patch.rake')
+    mysystem('git rm -f tasks/javadoc_patch.rake')
+    patched = true
+  end
+  if File.exist?('tasks/gwt_patch.rake')
+    mysystem('git rm -f tasks/gwt_patch.rake')
+    patched = true
+  end
+
+  if patched
+    mysystem("git commit -m \"Remove patch no longer necessary after buildr upgrade.\"")
+  end
 end
 
 command(:patch_idea_codestyle_version) do |app|
