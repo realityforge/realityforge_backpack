@@ -107,7 +107,8 @@ module Zim # nodoc
         patch_dependencies_in_file('build.yaml', dependencies, source_versions, target_version) ||
           patch_dependencies_in_file('README.md', dependencies, source_versions, target_version)
       if patched
-        patch_changelog("Update the `#{name}` dependency to version `#{target_version}`.")
+        pattern = Regexp.compile(Regexp.escape("Update the `#{name}` dependency to version `") + '.*' + Regexp.escape('`.'))
+        patch_changelog("Update the `#{name}` dependency to version `#{target_version}`.", pattern)
         mysystem("git commit -m \"Update the #{name} dependency.\"")
         puts "Update the #{name} dependency in #{app}"
       end
@@ -115,11 +116,21 @@ module Zim # nodoc
       patched
     end
 
-    def patch_changelog(message)
+    def patch_changelog(message, past_message_pattern = nil)
       if File.exist?('CHANGELOG.md')
         patch_file('CHANGELOG.md') do |content|
+          # If it has an unreleased section in this format then it probably follows the convention.
           if content.include?("### Unreleased\n")
-            if content.include?("### Unreleased\n\n#")
+
+            version_changes = nil
+            if past_message_pattern
+              start_index = content.index("### Unreleased\n")
+              end_index = content.index('### [v') || content.length
+              version_changes = content[start_index, end_index - start_index]
+            end
+            if version_changes && version_changes =~ past_message_pattern
+              content.sub(past_message_pattern, message)
+            elsif content.include?("### Unreleased\n\n#")
               content.sub("### Unreleased\n\n", "### Unreleased\n\n* #{message}\n\n")
             else
               content.sub("### Unreleased\n\n", "### Unreleased\n\n* #{message}\n")
