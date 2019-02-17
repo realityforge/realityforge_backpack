@@ -109,7 +109,6 @@ command(:remove_sudo_from_travis) do |app|
 end
 
 command(:remove_deprecated_gem_config) do |app|
-  puts Dir['*.gemspec']
   Dir['*.gemspec'].each do |filename|
     patched =
       patch_file(filename) {|content| content.gsub(/\n *spec\.rubyforge_project[^\n]*\n/m, "\n").gsub(/\n *s\.rubyforge_project[^\n]*\n/m, "\n")}
