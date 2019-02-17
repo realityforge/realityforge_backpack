@@ -92,7 +92,7 @@ end
 command(:use_https_to_fetch_metadata) do |app|
   if File.exist?('Gemfile')
     patched =
-      patch_file('Gemfile') {|content| content.gsub(/http:\/\/rubygems.org/, "https://rubygems.org")}
+      patch_file('Gemfile') {|content| content.gsub(/http:\/\/rubygems.org/, 'https://rubygems.org')}
     mysystem("git commit -m \"Update the Gemfile to use HTTPS to fetch its metadata\"") if patched
   end
 end
