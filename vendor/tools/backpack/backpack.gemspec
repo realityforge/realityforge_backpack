@@ -12,7 +12,6 @@ Gem::Specification.new do |s|
   s.summary            = %q{Backpack manages GitHub organizations declaratively.}
   s.description        = %q{Backpack is a very simple tool that helps you manage GitHub organizations declaratively.}
 
-  s.rubyforge_project  = %q{backpack}
   s.licenses           = ['Apache-2.0']
 
   s.files              = `git ls-files`.split("\n")
