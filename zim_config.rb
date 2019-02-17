@@ -112,8 +112,8 @@ command(:remove_deprecated_gem_config) do |app|
   puts Dir['*.gemspec']
   Dir['*.gemspec'].each do |filename|
     patched =
-      patch_file(filename) {|content| content.gsub(/\n *spec\.default_executable *=[^\n]*\n/m, "\n").gsub(/\n *s\.default_executable *=[^\n]*\n/m, "\n")}
-    mysystem("git commit -m \"Remove deprecated gem method\"") if patched
+      patch_file(filename) {|content| content.gsub(/\n *spec\.rubyforge_project[^\n]*\n/m, "\n").gsub(/\n *s\.rubyforge_project[^\n]*\n/m, "\n")}
+    mysystem("git commit -m \"Remove deprecated gem configuration\"") if patched
   end
 end
 
