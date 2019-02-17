@@ -107,11 +107,28 @@ module Zim # nodoc
         patch_dependencies_in_file('build.yaml', dependencies, source_versions, target_version) ||
           patch_dependencies_in_file('README.md', dependencies, source_versions, target_version)
       if patched
+        patch_changelog("Update the `#{name}` dependency to version `#{target_version}`.")
         mysystem("git commit -m \"Update the #{name} dependency.\"")
         puts "Update the #{name} dependency in #{app}"
       end
 
       patched
+    end
+
+    def patch_changelog(message)
+      if File.exist?('CHANGELOG.md')
+        patch_file('CHANGELOG.md') do |content|
+          if content.include?("### Unreleased\n")
+            if content.include?("### Unreleased\n\n#")
+              content.sub("### Unreleased\n\n", "### Unreleased\n\n* #{message}\n\n")
+            else
+              content.sub("### Unreleased\n\n", "### Unreleased\n\n* #{message}\n")
+            end
+          else
+            content
+          end
+        end
+      end
     end
 
     def patch_dependencies_in_file(filename, dependencies, source_versions, target_version)
