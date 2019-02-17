@@ -12,7 +12,6 @@ Gem::Specification.new do |s|
   s.summary            = %q{Zim automates manipulation of source code repositories.}
   s.description        = %q{Zim is a really simple tool used to perform mechanical transformation of multiple code bases.}
 
-  s.rubyforge_project  = %q{zim}
   s.licenses           = ['Apache-2.0']
 
   s.files              = `git ls-files`.split("\n")
