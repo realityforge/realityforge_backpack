@@ -81,6 +81,14 @@ command(:patch_javax_annotations_version) do |app|
   end
 end
 
+command(:patch_CHANGELOG) do |app|
+  if File.exist?('CHANGELOG.md')
+    patched =
+      patch_file('CHANGELOG.md') {|content| content.gsub('Update the `org.realityforge.com.google.elemental2` dependency to version `1.0.0-b17-6897368`.', 'Upgrade the `org.realityforge.com.google.elemental2` artifacts to version `1.0.0-b17-6897368`.')}
+    mysystem("git commit -m \"Update the format of the CHANGELOG entry.\"") if patched
+  end
+end
+
 command(:change_travis_ci_badges_to_svg) do |app|
   if File.exist?('README.md')
     patched =
