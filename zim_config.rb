@@ -89,6 +89,17 @@ command(:patch_CHANGELOG) do |app|
   end
 end
 
+command(:patch_gwt_tmpdir) do |app|
+  if File.exist?('buildfile')
+    patched =patch_file('buildfile') do |content|
+        content.
+          gsub('"-Xmx2G -Djava.io.tmpdir=#{_(\'tmp/gwt\')}"', '\'-Xmx2G\'').
+          gsub('"-Xmx3G -Djava.io.tmpdir=#{_("tmp/gwt/#{short_name}")}"', '\'-Xmx2G\'')
+      end
+    mysystem("git commit -m \"Remove explicit setting of java.io.tmpdir and return to using system setting so OS can remove unused temp files.\"") if patched
+  end
+end
+
 command(:change_travis_ci_badges_to_svg) do |app|
   if File.exist?('README.md')
     patched =
