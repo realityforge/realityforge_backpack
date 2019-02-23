@@ -155,6 +155,14 @@ command(:patch_jsinterop_base_version) do |app|
   patch_versions(app, %w(com.google.jsinterop:base:jar com.google.jsinterop:base:jar:sources), '1.0.0-RC1')
 end
 
+
+desc 'Move to org.realityforge variants of jsinterop-base and upgrade version'
+command(:upgrade_jsinterop_base) do |app|
+  version = '1.0.0-b1-e6d791f'
+  patch_dependency_coordinates(app, { 'com.google.jsinterop:base:jar' => 'org.realityforge.com.google.jsinterop:base:jar' }, version)
+  patch_versions(app, %w(org.realityforge.com.google.jsinterop:base:jar), version)
+end
+
 desc 'Move to org.realityforge variants of elemental and upgrade version'
 command(:upgrade_elemental2) do |app|
   version = '1.0.0-b18-f3472e7'
