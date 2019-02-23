@@ -91,11 +91,11 @@ end
 
 command(:patch_gwt_tmpdir) do |app|
   if File.exist?('buildfile')
-    patched =patch_file('buildfile') do |content|
-        content.
-          gsub('"-Xmx2G -Djava.io.tmpdir=#{_(\'tmp/gwt\')}"', '\'-Xmx2G\'').
-          gsub('"-Xmx3G -Djava.io.tmpdir=#{_("tmp/gwt/#{short_name}")}"', '\'-Xmx2G\'')
-      end
+    patched = patch_file('buildfile') do |content|
+      content.
+        gsub('"-Xmx2G -Djava.io.tmpdir=#{_(\'tmp/gwt\')}"', '\'-Xmx2G\'').
+        gsub('"-Xmx3G -Djava.io.tmpdir=#{_("tmp/gwt/#{short_name}")}"', '\'-Xmx2G\'')
+    end
     mysystem("git commit -m \"Remove explicit setting of java.io.tmpdir and return to using system setting so OS can remove unused temp files.\"") if patched
   end
 end
@@ -154,7 +154,6 @@ end
 command(:patch_jsinterop_base_version) do |app|
   patch_versions(app, %w(com.google.jsinterop:base:jar com.google.jsinterop:base:jar:sources), '1.0.0-RC1')
 end
-
 
 desc 'Move to org.realityforge variants of jsinterop-base and upgrade version'
 command(:upgrade_jsinterop_base) do |app|
