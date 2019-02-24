@@ -136,7 +136,7 @@ command(:remove_deprecated_gem_config) do |app|
 end
 
 command(:patch_braincheck_version) do |app|
-  patch_versions(app, %w(org.realityforge.braincheck:braincheck:jar), '1.12.0')
+  patch_versions(app, %w(org.realityforge.braincheck:braincheck:jar), '1.13.0')
 end
 
 command(:patch_gwt_version) do |app|
