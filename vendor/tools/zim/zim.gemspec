@@ -24,5 +24,4 @@ Gem::Specification.new do |s|
   s.add_dependency 'reality-core', '>= 1.8.0'
   s.add_dependency 'reality-model', '>= 1.2.0'
   s.add_dependency 'reality-belt', '>= 1.0.0'
-  s.add_dependency 'zapwhite', '= 2.12.0'
 end
