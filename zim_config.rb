@@ -212,22 +212,6 @@ command(:add_code_of_conduct) do |app|
   mysystem("git commit -m \"Add a code of conduct\"")
 end
 
-command(:update_publish_task) do |app|
-  if File.exist?('tasks/publish.rake')
-    FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/publish.rake", 'tasks/publish.rake'
-    begin
-      patched = patch_file('.travis.yml') do |content|
-        content.gsub("  depth: 10\n", "  depth: false\n")
-      end
-      mysystem('git add .travis.yml') if patched
-      mysystem('git add tasks/publish.rake')
-      mysystem("git commit -m \"Change the 'publish_if_tagged' task to stop working around shallow git checkouts on TravisCI.\"")
-    rescue Exception
-      # ignored
-    end
-  end
-end
-
 command(:fix_tags) do |app|
   bad_tags = `git tag | grep -v -- v`.strip.split("\n").select {|t| t =~ /^[0-9\.]+$/}
   if !bad_tags.empty? && !(app =~ /^chef-.*/) && app != 'knife-cookbook-doc'
