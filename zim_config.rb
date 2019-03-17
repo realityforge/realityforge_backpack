@@ -165,17 +165,6 @@ end
 desc 'Move to org.realityforge variants of elemental and upgrade version'
 command(:upgrade_elemental2) do |app|
   version = '1.0.0-b19-fb227e3'
-  patch_dependency_coordinates(app, {
-    'com.google.elemental2:elemental2-core:jar' => 'org.realityforge.com.google.elemental2:elemental2-core:jar',
-    'com.google.elemental2:elemental2-promise:jar' => 'org.realityforge.com.google.elemental2:elemental2-promise:jar',
-    'com.google.elemental2:elemental2-dom:jar' => 'org.realityforge.com.google.elemental2:elemental2-dom:jar',
-    'com.google.elemental2:elemental2-media:jar' => 'org.realityforge.com.google.elemental2:elemental2-media:jar',
-    'com.google.elemental2:elemental2-indexeddb:jar' => 'org.realityforge.com.google.elemental2:elemental2-indexeddb:jar',
-    'com.google.elemental2:elemental2-svg:jar' => 'org.realityforge.com.google.elemental2:elemental2-svg:jar',
-    'com.google.elemental2:elemental2-webgl:jar' => 'org.realityforge.com.google.elemental2:elemental2-webgl:jar',
-    'com.google.elemental2:elemental2-webstorage:jar' => 'org.realityforge.com.google.elemental2:elemental2-webstorage:jar',
-    'com.google.elemental2:elemental2-webassembly:jar' => 'org.realityforge.com.google.elemental2:elemental2-webassembly:jar'
-  }, version)
   patch_versions(app, %w(
     org.realityforge.com.google.elemental2:elemental2-core:jar
     org.realityforge.com.google.elemental2:elemental2-dom:jar
