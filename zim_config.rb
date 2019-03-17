@@ -186,15 +186,6 @@ command(:fix_elemental2) do |app|
   end
 end
 
-command(:remove_travis_java) do |app|
-  patched = patch_file('.travis.yml') do |content|
-    content.gsub('oraclejdk7', 'oraclejdk8')
-  end
-  if patched
-    mysystem("git commit -m \"Build using Java 8 as Java 7 has been removed from some TravisCI nodes\"")
-  end
-end
-
 command(:add_code_of_conduct) do |app|
   FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/code-of-conduct.md", 'CODE_OF_CONDUCT.md'
   mysystem('git add CODE_OF_CONDUCT.md')
