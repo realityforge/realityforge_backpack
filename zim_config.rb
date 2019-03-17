@@ -164,7 +164,6 @@ end
 
 desc 'Move to org.realityforge variants of elemental and upgrade version'
 command(:upgrade_elemental2) do |app|
-  version = '1.0.0-b19-fb227e3'
   patch_versions(app, %w(
     org.realityforge.com.google.elemental2:elemental2-core:jar
     org.realityforge.com.google.elemental2:elemental2-dom:jar
@@ -175,7 +174,7 @@ command(:upgrade_elemental2) do |app|
     org.realityforge.com.google.elemental2:elemental2-webgl:jar
     org.realityforge.com.google.elemental2:elemental2-webstorage:jar
     org.realityforge.com.google.elemental2:elemental2-webassembly:jar
-  ), version)
+  ), '1.0.0-b20-bfe6e22')
 end
 
 command(:add_code_of_conduct) do |app|
