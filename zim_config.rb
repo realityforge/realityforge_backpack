@@ -178,14 +178,6 @@ command(:upgrade_elemental2) do |app|
   ), version)
 end
 
-command(:fix_elemental2) do |app|
-  if File.exist?('build.yaml')
-    patched =
-      patch_file('build.yaml') {|content| content.gsub('org.realityforge.org.realityforge.com.google.elemental2', 'org.realityforge.com.google.elemental2')}
-    mysystem("git commit -m \"Fix dependency coordinates mangled via automated upgrade process\"") if patched
-  end
-end
-
 command(:add_code_of_conduct) do |app|
   FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/code-of-conduct.md", 'CODE_OF_CONDUCT.md'
   mysystem('git add CODE_OF_CONDUCT.md')
