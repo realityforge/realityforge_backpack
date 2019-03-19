@@ -78,6 +78,14 @@ command(:upgrade_elemental2) do |app|
   ), '1.0.0-b20-bfe6e22')
 end
 
+command(:upgrade_arez) do |app|
+  patch_versions(app, %w(
+    org.realityforge.arez:arez-core:jar
+    org.realityforge.arez:arez-processor:jar
+    org.realityforge.arez:arez-gwt-output-qa:jar
+  ), '0.133')
+end
+
 command(:fix_tags) do |app|
   bad_tags = `git tag | grep -v -- v`.strip.split("\n").select {|t| t =~ /^[0-9\.]+$/}
   if !bad_tags.empty? && !(app =~ /^chef-.*/) && app != 'knife-cookbook-doc'
