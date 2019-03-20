@@ -139,6 +139,9 @@ Belt.scope('realityforge') do |o|
   o.project('knife-cookbook-doc', :description => 'Knife plugin to document cookbooks', :tags => %w(travis pages issues))
   o.project('ohai-system_packages')
 
+  # External projects that have been forked and patched for use
+  o.project('ant-shade-task', :description => 'Apache Maven Shade Plugin adapter for Apache Ant', :tags => %w(external))
+
   # Personal Music Exploration
   o.project('scores', :description => 'Scores etched during self-education', :tags => %w(private))
   o.project('MusicBook', :description => 'Collections of thoughts on Music Theory', :tags => %w(private))
@@ -170,7 +173,6 @@ Belt.scope('realityforge') do |o|
   o.project('Bootstrap-JSF2.2', :description => 'Twitter Bootstrap integration with JSF 2.2 on Java EE 7', :tags => %w(historic))
 
   # External projects that have been forked to keep a copy of source
-  o.project('ant-shade-task', :description => 'Apache Maven Shade Plugin adapter for Apache Ant', :tags => %w(external))
   o.project('gwt-cal', :tags => %w(external historic))
   o.project('Piano-Trainer', :description => 'A web-app for training sheet reading skills by using your MIDI-enabled piano.', :tags => %w(external historic))
 
