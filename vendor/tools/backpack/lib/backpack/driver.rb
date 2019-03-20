@@ -19,6 +19,7 @@ module Backpack #nodoc
         run_hook(context, :pre_organization, organization)
         converge_teams(context, organization) unless organization.is_user_account?
         converge_repositories(context, organization)
+        converge_subscriptions(context, organization)
         converge_hooks(context, organization)
         run_hook(context, :post_organization, organization)
       end
@@ -225,6 +226,18 @@ module Backpack #nodoc
           elsif protection
             puts "Un-protecting branch #{branch_name} in repository #{repository.qualified_name}"
             client.unprotect_branch(repository.qualified_name, branch_name, :accept => Octokit::Preview::PREVIEW_TYPES[:branch_protection])
+          end
+        end
+      end
+
+      def converge_subscriptions(context, organization)
+        organization.repositories.select{|repository|repository.archived?}.each do |repository|
+          begin
+            context.client.subscription(repository.qualified_name)
+            puts "Removing subscription from archived repository #{repository.qualified_name}"
+            context.client.delete_subscription(repository.qualified_name)
+          rescue Octokit::NotFound
+            # ignored
           end
         end
       end
