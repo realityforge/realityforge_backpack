@@ -99,8 +99,6 @@ Belt.scope('realityforge') do |o|
   o.project('gwt-keycloak', :description => 'A simple library to provide keycloak support to GWT', :tags => %w(travis issues))
   o.project('gwt-qr-code', :description => 'GWT QR Code Generation', :tags => %w(travis issues))
   o.project('gwt-symbolmap', :description => 'GWT SymbolMap Assertions Library.', :tags => %w(travis codecov))
-  o.project('gwt-webpoller', :description => 'A gwt library to simplify periodic polling and long-poll based transport layers', :tags => %w(travis issues))
-  o.project('gwt-webpoller-example', :description => 'A simple application demonstrating the use of the gwt-webpoller library', :tags => %w(travis issues))
   o.project('housekeeping-scripts', :description => 'Sets of scripts used to perform housekeeping at home and in the wild')
   o.project('idea-configuration', :description => 'A repository containing configuration for IntelliJ IDEA', :tags => %w(zim=no))
 
@@ -268,6 +266,10 @@ Belt.scope('realityforge') do |o|
   # Historic: Deprecated in favour of Elemental2
   o.project('gwt-websockets', :description => 'GWT WebSocket Library', :tags => %w(historic))
   o.project('gwt-websockets-example', :description => 'A simple application demonstrating the use of the gwt-websockets library', :tags => %w(historic))
+
+  # Historic: Deprecated as no longer used now that WebSockets are broadly supported.
+  o.project('gwt-webpoller', :description => 'A gwt library to simplify periodic polling and long-poll based transport layers', :tags => %w(historic))
+  o.project('gwt-webpoller-example', :description => 'A simple application demonstrating the use of the gwt-webpoller library', :tags => %w(historic))
 
   # Historic: Moved to using a simpler + GWT 3.0 compatible strategy of System.getProperty() instead
   o.project('gwt-property-source', :description => 'Provides a convenient way of compiling GWT property values into your module.', :tags => %w(issues historic))
