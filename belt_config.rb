@@ -132,7 +132,6 @@ Belt.scope('realityforge') do |o|
   o.project('chef-kibana', :description => 'A chef cookbook that installs/configures kibana (the logstash UI)', :tags => %w(issues travis))
   o.project('chef-sqlshell', :description => 'Simple cookbook to aid in automating database contents', :tags => %w(travis))
   o.project('chef-winrm', :description => 'Simple winrm cookbook for chef', :tags => %w(travis))
-  o.project('chef-xymon', :description => 'A cookbook that installs the xymon monitoring software.', :tags => %w(travis))
   o.project('knife-cookbook-doc', :description => 'Knife plugin to document cookbooks', :tags => %w(travis pages issues))
   o.project('ohai-system_packages')
 
@@ -303,6 +302,7 @@ Belt.scope('realityforge') do |o|
   o.project('chef-collectd', :description => 'A collectd cookbook for chef', :tags => %w(historic))
   o.project('chef-gelf_handler', :description => 'A Chef handler that reports to Graylog2 servers.', :tags => %w(historic))
   o.project('chef-glassfish-example', :description => 'A simple chef repository that demonstrates the use of the chef-glassfish cookbook', :tags => %w(historic))
+  o.project('chef-xymon', :description => 'A cookbook that installs the xymon monitoring software.', :tags => %w(historic))
 
   # Historic: Old Presentation
   o.project('cookbook-reusability-presentation', :description => 'Presentation on cookbook reusability', :tags => %w(historic))
