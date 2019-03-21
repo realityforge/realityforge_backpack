@@ -71,9 +71,6 @@ Belt.scope('realityforge') do |o|
   o.project('javax.annotation', :description => 'A minimal, J2CL compatible javax.annotation library', :tags => %w(travis))
   o.project('org.jetbrains.annotations', :description => 'A minimal, J2CL compatible org.jetbrains.annotations library', :tags => %w(travis))
 
-  o.project('assets-font-awesome', :description => 'An extraction of all the icons from font-awesome.', :tags => %w(travis zapwhite=no))
-  o.project('assets-glyphicons-halflings-regular', :description => 'An extraction of all the icons from glyphicons font included in bootstrap.', :tags => %w(travis zapwhite=no))
-
   o.project('guiceyloops', :description => 'GuiceyLoops is a minimalistic library for aiding the testing of JEE applications using Guice.', :tags => %w(codecov notify:stock travis))
 
   o.project('keycloak-jaxrs-client-authfilter', :description => 'Filter for accessing keycloak secured services', :tags => %w(travis))
@@ -206,6 +203,10 @@ Belt.scope('realityforge') do |o|
   o.project('mgwt', :description => 'Clone of master branch of mgwt', :tags => %w(external historic))
   o.project('mgwt.showcase', :tags => %w(external historic))
   o.project('RxJS', :description => 'The Reactive Extensions for JavaScript', :tags => %w(external historic))
+
+  # Historic: Icon conversions that never got adopted
+  o.project('assets-font-awesome', :description => 'An extraction of all the icons from font-awesome.', :tags => %w(travis zapwhite=no))
+  o.project('assets-glyphicons-halflings-regular', :description => 'An extraction of all the icons from glyphicons font included in bootstrap.', :tags => %w(travis zapwhite=no))
 
   # Historic: rails projects that are no longer in use
   o.project('rails-active-form', :description => 'A rails plugin for model objects that support validations but are not backed by database tables', :tags => %w(historic))
