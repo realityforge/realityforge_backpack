@@ -56,6 +56,10 @@ command(:patch_guiceyloops_version) do |app|
   patch_versions(app, %w(org.realityforge.guiceyloops:guiceyloops:jar), '0.98')
 end
 
+command(:patch_gir_version) do |app|
+  patch_versions(app, %w(org.realityforge.gir:gir-core:jar), '0.08')
+end
+
 desc 'Move to org.realityforge variants of jsinterop-base and upgrade version'
 command(:upgrade_jsinterop_base) do |app|
   version = '1.0.0-b2-e6d791f'
