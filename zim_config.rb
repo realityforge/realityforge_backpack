@@ -60,6 +60,17 @@ command(:patch_gir_version) do |app|
   patch_versions(app, %w(org.realityforge.gir:gir-core:jar), '0.08')
 end
 
+command(:patch_repository_urls) do |app|
+  patched = patch_file('build.yaml') do |content|
+    content.
+      gsub("http://repo1.maven.org/maven2", "https://repo1.maven.org/maven2").
+      gsub("http://central.maven.org/maven2", "https://repo1.maven.org/maven2")
+  end
+  if patched
+    mysystem("git commit -m \"Use SSL to access maven repository.\"")
+  end
+end
+
 desc 'Move to org.realityforge variants of jsinterop-base and upgrade version'
 command(:upgrade_jsinterop_base) do |app|
   version = '1.0.0-b2-e6d791f'
