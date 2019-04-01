@@ -144,15 +144,30 @@ Belt.scope('realityforge') do |o|
   # Old blog that was long ago abandoned...
   o.project('realityforge.github.io', :description => 'My personal website and blog', :tags => %w(homepage=https://realityforge.github.io zapwhite=no historic))
 
-  # Projects created during learning of new technology
+  # Projects created during learning of new technology - incomplete or ongoing
+  o.project('course-rust-lang', :description => 'Coursework for "The Rust Programming Language" Udemy course')
+  o.project('course-advanced-css-and-sass', :description => 'Coursework for "Advanced CSS and Sass" course')
+
+  # External projects that have been forked to submit pull requests
+  o.project('j2cl', :description => 'Java to closure style javascript transpiler', :tags => %w(external travis))
+  o.project('react', :description => 'A declarative, efficient, and flexible JavaScript library for building user interfaces.', :tags => %w(external homepage=https://reactjs.org))
+  o.project('closure-compiler', :description => 'A JavaScript checker and optimizer.', :tags => %w(external homepage=https://developers.google.com/closure/compiler/ travis))
+  o.project('closure-library', :description => 'Google''s common JavaScript library', :tags => %w(external homepage=http://code.google.com/closure/library/ travis))
+  o.project('graphql-java', :description => 'GraphQL Java implementation', :tags => %w(external))
+  o.project('schmooze', :description => 'Schmooze lets Ruby and Node.js work together intimately.', :tags => %w(external))
+  o.project('docker-keycloak', :description => 'Docker image for Keycloak project', :tags => %w(external))
+  o.project('elemental2', :description => 'Type checked access to browser APIs for Java code.', :tags => %w(external travis))
+  o.project('jsinterop-generator', :description => 'Generates Java annotated with JsInterop from JavaScript extern sources', :tags => %w(external travis))
+  o.project('jsinterop-base', :description => 'Utilities for GWT and J2CL to interact with JavaScript beyond JsInterop', :tags => %w(external travis))
+  o.project('gwt', :description => 'GWT Open Source Project', :tags => %w(external homepage=http://www.gwtproject.org))
+
+  # Historic: Projects created during learning of new technology. No longer relevant
   o.project('wasm-contract-experiments', :description => 'Experiments using eWasm and Parity', :tags => %w(historic))
   o.project('course-vue-js-course', :description => 'Coursework for "Vue JS Essentials with Vuex and Vue Router" Udemy course', :tags => %w(historic))
-  o.project('course-rust-lang', :description => 'Coursework for "The Rust Programming Language" Udemy course')
   o.project('course-get-started-using-webassembly-wasm', :description => 'Coursework for "Get Started Using WebAssembly" course', :tags => %w(historic))
   o.project('course-getting-started-with-ethereum-solidity-development', :description => 'Coursework for "Getting Started with Ethereum Solidity Development" course', :tags => %w(historic))
   o.project('course-ethereum-and-solidity', :description => 'Coursework for "Ethereum and Solidity" course', :tags => %w(historic))
   o.project('course-advanced-react-component-patterns', :description => 'Coursework for "Advanced React Component Patterns" course', :tags => %w(historic))
-  o.project('course-advanced-css-and-sass', :description => 'Coursework for "Advanced CSS and Sass" course')
   o.project('course-creating-reusable-react-components', :description => 'Coursework for "Creating Reusable React Components" course', :tags => %w(historic))
   o.project('course-cycle-js-fundamentals', :description => 'Coursework for "Cycle.js Fundamentals" course', :tags => %w(historic))
   o.project('course-closure-library', :description => 'Coursework for "Closure Library: Build Complex JavaScript Applications" course', :tags => %w(historic))
@@ -170,19 +185,6 @@ Belt.scope('realityforge') do |o|
   # External projects that have been forked to keep a copy of source
   o.project('gwt-cal', :tags => %w(external historic))
   o.project('Piano-Trainer', :description => 'A web-app for training sheet reading skills by using your MIDI-enabled piano.', :tags => %w(external historic))
-
-  # External projects that have been forked to submit pull requests
-  o.project('j2cl', :description => 'Java to closure style javascript transpiler', :tags => %w(external travis))
-  o.project('react', :description => 'A declarative, efficient, and flexible JavaScript library for building user interfaces.', :tags => %w(external homepage=https://reactjs.org))
-  o.project('closure-compiler', :description => 'A JavaScript checker and optimizer.', :tags => %w(external homepage=https://developers.google.com/closure/compiler/ travis))
-  o.project('closure-library', :description => 'Google''s common JavaScript library', :tags => %w(external homepage=http://code.google.com/closure/library/ travis))
-  o.project('graphql-java', :description => 'GraphQL Java implementation', :tags => %w(external))
-  o.project('schmooze', :description => 'Schmooze lets Ruby and Node.js work together intimately.', :tags => %w(external))
-  o.project('docker-keycloak', :description => 'Docker image for Keycloak project', :tags => %w(external))
-  o.project('elemental2', :description => 'Type checked access to browser APIs for Java code.', :tags => %w(external travis))
-  o.project('jsinterop-generator', :description => 'Generates Java annotated with JsInterop from JavaScript extern sources', :tags => %w(external travis))
-  o.project('jsinterop-base', :description => 'Utilities for GWT and J2CL to interact with JavaScript beyond JsInterop', :tags => %w(external travis))
-  o.project('gwt', :description => 'GWT Open Source Project', :tags => %w(external homepage=http://www.gwtproject.org))
 
   # External projects that have been forked to submit pull requests but we do not expect to issue pull requests in future
   o.project('pwasm-tutorial', :description => 'A step-by-step tutorial on how to write contracts in Wasm for Kovan', :tags => %w(external historic))
