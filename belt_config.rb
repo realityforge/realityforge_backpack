@@ -176,7 +176,6 @@ Belt.scope('realityforge') do |o|
   o.project('react', :description => 'A declarative, efficient, and flexible JavaScript library for building user interfaces.', :tags => %w(external homepage=https://reactjs.org))
   o.project('closure-compiler', :description => 'A JavaScript checker and optimizer.', :tags => %w(external homepage=https://developers.google.com/closure/compiler/ travis))
   o.project('closure-library', :description => 'Google''s common JavaScript library', :tags => %w(external homepage=http://code.google.com/closure/library/ travis))
-  o.project('connected', :tags => %w(external))
   o.project('graphql-java', :description => 'GraphQL Java implementation', :tags => %w(external))
   o.project('schmooze', :description => 'Schmooze lets Ruby and Node.js work together intimately.', :tags => %w(external))
   o.project('docker-keycloak', :description => 'Docker image for Keycloak project', :tags => %w(external))
@@ -206,6 +205,7 @@ Belt.scope('realityforge') do |o|
   o.project('mgwt', :description => 'Clone of master branch of mgwt', :tags => %w(external historic))
   o.project('mgwt.showcase', :tags => %w(external historic))
   o.project('RxJS', :description => 'The Reactive Extensions for JavaScript', :tags => %w(external historic))
+  o.project('connected', :tags => %w(external historic))
 
   # Historic: Icon conversions that never got adopted
   o.project('assets-font-awesome', :description => 'An extraction of all the icons from font-awesome.', :tags => %w(travis zapwhite=no))
