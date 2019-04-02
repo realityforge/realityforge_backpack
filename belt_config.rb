@@ -150,7 +150,6 @@ Belt.scope('realityforge') do |o|
   o.project('j2cl', :description => 'Java to closure style javascript transpiler', :tags => %w(external travis))
   o.project('react', :description => 'A declarative, efficient, and flexible JavaScript library for building user interfaces.', :tags => %w(external homepage=https://reactjs.org))
   o.project('closure-compiler', :description => 'A JavaScript checker and optimizer.', :tags => %w(external homepage=https://developers.google.com/closure/compiler/ travis))
-  o.project('closure-library', :description => 'Google''s common JavaScript library', :tags => %w(external homepage=http://code.google.com/closure/library/ travis))
   o.project('graphql-java', :description => 'GraphQL Java implementation', :tags => %w(external))
   o.project('schmooze', :description => 'Schmooze lets Ruby and Node.js work together intimately.', :tags => %w(external))
   o.project('docker-keycloak', :description => 'Docker image for Keycloak project', :tags => %w(external))
@@ -202,6 +201,7 @@ Belt.scope('realityforge') do |o|
   o.project('Payara', :description => 'Payara Server is derived from GlassFish Server Open Source Edition and 100% open source', :tags => %w(external historic homepage=http://www.payara.fish))
   o.project('ode', :description => 'Mirror of Apache ODE', :tags => %w(external historic))
   o.project('design', :description => 'eWASM Design Overview and Specification', :tags => %w(external historic))
+  o.project('closure-library', :description => 'Google''s common JavaScript library', :tags => %w(external historic))
 
   # External projects that have been forked to submit pull requests but we do not use at his stage or possibly ever
   o.project('gwt-leaflet', :description => 'GWT library for Leaflet', :tags => %w(external historic))
