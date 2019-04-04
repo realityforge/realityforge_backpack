@@ -139,9 +139,6 @@ Belt.scope('realityforge') do |o|
   o.project('scores', :description => 'Scores etched during self-education', :tags => %w(private))
   o.project('MusicBook', :description => 'Collections of thoughts on Music Theory', :tags => %w(private))
 
-  # Old blog that was long ago abandoned...
-  o.project('realityforge.github.io', :description => 'My personal website and blog', :tags => %w(homepage=https://realityforge.github.io zapwhite=no historic))
-
   # Projects created during learning of new technology - incomplete or ongoing
   o.project('course-rust-lang', :description => 'Coursework for "The Rust Programming Language" Udemy course')
   o.project('course-advanced-css-and-sass', :description => 'Coursework for "Advanced CSS and Sass" course')
@@ -158,6 +155,9 @@ Belt.scope('realityforge') do |o|
   o.project('jsinterop-base', :description => 'Utilities for GWT and J2CL to interact with JavaScript beyond JsInterop', :tags => %w(external travis))
   o.project('gwt', :description => 'GWT Open Source Project', :tags => %w(external homepage=http://www.gwtproject.org))
   o.project('bazel', :description => 'a fast, scalable, multi-language and extensible build system', :tags => %w(external homepage=https://bazel.build))
+
+  # Old blog that was long ago abandoned...
+  o.project('realityforge.github.io', :description => 'My personal website and blog', :tags => %w(homepage=https://realityforge.github.io zapwhite=no historic))
 
   # Historic: Bazel team is developing their own variant. See https://blog.bazel.build/2019/03/31/rules-jvm-external-maven.html
   o.project('bazel-depgen', :description => 'Generate Bazel dependency scripts by traversing Maven repositories', :tags => %w(histori))
