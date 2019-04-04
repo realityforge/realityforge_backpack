@@ -160,7 +160,7 @@ Belt.scope('realityforge') do |o|
   o.project('realityforge.github.io', :description => 'My personal website and blog', :tags => %w(homepage=https://realityforge.github.io zapwhite=no historic))
 
   # Historic: Bazel team is developing their own variant. See https://blog.bazel.build/2019/03/31/rules-jvm-external-maven.html
-  o.project('bazel-depgen', :description => 'Generate Bazel dependency scripts by traversing Maven repositories', :tags => %w(histori))
+  o.project('bazel-depgen', :description => 'Generate Bazel dependency scripts by traversing Maven repositories', :tags => %w(historic))
 
   # Historic: Projects created during learning of new technology. No longer relevant
   o.project('wasm-contract-experiments', :description => 'Experiments using eWasm and Parity', :tags => %w(historic))
