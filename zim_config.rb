@@ -98,7 +98,7 @@ command(:upgrade_arez) do |app|
     org.realityforge.arez:arez-core:jar
     org.realityforge.arez:arez-processor:jar
     org.realityforge.arez:arez-gwt-output-qa:jar
-  ), '0.133')
+  ), '0.135')
 end
 
 command(:fix_tags) do |app|
