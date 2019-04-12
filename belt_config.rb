@@ -189,6 +189,7 @@ Belt.scope('realityforge') do |o|
   o.project('Piano-Trainer', :description => 'A web-app for training sheet reading skills by using your MIDI-enabled piano.', :tags => %w(external historic))
 
   # External projects that have been forked to submit pull requests but we do not expect to issue pull requests in future
+  o.project('rules_jvm_external', :description => 'Rules to resolve and fetch artifacts transitively from Maven repositories', :tags => %w(external historic))
   o.project('pwasm-tutorial', :description => 'A step-by-step tutorial on how to write contracts in Wasm for Kovan', :tags => %w(external historic))
   o.project('javapoet', :description => 'A Java API for generating .java source files.', :tags => %w(external historic))
   o.project('domino-ui', :description => 'Domino-UI', :tags => %w(external historic))
