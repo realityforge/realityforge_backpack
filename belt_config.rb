@@ -157,7 +157,6 @@ Belt.scope('realityforge') do |o|
   o.project('closure-compiler', :description => 'A JavaScript checker and optimizer.', :tags => %w(external homepage=https://developers.google.com/closure/compiler/ travis))
   o.project('graphql-java', :description => 'GraphQL Java implementation', :tags => %w(external))
   o.project('schmooze', :description => 'Schmooze lets Ruby and Node.js work together intimately.', :tags => %w(external))
-  o.project('docker-keycloak', :description => 'Docker image for Keycloak project', :tags => %w(external))
   o.project('elemental2', :description => 'Type checked access to browser APIs for Java code.', :tags => %w(external travis))
   o.project('jsinterop-generator', :description => 'Generates Java annotated with JsInterop from JavaScript extern sources', :tags => %w(external travis))
   o.project('jsinterop-base', :description => 'Utilities for GWT and J2CL to interact with JavaScript beyond JsInterop', :tags => %w(external travis))
@@ -166,6 +165,9 @@ Belt.scope('realityforge') do |o|
 
   # Old blog that was long ago abandoned...
   o.project('realityforge.github.io', :description => 'My personal website and blog', :tags => %w(homepage=https://realityforge.github.io zapwhite=no historic))
+
+  # Historic: No longer in use
+  o.project('docker-keycloak', :description => 'Docker image for Keycloak project', :tags => %w(historic external))
 
   # Historic: Projects created during learning of new technology. No longer relevant
   o.project('wasm-contract-experiments', :description => 'Experiments using eWasm and Parity', :tags => %w(historic))
