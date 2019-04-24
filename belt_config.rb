@@ -105,6 +105,7 @@ Belt.scope('realityforge') do |o|
   o.project('idea-configuration', :description => 'A repository containing configuration for IntelliJ IDEA', :tags => %w(zim=no))
 
   o.project('jndikit', :description => 'a toolkit designed to help with the construction of JNDI providers', :tags => %w(travis))
+  o.project('timeservice', :description => 'A simple EE service to get constant now within transaction', :tags => %w(travis))
   o.project('proxy-servlet', :description => 'A servlet for creating proxy services', :tags => %w(travis))
   o.project('reality-idea', :description => 'An ruby model to represent and generate intellij idea project files.', :tags => %w(travis zapwhite=no))
   o.project('reality-mda', :description => 'The glue that blends reality-core, reality-model, reality-generators and reality-facets into an model driven application.', :tags => %w(travis))
