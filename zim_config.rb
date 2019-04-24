@@ -49,7 +49,7 @@ command(:patch_arez_spytools_version) do |app|
 end
 
 command(:patch_revapi_version) do |app|
-  patch_versions(app, %w(org.realityforge.revapi.diff:revapi-diff:jar:all), '0.07')
+  patch_versions(app, %w(org.realityforge.revapi.diff:revapi-diff:jar:all), '0.08')
 end
 
 command(:patch_jsinterop_version) do |app|
