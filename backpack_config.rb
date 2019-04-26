@@ -8,7 +8,6 @@ Backpack.organizations.each do |o|
   o.repositories.each do |repository|
     repository.private = repository.tags.include?('private')
     repository.archived = true if repository.tags.include?('historic')
-    repository.wiki = true if repository.tags.include?('wiki')
 
     if repository.tags.include?('notify:stock')
       #TODO: As of Feb 06 2019 there is no way to automate email notifications, we just need to configure via Web UI :(
