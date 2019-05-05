@@ -1,0 +1,15 @@
+Belt.scope('artemis-esf') do |o|
+  o.repository('apollo-entity-framework', :description => 'A mirror of https://code.google.com/p/apollo-entity-framework')
+  o.repository('apollo-warrior', :description => 'A mirror of https://code.google.com/p/apollo-warrior')
+  o.repository('artemis-framework', :description => 'A mirror of https://code.google.com/p/artemis-framework')
+  o.repository('artemis-gwt', :description => 'GWT port of the "Artemis Entity System Framework"')
+  o.repository('ashley', :description => 'A Java entity system inspired by Ash & Artemis.')
+  o.repository('comsat-examples', :description => 'Comsat Examples')
+  o.repository('gamadu-spaceship-warrior', :description => 'A mirror of https://code.google.com/p/spaceship-warrior')
+  o.repository('gamadu-starwarrior', :description => 'A mirror of https://code.google.com/p/gamadu-starwarrior')
+  o.repository('gamadu-tankz', :description => 'A mirror of https://code.google.com/p/gamadu-tankz')
+  o.repository('piemaster-artemoids', :description => 'A mirror of https://bitbucket.org/piemaster/artemoids')
+  o.repository('piemaster-jario', :description => 'A mirror of https://bitbucket.org/piemaster/jario')
+  o.repository('quake2-gwt-port')
+  o.repository('spaceships-demo', :description => 'SpaceBase demo application: a simulation of tens of thousands of spaceships in battle')
+end
