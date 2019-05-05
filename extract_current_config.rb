@@ -12,9 +12,9 @@ client.repositories('realityforge').sort { |v1, v2| v1['name'].to_s <=> v2['name
     remote_repository['description'].to_s == '' ? '' : ", :description => '#{remote_repository['description'].gsub("'", "''")}'"
 
   homepage = remote_repository['homepage'].to_s == '' ? '' : ", :homepage => '#{remote_repository['homepage']}'"
-  private = remote_repository['private'].to_s == 'true' ? '' : ', :private => false'
-  issues = remote_repository['has_issues'].to_s == 'true' ? '' : ', :issues => true'
-  wiki = remote_repository['has_wiki'].to_s == 'true' ? '' : ', :wiki => true'
+  private = remote_repository['private'].to_s != 'true' ? '' : ', :private => true'
+  issues = remote_repository['has_issues'].to_s != 'true' ? '' : ', :issues => true'
+  wiki = remote_repository['has_wiki'].to_s != 'true' ? '' : ', :wiki => true'
 
   tags = []
 
