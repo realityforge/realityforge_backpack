@@ -6,7 +6,6 @@ Belt.scope('realityforge') do |o|
 
   o.project('buildr_plus', :description => 'A simple set of extensions that patch and customize buildr to our requirements.', :tags => %w(notify:stock))
   o.project('dbt', :description => 'A simple tool designed to simplify the creation, migration and deletion of databases.', :tags => %w(notify:stock travis pages))
-  o.project('noft', :description => 'A tool to extract svg icons from icon fonts and generate helpers to render the icons.', :tags => %w(notify:stock travis))
   o.project('domgen', :description => 'Domgen generates code from a simple domain model leaving the developer to focus on implementing high-value features of the application.', :tags => %w(notify:stock pages))
   o.project('kinjen', :description => 'A library of groovy scripts to use from a Jenkinsfile', :tags => %w(notify:stock))
   o.project('redfish', :description => 'A lightweight library for configuring GlassFish/Payara servers.', :tags => %w(notify:stock travis))
@@ -166,9 +165,12 @@ Belt.scope('realityforge') do |o|
   o.project('RxJS', :description => 'The Reactive Extensions for JavaScript', :tags => %w(external historic))
   o.project('connected', :tags => %w(external historic))
 
+  # Historic: No longer needed
+  o.project('noft', :description => 'A tool to extract svg icons from icon fonts and generate helpers to render the icons.', :tags => %w(historic))
+
   # Historic: Icon conversions that never got adopted
-  o.project('assets-font-awesome', :description => 'An extraction of all the icons from font-awesome.', :tags => %w(travis zapwhite=no))
-  o.project('assets-glyphicons-halflings-regular', :description => 'An extraction of all the icons from glyphicons font included in bootstrap.', :tags => %w(travis zapwhite=no))
+  o.project('assets-font-awesome', :description => 'An extraction of all the icons from font-awesome.', :tags => %w(historic))
+  o.project('assets-glyphicons-halflings-regular', :description => 'An extraction of all the icons from glyphicons font included in bootstrap.', :tags => %w(historic))
 
   # Historic: rails projects that are no longer in use
   o.project('rails-active-form', :description => 'A rails plugin for model objects that support validations but are not backed by database tables', :tags => %w(historic))
