@@ -59,7 +59,6 @@ Belt.scope('realityforge') do |o|
   o.project('reality-mash', :description => 'A library providing the mash data type.', :tags => %w(travis))
   o.project('reality-model', :description => 'Utility classes for defining a domain model.', :tags => %w(travis))
   o.project('reality-naming', :description => 'A library to convert names between different naming conventions.', :tags => %w(travis))
-  o.project('reality-orderedhash', :description => 'A library providing a hash with preserved order and some array-like extensions.', :tags => %w(travis))
   o.project('reality-belt', :description => 'A super simple domain model to represent projects.', :tags => %w(travis))
   o.project('gitattributes', :description => 'Class to parse gitattributes files.', :tags => %w(travis))
   o.project('zapwhite', :description => 'A simple tool to normalize whitespace in git repositories.', :tags => %w(travis))
@@ -135,6 +134,9 @@ Belt.scope('realityforge') do |o|
   o.project('jamex', :description => 'A test bed for OSGi, git, buildr and jms code', :tags => %w(historic))
   o.project('primefaces-starter', :description => 'A primefaces/JSF application used to learn about the framework', :tags => %w(historic))
   o.project('Bootstrap-JSF2.2', :description => 'Twitter Bootstrap integration with JSF 2.2 on Java EE 7', :tags => %w(historic))
+
+  # Historic: Not needed in latest ruby
+  o.project('reality-orderedhash', :description => 'A library providing a hash with preserved order and some array-like extensions.', :tags => %w(historic))
 
   # External projects that have been forked to keep a copy of source
   o.project('gwt-cal', :tags => %w(external historic))
