@@ -43,10 +43,12 @@ module Backpack # nodoc
             projects = project.tags.include?('projects')
             wiki = project.tags.include?('wiki')
             homepage = project.tag_value('homepage')
+            default_branch = project.tag_value('default_branch') || 'master'
             o.repository(project.name,
                          :description => project.description,
                          :private => private,
                          :homepage => homepage,
+                         :default_branch => default_branch,
                          :issues => issues,
                          :projects => projects,
                          :wiki => wiki,

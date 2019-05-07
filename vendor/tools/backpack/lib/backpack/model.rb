@@ -175,6 +175,12 @@ module Backpack
       @homepage || ''
     end
 
+    attr_writer :default_branch
+
+    def default_branch
+      @default_branch || 'master'
+    end
+
     attr_writer :private
 
     def private?

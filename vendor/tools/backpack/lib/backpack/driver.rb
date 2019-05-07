@@ -157,6 +157,7 @@ module Backpack #nodoc
         update = true if remote_repository['has_issues'].to_s != repository.issues?.to_s
         update = true if remote_repository['has_projects'].to_s != repository.projects?.to_s
         update = true if remote_repository['has_wiki'].to_s != repository.wiki?.to_s
+        update = true if remote_repository['default_branch'].to_s != repository.default_branch.to_s
         if remote_repository['archived'].to_s != repository.archived?.to_s
           if 'true' == remote_repository['archived'].to_s
             raise "Can not un-archive repository #{repository.name} via the API"
@@ -173,6 +174,7 @@ module Backpack #nodoc
           client.edit_repository(remote_repository['full_name'],
                                  :description => repository.description,
                                  :homepage => repository.homepage,
+                                 :default_branch => repository.default_branch,
                                  :private => repository.private?,
                                  :has_issues => repository.issues?,
                                  :has_projects => repository.projects?,
