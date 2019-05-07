@@ -41,6 +41,12 @@ module Backpack
     def repository_projects?
       @repository_projects.nil? ? false : !!@repository_projects
     end
+
+    attr_writer :skip_updates_on_archived_repositories
+
+    def skip_updates_on_archived_repositories?
+      @skip_updates_on_archived_repositories.nil? ? false : !!@skip_updates_on_archived_repositories
+    end
   end
 
   class Branch

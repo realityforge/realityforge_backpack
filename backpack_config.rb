@@ -4,6 +4,7 @@ Backpack::Belt.load_organizations_from_belt
 
 Backpack.organizations.each do |o|
   o.is_user_account = o.name == 'realityforge'
+  o.skip_updates_on_archived_repositories = true
 
   o.repositories.each do |repository|
     repository.private = repository.tags.include?('private')
