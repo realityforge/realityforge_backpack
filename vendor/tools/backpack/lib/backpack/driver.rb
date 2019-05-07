@@ -87,8 +87,7 @@ module Backpack #nodoc
               :has_issues => repository.issues?,
               :has_projects => repository.projects?,
               :archived => repository.archived?,
-              :has_wiki => repository.wiki?,
-              :has_downloads => repository.downloads?
+              :has_wiki => repository.wiki?
             }
             config[:organization] = repository.organization.name unless organization.is_user_account?
             remote_repositories << context.client.create_repository(repository.name, config)
@@ -158,7 +157,6 @@ module Backpack #nodoc
         update = true if remote_repository['has_issues'].to_s != repository.issues?.to_s
         update = true if remote_repository['has_projects'].to_s != repository.projects?.to_s
         update = true if remote_repository['has_wiki'].to_s != repository.wiki?.to_s
-        update = true if remote_repository['has_downloads'].to_s != repository.downloads?.to_s
         if remote_repository['archived'].to_s != repository.archived?.to_s
           if 'true' == remote_repository['archived'].to_s
             raise "Can not un-archive repository #{repository.name} via the API"
@@ -179,8 +177,7 @@ module Backpack #nodoc
                                  :has_issues => repository.issues?,
                                  :has_projects => repository.projects?,
                                  :archived => repository.archived?,
-                                 :has_wiki => repository.wiki?,
-                                 :has_downloads => repository.downloads?)
+                                 :has_wiki => repository.wiki?)
         end
         remote_branches = client.branches(repository.qualified_name)
         remote_branches.each do |remote_branch|

@@ -205,12 +205,6 @@ module Backpack
       @wiki.nil? ? false : !!@wiki
     end
 
-    attr_writer :downloads
-
-    def downloads?
-      @downloads.nil? ? false : !!@downloads
-    end
-
     def admin_teams
       @admin_teams.dup
     end
