@@ -187,6 +187,12 @@ module Backpack
       @issues.nil? ? false : !!@issues
     end
 
+    attr_writer :projects
+
+    def projects?
+      @projects.nil? ? false : !!@projects
+    end
+
     attr_writer :archived
 
     def archived?

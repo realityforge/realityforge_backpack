@@ -40,6 +40,7 @@ module Backpack # nodoc
             tags = project.tags.dup
             private = project.tags.include?('private')
             issues = project.tags.include?('issues')
+            projects = project.tags.include?('projects')
             wiki = project.tags.include?('wiki')
             homepage = project.tag_value('homepage')
             o.repository(project.name,
@@ -47,6 +48,7 @@ module Backpack # nodoc
                          :private => private,
                          :homepage => homepage,
                          :issues => issues,
+                         :projects => projects,
                          :wiki => wiki,
                          :tags => tags)
           end
