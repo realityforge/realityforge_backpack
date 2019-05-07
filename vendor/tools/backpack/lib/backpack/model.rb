@@ -29,6 +29,18 @@ module Backpack
     def is_user_account?
       @is_user_account.nil? ? false : !!@is_user_account
     end
+
+    attr_writer :organization_projects
+
+    def organization_projects?
+      @organization_projects.nil? ? false : !!@organization_projects
+    end
+
+    attr_writer :repository_projects
+
+    def repository_projects?
+      @repository_projects.nil? ? false : !!@repository_projects
+    end
   end
 
   class Branch

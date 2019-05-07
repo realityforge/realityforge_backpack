@@ -17,11 +17,28 @@ module Backpack #nodoc
     class << self
       def converge(context, organization)
         run_hook(context, :pre_organization, organization)
-        converge_teams(context, organization) unless organization.is_user_account?
+        converge_organization(context, organization) unless organization.is_user_account?
         converge_repositories(context, organization)
         converge_subscriptions(context, organization)
         converge_hooks(context, organization)
         run_hook(context, :post_organization, organization)
+      end
+
+      def converge_organization(context, organization)
+        remote_organization = context.client.organization(organization.name)
+
+        update = false
+        update = true if remote_organization['has_organization_projects'].to_s != organization.organization_projects?.to_s
+        update = true if remote_organization['has_repository_projects'].to_s != organization.repository_projects?.to_s
+
+        if update
+          puts "Updating organization #{organization.name}"
+          context.client.update_organization(organization.name,
+                                             :has_organization_projects => organization.organization_projects?,
+                                             :has_repository_projects => organization.repository_projects?)
+        end
+
+        converge_teams(context, organization)
       end
 
       def converge_teams(context, organization)
