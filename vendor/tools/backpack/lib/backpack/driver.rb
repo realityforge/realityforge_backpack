@@ -172,7 +172,7 @@ module Backpack #nodoc
         update = true if remote_repository['homepage'].to_s != repository.homepage.to_s
         update = true if remote_repository['private'].to_s != repository.private?.to_s
         update = true if remote_repository['has_issues'].to_s != repository.issues?.to_s
-        update = true if remote_repository['has_projects'].to_s != repository.projects?.to_s
+        update = true if repository.organization.repository_projects? && remote_repository['has_projects'].to_s != repository.projects?.to_s
         update = true if remote_repository['has_wiki'].to_s != repository.wiki?.to_s
         update = true if remote_repository['default_branch'].to_s != repository.default_branch.to_s
         if remote_repository['archived'].to_s != repository.archived?.to_s
@@ -191,15 +191,16 @@ module Backpack #nodoc
           end
 
           puts "Updating repository #{repository.name}"
-          client.edit_repository(remote_repository['full_name'],
-                                 :description => repository.description,
+          repository_options = { :description => repository.description,
                                  :homepage => repository.homepage,
                                  :default_branch => repository.default_branch,
                                  :private => repository.private?,
                                  :has_issues => repository.issues?,
-                                 :has_projects => repository.projects?,
                                  :archived => repository.archived?,
-                                 :has_wiki => repository.wiki?)
+                                 :has_wiki => repository.wiki? }
+          # Can not specify has_projects option if repository projects are disabled, even if setting it to false
+          repository_options[:has_projects] = repository.projects? unless repository.organization.repository_projects?
+          client.edit_repository(remote_repository['full_name'], repository_options)
         end
         remote_branches = client.branches(repository.qualified_name)
         remote_branches.each do |remote_branch|
