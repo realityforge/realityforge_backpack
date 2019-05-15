@@ -589,7 +589,7 @@ module Zim # nodoc
     end
 
     def git_local_branch_list
-      `git branch`.gsub('* ', '').split("\n").collect {|s| s.strip}
+      `git branch`.gsub('* ', '').split("\n").collect(&:strip)
     end
 
     # Diff against a specific branch
