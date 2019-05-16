@@ -107,6 +107,7 @@ Belt.scope('realityforge') do |o|
   o.project('jsinterop-base', :description => 'Utilities for GWT and J2CL to interact with JavaScript beyond JsInterop', :tags => %w(external travis))
   o.project('gwt', :description => 'GWT Open Source Project', :tags => %w(external homepage=http://www.gwtproject.org))
   o.project('bazel', :description => 'a fast, scalable, multi-language and extensible build system', :tags => %w(external homepage=https://bazel.build))
+  o.project('nodes', :description => 'A GraphQL JVM Client - Java, Kotlin, Scala, etc.', :tags => %w(external))
 
   # Old blog that was long ago abandoned...
   o.project('realityforge.github.io', :description => 'My personal website and blog', :tags => %w(homepage=https://realityforge.github.io zapwhite=no historic))
