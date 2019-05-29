@@ -134,4 +134,16 @@ command(:update_contributing) do |app|
   end
 end
 
+command(:update_staging_cleanup_script) do |app|
+  if File.exist?('tasks/staging.rake')
+    FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/staging.rake", 'tasks/staging.rake'
+    begin
+      mysystem('git add tasks/staging.rake')
+      mysystem("git commit -m \"Make the cleanup of the staging repository use more generic code.\"")
+    rescue Exception
+      # ignored
+    end
+  end
+end
+
 Zim::Belt.load_suites_from_belt
