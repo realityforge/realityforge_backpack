@@ -71,6 +71,7 @@ Belt.scope('realityforge') do |o|
   # Bazel team is developing their own variant. See https://blog.bazel.build/2019/03/31/rules-jvm-external-maven.html
   # Maybe we move to it one day but it seems easier to work towards our own variant for the time being
   o.project('bazel-depgen', :description => 'Generate Bazel dependency scripts by traversing Maven repositories', :tags => %w(issues travis))
+  o.project('giggle', :description => 'Generate source code and artifacts from a GraphQL schema and operations', :tags => %w(issues travis))
 
   # Chef related code still in use until we get rid of chef
   o.project('chef-archive', :description => 'Chef cookbook that provides utility LWRPs to download and unpack archives.', :tags => %w(travis))
