@@ -76,6 +76,15 @@ command(:patch_repository_urls) do |app|
   end
 end
 
+command(:update_travisci_dist) do |app|
+  patched = patch_file('.travis.yml') do |content|
+    content =~ /oraclejdk8/ && !(content =~ /^dist: /) ? "# Lock down dist to ensure that builds run on a distribution that supports oraclejdk8\ndist: trusty\n" + content : content
+  end
+  if patched
+    mysystem("git commit -m \"Lock down dist to ensure that builds run on a distribution that supports oraclejdk8\"")
+  end
+end
+
 desc 'Move to org.realityforge variants of jsinterop-base and upgrade version'
 command(:upgrade_jsinterop_base) do |app|
   version = '1.0.0-b2-e6d791f'
