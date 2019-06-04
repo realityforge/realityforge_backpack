@@ -61,7 +61,7 @@ command(:patch_guiceyloops_version) do |app|
 end
 
 command(:patch_gir_version) do |app|
-  patch_versions(app, %w(org.realityforge.gir:gir-core:jar), '0.08')
+  patch_versions(app, %w(org.realityforge.gir:gir-core:jar), '0.10')
 end
 
 command(:patch_repository_urls) do |app|
