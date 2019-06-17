@@ -65,7 +65,7 @@ command(:patch_gir_version) do |app|
 end
 
 command(:patch_getopt4j_version) do |app|
-  patch_versions(app, %w(org.realityforge.getopt4j:getopt4j:jar), '0.3')
+  patch_versions(app, %w(org.realityforge.getopt4j:getopt4j:jar), '1.3')
 end
 
 command(:patch_repository_urls) do |app|
