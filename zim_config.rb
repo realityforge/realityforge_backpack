@@ -33,7 +33,7 @@ command(:upgrade_braid) do |app|
 end
 
 command(:patch_idea_codestyle_version) do |app|
-  patch_versions(app, %w(au.com.stocksoftware.idea.codestyle:idea-codestyle:xml), '1.13')
+  patch_versions(app, %w(au.com.stocksoftware.idea.codestyle:idea-codestyle:xml), '1.14')
 end
 
 command(:patch_braincheck_version) do |app|
