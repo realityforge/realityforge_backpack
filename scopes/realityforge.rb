@@ -109,6 +109,7 @@ Belt.scope('realityforge') do |o|
   o.project('gwt', :description => 'GWT Open Source Project', :tags => %w(external homepage=http://www.gwtproject.org))
   o.project('bazel', :description => 'a fast, scalable, multi-language and extensible build system', :tags => %w(external homepage=https://bazel.build))
   o.project('nodes', :description => 'A GraphQL JVM Client - Java, Kotlin, Scala, etc.', :tags => %w(external))
+  o.project('Payara', :description => 'Payara Server is derived from GlassFish Server Open Source Edition and 100% open source', :tags => %w(external homepage=http://www.payara.fish))
 
   # Old blog that was long ago abandoned...
   o.project('realityforge.github.io', :description => 'My personal website and blog', :tags => %w(homepage=https://realityforge.github.io zapwhite=no historic))
@@ -157,7 +158,6 @@ Belt.scope('realityforge') do |o|
   o.project('mobx-react-devtools', :description => 'Tools to perform runtime analyses of React applications powered by MobX and React', :tags => %w(external historic))
   o.project('mobx-react-typescript-boilerplate', :description => 'Minimal boilerplate for a single-page app using React, TypeScript, TSX, Webpack', :tags => %w(external historic))
   o.project('keycloak', :description => 'Open Source Identity and Access Management For Modern Applications and Services', :tags => %w(external historic homepage=http://www.keycloak.org))
-  o.project('Payara', :description => 'Payara Server is derived from GlassFish Server Open Source Edition and 100% open source', :tags => %w(external historic homepage=http://www.payara.fish))
   o.project('ode', :description => 'Mirror of Apache ODE', :tags => %w(external historic))
   o.project('design', :description => 'eWASM Design Overview and Specification', :tags => %w(external historic))
   o.project('closure-library', :description => 'Google''s common JavaScript library', :tags => %w(external historic))
