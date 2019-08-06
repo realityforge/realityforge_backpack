@@ -4,6 +4,8 @@ Belt.scope('realityforge') do |o|
 
   o.project('repackr', :description => 'A bunch of scripts for releasing patched versions of OSS projects')
 
+  o.project('zifnab', :description => 'Endless Sky Content Editing Tools', :tags => %w(travis issues))
+
   o.project('buildr_plus', :description => 'A simple set of extensions that patch and customize buildr to our requirements.', :tags => %w(notify:stock))
   o.project('dbt', :description => 'A simple tool designed to simplify the creation, migration and deletion of databases.', :tags => %w(notify:stock travis pages))
   o.project('domgen', :description => 'Domgen generates code from a simple domain model leaving the developer to focus on implementing high-value features of the application.', :tags => %w(notify:stock pages))
