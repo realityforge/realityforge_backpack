@@ -12,4 +12,8 @@ Belt.scope('artemis-esf') do |o|
   o.project('piemaster-jario', :description => 'A mirror of https://bitbucket.org/piemaster/jario')
   o.project('quake2-gwt-port')
   o.project('spaceships-demo', :description => 'SpaceBase demo application: a simulation of tens of thousands of spaceships in battle')
+  o.project('GLGE', :description => 'A javascript webGL graphics library')
+  o.project('open3mod', :description => 'Open 3D Model Viewer - A quick and powerful 3D model viewer')
+  o.project('noa', :description => 'Experimental voxel game engine.')
+  o.project('proxx', :description => 'A game of proximity')
 end
