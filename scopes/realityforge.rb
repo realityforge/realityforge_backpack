@@ -99,6 +99,7 @@ Belt.scope('realityforge') do |o|
   o.project('course-advanced-css-and-sass', :description => 'Coursework for "Advanced CSS and Sass" course')
 
   # External projects that have been forked to submit pull requests
+  o.project('endless-sky', :description => 'Space exploration, trading, and combat game.', :tags => %w(external travis homepage=http://endless-sky.github.io/))
   o.project('j2cl', :description => 'Java to closure style javascript transpiler', :tags => %w(external travis))
   o.project('react', :description => 'A declarative, efficient, and flexible JavaScript library for building user interfaces.', :tags => %w(external homepage=https://reactjs.org))
   o.project('closure-compiler', :description => 'A JavaScript checker and optimizer.', :tags => %w(external homepage=https://developers.google.com/closure/compiler/ travis))
