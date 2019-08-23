@@ -95,8 +95,8 @@ Belt.scope('realityforge') do |o|
   o.project('MusicBook', :description => 'Collections of thoughts on Music Theory', :tags => %w(private))
 
   # Projects created during learning of new technology - incomplete or ongoing
-  o.project('course-rust-lang', :description => 'Coursework for "The Rust Programming Language" Udemy course')
-  o.project('course-advanced-css-and-sass', :description => 'Coursework for "Advanced CSS and Sass" course')
+  o.project('course-rust-lang', :description => 'Coursework for the  "The Rust Programming Language" Udemy course')
+  o.project('course-advanced-css-and-sass', :description => 'Coursework for the "Advanced CSS and Sass" course')
   o.project('course-webgl', :description => 'Coursework for the "The Extensive WebGL Series ! - Part1 : Low Level Graphics" course')
 
   # External projects that have been forked to submit pull requests
