@@ -173,7 +173,7 @@ static package_stage( script, Map options = [:] )
 static pg_package_stage( script )
 {
   script.stage( 'Pg Package' ) {
-    script.sh 'xvfb-run -a bundle exec buildr clean; export DB_TYPE=pg; xvfb-run -a bundle exec buildr ci:package_no_test'
+    script.sh 'xvfb-run -a bundle exec buildr clean; xvfb-run -a bundle exec buildr ci:package_no_test DB_TYPE=pg'
   }
 }
 
@@ -203,7 +203,7 @@ static import_variant_stage( script, variant )
 static zim_stage( script, name, dependencies )
 {
   script.stage( 'Zim' ) {
-    cancel_queued_zims( script, name, dependencies )
+    cancel_queued_zims( script, name )
     script.build job: 'zim/upgrade_dependency',
                  parameters: [script.string( name: 'DEPENDENCIES', value: dependencies ),
                               script.string( name: 'NAME', value: name ),
@@ -251,14 +251,13 @@ def static cancel_queued_deploys( script, project_key, deployment_environment = 
 }
 
 @NonCPS
-def static cancel_queued_zims( script, name, dependencies )
+def static cancel_queued_zims( script, name )
 {
   def q = Jenkins.instance.queue
   for ( def i = q.items.size() - 1; i >= 0; i-- )
   {
     if ( q.items[ i ].task.getOwnerTask().getFullName() == "zim/upgrade_dependency" &&
-         q.items[ i ].params =~ /NAME=${name.replaceAll("\\.", "\\\\.")}[^.]/ &&
-         q.items[ i ].params =~ /DEPENDENCIES=${dependencies.replaceAll("\\.", "\\\\.")}/)
+         ( q.items[ i ].params + "\n" ).contains( "NAME=${name}\n" ) )
     {
       script.echo "Cancelling queued zim update job: ${q.items[ i ].params}"
       q.cancel( q.items[ i ].task )
