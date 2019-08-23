@@ -651,6 +651,10 @@ module Zim # nodoc
       end
     end
 
+    def hub_pull_request(message)
+      mysystem("hub pull-request -m \"#{message}\"")
+    end
+
     # Historic approach to whitespace cleanup
     def clean_whitespace(app)
       git_clean_filesystem
@@ -769,6 +773,10 @@ module Zim # nodoc
 
       command(:diff_origin) do
         git_diff
+      end
+
+      command(:hub_pull_request) do
+        hub_pull_request(Zim::Config.parameter_by_name('PR_MESSAGE'))
       end
 
       command(:goto_master) do
