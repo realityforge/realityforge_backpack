@@ -109,7 +109,7 @@ command(:upgrade_elemental2) do |app|
     org.realityforge.com.google.elemental2:elemental2-webgl2:jar
     org.realityforge.com.google.elemental2:elemental2-webstorage:jar
     org.realityforge.com.google.elemental2:elemental2-webassembly:jar
-  ), '2.24')
+  ), '2.26')
 end
 
 command(:upgrade_arez) do |app|
