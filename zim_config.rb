@@ -106,6 +106,7 @@ command(:upgrade_elemental2) do |app|
     org.realityforge.com.google.elemental2:elemental2-indexeddb:jar
     org.realityforge.com.google.elemental2:elemental2-svg:jar
     org.realityforge.com.google.elemental2:elemental2-webgl:jar
+    org.realityforge.com.google.elemental2:elemental2-webgl2:jar
     org.realityforge.com.google.elemental2:elemental2-webstorage:jar
     org.realityforge.com.google.elemental2:elemental2-webassembly:jar
   ), '2.24')
