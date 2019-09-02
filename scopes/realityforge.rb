@@ -20,7 +20,6 @@ Belt.scope('realityforge') do |o|
   o.project('mcrt', :description => 'Maven Central Release Tool: A ruby tool to close, promote and drop staging repositories', :tags => %w(travis))
   o.project('javax.annotation', :description => 'A minimal, J2CL compatible javax.annotation library', :tags => %w(travis))
   o.project('org.jetbrains.annotations', :description => 'A minimal, J2CL compatible org.jetbrains.annotations library', :tags => %w(travis))
-  o.project('jsonb-datatypes', :description => 'Some simple jsonb data type support', :tags => %w(travis))
 
   o.project('guiceyloops', :description => 'GuiceyLoops is a minimalistic library for aiding the testing of JEE applications using Guice.', :tags => %w(codecov notify:stock travis))
 
@@ -174,6 +173,9 @@ Belt.scope('realityforge') do |o|
   o.project('mgwt.showcase', :tags => %w(external historic))
   o.project('RxJS', :description => 'The Reactive Extensions for JavaScript', :tags => %w(external historic))
   o.project('connected', :tags => %w(external historic))
+
+  # Move to alternative types to use builtin jsonb rules
+  o.project('jsonb-datatypes', :description => 'Some simple jsonb data type support', :tags => %w(historic))
 
   # Historic: Example inlined into source project
   o.project('gwt-cache-filter-example', :description => 'A simple application demonstrating the use of the gwt-cache-filter library', :tags => %w(historic))
