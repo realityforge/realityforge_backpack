@@ -98,7 +98,6 @@ Belt.scope('realityforge') do |o|
   o.project('course-rust-lang', :description => 'Coursework for the  "The Rust Programming Language" Udemy course')
   o.project('course-advanced-css-and-sass', :description => 'Coursework for the "Advanced CSS and Sass" course')
   o.project('course-webgl', :description => 'Coursework for the "The Extensive WebGL Series ! - Part1 : Low Level Graphics" course')
-  o.project('course-arcade-games', :description => 'Coursework for "How to Program Games: Tile Classics in JS for HTML5 Canvas" course')
 
   # External projects that have been forked to submit pull requests
   o.project('endless-sky', :description => 'Space exploration, trading, and combat game.', :tags => %w(external travis homepage=http://endless-sky.github.io/))
@@ -135,6 +134,7 @@ Belt.scope('realityforge') do |o|
   o.project('course-advanced-react-and-redux', :description => 'Coursework for Advanced React and Redux course', :tags => %w(historic))
   o.project('course-graphql-with-react', :description => 'Coursework for GraphQL with React course', :tags => %w(historic))
   o.project('course-modern-react-with-redux', :description => 'Coursework for Modern React with Redux course', :tags => %w(historic))
+  o.project('course-arcade-games', :description => 'Coursework for "How to Program Games: Tile Classics in JS for HTML5 Canvas" course', :tags => %w(historic))
   o.project('footprints', :description => 'A project to prototype ideas in JEE6', :tags => %w(historic))
   o.project('gae-guestbook', :description => 'Sample Google App Engine application', :tags => %w(historic))
   o.project('ios', :description => 'A repository containing the simple iOS applications developed when working through the course', :tags => %w(historic))
