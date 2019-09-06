@@ -150,7 +150,7 @@ Belt.scope('realityforge') do |o|
   o.project('gwt-cal', :tags => %w(external historic))
   o.project('Piano-Trainer', :description => 'A web-app for training sheet reading skills by using your MIDI-enabled piano.', :tags => %w(external historic))
 
-  # External projects that have been forked to submit pull requests but we do not expect to issue pull requests in future
+  # External projects that have been forked to submit pull requests
   o.project('rules_jvm_external', :description => 'Rules to resolve and fetch artifacts transitively from Maven repositories', :tags => %w(external historic))
   o.project('pwasm-tutorial', :description => 'A step-by-step tutorial on how to write contracts in Wasm for Kovan', :tags => %w(external historic))
   o.project('javapoet', :description => 'A Java API for generating .java source files.', :tags => %w(external historic))
@@ -166,8 +166,6 @@ Belt.scope('realityforge') do |o|
   o.project('ode', :description => 'Mirror of Apache ODE', :tags => %w(external historic))
   o.project('design', :description => 'eWASM Design Overview and Specification', :tags => %w(external historic))
   o.project('closure-library', :description => 'Google''s common JavaScript library', :tags => %w(external historic))
-
-  # External projects that have been forked to submit pull requests but we do not use at his stage or possibly ever
   o.project('gwt-leaflet', :description => 'GWT library for Leaflet', :tags => %w(external historic))
   o.project('mgwt', :description => 'Clone of master branch of mgwt', :tags => %w(external historic))
   o.project('mgwt.showcase', :tags => %w(external historic))
