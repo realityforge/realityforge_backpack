@@ -175,7 +175,7 @@ Belt.scope('realityforge') do |o|
   o.project('RxJS', :description => 'The Reactive Extensions for JavaScript', :tags => %w(external historic))
   o.project('connected', :tags => %w(external historic))
 
-  # Move to alternative types to use builtin jsonb rules
+  # Historic: Move to alternative types to use builtin jsonb rules
   o.project('jsonb-datatypes', :description => 'Some simple jsonb data type support', :tags => %w(historic))
 
   # Historic: Example inlined into source project
