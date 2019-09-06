@@ -26,7 +26,6 @@ Belt.scope('realityforge') do |o|
   o.project('keycloak-jaxrs-client-authfilter', :description => 'Filter for accessing keycloak secured services', :tags => %w(travis))
   o.project('keycloak-converger', :description => 'Converge the state of a keycloak realm', :tags => %w(travis))
   o.project('keycloak-domgen-support', :description => 'KeyCloak Domgen Support', :tags => %w(travis))
-  o.project('graphql-domgen-support', :description => 'GraphQL Domgen Support', :tags => %w(travis))
   o.project('glassfish-domain-patcher', :description => 'GlassFish Domain Patcher', :tags => %w(travis))
   o.project('glassfish-timers', :description => 'GlassFish timers database sql', :tags => %w(travis))
 
@@ -177,6 +176,9 @@ Belt.scope('realityforge') do |o|
 
   # Historic: Move to alternative types to use builtin jsonb rules
   o.project('jsonb-datatypes', :description => 'Some simple jsonb data type support', :tags => %w(historic))
+
+  # Historic: Domgen updated to decouple from library
+  o.project('graphql-domgen-support', :description => 'GraphQL Domgen Support', :tags => %w(travis))
 
   # Historic: Example inlined into source project
   o.project('gwt-cache-filter-example', :description => 'A simple application demonstrating the use of the gwt-cache-filter library', :tags => %w(historic))
