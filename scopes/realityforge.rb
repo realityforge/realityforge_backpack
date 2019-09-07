@@ -93,6 +93,9 @@ Belt.scope('realityforge') do |o|
   # Personal Music Exploration
   o.project('MusicBook', :description => 'Collections of thoughts on Music Theory', :tags => %w(private))
 
+  # Personal GameDev Exploration
+  o.project('GameDevBook', :description => 'Collections of thoughts on Game Development', :tags => %w(private))
+
   # Projects created during learning of new technology - incomplete or ongoing
   o.project('course-rust-lang', :description => 'Coursework for the  "The Rust Programming Language" Udemy course')
   o.project('course-advanced-css-and-sass', :description => 'Coursework for the "Advanced CSS and Sass" course')
