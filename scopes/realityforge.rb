@@ -91,7 +91,6 @@ Belt.scope('realityforge') do |o|
   o.project('ant-shade-task', :description => 'Apache Maven Shade Plugin adapter for Apache Ant', :tags => %w(external))
 
   # Personal Music Exploration
-  o.project('scores', :description => 'Scores etched during self-education', :tags => %w(private))
   o.project('MusicBook', :description => 'Collections of thoughts on Music Theory', :tags => %w(private))
 
   # Projects created during learning of new technology - incomplete or ongoing
