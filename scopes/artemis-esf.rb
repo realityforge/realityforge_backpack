@@ -1,6 +1,5 @@
 Belt.scope('artemis-esf') do |o|
   o.project('artemis-framework', :description => 'A mirror of https://code.google.com/p/artemis-framework')
-  o.project('artemis-gwt', :description => 'GWT port of the "Artemis Entity System Framework"')
   o.project('gamadu-spaceship-warrior', :description => 'A mirror of https://code.google.com/p/spaceship-warrior')
   o.project('gamadu-starwarrior', :description => 'A mirror of https://code.google.com/p/gamadu-starwarrior')
   o.project('gamadu-tankz', :description => 'A mirror of https://code.google.com/p/gamadu-tankz')
