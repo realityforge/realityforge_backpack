@@ -153,6 +153,13 @@ Belt.scope('realityforge') do |o|
   o.project('gwt-cal', :tags => %w(external historic))
   o.project('Piano-Trainer', :description => 'A web-app for training sheet reading skills by using your MIDI-enabled piano.', :tags => %w(external historic))
 
+  # External Game projects that exist to keep a copy of source
+  o.project('gamadu-spaceship-warrior', :description => 'A mirror of https://code.google.com/p/spaceship-warrior', :tags => %w(external historic))
+  o.project('gamadu-starwarrior', :description => 'A mirror of https://code.google.com/p/gamadu-starwarrior', :tags => %w(external historic))
+  o.project('gamadu-tankz', :description => 'A mirror of https://code.google.com/p/gamadu-tankz', :tags => %w(external historic))
+  o.project('piemaster-artemoids', :description => 'A mirror of https://bitbucket.org/piemaster/artemoids', :tags => %w(external historic))
+  o.project('piemaster-jario', :description => 'A mirror of https://bitbucket.org/piemaster/jario', :tags => %w(external historic))
+
   # External projects that have been forked to submit pull requests
   o.project('rules_jvm_external', :description => 'Rules to resolve and fetch artifacts transitively from Maven repositories', :tags => %w(external historic))
   o.project('pwasm-tutorial', :description => 'A step-by-step tutorial on how to write contracts in Wasm for Kovan', :tags => %w(external historic))
