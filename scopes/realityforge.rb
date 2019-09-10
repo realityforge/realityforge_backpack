@@ -154,6 +154,7 @@ Belt.scope('realityforge') do |o|
   o.project('Piano-Trainer', :description => 'A web-app for training sheet reading skills by using your MIDI-enabled piano.', :tags => %w(external historic))
 
   # External Game projects that exist to keep a copy of source
+  o.project('quake2-gwt-port', :description => 'Automatically exported from https://code.google.com/p/quake2-gwt-port', :tags => %w(external historic))
   o.project('gamadu-spaceship-warrior', :description => 'A mirror of https://code.google.com/p/spaceship-warrior', :tags => %w(external historic))
   o.project('gamadu-starwarrior', :description => 'A mirror of https://code.google.com/p/gamadu-starwarrior', :tags => %w(external historic))
   o.project('gamadu-tankz', :description => 'A mirror of https://code.google.com/p/gamadu-tankz', :tags => %w(external historic))
