@@ -74,6 +74,8 @@ Belt.scope('realityforge') do |o|
   o.project('bazel-depgen', :description => 'Generate Bazel dependency scripts by traversing Maven repositories', :tags => %w(issues travis))
   o.project('giggle', :description => 'Generate source code and artifacts from a GraphQL schema and operations', :tags => %w(issues travis))
 
+  o.project('galdr', :description => 'An ECS toolkit', :tags => %w(issues travis))
+
   # Chef related code still in use until we get rid of chef
   o.project('chef-archive', :description => 'Chef cookbook that provides utility LWRPs to download and unpack archives.', :tags => %w(travis))
   o.project('chef-authbind', :description => 'A chef cookbook that installs/configures authbind and defines resources for managing authorization', :tags => %w(travis))
