@@ -89,8 +89,15 @@ command(:update_travisci_dist) do |app|
   end
 end
 
-desc 'Move to org.realityforge variants of jsinterop-base and upgrade version'
+desc 'Move to released jsinterop-base'
 command(:upgrade_jsinterop_base) do |app|
+  version = '1.0.0'
+  patch_dependency_coordinates(app, { 'org.realityforge.com.google.jsinterop:base:jar' => 'com.google.jsinterop:base:jar' }, version)
+  patch_versions(app, %w(org.realityforge.com.google.jsinterop:base:jar), version)
+end
+
+desc 'Move to org.realityforge variants of jsinterop-base and upgrade version'
+command(:patch_jsinterop_base) do |app|
   version = '1.0.0-b2-e6d791f'
   patch_dependency_coordinates(app, { 'com.google.jsinterop:base:jar' => 'org.realityforge.com.google.jsinterop:base:jar' }, version)
   patch_versions(app, %w(org.realityforge.com.google.jsinterop:base:jar), version)
