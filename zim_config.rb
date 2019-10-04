@@ -149,6 +149,20 @@ command(:fix_tags) do |app|
   end
 end
 
+command(:condense_changelog) do |app|
+  patched = patch_file('CHANGELOG.md') do |content|
+    content.gsub(")\n[Full", ") · [Full")
+  end
+  if patched
+    patch_file('tasks/release.rake') do |content|
+      content.gsub(")\n[Full", ") · [Full")
+    end
+  end
+  if patched
+    mysystem("git commit -m \"Condense the format of the CHANGELOG.\"")
+  end
+end
+
 command(:update_contributing) do |app|
   if File.exist?('CONTRIBUTING.md')
     FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/CONTRIBUTING.md", 'CONTRIBUTING.md'
