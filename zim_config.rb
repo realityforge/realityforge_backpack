@@ -44,6 +44,10 @@ command(:patch_gwt_version) do |app|
   patch_versions(app, %w(com.google.gwt:gwt-user:jar com.google.gwt:gwt-dev:jar com.google.gwt:gwt-servlet:jar), '2.8.2')
 end
 
+command(:patch_symbolmap_version) do |app|
+  patch_versions(app, %w(org.realityforge.gwt.symbolmap:gwt-symbolmap:jar), '0.09')
+end
+
 command(:patch_arez_spytools_version) do |app|
   patch_versions(app, %w(org.realityforge.arez.spytools:arez-spytools:jar), '0.56')
 end
