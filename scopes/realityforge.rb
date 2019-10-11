@@ -73,6 +73,8 @@ Belt.scope('realityforge') do |o|
   # Maybe we move to it one day but it seems easier to work towards our own variant for the time being
   o.project('bazel-depgen', :description => 'Generate Bazel dependency scripts by traversing Maven repositories', :tags => %w(issues travis))
   o.project('giggle', :description => 'Generate source code and artifacts from a GraphQL schema and operations', :tags => %w(issues travis))
+  
+  o.project('grim', :description => 'Ensure dead code is eliminated', :tags => %w(travis))
 
   o.project('galdr', :description => 'An ECS toolkit', :tags => %w(issues travis))
 
