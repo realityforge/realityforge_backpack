@@ -191,4 +191,17 @@ command(:update_staging_cleanup_script) do |app|
   end
 end
 
+command(:patch_buildr_testng_addon) do |app|
+  if File.exist?('buildfile') && IO.read('buildfile') =~ /:testng/
+    FileUtils.mkdir_p 'tasks'
+    FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/testng_patch.rake", 'tasks/testng_patch.rake'
+    begin
+      mysystem('git add tasks/testng_patch.rake')
+      mysystem("git commit -m \"Patch the TestNG addon to ensure that test failures result in a failed build.\"")
+    rescue Exception
+      # ignored
+    end
+  end
+end
+
 Zim::Belt.load_suites_from_belt
