@@ -41,7 +41,7 @@ command(:patch_braincheck_version) do |app|
 end
 
 command(:patch_grim_version) do |app|
-  patch_versions(app, %w(org.realityforge.grim:grim-annotations:jar org.realityforge.grim:grim-asserts:jar org.realityforge.grim:grim-processor:jar), '0.02')
+  patch_versions(app, %w(org.realityforge.grim:grim-annotations:jar org.realityforge.grim:grim-asserts:jar org.realityforge.grim:grim-processor:jar), '0.03')
 end
 
 command(:patch_gwt_version) do |app|
