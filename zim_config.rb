@@ -60,6 +60,10 @@ command(:patch_jsinterop_version) do |app|
   patch_versions(app, %w(com.google.jsinterop:jsinterop-annotations:jar), '1.0.2')
 end
 
+command(:patch_jetbrains_annotations_version) do |app|
+  patch_versions(app, %w(org.realityforge.org.jetbrains.annotations:org.jetbrains.annotations:jar), '1.1.0')
+end
+
 command(:patch_guiceyloops_version) do |app|
   patch_versions(app, %w(org.realityforge.guiceyloops:guiceyloops:jar), '0.102')
 end
