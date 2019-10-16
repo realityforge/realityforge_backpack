@@ -40,6 +40,10 @@ command(:patch_braincheck_version) do |app|
   patch_versions(app, %w(org.realityforge.braincheck:braincheck:jar), '1.25.0')
 end
 
+command(:patch_grim_version) do |app|
+  patch_versions(app, %w(org.realityforge.grim:grim-annotations:jar org.realityforge.grim:grim-asserts:jar org.realityforge.grim:grim-processor:jar), '0.02')
+end
+
 command(:patch_gwt_version) do |app|
   patch_versions(app, %w(com.google.gwt:gwt-user:jar com.google.gwt:gwt-dev:jar com.google.gwt:gwt-servlet:jar), '2.8.2')
 end
