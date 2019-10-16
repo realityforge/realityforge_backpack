@@ -136,7 +136,7 @@ command(:upgrade_arez) do |app|
   patch_versions(app, %w(
     org.realityforge.arez:arez-core:jar
     org.realityforge.arez:arez-processor:jar
-  ), '0.135')
+  ), '0.150')
 end
 
 command(:upgrade_javax_annotation) do |app|
