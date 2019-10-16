@@ -5,9 +5,9 @@ Belt.scope('arez') do |o|
   o.project('arez-dom', :description => 'Arez browser components that make DOM properties observable', :tags => %w(travis issues homepage=https://arez.github.io/dom))
   o.project('arez-promise', :description => 'Arez component that wraps a Promise and makes it observable', :tags => %w(travis issues homepage=https://arez.github.io/promise))
   o.project('arez-spytools', :description => 'Arez utilities that enhance the spy capabilities', :tags => %w(travis issues homepage=https://arez.github.io/spytools))
-  o.project('arez-devtools', :description => 'Browser-based Arez DevTools', :tags => %w(travis issues))
 
   # Historic projects
+  o.project('arez-devtools', :description => 'Browser-based Arez DevTools', :tags => %w(historic))
   o.project('arez-browserlocation', :description => 'Arez component for the browser' 's location hash', :tags => %w(historic))
   o.project('arez-idlestatus', :description => 'Arez Browser component that tracks when the user is idle', :tags => %w(historic))
   o.project('arez-mediaquery', :description => 'Arez browser component that exposes when a CSS media query is matched', :tags => %w(historic))
