@@ -53,7 +53,7 @@ command(:patch_symbolmap_version) do |app|
 end
 
 command(:patch_arez_spytools_version) do |app|
-  patch_versions(app, %w(org.realityforge.arez.spytools:arez-spytools:jar), '0.76')
+  patch_versions(app, %w(org.realityforge.arez.spytools:arez-spytools:jar), '0.77')
 end
 
 command(:patch_revapi_version) do |app|
@@ -136,7 +136,7 @@ command(:upgrade_arez) do |app|
   patch_versions(app, %w(
     org.realityforge.arez:arez-core:jar
     org.realityforge.arez:arez-processor:jar
-  ), '0.150')
+  ), '0.151')
 end
 
 command(:upgrade_react4j) do |app|
