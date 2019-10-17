@@ -139,6 +139,14 @@ command(:upgrade_arez) do |app|
   ), '0.150')
 end
 
+command(:upgrade_react4j) do |app|
+  patch_versions(app, %w(
+    org.realityforge.react4j:react4j-core:jar
+    org.realityforge.react4j:react4j-dom:jar
+    org.realityforge.react4j:react4j-processor:jar
+  ), '0.134')
+end
+
 command(:upgrade_javax_annotation) do |app|
   patch_versions(app, %w(org.realityforge.javax.annotation:javax.annotation:jar), '1.0.1')
 end
