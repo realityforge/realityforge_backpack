@@ -152,7 +152,7 @@ command(:upgrade_javax_annotation) do |app|
 end
 
 command(:fix_tags) do |app|
-  bad_tags = `git tag | grep -v -- v`.strip.split("\n").select {|t| t =~ /^[0-9\.]+$/}
+  bad_tags = `git tag | grep -v -- v`.strip.split("\n").select {|t| t =~ /^[0-9.]+$/}
   if !bad_tags.empty? && !(app =~ /^chef-.*/) && app != 'knife-cookbook-doc'
     puts "#{app}: Contains #{bad_tags.size} malformed tags: #{bad_tags.inspect}"
     if true
