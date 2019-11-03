@@ -34,7 +34,7 @@ GEM
     faraday_middleware (0.13.1)
       faraday (>= 0.7.4, < 1.0)
     fattr (2.4.0)
-    ffi (1.9.18)
+    ffi (1.9.24)
     gh (0.15.1)
       addressable (~> 2.4.0)
       backports
@@ -97,7 +97,7 @@ PLATFORMS
 DEPENDENCIES
   backpack (= 0.1.0.dev)!
   braid (= 1.1.2)
-  ffi (= 1.9.18)
+  ffi (= 1.9.24)
   reality-belt (>= 1.0.0)
   zapwhite (= 2.16.0)
   zim (= 0.1.0.dev)!
