@@ -136,7 +136,7 @@ command(:upgrade_arez) do |app|
   patch_versions(app, %w(
     org.realityforge.arez:arez-core:jar
     org.realityforge.arez:arez-processor:jar
-  ), '0.151')
+  ), '0.152')
 end
 
 command(:upgrade_react4j) do |app|
