@@ -175,7 +175,7 @@ module Zim # nodoc
     #
     def patch_dependency_coordinates(app, dependencies, target_version, options = {})
       source_versions = options[:source_versions]
-      name = options[:name] || dependencies.keys[0].gsub(/\:.*/, '')
+      name = options[:name] || dependencies.keys[0].gsub(/:.*/, '')
 
       patched = patch_file('build.yaml') do |content|
         dependencies.each do |source_dependency, target_dependency|
@@ -717,7 +717,7 @@ module Zim # nodoc
 
     # Scan dependencies and find group part of spec that is shortest
     def get_shortest_group_name(dependencies)
-      dependencies.collect {|s| s.gsub(/\:.*/, '')}.sort {|a, b| a.length <=> b.length}[0]
+      dependencies.collect {|s| s.gsub(/:.*/, '')}.sort {|a, b| a.length <=> b.length}[0]
     end
 
     # Add standard set of commands for interacting with git
