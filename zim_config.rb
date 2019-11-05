@@ -73,7 +73,7 @@ command(:patch_guiceyloops_version) do |app|
 end
 
 command(:patch_gir_version) do |app|
-  patch_versions(app, %w(org.realityforge.gir:gir-core:jar), '0.10')
+  patch_versions(app, %w(org.realityforge.gir:gir-core:jar), '0.11')
 end
 
 command(:patch_getopt4j_version) do |app|
