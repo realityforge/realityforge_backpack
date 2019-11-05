@@ -144,7 +144,7 @@ command(:upgrade_react4j) do |app|
     org.realityforge.react4j:react4j-core:jar
     org.realityforge.react4j:react4j-dom:jar
     org.realityforge.react4j:react4j-processor:jar
-  ), '0.135')
+  ), '0.138')
 end
 
 command(:upgrade_javax_annotation) do |app|
