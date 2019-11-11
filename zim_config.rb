@@ -44,10 +44,6 @@ command(:patch_grim_version) do |app|
   patch_versions(app, %w(org.realityforge.grim:grim-annotations:jar org.realityforge.grim:grim-asserts:jar org.realityforge.grim:grim-processor:jar), '0.03')
 end
 
-command(:patch_gwt_version) do |app|
-  patch_versions(app, %w(com.google.gwt:gwt-user:jar com.google.gwt:gwt-dev:jar com.google.gwt:gwt-servlet:jar), '2.8.2')
-end
-
 command(:patch_symbolmap_version) do |app|
   patch_versions(app, %w(org.realityforge.gwt.symbolmap:gwt-symbolmap:jar), '0.09')
 end
@@ -104,14 +100,14 @@ end
 desc 'Move to released jsinterop-base'
 command(:upgrade_jsinterop_base) do |app|
   version = '1.0.0'
-  patch_dependency_coordinates(app, { 'org.realityforge.com.google.jsinterop:base:jar' => 'com.google.jsinterop:base:jar' }, version)
+  patch_dependency_coordinates(app, {'org.realityforge.com.google.jsinterop:base:jar' => 'com.google.jsinterop:base:jar'}, version)
   patch_versions(app, %w(org.realityforge.com.google.jsinterop:base:jar), version)
 end
 
 desc 'Move to org.realityforge variants of jsinterop-base and upgrade version'
 command(:patch_jsinterop_base) do |app|
   version = '1.0.0-b2-e6d791f'
-  patch_dependency_coordinates(app, { 'com.google.jsinterop:base:jar' => 'org.realityforge.com.google.jsinterop:base:jar' }, version)
+  patch_dependency_coordinates(app, {'com.google.jsinterop:base:jar' => 'org.realityforge.com.google.jsinterop:base:jar'}, version)
   patch_versions(app, %w(org.realityforge.com.google.jsinterop:base:jar), version)
 end
 
@@ -152,7 +148,7 @@ command(:upgrade_javax_annotation) do |app|
 end
 
 command(:fix_tags) do |app|
-  bad_tags = `git tag | grep -v -- v`.strip.split("\n").select {|t| t =~ /^[0-9.]+$/}
+  bad_tags = `git tag | grep -v -- v`.strip.split("\n").select { |t| t =~ /^[0-9.]+$/ }
   if !bad_tags.empty? && !(app =~ /^chef-.*/) && app != 'knife-cookbook-doc'
     puts "#{app}: Contains #{bad_tags.size} malformed tags: #{bad_tags.inspect}"
     if true
@@ -215,6 +211,34 @@ command(:patch_buildr_testng_addon) do |app|
       mysystem("git commit -m \"Patch the TestNG addon to ensure that test failures result in a failed build.\"")
     rescue Exception
       # ignored
+    end
+  end
+end
+
+command(:patch_gwt_version) do |app|
+  if File.exist?('build.yaml') && IO.read('build.yaml') =~ / com.google.gwt:/
+    FileUtils.mkdir_p 'tasks'
+    FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/gwt_patch.rake", 'tasks/gwt_patch.rake'
+    mysystem('git add tasks/gwt_patch.rake')
+    mysystem("git commit -m \"Patch the GWT addon to ensure it supports version 2.8.2-v20191108.\"")
+
+    patch_dependency_coordinates(app,
+                                 {
+                                     'com.google.gwt:gwt-user:jar' => 'org.realityforge.com.google.gwt:gwt-user:jar',
+                                     'com.google.gwt:gwt-dev:jar' => 'org.realityforge.com.google.gwt:gwt-dev:jar'
+                                 },
+                                 '2.8.2-v20191108')
+    patch_dependency_coordinates(app,
+                                 {'com.google.jsinterop:jsinterop-annotations:jar' => 'org.realityforge.com.google.jsinterop:jsinterop-annotations:jar'},
+                                 '2.8.2-v20191108')
+  end
+end
+
+command(:edit_buildfile_when_changed) do |app|
+  if File.exist?('buildfile') && IO.read('buildfile') =~ /add_gwt_configuration/
+    begin
+      mysystem("git commit -a -m \"Update to support the latest GWT addon.\"")
+      rescue
     end
   end
 end
