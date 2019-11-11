@@ -52,10 +52,6 @@ command(:patch_dagger_gwt_lite_version) do |app|
   patch_versions(app, %w(org.realityforge.dagger:dagger-gwt-lite:jar), '2.25.2-rf1')
 end
 
-command(:patch_arez_spytools_version) do |app|
-  patch_versions(app, %w(org.realityforge.arez.spytools:arez-spytools:jar), '0.79')
-end
-
 command(:patch_revapi_version) do |app|
   patch_versions(app, %w(org.realityforge.revapi.diff:revapi-diff:jar:all), '0.08')
 end
@@ -136,7 +132,11 @@ command(:upgrade_arez) do |app|
   patch_versions(app, %w(
     org.realityforge.arez:arez-core:jar
     org.realityforge.arez:arez-processor:jar
-  ), '0.153')
+  ), '0.154')
+end
+
+command(:patch_arez_spytools_version) do |app|
+  patch_versions(app, %w(org.realityforge.arez.spytools:arez-spytools:jar), '0.80')
 end
 
 command(:upgrade_react4j) do |app|
