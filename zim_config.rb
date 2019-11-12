@@ -124,8 +124,7 @@ command(:upgrade_elemental2) do |app|
     org.realityforge.com.google.elemental2:elemental2-webgl2:jar
     org.realityforge.com.google.elemental2:elemental2-webstorage:jar
     org.realityforge.com.google.elemental2:elemental2-webassembly:jar
-  ), '2.25')
-  # TODO: Can't move to 2.26 until GWT 2.8.3 is available.
+  ), '2.27')
 end
 
 command(:upgrade_arez) do |app|
