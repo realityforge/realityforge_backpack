@@ -131,11 +131,11 @@ command(:upgrade_arez) do |app|
   patch_versions(app, %w(
     org.realityforge.arez:arez-core:jar
     org.realityforge.arez:arez-processor:jar
-  ), '0.154')
+  ), '0.156')
 end
 
 command(:patch_arez_spytools_version) do |app|
-  patch_versions(app, %w(org.realityforge.arez.spytools:arez-spytools:jar), '0.80')
+  patch_versions(app, %w(org.realityforge.arez.spytools:arez-spytools:jar), '0.83')
 end
 
 command(:upgrade_react4j) do |app|
@@ -143,7 +143,7 @@ command(:upgrade_react4j) do |app|
     org.realityforge.react4j:react4j-core:jar
     org.realityforge.react4j:react4j-dom:jar
     org.realityforge.react4j:react4j-processor:jar
-  ), '0.140')
+  ), '0.142')
 end
 
 command(:upgrade_javax_annotation) do |app|
