@@ -257,6 +257,23 @@ module Zim # nodoc
       end
     end
 
+    # Add a task to patch the .bazelversion file from a version to a version.
+    # e.g.
+    #
+    #    bazel_update('1.1.0', '1.2.0')
+    #
+    def bazel_update(from_version, to_version)
+      desc "Update the bazel version from #{from_version} to #{to_version}"
+      command(:"patch_bazel_version_#{from_version}") do |app|
+        patched = patch_file('.bazelversion') do |content|
+          content.gsub(from_version, to_version)
+        end
+        if patched
+          mysystem("git commit -m \"Update the bazel version from #{from_version} to #{to_version}\"")
+        end
+      end
+    end
+
     # Add a task to patch the .ruby-version file from a version to a version.
     # e.g.
     #
