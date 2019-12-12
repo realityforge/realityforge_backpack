@@ -21,7 +21,7 @@ braid_tasks('way_of_stock' => 'vendor/docs/way_of_stock',
             'rptman' => 'vendor/tools/rptman')
 
 ruby_upgrade('2.1.3', '2.3.1')
-bazel_update('1.1.0', '1.2.0')
+bazel_update('1.2.0', '1.2.1')
 
 patch_gem('buildr', %w(1.5.4 1.5.5 1.5.6 1.5.7), '1.5.8')
 patch_gem('braid', %w(1.0.18 1.0.19 1.0.20 1.0.21 1.0.22 1.0.3 1.1.0), '1.1.0')
