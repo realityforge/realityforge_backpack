@@ -77,6 +77,10 @@ command(:patch_getopt4j_version) do |app|
   patch_versions(app, %w(org.realityforge.getopt4j:getopt4j:jar), '1.3')
 end
 
+command(:patch_proton_version) do |app|
+  patch_versions(app, %w(org.realityforge.proton:proton-processor-pack:jar), '0.03')
+end
+
 command(:patch_repository_urls) do |app|
   patched = patch_file('build.yaml') do |content|
     content.
