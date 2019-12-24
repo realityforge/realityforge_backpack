@@ -78,7 +78,7 @@ command(:patch_getopt4j_version) do |app|
 end
 
 command(:patch_proton_version) do |app|
-  patch_versions(app, %w(org.realityforge.proton:proton-processor-pack:jar), '0.03')
+  patch_versions(app, %w(org.realityforge.proton:proton-processor-pack:jar), '0.04')
 end
 
 command(:patch_repository_urls) do |app|
