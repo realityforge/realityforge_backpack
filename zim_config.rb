@@ -45,6 +45,10 @@ command(:patch_grim_version) do |app|
   patch_versions(app, %w(org.realityforge.grim:grim-annotations:jar org.realityforge.grim:grim-asserts:jar org.realityforge.grim:grim-processor:jar), '0.03')
 end
 
+command(:patch_galdr_version) do |app|
+  patch_versions(app, %w(org.realityforge.galdr:galdr-core:jar org.realityforge.galdr:galdr-processor:jar), '0.03')
+end
+
 command(:patch_symbolmap_version) do |app|
   patch_versions(app, %w(org.realityforge.gwt.symbolmap:gwt-symbolmap:jar), '0.09')
 end
@@ -78,9 +82,7 @@ command(:patch_getopt4j_version) do |app|
 end
 
 command(:patch_proton_version) do |app|
-  version = '0.06'
-  patch_dependency_coordinates(app, {'org.realityforge.proton:proton-processor-pack:jar' => 'org.realityforge.proton:proton-core:jar'}, version)
-  patch_versions(app, %w(org.realityforge.proton:proton-core:jar org.realityforge.proton:proton-qa:jar), version)
+  patch_versions(app, %w(org.realityforge.proton:proton-core:jar org.realityforge.proton:proton-qa:jar), '0.07')
 end
 
 command(:patch_repository_urls) do |app|
@@ -134,15 +136,15 @@ command(:upgrade_elemental2) do |app|
   ), '2.27')
 end
 
-command(:upgrade_arez) do |app|
+command(:patch_arez_version) do |app|
   patch_versions(app, %w(
     org.realityforge.arez:arez-core:jar
     org.realityforge.arez:arez-processor:jar
-  ), '0.156')
+  ), '0.162')
 end
 
 command(:patch_arez_spytools_version) do |app|
-  patch_versions(app, %w(org.realityforge.arez.spytools:arez-spytools:jar), '0.83')
+  patch_versions(app, %w(org.realityforge.arez.spytools:arez-spytools:jar), '0.89')
 end
 
 command(:upgrade_react4j) do |app|
