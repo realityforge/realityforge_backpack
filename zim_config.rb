@@ -82,7 +82,7 @@ command(:patch_getopt4j_version) do |app|
 end
 
 command(:patch_proton_version) do |app|
-  patch_versions(app, %w(org.realityforge.proton:proton-core:jar org.realityforge.proton:proton-qa:jar), '0.07')
+  patch_versions(app, %w(org.realityforge.proton:proton-core:jar org.realityforge.proton:proton-qa:jar), '0.11')
 end
 
 command(:patch_repository_urls) do |app|
@@ -140,11 +140,11 @@ command(:patch_arez_version) do |app|
   patch_versions(app, %w(
     org.realityforge.arez:arez-core:jar
     org.realityforge.arez:arez-processor:jar
-  ), '0.162')
+  ), '0.164')
 end
 
 command(:patch_arez_spytools_version) do |app|
-  patch_versions(app, %w(org.realityforge.arez.spytools:arez-spytools:jar), '0.89')
+  patch_versions(app, %w(org.realityforge.arez.spytools:arez-spytools:jar), '0.91')
 end
 
 command(:patch_react4j_version) do |app|
@@ -152,7 +152,7 @@ command(:patch_react4j_version) do |app|
     org.realityforge.react4j:react4j-core:jar
     org.realityforge.react4j:react4j-dom:jar
     org.realityforge.react4j:react4j-processor:jar
-  ), '0.146')
+  ), '0.147')
 end
 
 command(:upgrade_javax_annotation) do |app|
