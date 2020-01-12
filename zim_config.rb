@@ -144,7 +144,7 @@ command(:patch_arez_version) do |app|
 end
 
 command(:patch_arez_spytools_version) do |app|
-  patch_versions(app, %w(org.realityforge.arez.spytools:arez-spytools:jar), '0.91')
+  patch_versions(app, %w(org.realityforge.arez.spytools:arez-spytools:jar), '0.92')
 end
 
 command(:patch_react4j_version) do |app|
