@@ -41,6 +41,10 @@ command(:patch_braincheck_version) do |app|
   patch_versions(app, %w(org.realityforge.braincheck:braincheck:jar), '1.25.0')
 end
 
+command(:patch_javapoet_version) do |app|
+  patch_versions(app, %w(com.squareup:javapoet:jar), '1.12.0')
+end
+
 command(:patch_grim_version) do |app|
   patch_versions(app, %w(org.realityforge.grim:grim-annotations:jar org.realityforge.grim:grim-asserts:jar org.realityforge.grim:grim-processor:jar), '0.03')
 end
