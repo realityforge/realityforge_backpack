@@ -74,7 +74,7 @@ command(:patch_jetbrains_annotations_version) do |app|
 end
 
 command(:patch_guiceyloops_version) do |app|
-  patch_versions(app, %w(org.realityforge.guiceyloops:guiceyloops:jar), '0.102')
+  patch_versions(app, %w(org.realityforge.guiceyloops:guiceyloops:jar), '0.106')
 end
 
 command(:patch_gir_version) do |app|
