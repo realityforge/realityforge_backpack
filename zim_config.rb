@@ -46,7 +46,7 @@ command(:patch_javapoet_version) do |app|
 end
 
 command(:patch_grim_version) do |app|
-  patch_versions(app, %w(org.realityforge.grim:grim-annotations:jar org.realityforge.grim:grim-asserts:jar org.realityforge.grim:grim-processor:jar), '0.03')
+  patch_versions(app, %w(org.realityforge.grim:grim-annotations:jar org.realityforge.grim:grim-asserts:jar org.realityforge.grim:grim-processor:jar), '0.04')
 end
 
 command(:patch_galdr_version) do |app|
@@ -86,7 +86,7 @@ command(:patch_getopt4j_version) do |app|
 end
 
 command(:patch_proton_version) do |app|
-  patch_versions(app, %w(org.realityforge.proton:proton-core:jar org.realityforge.proton:proton-qa:jar), '0.19')
+  patch_versions(app, %w(org.realityforge.proton:proton-core:jar org.realityforge.proton:proton-qa:jar), '0.20')
 end
 
 command(:patch_compile_testing_version) do |app|
