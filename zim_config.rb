@@ -97,6 +97,10 @@ command(:patch_truth_version) do |app|
   patch_versions(app, %w(com.google.truth:truth:jar), '0.44')
 end
 
+command(:patch_guava_version) do |app|
+  patch_versions(app, %w(com.google.guava:guava:jar), '27.1-jre')
+end
+
 command(:patch_repository_urls) do |app|
   patched = patch_file('build.yaml') do |content|
     content.
