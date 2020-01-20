@@ -89,6 +89,14 @@ command(:patch_proton_version) do |app|
   patch_versions(app, %w(org.realityforge.proton:proton-core:jar org.realityforge.proton:proton-qa:jar), '0.17')
 end
 
+command(:patch_compile_testing_version) do |app|
+  patch_versions(app, %w(com.google.testing.compile:compile-testing:jar), '0.18')
+end
+
+command(:patch_truth_version) do |app|
+  patch_versions(app, %w(com.google.truth:truth:jar), '0.44')
+end
+
 command(:patch_repository_urls) do |app|
   patched = patch_file('build.yaml') do |content|
     content.
@@ -254,7 +262,7 @@ command(:edit_buildfile_when_changed) do |app|
   if File.exist?('buildfile') && IO.read('buildfile') =~ /add_gwt_configuration/
     begin
       mysystem("git commit -a -m \"Update to support the latest GWT addon.\"")
-      rescue
+    rescue
     end
   end
 end
