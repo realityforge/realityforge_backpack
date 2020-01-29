@@ -271,4 +271,13 @@ command(:edit_buildfile_when_changed) do |app|
   end
 end
 
+command(:patch_TODO) do |app|
+  patched = patch_file('TODO.md') do |content|
+    content.gsub("This document is essentially a list of shorthand notes describing work yet to completed.", "This document is essentially a list of shorthand notes describing work yet to be completed.")
+  end
+  if patched
+    mysystem("git commit -m \"Improve grammar in TODO description\"")
+  end
+end
+
 Zim::Belt.load_suites_from_belt
