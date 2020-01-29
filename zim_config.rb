@@ -104,6 +104,7 @@ end
 command(:patch_repository_urls) do |app|
   patched = patch_file('build.yaml') do |content|
     content.
+        gsub('https://repo.maven.apache.org/maven2/', 'https://repo.maven.apache.org/maven2').
         gsub('http://repo1.maven.org/maven2', 'https://repo.maven.apache.org/maven2').
         gsub('http://central.maven.org/maven2', 'https://repo.maven.apache.org/maven2').
         gsub('https://repo1.maven.org/maven2', 'https://repo.maven.apache.org/maven2')
