@@ -123,6 +123,28 @@ command(:patch_jfrog_repository_urls) do |app|
   end
 end
 
+command(:use_aggregate_repository_url) do |app|
+  patched = patch_file('build.yaml') do |content|
+
+    if content.include?('   - https://stocksoftware.jfrog.io/stocksoftware/public')
+      content.
+          gsub("   - https://stocksoftware.jfrog.io/stocksoftware/public\n", "   - https://stocksoftware.jfrog.io/stocksoftware/maven2\n").
+          gsub("    - https://stocksoftware.jfrog.io/stocksoftware/oss\n", "").
+          gsub("   - https://stocksoftware.jfrog.io/stocksoftware/oss\n", "")
+    elsif content.include?('   - https://stocksoftware.jfrog.io/stocksoftware/oss')
+      content.
+          gsub("   - https://stocksoftware.jfrog.io/stocksoftware/oss\n", "   - https://stocksoftware.jfrog.io/stocksoftware/maven2\n").
+          gsub("    - https://stocksoftware.jfrog.io/stocksoftware/public\n", "").
+          gsub("   - https://stocksoftware.jfrog.io/stocksoftware/public\n", "")
+    else
+      content
+    end
+  end
+  if patched
+    mysystem("git commit -m \"Use a single stocksoftware jfrog repository that also mirrors maven central. This works around rate limiting issues on TravisCI.\"")
+  end
+end
+
 command(:update_travisci_dist) do |app|
   patched = patch_file('.travis.yml') do |content|
     content =~ /oraclejdk8/ && !(content =~ /^dist: /) ? "# Lock down dist to ensure that builds run on a distribution that supports oraclejdk8\ndist: trusty\n" + content : content
