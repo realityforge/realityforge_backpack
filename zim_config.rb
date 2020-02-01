@@ -94,7 +94,7 @@ command(:patch_compile_testing_version) do |app|
 end
 
 command(:patch_truth_version) do |app|
-  patch_versions(app, %w(com.google.truth:truth:jar), '0.44')
+  patch_versions(app, %w(com.google.truth:truth:jar), '0.45')
 end
 
 command(:patch_guava_version) do |app|
