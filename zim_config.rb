@@ -145,6 +145,19 @@ command(:use_aggregate_repository_url) do |app|
   end
 end
 
+command(:remove_thirdparty_local_repository) do |app|
+  patched = patch_file('build.yaml') do |content|
+      content.
+          gsub("   # TODO: Remove thirdparty-local once payara is no longer version 5.192-rf\n", '').
+          gsub("  # TODO: Remove thirdparty-local repository once payara is no longer version 5.192-rf\n", '').
+          gsub("   - https://stocksoftware.artifactoryonline.com/stocksoftware/thirdparty-local\n", '').
+          gsub("   - https://stocksoftware.jfrog.io/stocksoftware/thirdparty-local\n", '')
+  end
+  if patched
+    mysystem("git commit -m \"Remove thirdparty-local repository as it is now included in aggregate repository list\"")
+  end
+end
+
 command(:update_travisci_dist) do |app|
   patched = patch_file('.travis.yml') do |content|
     content =~ /oraclejdk8/ && !(content =~ /^dist: /) ? "# Lock down dist to ensure that builds run on a distribution that supports oraclejdk8\ndist: trusty\n" + content : content
