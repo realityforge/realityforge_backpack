@@ -90,7 +90,7 @@ command(:patch_proton_version) do |app|
 end
 
 command(:patch_compile_testing_version) do |app|
-  patch_versions(app, %w(com.google.testing.compile:compile-testing:jar), '0.18')
+  patch_versions(app, %w(com.google.testing.compile:compile-testing:jar), '0.18-rf')
 end
 
 command(:patch_truth_version) do |app|
