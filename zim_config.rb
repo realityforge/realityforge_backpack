@@ -123,6 +123,16 @@ command(:patch_jfrog_repository_urls) do |app|
   end
 end
 
+command(:reorder_repository_urls) do |app|
+  patched = patch_file('build.yaml') do |content|
+    content.gsub("   - https://repo.maven.apache.org/maven2\n   - https://stocksoftware.jfrog.io/stocksoftware/maven2\n",
+                 "   - https://stocksoftware.jfrog.io/stocksoftware/maven2\n   - https://repo.maven.apache.org/maven2\n")
+  end
+  if patched
+    mysystem("git commit -m \"Reorder repositories so the jfrog cache is accessed first to avoid intermittent Central failures.\"")
+  end
+end
+
 command(:use_aggregate_repository_url) do |app|
   patched = patch_file('build.yaml') do |content|
 
