@@ -53,6 +53,10 @@ command(:patch_galdr_version) do |app|
   patch_versions(app, %w(org.realityforge.galdr:galdr-core:jar org.realityforge.galdr:galdr-processor:jar), '0.03')
 end
 
+command(:patch_sting_version) do |app|
+  patch_versions(app, %w(org.realityforge.sting:sting-core:jar org.realityforge.sting:sting-processor:jar), '0.02')
+end
+
 command(:patch_symbolmap_version) do |app|
   patch_versions(app, %w(org.realityforge.gwt.symbolmap:gwt-symbolmap:jar), '0.09')
 end
