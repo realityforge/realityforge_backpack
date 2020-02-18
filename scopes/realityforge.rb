@@ -38,7 +38,6 @@ Belt.scope('realityforge') do |o|
   o.project('geolatte-geom-jpa', :description => 'Converter for mapping Geolatte geometry types to JPA attributes', :tags => %w(travis))
   o.project('getopt4j', :description => 'A library to parse command line arguments according to the GNU style', :tags => %w(travis))
 
-  o.project('dagger-gwt-lite', :description => 'SuperSourced elements to optimize Dagger for GWT/J2CL', :tags => %w(travis issues))
   o.project('gwt-appcache', :description => 'GWT AppCache Support Library', :tags => %w(travis issues pages))
   o.project('gwt-appcache-example', :description => 'A simple application demonstrating the use of the gwt-appcache library', :tags => %w(travis))
   o.project('gwt-cache-filter', :description => 'A servlet filter that adds the appropriate http caching headers to GWT generated files based on *.cache.* and *.nocache.* naming patterns.', :tags => %w(travis issues))
@@ -128,6 +127,8 @@ Belt.scope('realityforge') do |o|
   # Historic: No longer in use
   o.project('docker-keycloak', :description => 'Docker image for Keycloak project', :tags => %w(historic external))
   o.project('zifnab', :description => 'Endless Sky Content Editing Tools', :tags => %w(historic))
+
+  o.project('dagger-gwt-lite', :description => 'SuperSourced elements to optimize Dagger for GWT/J2CL', :tags => %w(historic))
 
   # Historic: Projects created during learning of new technology. No longer relevant
   o.project('wasm-contract-experiments', :description => 'Experiments using eWasm and Parity', :tags => %w(historic))
