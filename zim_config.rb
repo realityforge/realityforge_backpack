@@ -54,7 +54,7 @@ command(:patch_galdr_version) do |app|
 end
 
 command(:patch_sting_version) do |app|
-  patch_versions(app, %w(org.realityforge.sting:sting-core:jar org.realityforge.sting:sting-processor:jar), '0.03')
+  patch_versions(app, %w(org.realityforge.sting:sting-core:jar org.realityforge.sting:sting-processor:jar), '0.04')
 end
 
 command(:patch_symbolmap_version) do |app|
