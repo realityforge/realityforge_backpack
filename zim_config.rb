@@ -90,7 +90,7 @@ command(:patch_getopt4j_version) do |app|
 end
 
 command(:patch_proton_version) do |app|
-  patch_versions(app, %w(org.realityforge.proton:proton-core:jar org.realityforge.proton:proton-qa:jar), '0.40')
+  patch_versions(app, %w(org.realityforge.proton:proton-core:jar org.realityforge.proton:proton-qa:jar), '0.41')
 end
 
 command(:patch_compile_testing_version) do |app|
