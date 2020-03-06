@@ -46,7 +46,7 @@ command(:patch_javapoet_version) do |app|
 end
 
 command(:patch_gwt_cache_filter_version) do |app|
-  patch_versions(app, %w(org.realityforge.gwt.cache-filter:gwt-cache-filter:jar), '0.8')
+  patch_versions(app, %w(org.realityforge.gwt.cache-filter:gwt-cache-filter:jar), '0.9')
 end
 
 command(:patch_grim_version) do |app|
