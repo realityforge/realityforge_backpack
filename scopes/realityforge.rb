@@ -128,6 +128,7 @@ Belt.scope('realityforge') do |o|
   # Historic: No longer in use
   o.project('docker-keycloak', :description => 'Docker image for Keycloak project', :tags => %w(historic external))
   o.project('zifnab', :description => 'Endless Sky Content Editing Tools', :tags => %w(historic))
+  o.project('namgen', :description => 'A simple library for generating names for characters useful for gamies', :tags => %w(historic))
 
   o.project('dagger-gwt-lite', :description => 'SuperSourced elements to optimize Dagger for GWT/J2CL', :tags => %w(historic))
 
