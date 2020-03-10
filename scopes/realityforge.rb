@@ -33,7 +33,6 @@ Belt.scope('realityforge') do |o|
   o.project('backpack', :description => '🎒 A simple tool to manage GitHub organisations using declarative DSL', :tags => %w(zapwhite=no))
 
   o.project('router-fu', :description => 'A framework agnostic, state producing router', :tags => %w(protect=master travis issues))
-  o.project('dbdiff', :description => 'List differences between databases', :tags => %w(travis))
   o.project('revapi-diff', :description => 'Report differences between Java APIs', :tags => %w(travis))
   o.project('revapi-viewer', :description => 'Online RevAPI Diff Viewer')
   o.project('geolatte-geom-jpa', :description => 'Converter for mapping Geolatte geometry types to JPA attributes', :tags => %w(travis))
@@ -127,6 +126,9 @@ Belt.scope('realityforge') do |o|
   o.project('docker-keycloak', :description => 'Docker image for Keycloak project', :tags => %w(historic external))
   o.project('zifnab', :description => 'Endless Sky Content Editing Tools', :tags => %w(historic))
   o.project('namgen', :description => 'A simple library for generating names for characters useful for gamies', :tags => %w(historic))
+
+  # Historic: Never actually got to using this.
+  o.project('dbdiff', :description => 'List differences between databases', :tags => %w(historic))
 
   o.project('dagger-gwt-lite', :description => 'SuperSourced elements to optimize Dagger for GWT/J2CL', :tags => %w(historic))
 
