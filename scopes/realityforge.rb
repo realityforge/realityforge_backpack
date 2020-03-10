@@ -193,7 +193,7 @@ Belt.scope('realityforge') do |o|
   o.project('jsonb-datatypes', :description => 'Some simple jsonb data type support', :tags => %w(historic))
 
   # Historic: Domgen updated to decouple from library
-  o.project('graphql-domgen-support', :description => 'GraphQL Domgen Support', :tags => %w(travis))
+  o.project('graphql-domgen-support', :description => 'GraphQL Domgen Support', :tags => %w(historic))
 
   # Historic: Example inlined into source project
   o.project('gwt-cache-filter-example', :description => 'A simple application demonstrating the use of the gwt-cache-filter library', :tags => %w(historic))
