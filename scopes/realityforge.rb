@@ -41,7 +41,6 @@ Belt.scope('realityforge') do |o|
 
   o.project('gwt-cache-filter', :description => 'A servlet filter that adds the appropriate http caching headers to GWT generated files based on *.cache.* and *.nocache.* naming patterns.', :tags => %w(travis issues))
   o.project('gwt-keycloak', :description => 'A simple library to provide keycloak support to GWT', :tags => %w(travis issues))
-  o.project('gwt-qr-code', :description => 'GWT QR Code Generation', :tags => %w(travis issues))
   o.project('gwt-symbolmap', :description => 'GWT SymbolMap Assertions Library.', :tags => %w(travis codecov))
   o.project('housekeeping-scripts', :description => 'Sets of scripts used to perform housekeeping at home and in the wild')
   o.project('idea-configuration', :description => 'A repository containing configuration for IntelliJ IDEA', :tags => %w(zim=no))
@@ -201,6 +200,9 @@ Belt.scope('realityforge') do |o|
   # Historic: Browser discontinued support so need to rapidly move away from library
   o.project('gwt-appcache', :description => 'GWT AppCache Support Library', :tags => %w(historic))
   o.project('gwt-appcache-example', :description => 'A simple application demonstrating the use of the gwt-appcache library', :tags => %w(historic))
+
+  # Historic: No longer used. Works fine!
+  o.project('gwt-qr-code', :description => 'GWT QR Code Generation', :tags => %w(historic))
 
   # Historic: No longer needed
   o.project('noft', :description => 'A tool to extract svg icons from icon fonts and generate helpers to render the icons.', :tags => %w(historic))
