@@ -39,8 +39,6 @@ Belt.scope('realityforge') do |o|
   o.project('geolatte-geom-jpa', :description => 'Converter for mapping Geolatte geometry types to JPA attributes', :tags => %w(travis))
   o.project('getopt4j', :description => 'A library to parse command line arguments according to the GNU style', :tags => %w(travis))
 
-  o.project('gwt-appcache', :description => 'GWT AppCache Support Library', :tags => %w(travis issues pages))
-  o.project('gwt-appcache-example', :description => 'A simple application demonstrating the use of the gwt-appcache library', :tags => %w(travis))
   o.project('gwt-cache-filter', :description => 'A servlet filter that adds the appropriate http caching headers to GWT generated files based on *.cache.* and *.nocache.* naming patterns.', :tags => %w(travis issues))
   o.project('gwt-keycloak', :description => 'A simple library to provide keycloak support to GWT', :tags => %w(travis issues))
   o.project('gwt-qr-code', :description => 'GWT QR Code Generation', :tags => %w(travis issues))
@@ -199,6 +197,10 @@ Belt.scope('realityforge') do |o|
 
   # Historic: Example inlined into source project
   o.project('gwt-cache-filter-example', :description => 'A simple application demonstrating the use of the gwt-cache-filter library', :tags => %w(historic))
+
+  # Historic: Browser discontinued support so need to rapidly move away from library
+  o.project('gwt-appcache', :description => 'GWT AppCache Support Library', :tags => %w(historic))
+  o.project('gwt-appcache-example', :description => 'A simple application demonstrating the use of the gwt-appcache library', :tags => %w(historic))
 
   # Historic: No longer needed
   o.project('noft', :description => 'A tool to extract svg icons from icon fonts and generate helpers to render the icons.', :tags => %w(historic))
