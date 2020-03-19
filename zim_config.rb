@@ -219,7 +219,7 @@ command(:patch_arez_version) do |app|
   patch_versions(app, %w(
     org.realityforge.arez:arez-core:jar
     org.realityforge.arez:arez-processor:jar
-  ), '0.170')
+  ), '0.171')
 end
 
 command(:patch_arez_spytools_version) do |app|
