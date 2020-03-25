@@ -100,6 +100,7 @@ Belt.scope('realityforge') do |o|
   o.project('course-rust-lang', :description => 'Coursework for the  "The Rust Programming Language" Udemy course')
   o.project('course-advanced-css-and-sass', :description => 'Coursework for the "Advanced CSS and Sass" course')
   o.project('course-webgl', :description => 'Coursework for the "The Extensive WebGL Series ! - Part1 : Low Level Graphics" course')
+  o.project('course-learn-a-frame', :description => 'Coursework for the "Coursework for the "Learn A-Frame And Get Ready For WebVR" course" course')
   o.project('course-pcg-roguelike', :description => 'Code written while working through "Procedural Content Generation for C++ Game Development"')
 
   # External projects that have been forked to submit pull requests
