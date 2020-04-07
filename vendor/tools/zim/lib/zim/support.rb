@@ -958,6 +958,18 @@ module Zim # nodoc
         end
       end
 
+      desc 'Normalize the github configuration based on buildr_plus rules'
+      command(:normalize_github) do |app|
+        if File.exist?('.github/workflows')
+          git_clean_filesystem
+          bundle_exec('buildr github:fix')
+          git_reset_index
+          git_add_all_files
+          mysystem('git add --all --force .github 2> /dev/null > /dev/null')
+          git_commit('Normalize github configuration', false)
+        end
+      end
+
       desc 'Normalize the jenkins configuration based on buildr_plus rules'
       command(:normalize_jenkins) do |app|
         if File.exist?('vendor/tools/buildr_plus') && File.exist?('Jenkinsfile')
@@ -991,6 +1003,7 @@ module Zim # nodoc
         run(:normalize_whitespace, app)
         run(:normalize_travisci, app)
         run(:normalize_jenkins, app)
+        run(:normalize_github, app)
       end
     end
 
