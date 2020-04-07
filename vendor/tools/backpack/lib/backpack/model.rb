@@ -229,6 +229,30 @@ module Backpack
       @wiki.nil? ? false : !!@wiki
     end
 
+    attr_writer :allow_squash_merge
+
+    def allow_squash_merge?
+      @allow_squash_merge.nil? ? true : !!@allow_squash_merge
+    end
+
+    attr_writer :allow_merge_commit
+
+    def allow_merge_commit?
+      @allow_merge_commit.nil? ? true : !!@allow_merge_commit
+    end
+
+    attr_writer :allow_rebase_merge
+
+    def allow_rebase_merge?
+      @allow_rebase_merge.nil? ? true : !!@allow_rebase_merge
+    end
+
+    attr_writer :delete_branch_on_merge
+
+    def delete_branch_on_merge?
+      @delete_branch_on_merge.nil? ? true : !!@delete_branch_on_merge
+    end
+
     def admin_teams
       @admin_teams.dup
     end

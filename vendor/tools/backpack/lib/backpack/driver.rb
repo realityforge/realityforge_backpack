@@ -87,7 +87,7 @@ module Backpack #nodoc
           if organization.repository_by_name?(name)
             repository = organization.repository_by_name(name)
             run_hook(context, :pre_repository, repository)
-            converge_repository(context.client, repository, remote_repository)
+            converge_repository(context.client, repository, context.client.repository(remote_repository['full_name']))
             run_hook(context, :post_repository, repository)
           else
             puts "WARNING: Unmanaged repository detected named '#{name}'"
@@ -104,6 +104,10 @@ module Backpack #nodoc
               :has_issues => repository.issues?,
               :has_projects => repository.projects?,
               :archived => repository.archived?,
+              :allow_squash_merge => repository.allow_squash_merge?,
+              :allow_merge_commit => repository.allow_merge_commit?,
+              :allow_rebase_merge => repository.allow_rebase_merge?,
+              :delete_branch_on_merge => repository.delete_branch_on_merge?,
               :has_wiki => repository.wiki?
             }
             config[:organization] = repository.organization.name unless organization.is_user_account?
@@ -175,6 +179,10 @@ module Backpack #nodoc
         update = true if repository.organization.repository_projects? && remote_repository['has_projects'].to_s != repository.projects?.to_s
         update = true if remote_repository['has_wiki'].to_s != repository.wiki?.to_s
         update = true if remote_repository['default_branch'].to_s != repository.default_branch.to_s
+        update = true if remote_repository['allow_squash_merge'].to_s != repository.allow_squash_merge?.to_s
+        update = true if remote_repository['allow_merge_commit'].to_s != repository.allow_merge_commit?.to_s
+        update = true if remote_repository['allow_rebase_merge'].to_s != repository.allow_rebase_merge?.to_s
+        update = true if remote_repository['delete_branch_on_merge'].to_s != repository.delete_branch_on_merge?.to_s
         if remote_repository['archived'].to_s != repository.archived?.to_s
           if 'true' == remote_repository['archived'].to_s
             raise "Can not un-archive repository #{repository.name} via the API"
@@ -197,6 +205,10 @@ module Backpack #nodoc
                                  :private => repository.private?,
                                  :has_issues => repository.issues?,
                                  :archived => repository.archived?,
+                                 :allow_squash_merge => repository.allow_squash_merge?,
+                                 :allow_merge_commit => repository.allow_merge_commit?,
+                                 :allow_rebase_merge => repository.allow_rebase_merge?,
+                                 :delete_branch_on_merge => repository.delete_branch_on_merge?,
                                  :has_wiki => repository.wiki? }
           # Can not specify has_projects option if repository projects are disabled, even if setting it to false
           repository_options[:has_projects] = repository.projects? unless repository.organization.repository_projects?
