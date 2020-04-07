@@ -281,12 +281,12 @@ command(:update_contributing) do |app|
   end
 end
 
-command(:update_staging_cleanup_script) do |app|
-  if File.exist?('tasks/staging.rake')
-    FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/staging.rake", 'tasks/staging.rake'
+command(:update_processor_path_script) do |app|
+  if File.exist?('tasks/processor_path.rake')
+    FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/processor_path.rake", 'tasks/processor_path.rake'
     begin
-      mysystem('git add tasks/staging.rake')
-      mysystem("git commit -m \"Make the cleanup of the staging repository use more generic code.\"")
+      mysystem('git add tasks/processor_path.rake')
+      mysystem("git commit -m \"Patch the processor path so that the IDEA projects match the behaviour of the cli build.\"")
     rescue Exception
       # ignored
     end
