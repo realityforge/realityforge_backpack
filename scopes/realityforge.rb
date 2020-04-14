@@ -104,12 +104,10 @@ Belt.scope('realityforge') do |o|
   o.project('course-pcg-roguelike', :description => 'Code written while working through "Procedural Content Generation for C++ Game Development"')
 
   # External projects that have been forked to submit pull requests
-  o.project('endless-sky', :description => 'Space exploration, trading, and combat game.', :tags => %w(external travis homepage=http://endless-sky.github.io/))
   o.project('j2cl', :description => 'Java to closure style javascript transpiler', :tags => %w(external travis))
   o.project('react', :description => 'A declarative, efficient, and flexible JavaScript library for building user interfaces.', :tags => %w(external homepage=https://reactjs.org))
   o.project('closure-compiler', :description => 'A JavaScript checker and optimizer.', :tags => %w(external homepage=https://developers.google.com/closure/compiler/ travis))
   o.project('graphql-java', :description => 'GraphQL Java implementation', :tags => %w(external))
-  o.project('schmooze', :description => 'Schmooze lets Ruby and Node.js work together intimately.', :tags => %w(external))
   o.project('elemental2', :description => 'Type checked access to browser APIs for Java code.', :tags => %w(external travis))
   o.project('jsinterop-generator', :description => 'Generates Java annotated with JsInterop from JavaScript extern sources', :tags => %w(external travis))
   o.project('jsinterop-base', :description => 'Utilities for GWT and J2CL to interact with JavaScript beyond JsInterop', :tags => %w(external travis))
@@ -117,7 +115,6 @@ Belt.scope('realityforge') do |o|
   o.project('bazel', :description => 'a fast, scalable, multi-language and extensible build system', :tags => %w(external homepage=https://bazel.build))
   o.project('nodes', :description => 'A GraphQL JVM Client - Java, Kotlin, Scala, etc.', :tags => %w(external))
   o.project('Payara', :description => 'Payara Server is derived from GlassFish Server Open Source Edition and 100% open source', :tags => %w(external homepage=http://www.payara.fish))
-  o.project('awesome-endless-sky', :description => 'A curated list of all things Endless Sky.', :tags => %w(external))
   o.project('compile-testing', :description => 'Testing tools for javac and annotation processors', :tags => %w(external))
 
   # Old blog that was long ago abandoned...
@@ -171,10 +168,13 @@ Belt.scope('realityforge') do |o|
   o.project('piemaster-jario', :description => 'A mirror of https://bitbucket.org/piemaster/jario', :tags => %w(external historic))
 
   # External projects that have been forked to submit pull requests
+  o.project('schmooze', :description => 'Schmooze lets Ruby and Node.js work together intimately.', :tags => %w(external historic))
   o.project('rules_jvm_external', :description => 'Rules to resolve and fetch artifacts transitively from Maven repositories', :tags => %w(external historic))
   o.project('pwasm-tutorial', :description => 'A step-by-step tutorial on how to write contracts in Wasm for Kovan', :tags => %w(external historic))
   o.project('javapoet', :description => 'A Java API for generating .java source files.', :tags => %w(external historic))
   o.project('domino-ui', :description => 'Domino-UI', :tags => %w(external historic))
+  o.project('endless-sky', :description => 'Space exploration, trading, and combat game.', :tags => %w(external travis homepage=http://endless-sky.github.io/ historic))
+  o.project('awesome-endless-sky', :description => 'A curated list of all things Endless Sky.', :tags => %w(external historic))
   o.project('gwt-react', :description => 'GWT Java bindings for React', :tags => %w(external historic))
   o.project('auto', :description => 'A collection of source code generators for Java.', :tags => %w(external historic))
   o.project('mobx', :description => 'Simple, scalable state management.', :tags => %w(external historic homepage=http://mobx.js.org))
