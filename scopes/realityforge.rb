@@ -236,6 +236,9 @@ Belt.scope('realityforge') do |o|
   # Historic: Still used by iris but iris is being decomissioned
   o.project('panmx', :description => 'A java library that builds JMX beans at runtime using annotations', :tags => %w(historic))
 
+  # Historic: Still used by iris but untouched in many years
+  o.project('spice-network', :description => 'A packet based network layer', :tags => %w(historic))
+
   # Historic: No longer used
   o.project('gelf4j', :description => 'Library for sending log messages using the GELF protocol using CLI, Log4j, JDK Logging and Logback', :tags => %w(historic))
 
