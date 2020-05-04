@@ -237,6 +237,7 @@ Belt.scope('realityforge') do |o|
   o.project('panmx', :description => 'A java library that builds JMX beans at runtime using annotations', :tags => %w(historic))
 
   # Historic: Still used by iris but untouched in many years
+  o.project('spice-sca', :description => 'Scalable Communications Architecture', :tags => %w(historic))
   o.project('spice-network', :description => 'A packet based network layer', :tags => %w(historic))
 
   # Historic: No longer used
