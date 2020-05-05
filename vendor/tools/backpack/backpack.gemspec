@@ -26,5 +26,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'reality-belt', '>= 1.0.0'
   s.add_dependency(%q<octokit>, ['>= 4.14'])
   s.add_dependency(%q<netrc>, ['~> 0.11'])
-  s.add_dependency(%q<travis>, ['= 1.8.8'])
+  s.add_dependency(%q<travis>, ['= 1.8.13'])
 end

@@ -7,7 +7,7 @@ PATH
       reality-belt (>= 1.0.0)
       reality-core (>= 1.8.0)
       reality-model (>= 1.2.0)
-      travis (= 1.8.8)
+      travis (= 1.8.13)
 
 PATH
   remote: vendor/tools/zim
@@ -75,7 +75,7 @@ GEM
     sawyer (0.8.2)
       addressable (>= 2.3.5)
       faraday (> 0.8, < 2.0)
-    travis (1.8.8)
+    travis (1.8.13)
       backports
       faraday (~> 0.9)
       faraday_middleware (~> 0.9, >= 0.9.1)
