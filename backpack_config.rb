@@ -12,9 +12,6 @@ Backpack.organizations.each do |o|
       #TODO: As of Feb 06 2019 there is no way to automate email notifications, we just need to configure via Web UI :(
       #repository.notifications << 'dse-iris-scm@stocksoftware.com.au'
     end
-    # TODO: Replace docker hook with ... something?
-    #repository.docker_hook if repository.tags.include?('docker-hub')
-    # GITHUB_TOKEN is an environment variable that should be defined in `_backpack.rb` file
 
     if repository.tags.include?('codecov')
       token = ENV["CODECOV_#{repository.name}"]
