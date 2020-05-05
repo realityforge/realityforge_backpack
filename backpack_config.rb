@@ -1,5 +1,3 @@
-BackpackPlus::TravisHook.enable(:access_token => ENV['TRAVIS_ACCESS_TOKEN'])
-
 Backpack::Belt.load_organizations_from_belt
 
 Backpack.organizations.each do |o|
@@ -17,7 +15,6 @@ Backpack.organizations.each do |o|
     # TODO: Replace docker hook with ... something?
     #repository.docker_hook if repository.tags.include?('docker-hub')
     # GITHUB_TOKEN is an environment variable that should be defined in `_backpack.rb` file
-    repository.travis_hook('realityforge', ENV['GITHUB_TOKEN']) if repository.tags.include?('travis')
 
     if repository.tags.include?('codecov')
       token = ENV["CODECOV_#{repository.name}"]
