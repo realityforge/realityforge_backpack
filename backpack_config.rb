@@ -13,16 +13,6 @@ Backpack.organizations.each do |o|
       #repository.notifications << 'dse-iris-scm@stocksoftware.com.au'
     end
 
-    if repository.tags.include?('codecov')
-      token = ENV["CODECOV_#{repository.name}"]
-      if token
-        repository.codecov_hook(token)
-      else
-        puts "Unable to locate CODECOV token for repository #{repository.name}. Skipping Codecov setup."
-        repository.codecov_hook('00000000-0000-0000-0000-000000000000')
-      end
-    end
-
     repository.tag_values('protect').each do |branch|
       repository.branch(branch, :require_reviews => true)
     end
