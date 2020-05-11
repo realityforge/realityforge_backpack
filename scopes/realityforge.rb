@@ -48,7 +48,6 @@ Belt.scope('realityforge') do |o|
   o.project('jndikit', :description => 'a toolkit designed to help with the construction of JNDI providers', :tags => %w(travis))
   o.project('timeservice', :description => 'A simple EE service to get constant now within transaction', :tags => %w(travis))
   o.project('proxy-servlet', :description => 'A servlet for creating proxy services', :tags => %w(travis))
-  o.project('reality-idea', :description => 'An ruby model to represent and generate intellij idea project files.', :tags => %w(travis zapwhite=no))
   o.project('reality-mda', :description => 'The glue that blends reality-core, reality-model, reality-generators and reality-facets into an model driven application.', :tags => %w(travis))
   o.project('reality-core', :description => 'Basic classes used to help defining libraries.', :tags => %w(travis))
   o.project('reality-facets', :description => 'A basic toolkit for binding facets or extensions to model objects.', :tags => %w(travis))
@@ -129,6 +128,9 @@ Belt.scope('realityforge') do |o|
   o.project('dbdiff', :description => 'List differences between databases', :tags => %w(historic))
 
   o.project('dagger-gwt-lite', :description => 'SuperSourced elements to optimize Dagger for GWT/J2CL', :tags => %w(historic))
+
+  # Historic: Never got to production. Such a shame!
+  o.project('reality-idea', :description => 'An ruby model to represent and generate intellij idea project files.', :tags => %w(historic))
 
   # Historic: Projects created during learning of new technology. No longer relevant
   o.project('wasm-contract-experiments', :description => 'Experiments using eWasm and Parity', :tags => %w(historic))
