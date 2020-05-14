@@ -318,7 +318,6 @@ command(:patch_gwt_addons) do |app|
   end
 end
 
-
 command(:add_processor_path) do |app|
   if File.exist?('tasks/gwt_patch.rake')
     FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/processor_path.rake", 'tasks/processor_path.rake'
