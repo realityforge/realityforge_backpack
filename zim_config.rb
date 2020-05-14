@@ -306,23 +306,45 @@ command(:patch_buildr_testng_addon) do |app|
   end
 end
 
-command(:patch_gwt_version) do |app|
-  if File.exist?('build.yaml') && IO.read('build.yaml') =~ / com.google.gwt:/
-    FileUtils.mkdir_p 'tasks'
+command(:patch_gwt_addons) do |app|
+  patched = false
+  if File.exist?('tasks/gwt.rake')
+    FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/gwt.rake", 'tasks/gwt.rake'
+    mysystem('git add tasks/gwt.rake')
+    patched = true
+  end
+  if File.exist?('tasks/gwt_patch.rake')
     FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/gwt_patch.rake", 'tasks/gwt_patch.rake'
     mysystem('git add tasks/gwt_patch.rake')
-    mysystem("git commit -m \"Patch the GWT addon to ensure it supports version 2.8.2-v20191108.\"")
-
-    patch_dependency_coordinates(app,
-                                 {
-                                     'com.google.gwt:gwt-user:jar' => 'org.realityforge.com.google.gwt:gwt-user:jar',
-                                     'com.google.gwt:gwt-dev:jar' => 'org.realityforge.com.google.gwt:gwt-dev:jar'
-                                 },
-                                 '2.8.2-v20191108')
-    patch_dependency_coordinates(app,
-                                 {'com.google.jsinterop:jsinterop-annotations:jar' => 'org.realityforge.com.google.jsinterop:jsinterop-annotations:jar'},
-                                 '2.8.2-v20191108')
+    patched = true
   end
+  if patched
+    begin
+      mysystem("git commit -m \"Update the GWT addon to the latest version.\"")
+    rescue Exception
+      # ignored
+    end
+  end
+end
+
+
+command(:add_processor_path) do |app|
+  if File.exist?('tasks/gwt_patch.rake')
+    FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/processor_path.rake", 'tasks/processor_path.rake'
+    mysystem('git add tasks/processor_path.rake')
+    begin
+      mysystem("git commit -m \"Add processor_path addong to support the latest GWT addon.\"")
+    rescue Exception
+      # ignored
+    end
+  end
+end
+
+command(:patch_gwt_version) do |app|
+  patch_dependency_coordinates(app, {
+      'org.realityforge.com.google.gwt:gwt-user:jar' => 'com.google.gwt:gwt-user:jar',
+      'org.realityforge.com.google.gwt:gwt-dev:jar' => 'com.google.gwt:gwt-dev:jar'
+  }, '2.9.0')
 end
 
 command(:edit_buildfile_when_changed) do |app|
