@@ -38,7 +38,7 @@ command(:patch_idea_codestyle_version) do |app|
 end
 
 command(:patch_braincheck_version) do |app|
-  patch_versions(app, %w(org.realityforge.braincheck:braincheck:jar), '1.26.0')
+  patch_versions(app, %w(org.realityforge.braincheck:braincheck:jar), '1.28.0')
 end
 
 command(:patch_javapoet_version) do |app|
