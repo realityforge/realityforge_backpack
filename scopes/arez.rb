@@ -6,6 +6,7 @@ Belt.scope('arez') do |o|
   o.project('arez-promise', :description => 'Arez component that wraps a Promise and makes it observable', :tags => %w(travis issues homepage=https://arez.github.io/promise))
   o.project('arez-spytools', :description => 'Arez utilities that enhance the spy capabilities', :tags => %w(travis issues homepage=https://arez.github.io/spytools))
   o.project('arez-testng', :description => 'Arez utilities for writing TestNG tests', :tags => %w(travis issues homepage=https://arez.github.io/testng))
+  o.project('arez-persist', :description => 'Arez extension for persisting observable properties', :tags => %w(travis issues homepage=https://arez.github.io/persist))
 
   # Historic projects
   o.project('arez-devtools', :description => 'Browser-based Arez DevTools', :tags => %w(historic))
