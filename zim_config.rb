@@ -358,5 +358,15 @@ command(:zapwhite_if_configured) do |app|
   end
 end
 
+command(:patch_travis_url) do |app|
+  patched = patch_file('README.md') do |content|
+    content.
+        gsub('https://secure.travis-ci.org/', 'https://api.travis-ci.com/').
+        gsub('http://travis-ci.org/', 'http://travis-ci.com/')
+  end
+  if patched
+    mysystem("git commit -m \"Update the TravisCI urls to point at .com version\"")
+  end
+end
 
 Zim::Belt.load_suites_from_belt
