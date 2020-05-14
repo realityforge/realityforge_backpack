@@ -165,11 +165,11 @@ end
 
 command(:remove_thirdparty_local_repository) do |app|
   patched = patch_file('build.yaml') do |content|
-      content.
-          gsub("   # TODO: Remove thirdparty-local once payara is no longer version 5.192-rf\n", '').
-          gsub("  # TODO: Remove thirdparty-local repository once payara is no longer version 5.192-rf\n", '').
-          gsub("   - https://stocksoftware.artifactoryonline.com/stocksoftware/thirdparty-local\n", '').
-          gsub("   - https://stocksoftware.jfrog.io/stocksoftware/thirdparty-local\n", '')
+    content.
+        gsub("   # TODO: Remove thirdparty-local once payara is no longer version 5.192-rf\n", '').
+        gsub("  # TODO: Remove thirdparty-local repository once payara is no longer version 5.192-rf\n", '').
+        gsub("   - https://stocksoftware.artifactoryonline.com/stocksoftware/thirdparty-local\n", '').
+        gsub("   - https://stocksoftware.jfrog.io/stocksoftware/thirdparty-local\n", '')
   end
   if patched
     mysystem("git commit -m \"Remove thirdparty-local repository as it is now included in aggregate repository list\"")
