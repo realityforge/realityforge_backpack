@@ -307,20 +307,11 @@ command(:patch_buildr_testng_addon) do |app|
 end
 
 command(:patch_gwt_addons) do |app|
-  patched = false
   if File.exist?('tasks/gwt.rake')
     FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/gwt.rake", 'tasks/gwt.rake'
     mysystem('git add tasks/gwt.rake')
-    patched = true
-  end
-  if File.exist?('tasks/gwt_patch.rake')
-    FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/gwt_patch.rake", 'tasks/gwt_patch.rake'
-    mysystem('git add tasks/gwt_patch.rake')
-    patched = true
-  end
-  if patched
     begin
-      mysystem("git commit -m \"Update the GWT addon to the latest version.\"")
+      mysystem("git commit -m \"Fix the GWT addon to work in pristine environments.\"")
     rescue Exception
       # ignored
     end
