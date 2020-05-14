@@ -74,7 +74,9 @@ command(:patch_revapi_version) do |app|
 end
 
 command(:patch_jsinterop_version) do |app|
-  patch_versions(app, %w(com.google.jsinterop:jsinterop-annotations:jar), '1.0.2')
+  version = '2.0.0'
+  patch_dependency_coordinates(app, {'org.realityforge.com.google.jsinterop:jsinterop-annotations:jar' => 'com.google.jsinterop:jsinterop-annotations:jar'}, version)
+  patch_versions(app, %w(com.google.jsinterop:jsinterop-annotations:jar), version)
 end
 
 command(:patch_jetbrains_annotations_version) do |app|
