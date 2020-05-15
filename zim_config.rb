@@ -299,7 +299,7 @@ command(:patch_gwt_addons) do |app|
     FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/gwt.rake", 'tasks/gwt.rake'
     mysystem('git add tasks/gwt.rake')
     begin
-      mysystem("git commit -m \"Fix the GWT addon to work in pristine environments.\"")
+      mysystem("git commit -m \"Fix the GWT addon to work with generated source code.\"")
     rescue Exception
       # ignored
     end
