@@ -306,12 +306,12 @@ command(:patch_gwt_addons) do |app|
   end
 end
 
-command(:add_processor_path) do |app|
+command(:patch_gwt_patch) do |app|
   if File.exist?('tasks/gwt_patch.rake')
-    FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/processor_path.rake", 'tasks/processor_path.rake'
-    mysystem('git add tasks/processor_path.rake')
+    FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/gwt_patch.rake", 'tasks/gwt_patch.rake'
+    mysystem('git add tasks/gwt_patch.rake')
     begin
-      mysystem("git commit -m \"Add processor_path addong to support the latest GWT addon.\"")
+      mysystem("git commit -m \"Patch gwt_patch addon to move to released version of jsinterop-annotations.\"")
     rescue Exception
       # ignored
     end
