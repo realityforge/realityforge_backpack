@@ -668,6 +668,9 @@ module Zim # nodoc
       end
     end
 
+    # We should somehow check whether this is needed
+    # This probably involves adding pr ref base to those things downloaded and then checking whether
+    # there is a hash that matches current commit already attached to a PR via 'git show-ref'
     def hub_pull_request(message)
       mysystem("hub pull-request -m \"#{message}\"")
     end
