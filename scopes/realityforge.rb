@@ -58,8 +58,6 @@ Belt.scope('realityforge') do |o|
   o.project('reality-belt', :description => 'A super simple domain model to represent projects.', :tags => %w(travis))
   o.project('gitattributes', :description => 'Class to parse gitattributes files.', :tags => %w(travis))
   o.project('zapwhite', :description => 'A simple tool to normalize whitespace in git repositories.', :tags => %w(travis))
-  o.project('rest-criteria', :description => 'A simple library for parsing criteria in rest services', :tags => %w(travis))
-  o.project('rest-field-filter', :description => 'A simple library parsing field filters in rest APIs.', :tags => %w(travis))
   o.project('simple-keycloak-service', :description => 'A simple service interface and base classes to be used by keycloak secured services', :tags => %w(travis))
   o.project('sqlshell', :description => 'A simple cross platform shell used to automate databases', :tags => %w(travis))
   o.project('ssrs-api', :description => 'Generated SOAP interface to SSRS server', :tags => %w(travis))
@@ -118,6 +116,10 @@ Belt.scope('realityforge') do |o|
 
   # Old blog that was long ago abandoned...
   o.project('realityforge.github.io', :description => 'My personal website and blog', :tags => %w(homepage=https://realityforge.github.io zapwhite=no historic))
+
+  # Historic: Still in use but hopefully we will never have to update these
+  o.project('rest-criteria', :description => 'A simple library for parsing criteria in rest services', :tags => %w(historic))
+  o.project('rest-field-filter', :description => 'A simple library parsing field filters in rest APIs.', :tags => %w(historic))
 
   # Historic: No longer in use
   o.project('docker-keycloak', :description => 'Docker image for Keycloak project', :tags => %w(historic external))
