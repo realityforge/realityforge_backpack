@@ -171,6 +171,10 @@ module Backpack #nodoc
       end
 
       def converge_repository(client, repository, remote_repository)
+        if 'true' == remote_repository['archived'].to_s && repository.organization.skip_updates_on_archived_repositories?
+          return
+        end
+
         update = false
         update = true if remote_repository['description'].to_s != repository.description.to_s
         update = true if remote_repository['homepage'].to_s != repository.homepage.to_s
@@ -189,9 +193,6 @@ module Backpack #nodoc
           end
           update = true
         end
-        if 'true' == remote_repository['archived'].to_s && repository.organization.skip_updates_on_archived_repositories?
-          return
-        end
 
         if update
           if 'true' == remote_repository['archived'].to_s
@@ -204,6 +205,7 @@ module Backpack #nodoc
                                  :default_branch => repository.default_branch,
                                  :private => repository.private?,
                                  :has_issues => repository.issues?,
+                                 :has_projects => repository.projects?,
                                  :archived => repository.archived?,
                                  :allow_squash_merge => repository.allow_squash_merge?,
                                  :allow_merge_commit => repository.allow_merge_commit?,
