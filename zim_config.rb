@@ -227,7 +227,7 @@ command(:patch_react4j_version) do |app|
     org.realityforge.react4j:react4j-core:jar
     org.realityforge.react4j:react4j-dom:jar
     org.realityforge.react4j:react4j-processor:jar
-  ), '0.156')
+  ), '0.157')
 end
 
 command(:upgrade_javax_annotation) do |app|
