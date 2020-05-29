@@ -207,19 +207,19 @@ command(:patch_arez_version) do |app|
   patch_versions(app, %w(
     org.realityforge.arez:arez-core:jar
     org.realityforge.arez:arez-processor:jar
-  ), '0.180')
+  ), '0.181')
 end
 
 command(:patch_arez_spytools_version) do |app|
-  patch_versions(app, %w(org.realityforge.arez.spytools:arez-spytools:jar), '0.107')
+  patch_versions(app, %w(org.realityforge.arez.spytools:arez-spytools:jar), '0.108')
 end
 
 command(:patch_arez_testng_version) do |app|
-  patch_versions(app, %w(org.realityforge.arez.testng:arez-testng:jar), '0.12')
+  patch_versions(app, %w(org.realityforge.arez.testng:arez-testng:jar), '0.13')
 end
 
 command(:patch_arez_dom_version) do |app|
-  patch_versions(app, %w(org.realityforge.arez.dom:arez-dom:jar), '0.67')
+  patch_versions(app, %w(org.realityforge.arez.dom:arez-dom:jar), '0.68')
 end
 
 command(:patch_react4j_version) do |app|
