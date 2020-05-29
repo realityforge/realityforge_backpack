@@ -282,7 +282,7 @@ command(:update_processor_path_script) do |app|
     FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/processor_path.rake", 'tasks/processor_path.rake'
     begin
       mysystem('git add tasks/processor_path.rake')
-      mysystem("git commit -m \"Patch the processor so that 'other' compiler options are not overwritten.\"")
+      mysystem("git commit -m \"Patch the processor to avoid potential null error.\"")
     rescue Exception
       # ignored
     end
