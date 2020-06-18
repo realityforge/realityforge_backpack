@@ -42,7 +42,7 @@ command(:patch_braincheck_version) do |app|
 end
 
 command(:patch_javapoet_version) do |app|
-  patch_versions(app, %w(com.squareup:javapoet:jar), '1.12.0')
+  patch_versions(app, %w(com.squareup:javapoet:jar), '1.13.0')
 end
 
 command(:patch_gwt_cache_filter_version) do |app|
