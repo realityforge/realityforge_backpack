@@ -5,6 +5,7 @@ Belt.scope('react4j') do |o|
   o.project('react4j-todomvc', :description => 'React4j TodoMVC implementation', :tags => %w(travis homepage=https://react4j.github.io/docs/todomvc.html zim:branches=raw,arez,dagger,sting,spritz,sting_bazel,raw_bazel_j2cl,sting_maven,sting_maven_j2cl))
   o.project('react4j-flux-challenge', :description => 'React4j Flux Challenge implementation', :tags => %w(travis))
   o.project('react4j-drumloop', :description => 'A React4j experimental drum machine', :tags => %w(travis))
+  o.project('react4j-webspeechdemo', :description => 'React4j WebSpeech Demo', :tags => %w(travis))
 
   # Historic projects
   o.project('react4j-widget', :description => 'React4j interoperability with GWT Widget API', :tags => %w(historic))
