@@ -277,8 +277,9 @@ module Backpack #nodoc
             # ignored
           end
           begin
-            context.client.unstar(repository.qualified_name)
-            puts "Removed star from archived repository #{repository.qualified_name}"
+            if context.client.starred?(repository.qualified_name) && context.client.unstar(repository.qualified_name)
+              puts "Removed star from archived repository #{repository.qualified_name}"
+            end
           rescue Octokit::NotFound
             # ignored
           end
