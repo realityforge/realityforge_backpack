@@ -230,6 +230,10 @@ command(:patch_react4j_version) do |app|
   ), '0.167')
 end
 
+command(:upgrade_javaee_api) do |app|
+  patch_versions(app, %w(javax:javaee-api:jar), '8.0')
+end
+
 command(:upgrade_javax_annotation) do |app|
   patch_versions(app, %w(org.realityforge.javax.annotation:javax.annotation:jar), '1.0.1')
 end
