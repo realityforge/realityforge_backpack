@@ -374,10 +374,10 @@ static guard_build( script, Map options = [:], actions )
 /**
  * Run the closure in a docker container with specified image and named appropriately.
  */
-static run_in_container( script, image_name, actions )
+static run_in_container( script, image_name, container_options = "", actions )
 {
   def name = "${script.env.JOB_NAME.replaceAll( /[\\\\/-]/, '_' ).replaceAll( '%2F', '_' )}_${script.env.BUILD_NUMBER}"
-  script.docker.image( image_name ).inside( "--name '${name}'", actions )
+  script.docker.image( image_name ).inside( "--name '${name}' ${container_options}", actions )
 }
 
 static prepare_auto_merge( script, target_branch )
