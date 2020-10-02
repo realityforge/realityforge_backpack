@@ -20,6 +20,7 @@ Belt.scope('realityforge') do |o|
   o.project('org.jetbrains.annotations', :description => 'A minimal, J2CL compatible org.jetbrains.annotations library', :tags => %w(travis))
   o.project('proton', :description => 'Utilities for building annotation processors', :tags => %w(travis))
   o.project('webtack', :description => 'Fetch and process WebIDL to generate Source Code', :tags => %w(travis))
+  o.project('vecmath', :description => 'A Java vector math library', :tags => %w(travis))
 
   o.project('guiceyloops', :description => 'GuiceyLoops is a minimalistic library for aiding the testing of JEE applications using Guice.', :tags => %w(codecov notify:stock travis))
 
