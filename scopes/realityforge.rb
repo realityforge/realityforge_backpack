@@ -103,7 +103,6 @@ Belt.scope('realityforge') do |o|
 
   # External projects that have been forked to submit pull requests
   o.project('j2cl', :description => 'Java to closure style javascript transpiler', :tags => %w(external travis))
-  o.project('react', :description => 'A declarative, efficient, and flexible JavaScript library for building user interfaces.', :tags => %w(external homepage=https://reactjs.org))
   o.project('closure-compiler', :description => 'A JavaScript checker and optimizer.', :tags => %w(external homepage=https://developers.google.com/closure/compiler/ travis))
   o.project('graphql-java', :description => 'GraphQL Java implementation', :tags => %w(external))
   o.project('elemental2', :description => 'Type checked access to browser APIs for Java code.', :tags => %w(external travis))
@@ -174,6 +173,7 @@ Belt.scope('realityforge') do |o|
   o.project('piemaster-jario', :description => 'A mirror of https://bitbucket.org/piemaster/jario', :tags => %w(external historic))
 
   # External projects that have been forked to submit pull requests
+  o.project('react', :description => 'A declarative, efficient, and flexible JavaScript library for building user interfaces.', :tags => %w(external homepage=https://reactjs.org historic))
   o.project('schmooze', :description => 'Schmooze lets Ruby and Node.js work together intimately.', :tags => %w(external historic))
   o.project('rules_jvm_external', :description => 'Rules to resolve and fetch artifacts transitively from Maven repositories', :tags => %w(external historic))
   o.project('pwasm-tutorial', :description => 'A step-by-step tutorial on how to write contracts in Wasm for Kovan', :tags => %w(external historic))
