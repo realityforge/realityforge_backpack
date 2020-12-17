@@ -163,6 +163,8 @@ Belt.scope('realityforge') do |o|
   o.project('proxx', :description => 'A game of proximity', :tags => %w(external historic))
 
   # External projects that have been forked to submit pull requests
+  o.project('gwt-boot-jsinterop-lili', :tags => %w(external historic))
+  o.project('jsinterop-simple-jsframework-example', :tags => %w(external historic))
   o.project('react', :description => 'A declarative, efficient, and flexible JavaScript library for building user interfaces.', :tags => %w(external homepage=https://reactjs.org historic))
   o.project('j2cl', :description => 'Java to closure style javascript transpiler', :tags => %w(external travis historic))
   o.project('closure-compiler', :description => 'A JavaScript checker and optimizer.', :tags => %w(external homepage=https://developers.google.com/closure/compiler/ travis historic))
