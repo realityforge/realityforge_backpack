@@ -11,7 +11,6 @@ Belt.scope('realityforge') do |o|
   o.project('redfish', :description => 'A lightweight library for configuring GlassFish/Payara servers.', :tags => %w(notify:stock travis))
   o.project('rptman', :description => 'This tool includes code and a suite of rake tasks for uploading SSRS reports to a server. The tool can also generate project files for the "SQL Server Business Intelligence Development Studio".', :tags => %w(notify:stock))
   o.project('resgen', :description => 'A tool to generate resource descriptors from resource assets.', :tags => %w(notify:stock travis))
-  o.project('swung_weave', :description => 'Bytecode weaving of annotated UI classes to ensure all UI updates occur in the Event Dispatch Thread', :tags => %w(notify:stock))
   o.project('zim', :description => 'Simple tool that performs mass transformations across codebases')
   o.project('gir', :description => 'Library to perform mechanical operations across codebases', :tags => %w(codecov travis))
   o.project('braincheck', :description => 'BrainCheck: A very simply invariant verification library', :tags => %w(travis pages))
@@ -202,6 +201,9 @@ Belt.scope('realityforge') do |o|
 
   # Historic: Move to alternative types to use builtin jsonb rules
   o.project('jsonb-datatypes', :description => 'Some simple jsonb data type support', :tags => %w(historic))
+
+  # Historic: No longer needed - huzzah!
+  o.project('swung_weave', :description => 'Bytecode weaving of annotated UI classes to ensure all UI updates occur in the Event Dispatch Thread', :tags => %w(notify:stock))
 
   # Historic: Domgen updated to decouple from library
   o.project('graphql-domgen-support', :description => 'GraphQL Domgen Support', :tags => %w(historic))
