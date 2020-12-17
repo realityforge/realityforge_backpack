@@ -101,19 +101,6 @@ Belt.scope('realityforge') do |o|
   o.project('course-webxr', :description => 'Coursework for learning WebXR')
   o.project('course-pcg-roguelike', :description => 'Code written while working through "Procedural Content Generation for C++ Game Development"')
 
-  # External projects that have been forked to submit pull requests
-  o.project('j2cl', :description => 'Java to closure style javascript transpiler', :tags => %w(external travis))
-  o.project('closure-compiler', :description => 'A JavaScript checker and optimizer.', :tags => %w(external homepage=https://developers.google.com/closure/compiler/ travis))
-  o.project('graphql-java', :description => 'GraphQL Java implementation', :tags => %w(external))
-  o.project('elemental2', :description => 'Type checked access to browser APIs for Java code.', :tags => %w(external travis))
-  o.project('jsinterop-generator', :description => 'Generates Java annotated with JsInterop from JavaScript extern sources', :tags => %w(external travis))
-  o.project('jsinterop-base', :description => 'Utilities for GWT and J2CL to interact with JavaScript beyond JsInterop', :tags => %w(external travis))
-  o.project('gwt', :description => 'GWT Open Source Project', :tags => %w(external homepage=http://www.gwtproject.org))
-  o.project('bazel', :description => 'a fast, scalable, multi-language and extensible build system', :tags => %w(external homepage=https://bazel.build))
-  o.project('nodes', :description => 'A GraphQL JVM Client - Java, Kotlin, Scala, etc.', :tags => %w(external))
-  o.project('Payara', :description => 'Payara Server is derived from GlassFish Server Open Source Edition and 100% open source', :tags => %w(external homepage=http://www.payara.fish))
-  o.project('compile-testing', :description => 'Testing tools for javac and annotation processors', :tags => %w(external))
-
   # Old blog that was long ago abandoned...
   o.project('realityforge.github.io', :description => 'My personal website and blog', :tags => %w(homepage=https://realityforge.github.io zapwhite=no historic))
 
@@ -174,6 +161,17 @@ Belt.scope('realityforge') do |o|
 
   # External projects that have been forked to submit pull requests
   o.project('react', :description => 'A declarative, efficient, and flexible JavaScript library for building user interfaces.', :tags => %w(external homepage=https://reactjs.org historic))
+  o.project('j2cl', :description => 'Java to closure style javascript transpiler', :tags => %w(external travis historic))
+  o.project('closure-compiler', :description => 'A JavaScript checker and optimizer.', :tags => %w(external homepage=https://developers.google.com/closure/compiler/ travis historic))
+  o.project('graphql-java', :description => 'GraphQL Java implementation', :tags => %w(external historic))
+  o.project('elemental2', :description => 'Type checked access to browser APIs for Java code.', :tags => %w(external travis historic))
+  o.project('jsinterop-generator', :description => 'Generates Java annotated with JsInterop from JavaScript extern sources', :tags => %w(external travis historic))
+  o.project('jsinterop-base', :description => 'Utilities for GWT and J2CL to interact with JavaScript beyond JsInterop', :tags => %w(external travis historic))
+  o.project('gwt', :description => 'GWT Open Source Project', :tags => %w(external homepage=http://www.gwtproject.org historic))
+  o.project('bazel', :description => 'a fast, scalable, multi-language and extensible build system', :tags => %w(external homepage=https://bazel.build historic))
+  o.project('nodes', :description => 'A GraphQL JVM Client - Java, Kotlin, Scala, etc.', :tags => %w(external historic))
+  o.project('Payara', :description => 'Payara Server is derived from GlassFish Server Open Source Edition and 100% open source', :tags => %w(external homepage=http://www.payara.fish historic))
+  o.project('compile-testing', :description => 'Testing tools for javac and annotation processors', :tags => %w(external historic))
   o.project('schmooze', :description => 'Schmooze lets Ruby and Node.js work together intimately.', :tags => %w(external historic))
   o.project('rules_jvm_external', :description => 'Rules to resolve and fetch artifacts transitively from Maven repositories', :tags => %w(external historic))
   o.project('pwasm-tutorial', :description => 'A step-by-step tutorial on how to write contracts in Wasm for Kovan', :tags => %w(external historic))
