@@ -44,7 +44,6 @@ Belt.scope('realityforge') do |o|
   o.project('gwt-symbolmap', :description => 'GWT SymbolMap Assertions Library.', :tags => %w(travis codecov))
   o.project('gwt-serviceworker-linker', :description => 'A GWT linker that generates a serviceworker.', :tags => %w(travis codecov))
   o.project('housekeeping-scripts', :description => 'Sets of scripts used to perform housekeeping at home and in the wild')
-  o.project('idea-configuration', :description => 'A repository containing configuration for IntelliJ IDEA', :tags => %w(zim=no))
 
   o.project('jndikit', :description => 'a toolkit designed to help with the construction of JNDI providers', :tags => %w(travis))
   o.project('timeservice', :description => 'A simple EE service to get constant now within transaction', :tags => %w(travis))
