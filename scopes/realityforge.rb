@@ -146,6 +146,9 @@ Belt.scope('realityforge') do |o|
   # Historic: Not needed in latest ruby
   o.project('reality-orderedhash', :description => 'A library providing a hash with preserved order and some array-like extensions.', :tags => %w(historic))
 
+  # Historic: Galdr replaced this
+  o.project('artemis-framework', :description => 'A mirror of https://code.google.com/p/artemis-framework', :tags => %w(external historic))
+
   # External projects that have been forked to keep a copy of source
   o.project('gwt-cal', :tags => %w(external historic))
   o.project('Piano-Trainer', :description => 'A web-app for training sheet reading skills by using your MIDI-enabled piano.', :tags => %w(external historic))
@@ -157,6 +160,8 @@ Belt.scope('realityforge') do |o|
   o.project('gamadu-tankz', :description => 'A mirror of https://code.google.com/p/gamadu-tankz', :tags => %w(external historic))
   o.project('piemaster-artemoids', :description => 'A mirror of https://bitbucket.org/piemaster/artemoids', :tags => %w(external historic))
   o.project('piemaster-jario', :description => 'A mirror of https://bitbucket.org/piemaster/jario', :tags => %w(external historic))
+  o.project('noa', :description => 'Experimental voxel game engine.', :tags => %w(external historic))
+  o.project('proxx', :description => 'A game of proximity', :tags => %w(external historic))
 
   # External projects that have been forked to submit pull requests
   o.project('react', :description => 'A declarative, efficient, and flexible JavaScript library for building user interfaces.', :tags => %w(external homepage=https://reactjs.org historic))
