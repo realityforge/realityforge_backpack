@@ -14,7 +14,7 @@ Belt.scope('realityforge') do |o|
   o.project('zim', :description => 'Simple tool that performs mass transformations across codebases')
   o.project('gir', :description => 'Library to perform mechanical operations across codebases', :tags => %w(codecov travis))
   o.project('braincheck', :description => 'BrainCheck: A very simply invariant verification library', :tags => %w(travis pages))
-  o.project('zemeckis', :description => 'A library to unify scheduling tasks', :tags => %w(travis pages))
+  o.project('zemeckis', :description => 'A library to unify scheduling tasks inside a browser', :tags => %w(travis pages))
   o.project('mcrt', :description => 'Maven Central Release Tool: A ruby tool to close, promote and drop staging repositories', :tags => %w(travis))
   o.project('javax.annotation', :description => 'A minimal, J2CL compatible javax.annotation library', :tags => %w(travis))
   o.project('org.jetbrains.annotations', :description => 'A minimal, J2CL compatible org.jetbrains.annotations library', :tags => %w(travis))
