@@ -137,7 +137,9 @@ module Backpack #nodoc
               name = remote_team['name']
               if repository && repository.team_by_name?(name)
                 permission =
-                  repository.admin_team_by_name?(name) ? 'admin' : repository.push_team_by_name?(name) ? 'push' : 'pull'
+                  repository.admin_team_by_name?(name) ? 'admin' :
+                    repository.push_team_by_name?(name) ? 'push' :
+                      repository.pull_team_by_name?(name) ? 'pull' : 'triage'
 
                 team = organization.team_by_name(name)
                 update = false
@@ -147,6 +149,7 @@ module Backpack #nodoc
                 update = true if (permission == 'admin' && !(permissions[:pull] && permissions[:push] && permissions[:admin]))
                 update = true if (permission == 'push' && !(permissions[:pull] && permissions[:push] && !permissions[:admin]))
                 update = true if (permission == 'pull' && !(permissions[:pull] && !permissions[:push] && !permissions[:admin]))
+                update = true if (permission == 'triage' && !(permissions[:triage]))
 
                 if update
                   puts "Updating repository team #{team.name} on #{repository_full_name}"
@@ -158,7 +161,7 @@ module Backpack #nodoc
                 remote_teams.delete(remote_team)
               end
             end
-            %w(admin pull push).each do |permission|
+            %w(admin pull push triage).each do |permission|
               repository.send(:"#{permission}_teams").each do |team|
                 unless remote_teams.any? {|remote_team| remote_team['name'] == team.name}
                   puts "Adding #{permission} repository team #{team.name} to #{repository.name}"

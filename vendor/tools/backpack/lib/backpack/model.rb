@@ -136,6 +136,7 @@ module Backpack
       @admin_teams = []
       @pull_teams = []
       @push_teams = []
+      @triage_teams = []
     end
 
     def qualified_name
@@ -157,6 +158,12 @@ module Backpack
     def pull_teams=(*pull_teams)
       pull_teams.each do |team|
         add_pull_team(team)
+      end
+    end
+
+    def triage_teams=(*triage_teams)
+      triage_teams.each do |team|
+        add_triage_team(team)
       end
     end
 
@@ -285,6 +292,22 @@ module Backpack
       team
     end
 
+    def triage_teams
+      @triage_teams.dup
+    end
+
+    def triage_team_by_name?(name)
+      @triage_teams.any? { |team| team.name.to_s == name.to_s }
+    end
+
+    def add_triage_team(team)
+      raise "Unable to add triage team '#{team}' to repository #{self.qualified_name} as it is a personal account" if self.organization.is_user_account?
+      team = team.is_a?(Team) ? team : organization.team_by_name(team)
+      @triage_teams << team
+      team.triage_repositories << self
+      team
+    end
+
     def push_teams
       @push_teams.dup
     end
@@ -302,7 +325,7 @@ module Backpack
     end
 
     def team_by_name?(name)
-      admin_team_by_name?(name) || push_team_by_name?(name) || pull_team_by_name?(name)
+      admin_team_by_name?(name) || push_team_by_name?(name) || pull_team_by_name?(name) || triage_team_by_name?(name)
     end
   end
 
@@ -311,6 +334,7 @@ module Backpack
       @admin_repositories = []
       @pull_repositories = []
       @push_repositories = []
+      @triage_repositories = []
       @permission = 'pull'
       raise "Unable to define team for personal account #{self.organization.name}" if self.organization.is_user_account?
     end
@@ -333,6 +357,11 @@ module Backpack
     # List of repositories with push access. Is automatically updated
     def push_repositories
       @push_repositories
+    end
+
+    # List of repositories with triage access. Is automatically updated
+    def triage_repositories
+      @triage_repositories
     end
   end
 end
