@@ -83,6 +83,10 @@ command(:patch_jetbrains_annotations_version) do |app|
   patch_versions(app, %w(org.realityforge.org.jetbrains.annotations:org.jetbrains.annotations:jar), '1.7.0')
 end
 
+command(:patch_zemeckis_version) do |app|
+  patch_versions(app, %w(org.realityforge.zemeckis:zemeckis-core:jar), '0.01')
+end
+
 command(:patch_guiceyloops_version) do |app|
   patch_versions(app, %w(org.realityforge.guiceyloops:guiceyloops:jar), '0.106')
 end
