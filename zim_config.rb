@@ -367,6 +367,7 @@ command(:edit_buildfile_when_changed) do
     begin
       mysystem("git commit -a -m \"Update to support the latest GWT addon.\"")
     rescue
+      # ignored
     end
   end
 end
