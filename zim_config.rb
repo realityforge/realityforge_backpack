@@ -20,7 +20,7 @@ braid_tasks('way_of_stock' => 'vendor/docs/way_of_stock',
             'kinjen' => 'vendor/tools/kinjen',
             'rptman' => 'vendor/tools/rptman')
 
-ruby_upgrade('2.1.3', '2.3.1')
+ruby_upgrade('2.3.1', '2.6.6')
 bazel_update('2.1.1', '2.2.0')
 
 patch_gem('buildr', %w(1.5.4 1.5.5 1.5.6 1.5.7), '1.5.8')
