@@ -32,7 +32,7 @@ patch_gem('tiny_tds', %w(1.0.5), '2.1.3')
 
 command(:patch_travis_ruby) do |app|
   patched = patch_file('.travis.yml') do |content|
-    content.gsub("- 2.3.1\n", "- 2.6.6\n")
+    content.gsub("- 2.3.1\n", "- 2.6.6\n").gsub("- rvm use 2.3.1\n", "- rvm use 2.6.6\n")
   end
   if patched
     mysystem("git commit -m \"Update the version of ruby used to build project in TravisCI.\"")
