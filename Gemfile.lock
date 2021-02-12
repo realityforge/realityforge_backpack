@@ -106,7 +106,7 @@ GEM
       gitattributes (= 2.9.0)
 
 PLATFORMS
-  ruby
+  x86_64-darwin-20
 
 DEPENDENCIES
   backpack (= 0.1.0.dev)!
@@ -116,4 +116,4 @@ DEPENDENCIES
   zim (= 0.1.0.dev)!
 
 BUNDLED WITH
-   1.17.3
+   2.2.9
