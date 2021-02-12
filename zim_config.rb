@@ -136,7 +136,7 @@ command(:patch_guava_version) do |app|
   patch_versions(app, %w(com.google.guava:guava:jar), '27.1-jre')
 end
 
-command(:patch_repository_urls) do |app|
+command(:patch_repository_urls) do
   patched = patch_file('build.yaml') do |content|
     content.
         gsub('https://repo.maven.apache.org/maven2/', 'https://repo.maven.apache.org/maven2').
@@ -149,7 +149,7 @@ command(:patch_repository_urls) do |app|
   end
 end
 
-command(:patch_jfrog_repository_urls) do |app|
+command(:patch_jfrog_repository_urls) do
   patched = patch_file('build.yaml') do |content|
     content.gsub('stocksoftware.artifactoryonline.com', 'stocksoftware.jfrog.io')
   end
@@ -158,7 +158,7 @@ command(:patch_jfrog_repository_urls) do |app|
   end
 end
 
-command(:reorder_repository_urls) do |app|
+command(:reorder_repository_urls) do
   patched = patch_file('build.yaml') do |content|
     content.gsub("   - https://repo.maven.apache.org/maven2\n   - https://stocksoftware.jfrog.io/stocksoftware/maven2\n",
                  "   - https://stocksoftware.jfrog.io/stocksoftware/maven2\n   - https://repo.maven.apache.org/maven2\n")
@@ -168,7 +168,7 @@ command(:reorder_repository_urls) do |app|
   end
 end
 
-command(:use_aggregate_repository_url) do |app|
+command(:use_aggregate_repository_url) do
   patched = patch_file('build.yaml') do |content|
 
     if content.include?('   - https://stocksoftware.jfrog.io/stocksoftware/public')
@@ -190,7 +190,7 @@ command(:use_aggregate_repository_url) do |app|
   end
 end
 
-command(:remove_thirdparty_local_repository) do |app|
+command(:remove_thirdparty_local_repository) do
   patched = patch_file('build.yaml') do |content|
     content.
         gsub("   # TODO: Remove thirdparty-local once payara is no longer version 5.192-rf\n", '').
@@ -203,7 +203,7 @@ command(:remove_thirdparty_local_repository) do |app|
   end
 end
 
-command(:update_travisci_dist) do |app|
+command(:update_travisci_dist) do
   patched = patch_file('.travis.yml') do |content|
     content =~ /oraclejdk8/ && !(content =~ /^dist: /) ? "# Lock down dist to ensure that builds run on a distribution that supports oraclejdk8\ndist: trusty\n" + content : content
   end
@@ -280,7 +280,7 @@ command(:fix_tags) do |app|
   end
 end
 
-command(:condense_changelog) do |app|
+command(:condense_changelog) do
   patched = patch_file('CHANGELOG.md') do |content|
     content.gsub(")\n[Full", ") · [Full")
   end
@@ -294,7 +294,7 @@ command(:condense_changelog) do |app|
   end
 end
 
-command(:update_contributing) do |app|
+command(:update_contributing) do
   if File.exist?('CONTRIBUTING.md')
     FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/CONTRIBUTING.md", 'CONTRIBUTING.md'
     begin
@@ -306,7 +306,7 @@ command(:update_contributing) do |app|
   end
 end
 
-command(:update_processor_path_script) do |app|
+command(:update_processor_path_script) do
   if File.exist?('tasks/processor_path.rake')
     FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/processor_path.rake", 'tasks/processor_path.rake'
     begin
@@ -318,7 +318,7 @@ command(:update_processor_path_script) do |app|
   end
 end
 
-command(:patch_buildr_testng_addon) do |app|
+command(:patch_buildr_testng_addon) do
   if File.exist?('buildfile') && IO.read('buildfile') =~ /:testng/
     FileUtils.mkdir_p 'tasks'
     FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/testng_patch.rake", 'tasks/testng_patch.rake'
@@ -331,7 +331,7 @@ command(:patch_buildr_testng_addon) do |app|
   end
 end
 
-command(:patch_gwt_addons) do |app|
+command(:patch_gwt_addons) do
   if File.exist?('tasks/gwt.rake')
     FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/gwt.rake", 'tasks/gwt.rake'
     mysystem('git add tasks/gwt.rake')
@@ -343,7 +343,7 @@ command(:patch_gwt_addons) do |app|
   end
 end
 
-command(:patch_gwt_patch) do |app|
+command(:patch_gwt_patch) do
   if File.exist?('tasks/gwt_patch.rake')
     FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/gwt_patch.rake", 'tasks/gwt_patch.rake'
     mysystem('git add tasks/gwt_patch.rake')
@@ -362,7 +362,7 @@ command(:patch_gwt_version) do |app|
   }, '2.9.0')
 end
 
-command(:edit_buildfile_when_changed) do |app|
+command(:edit_buildfile_when_changed) do
   if File.exist?('buildfile') && IO.read('buildfile') =~ /add_gwt_configuration/
     begin
       mysystem("git commit -a -m \"Update to support the latest GWT addon.\"")
@@ -371,7 +371,7 @@ command(:edit_buildfile_when_changed) do |app|
   end
 end
 
-command(:remove_historic_ignore) do |app|
+command(:remove_historic_ignore) do
   patched = patch_file('.gitignore') do |content|
     content.gsub("/.bundle\n", '')
   end
@@ -380,7 +380,7 @@ command(:remove_historic_ignore) do |app|
   end
 end
 
-command(:patch_TODO) do |app|
+command(:patch_TODO) do
   patched = patch_file('TODO.md') do |content|
     content.gsub("This document is essentially a list of shorthand notes describing work yet to completed.", "This document is essentially a list of shorthand notes describing work yet to be completed.")
   end
@@ -395,7 +395,7 @@ command(:zapwhite_if_configured) do |app|
   end
 end
 
-command(:patch_travis_url) do |app|
+command(:patch_travis_url) do
   patched = patch_file('README.md') do |content|
     content.
         gsub('https://secure.travis-ci.org/', 'https://api.travis-ci.com/').
