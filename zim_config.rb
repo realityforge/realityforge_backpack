@@ -343,6 +343,19 @@ command(:patch_gwt_addons) do
   end
 end
 
+command(:patch_transport) do |app|
+  if File.exist?('buildfile')
+    FileUtils.mkdir_p 'tasks'
+    FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/transports_patch.rake", 'tasks/transports_patch.rake'
+    mysystem('git add tasks/transports_patch.rake')
+    begin
+      mysystem("git commit -m \"Patch transports code to work with later versions of ruby.\"")
+    rescue Exception
+      # ignored
+    end
+  end
+end
+
 command(:patch_gwt_patch) do
   if File.exist?('tasks/gwt_patch.rake')
     FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/gwt_patch.rake", 'tasks/gwt_patch.rake'
