@@ -29,6 +29,14 @@ patch_gem('zapwhite', %w(2.9.0 2.10.0 2.11.0 2.12.0 2.13.0 2.14.0 2.15.0 2.16.0 
 patch_gem('mcrt', %w(1.9.0 1.10.0 1.11.0 1.12.0 1.13.0 1.14.0), '1.15.0')
 patch_gem('reality-mash', %w(1.9.0 1.10.0 1.11.0 1.12.0 1.13.0 1.14.0), '1.1.0')
 
+command(:patch_travis_ruby) do |app|
+  patched = patch_file('.travis.yml') do |content|
+    content.gsub("- 2.3.1\n", "- 2.6.6\n")
+  end
+  if patched
+    mysystem("git commit -m \"Update the version of ruby used to build project in TravisCI.\"")
+  end
+end
 
 command(:upgrade_braid) do |app|
   run(:patch_braid_gem, app)
