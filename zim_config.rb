@@ -20,7 +20,8 @@ braid_tasks('way_of_stock' => 'vendor/docs/way_of_stock',
             'kinjen' => 'vendor/tools/kinjen',
             'rptman' => 'vendor/tools/rptman')
 
-ruby_upgrade('2.3.1', '2.6.6')
+ruby_upgrade('2.3.1', '2.7.2')
+ruby_upgrade('2.6.6', '2.7.2')
 bazel_update('2.1.1', '2.2.0')
 
 patch_gem('buildr', %w(1.5.4 1.5.5 1.5.6 1.5.7), '1.5.8')
@@ -34,7 +35,8 @@ command(:patch_travis_ruby) do
   patched = patch_file('.travis.yml') do |content|
     content.
       gsub("- 2.3.1\n", "- 2.6.6\n").
-      # Use and install commands should no longer be required as 2.6.6 is supported by TravisCI
+      gsub("- 2.6.6\n", "- 2.7.2\n").
+      # Use and install commands should no longer be required as 2.7.2 is supported by TravisCI
       gsub("- rvm use 2.3.1\n", "").
       gsub("- rvm use 2.6.6\n", "").
       gsub("  - rvm use 2.3.1\n", "").
@@ -46,6 +48,12 @@ command(:patch_travis_ruby) do
   end
   if patched
     mysystem("git commit -m \"Update the version of ruby used to build project in TravisCI.\"")
+  end
+end
+
+command(:regenerate_Gemfile_lock) do |app|
+  patch_gemfile("Regenerate Gemfile.lock", :force => true) do |content|
+    content
   end
 end
 
