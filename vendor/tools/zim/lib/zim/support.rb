@@ -221,7 +221,7 @@ module Zim # nodoc
       if File.exist?(filename)
         contents = IO.read(filename)
         new_contents = block.call(contents.dup)
-        if contents != new_contents
+        if contents != new_contents || options[:force]
           File.open(filename, 'wb') {|f| f.write new_contents}
           mysystem('rm -f Gemfile.lock')
           rbenv_exec('bundle install')
@@ -231,7 +231,12 @@ module Zim # nodoc
             mysystem('git ls-files Gemfile.lock --error-unmatch > /dev/null 2> /dev/null && git add Gemfile.lock')
           rescue
           end
-          mysystem("git commit -m \"#{commit_message}\"") unless options[:no_commit]
+          begin
+            mysystem("git commit -m \"#{commit_message}\"") unless options[:no_commit]
+          rescue
+            # The assumption is that we are here because there was no changes but :force was specified
+            return false
+          end
           return true
         end
       end
