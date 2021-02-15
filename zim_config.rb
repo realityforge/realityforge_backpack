@@ -357,7 +357,7 @@ command(:patch_transport) do |app|
     FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/transports_patch.rake", 'tasks/transports_patch.rake'
     mysystem('git add tasks/transports_patch.rake')
     begin
-      mysystem("git commit -m \"Patch transports code to work with later versions of ruby.\"")
+      mysystem("git commit -m \"Avoid the use of deprecated URI.unescape.\"")
     rescue Exception
       # ignored
     end
