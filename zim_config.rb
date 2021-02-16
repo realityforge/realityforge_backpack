@@ -51,7 +51,7 @@ command(:patch_travis_ruby) do
   end
 end
 
-command(:regenerate_Gemfile_lock) do |app|
+command(:regenerate_Gemfile_lock) do
   patch_gemfile("Regenerate Gemfile.lock", :force => true) do |content|
     content
   end
