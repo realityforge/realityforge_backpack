@@ -364,6 +364,19 @@ command(:patch_transport) do
   end
 end
 
+command(:patch_warn) do
+  if File.exist?('buildfile')
+    FileUtils.mkdir_p 'tasks'
+    FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/warn_patch.rake", 'tasks/warn_patch.rake'
+    mysystem('git add tasks/warn_patch.rake')
+    begin
+      mysystem("git commit -m \"Fix the monkey-patching of warn to work with the latest version of ruby.\"")
+    rescue Exception
+      # ignored
+    end
+  end
+end
+
 command(:patch_gwt_patch) do
   if File.exist?('tasks/gwt_patch.rake')
     FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/gwt_patch.rake", 'tasks/gwt_patch.rake'
