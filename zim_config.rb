@@ -351,7 +351,7 @@ command(:patch_gwt_addons) do
   end
 end
 
-command(:patch_transport) do |app|
+command(:patch_transport) do
   if File.exist?('buildfile')
     FileUtils.mkdir_p 'tasks'
     FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/transports_patch.rake", 'tasks/transports_patch.rake'
