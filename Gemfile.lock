@@ -102,7 +102,7 @@ GEM
     tzinfo (1.2.9)
       thread_safe (~> 0.1)
     websocket (1.2.9)
-    zapwhite (2.18.0)
+    zapwhite (2.19.0)
       gitattributes (= 2.9.0)
 
 PLATFORMS
@@ -112,8 +112,8 @@ DEPENDENCIES
   backpack (= 0.1.0.dev)!
   braid (= 1.1.2)
   reality-belt (>= 1.0.0)
-  zapwhite (= 2.18.0)
+  zapwhite (= 2.19.0)
   zim (= 0.1.0.dev)!
 
 BUNDLED WITH
-   2.1.4
+   2.2.9
