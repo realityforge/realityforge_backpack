@@ -725,9 +725,9 @@ module Zim # nodoc
     end
 
     # Helper method that updates a dependency in an automerge branch
-    def propose_dependency_update(app, dependencies, target_version)
+    def propose_dependency_update(app, branch_key, dependencies, target_version)
       dependency_name = get_shortest_group_name(dependencies)
-      branch_name = "AM_update_#{dependency_name}"
+      branch_name = '' == branch_key ? "AM_update_#{dependency_name}" : "AM_#{branch_key}"
       merge_origin = git_local_branch_list.include?(branch_name)
       git_checkout(branch_name, true)
       git_merge('origin/master') if merge_origin
@@ -902,10 +902,11 @@ module Zim # nodoc
       command(:propose_dependency_update, :in_app_dir => false) do |app|
         dependencies = Zim::Config.parameter_by_name('DEPENDENCIES').split(',')
         target_version = Zim::Config.parameter_by_name('VERSION')
+        branch_key = Zim::Config.parameters['BRANCH_KEY'] || ''
 
         run(:real_clean, app)
         in_app_dir(app) do
-          propose_dependency_update(app, dependencies, target_version)
+          propose_dependency_update(app, branch_key, dependencies, target_version)
         end
       end
     end
