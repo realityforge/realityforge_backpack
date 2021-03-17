@@ -41,10 +41,10 @@ command(:patch_travis_ruby) do
       gsub("- rvm use 2.6.6\n", "").
       gsub("  - rvm use 2.3.1\n", "").
       gsub("  - rvm use 2.6.6\n", "").
-      gsub("- rvm install ruby-2.3.1\n","").
-      gsub("- rvm install ruby-2.6.6\n","").
-      gsub("  - rvm install ruby-2.6.6\n","").
-      gsub("  - rvm install ruby-2.3.1\n","")
+      gsub("- rvm install ruby-2.3.1\n", "").
+      gsub("- rvm install ruby-2.6.6\n", "").
+      gsub("  - rvm install ruby-2.6.6\n", "").
+      gsub("  - rvm install ruby-2.3.1\n", "")
   end
   if patched
     mysystem("git commit -m \"Update the version of ruby used to build project in TravisCI.\"")
@@ -104,7 +104,7 @@ end
 
 command(:patch_jsinterop_version) do |app|
   version = '2.0.0'
-  patch_dependency_coordinates(app, {'org.realityforge.com.google.jsinterop:jsinterop-annotations:jar' => 'com.google.jsinterop:jsinterop-annotations:jar'}, version)
+  patch_dependency_coordinates(app, { 'org.realityforge.com.google.jsinterop:jsinterop-annotations:jar' => 'com.google.jsinterop:jsinterop-annotations:jar' }, version)
   patch_versions(app, %w(com.google.jsinterop:jsinterop-annotations:jar), version)
 end
 
@@ -147,10 +147,10 @@ end
 command(:patch_repository_urls) do
   patched = patch_file('build.yaml') do |content|
     content.
-        gsub('https://repo.maven.apache.org/maven2/', 'https://repo.maven.apache.org/maven2').
-        gsub('http://repo1.maven.org/maven2', 'https://repo.maven.apache.org/maven2').
-        gsub('http://central.maven.org/maven2', 'https://repo.maven.apache.org/maven2').
-        gsub('https://repo1.maven.org/maven2', 'https://repo.maven.apache.org/maven2')
+      gsub('https://repo.maven.apache.org/maven2/', 'https://repo.maven.apache.org/maven2').
+      gsub('http://repo1.maven.org/maven2', 'https://repo.maven.apache.org/maven2').
+      gsub('http://central.maven.org/maven2', 'https://repo.maven.apache.org/maven2').
+      gsub('https://repo1.maven.org/maven2', 'https://repo.maven.apache.org/maven2')
   end
   if patched
     mysystem("git commit -m \"Use the canonical url to access maven central repository.\"")
@@ -181,14 +181,14 @@ command(:use_aggregate_repository_url) do
 
     if content.include?('   - https://stocksoftware.jfrog.io/stocksoftware/public')
       content.
-          gsub("   - https://stocksoftware.jfrog.io/stocksoftware/public\n", "   - https://stocksoftware.jfrog.io/stocksoftware/maven2\n").
-          gsub("    - https://stocksoftware.jfrog.io/stocksoftware/oss\n", "").
-          gsub("   - https://stocksoftware.jfrog.io/stocksoftware/oss\n", "")
+        gsub("   - https://stocksoftware.jfrog.io/stocksoftware/public\n", "   - https://stocksoftware.jfrog.io/stocksoftware/maven2\n").
+        gsub("    - https://stocksoftware.jfrog.io/stocksoftware/oss\n", "").
+        gsub("   - https://stocksoftware.jfrog.io/stocksoftware/oss\n", "")
     elsif content.include?('   - https://stocksoftware.jfrog.io/stocksoftware/oss')
       content.
-          gsub("   - https://stocksoftware.jfrog.io/stocksoftware/oss\n", "   - https://stocksoftware.jfrog.io/stocksoftware/maven2\n").
-          gsub("    - https://stocksoftware.jfrog.io/stocksoftware/public\n", "").
-          gsub("   - https://stocksoftware.jfrog.io/stocksoftware/public\n", "")
+        gsub("   - https://stocksoftware.jfrog.io/stocksoftware/oss\n", "   - https://stocksoftware.jfrog.io/stocksoftware/maven2\n").
+        gsub("    - https://stocksoftware.jfrog.io/stocksoftware/public\n", "").
+        gsub("   - https://stocksoftware.jfrog.io/stocksoftware/public\n", "")
     else
       content
     end
@@ -201,10 +201,10 @@ end
 command(:remove_thirdparty_local_repository) do
   patched = patch_file('build.yaml') do |content|
     content.
-        gsub("   # TODO: Remove thirdparty-local once payara is no longer version 5.192-rf\n", '').
-        gsub("  # TODO: Remove thirdparty-local repository once payara is no longer version 5.192-rf\n", '').
-        gsub("   - https://stocksoftware.artifactoryonline.com/stocksoftware/thirdparty-local\n", '').
-        gsub("   - https://stocksoftware.jfrog.io/stocksoftware/thirdparty-local\n", '')
+      gsub("   # TODO: Remove thirdparty-local once payara is no longer version 5.192-rf\n", '').
+      gsub("  # TODO: Remove thirdparty-local repository once payara is no longer version 5.192-rf\n", '').
+      gsub("   - https://stocksoftware.artifactoryonline.com/stocksoftware/thirdparty-local\n", '').
+      gsub("   - https://stocksoftware.jfrog.io/stocksoftware/thirdparty-local\n", '')
   end
   if patched
     mysystem("git commit -m \"Remove thirdparty-local repository as it is now included in aggregate repository list\"")
@@ -391,8 +391,8 @@ end
 
 command(:patch_gwt_version) do |app|
   patch_dependency_coordinates(app, {
-      'org.realityforge.com.google.gwt:gwt-user:jar' => 'com.google.gwt:gwt-user:jar',
-      'org.realityforge.com.google.gwt:gwt-dev:jar' => 'com.google.gwt:gwt-dev:jar'
+    'org.realityforge.com.google.gwt:gwt-user:jar' => 'com.google.gwt:gwt-user:jar',
+    'org.realityforge.com.google.gwt:gwt-dev:jar' => 'com.google.gwt:gwt-dev:jar'
   }, '2.9.0')
 end
 
@@ -433,8 +433,8 @@ end
 command(:patch_travis_url) do
   patched = patch_file('README.md') do |content|
     content.
-        gsub('https://secure.travis-ci.org/', 'https://api.travis-ci.com/').
-        gsub('http://travis-ci.org/', 'http://travis-ci.com/')
+      gsub('https://secure.travis-ci.org/', 'https://api.travis-ci.com/').
+      gsub('http://travis-ci.org/', 'http://travis-ci.com/')
   end
   if patched
     mysystem("git commit -m \"Update the TravisCI urls to point at .com version\"")
