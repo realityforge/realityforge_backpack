@@ -31,6 +31,32 @@ patch_gem('mcrt', %w(1.9.0 1.10.0 1.11.0 1.12.0 1.13.0 1.14.0), '1.15.0')
 patch_gem('reality-mash', %w(1.9.0 1.10.0 1.11.0 1.12.0 1.13.0 1.14.0), '1.1.0')
 patch_gem('tiny_tds', %w(1.0.5), '2.1.3')
 
+command(:patch_buildr) do |app|
+  # To find candidates
+  #find ../../SourceTree/ ! -path '*/stocksoftware/*' -name Gemfile -exec grep "'buildr'" {} \; -print
+
+  unless %w(swung_weave repackr arez react4j spritz sting).include?(app)
+    patched = patch_file('Gemfile') do |content|
+      content.gsub("gem 'buildr', '= 1.5.8'\n", "gem 'realityforge-buildr', '= 1.5.9'\n")
+    end
+    if patched
+      mysystem('git rm tasks/gwt_patch.rake') rescue nil
+      mysystem('git rm tasks/warn_patch.rake') rescue nil
+      mysystem('git rm tasks/transports_patch.rake') rescue nil
+      mysystem('git rm tasks/testng_patch.rake') rescue nil
+      mysystem('git rm tasks/idea_patch.rake') rescue nil
+      mysystem('git rm tasks/gwt_patch.rake') rescue nil
+      mysystem('rm -f Gemfile.lock')
+      rbenv_exec('bundle install') rescue nil
+      mysystem('git ls-files Gemfile.lock --error-unmatch > /dev/null 2> /dev/null && git add Gemfile.lock') rescue nil
+      bundle_exec('ls')
+      bundle_exec('pwd')
+      bundle_exec('buildr clean package')
+      mysystem("git commit -m \"Update the version of Buildr.\"")
+    end
+  end
+end
+
 command(:patch_travis_ruby) do
   patched = patch_file('.travis.yml') do |content|
     content.
