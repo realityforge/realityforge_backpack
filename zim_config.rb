@@ -49,8 +49,6 @@ command(:patch_buildr) do |app|
       mysystem('rm -f Gemfile.lock')
       rbenv_exec('bundle install') rescue nil
       mysystem('git ls-files Gemfile.lock --error-unmatch > /dev/null 2> /dev/null && git add Gemfile.lock') rescue nil
-      bundle_exec('ls')
-      bundle_exec('pwd')
       bundle_exec('buildr clean package')
       mysystem("git commit -m \"Update the version of Buildr.\"")
     end
