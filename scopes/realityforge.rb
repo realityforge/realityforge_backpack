@@ -2,8 +2,6 @@ Belt.scope('realityforge') do |o|
   o.project('realityforge_backpack', :description => 'Project for managing realityforge repositories.', :tags => %w(zapwhite=no))
   o.project('bash.d', :description => 'A set of bash scripts that run on shell startup.')
 
-  o.project('repackr', :description => 'A bunch of scripts for releasing patched versions of OSS projects')
-
   o.project('buildr', :description => 'A stripped down fork of Buildr that works in modern environments.')
   o.project('buildr_plus', :description => 'A simple set of extensions that patch and customize buildr to our requirements.', :tags => %w(notify:stock))
   o.project('dbt', :description => 'A simple tool designed to simplify the creation, migration and deletion of databases.', :tags => %w(notify:stock travis pages))
@@ -107,6 +105,9 @@ Belt.scope('realityforge') do |o|
   # Historic: Still in use but hopefully we will never have to update these
   o.project('rest-criteria', :description => 'A simple library for parsing criteria in rest services', :tags => %w(historic))
   o.project('rest-field-filter', :description => 'A simple library parsing field filters in rest APIs.', :tags => %w(historic))
+
+  # Historic: Hopefully never need to use again
+  o.project('repackr', :description => 'A bunch of scripts for releasing patched versions of OSS projects', :tags => %w(historic))
 
   # Historic: No longer in use
   o.project('docker-keycloak', :description => 'Docker image for Keycloak project', :tags => %w(historic external))
