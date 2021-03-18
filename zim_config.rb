@@ -35,7 +35,7 @@ command(:patch_buildr) do |app|
   # To find candidates
   #find ../../SourceTree/ ! -path '*/stocksoftware/*' -name Gemfile -exec grep "'buildr'" {} \; -print
 
-  unless %w(swung_weave repackr arez react4j spritz sting).include?(app)
+  unless %w(swung_weave repackr jndikit arez react4j arez-persist galdr grim spritz sting).include?(app)
     patched = patch_file('Gemfile') do |content|
       content.gsub("gem 'buildr', '= 1.5.8'\n", "gem 'realityforge-buildr', '= 1.5.9'\n")
     end
