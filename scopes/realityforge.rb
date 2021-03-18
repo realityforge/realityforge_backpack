@@ -207,7 +207,7 @@ Belt.scope('realityforge') do |o|
   o.project('jsonb-datatypes', :description => 'Some simple jsonb data type support', :tags => %w(historic))
 
   # Historic: No longer needed - huzzah!
-  o.project('swung_weave', :description => 'Bytecode weaving of annotated UI classes to ensure all UI updates occur in the Event Dispatch Thread', :tags => %w(notify:stock))
+  o.project('swung_weave', :description => 'Bytecode weaving of annotated UI classes to ensure all UI updates occur in the Event Dispatch Thread', :tags => %w(historic))
 
   # Historic: Domgen updated to decouple from library
   o.project('graphql-domgen-support', :description => 'GraphQL Domgen Support', :tags => %w(historic))
