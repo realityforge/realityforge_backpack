@@ -30,61 +30,6 @@ patch_gem('mcrt', %w(1.9.0 1.10.0 1.11.0 1.12.0 1.13.0 1.14.0), '1.15.0')
 patch_gem('reality-mash', %w(1.9.0 1.10.0 1.11.0 1.12.0 1.13.0 1.14.0), '1.1.0')
 patch_gem('tiny_tds', %w(1.0.5), '2.1.3')
 
-command(:patch_buildr) do |app|
-  # To find candidates
-  #find ../../SourceTree/ ! -path '*/stocksoftware/*' -name Gemfile -exec grep "'buildr'" {} \; -print
-
-  unless %w(swung_weave arez react4j arez-persist galdr grim spritz sting).include?(app)
-    patched = patch_file('Gemfile') do |content|
-      content.gsub("gem 'buildr', '= 1.5.8'\n", "gem 'realityforge-buildr', '= 1.5.9'\n")
-    end
-    if patched
-      mysystem('git rm tasks/gwt_patch.rake') rescue nil
-      mysystem('git rm tasks/warn_patch.rake') rescue nil
-      mysystem('git rm tasks/transports_patch.rake') rescue nil
-      mysystem('git rm tasks/testng_patch.rake') rescue nil
-      mysystem('git rm tasks/idea_patch.rake') rescue nil
-      mysystem('git rm tasks/gwt_patch.rake') rescue nil
-      mysystem('rm -f Gemfile.lock')
-      rbenv_exec('bundle install') rescue nil
-      mysystem('git ls-files Gemfile.lock --error-unmatch > /dev/null 2> /dev/null && git add Gemfile.lock') rescue nil
-      bundle_exec('buildr clean package')
-      mysystem("git commit -m \"Update the version of Buildr.\"")
-    end
-  end
-end
-
-command(:patch_travis_ruby) do
-  patched = patch_file('.travis.yml') do |content|
-    content.
-      gsub("- 2.3.1\n", "- 2.6.6\n").
-      gsub("- 2.6.6\n", "- 2.7.2\n").
-      # Use and install commands should no longer be required as 2.7.2 is supported by TravisCI
-      gsub("- rvm use 2.3.1\n", "").
-      gsub("- rvm use 2.6.6\n", "").
-      gsub("  - rvm use 2.3.1\n", "").
-      gsub("  - rvm use 2.6.6\n", "").
-      gsub("- rvm install ruby-2.3.1\n", "").
-      gsub("- rvm install ruby-2.6.6\n", "").
-      gsub("  - rvm install ruby-2.6.6\n", "").
-      gsub("  - rvm install ruby-2.3.1\n", "")
-  end
-  if patched
-    mysystem("git commit -m \"Update the version of ruby used to build project in TravisCI.\"")
-  end
-end
-
-command(:regenerate_Gemfile_lock) do
-  patch_gemfile("Regenerate Gemfile.lock", :force => true) do |content|
-    content
-  end
-end
-
-command(:upgrade_braid) do |app|
-  run(:patch_braid_gem, app)
-  run(:braid_update_config, app)
-end
-
 command(:patch_idea_codestyle_version) do |app|
   patch_versions(app, %w(au.com.stocksoftware.idea.codestyle:idea-codestyle:xml), '1.17')
 end
@@ -115,10 +60,6 @@ end
 
 command(:patch_symbolmap_version) do |app|
   patch_versions(app, %w(org.realityforge.gwt.symbolmap:gwt-symbolmap:jar), '0.09')
-end
-
-command(:patch_dagger_gwt_lite_version) do |app|
-  patch_versions(app, %w(org.realityforge.dagger:dagger-gwt-lite:jar), '2.25.2-rf1')
 end
 
 command(:patch_revapi_version) do |app|
@@ -167,97 +108,6 @@ command(:patch_guava_version) do |app|
   patch_versions(app, %w(com.google.guava:guava:jar), '27.1-jre')
 end
 
-command(:patch_repository_urls) do
-  patched = patch_file('build.yaml') do |content|
-    content.
-      gsub('https://repo.maven.apache.org/maven2/', 'https://repo.maven.apache.org/maven2').
-      gsub('http://repo1.maven.org/maven2', 'https://repo.maven.apache.org/maven2').
-      gsub('http://central.maven.org/maven2', 'https://repo.maven.apache.org/maven2').
-      gsub('https://repo1.maven.org/maven2', 'https://repo.maven.apache.org/maven2')
-  end
-  if patched
-    mysystem("git commit -m \"Use the canonical url to access maven central repository.\"")
-  end
-end
-
-command(:patch_jfrog_repository_urls) do
-  patched = patch_file('build.yaml') do |content|
-    content.gsub('stocksoftware.artifactoryonline.com', 'stocksoftware.jfrog.io')
-  end
-  if patched
-    mysystem("git commit -m \"Use the canonical url to access stocksoftware jfrog repositories.\"")
-  end
-end
-
-command(:reorder_repository_urls) do
-  patched = patch_file('build.yaml') do |content|
-    content.gsub("   - https://repo.maven.apache.org/maven2\n   - https://stocksoftware.jfrog.io/stocksoftware/maven2\n",
-                 "   - https://stocksoftware.jfrog.io/stocksoftware/maven2\n   - https://repo.maven.apache.org/maven2\n")
-  end
-  if patched
-    mysystem("git commit -m \"Reorder repositories so the jfrog cache is accessed first to avoid intermittent Central failures.\"")
-  end
-end
-
-command(:use_aggregate_repository_url) do
-  patched = patch_file('build.yaml') do |content|
-
-    if content.include?('   - https://stocksoftware.jfrog.io/stocksoftware/public')
-      content.
-        gsub("   - https://stocksoftware.jfrog.io/stocksoftware/public\n", "   - https://stocksoftware.jfrog.io/stocksoftware/maven2\n").
-        gsub("    - https://stocksoftware.jfrog.io/stocksoftware/oss\n", "").
-        gsub("   - https://stocksoftware.jfrog.io/stocksoftware/oss\n", "")
-    elsif content.include?('   - https://stocksoftware.jfrog.io/stocksoftware/oss')
-      content.
-        gsub("   - https://stocksoftware.jfrog.io/stocksoftware/oss\n", "   - https://stocksoftware.jfrog.io/stocksoftware/maven2\n").
-        gsub("    - https://stocksoftware.jfrog.io/stocksoftware/public\n", "").
-        gsub("   - https://stocksoftware.jfrog.io/stocksoftware/public\n", "")
-    else
-      content
-    end
-  end
-  if patched
-    mysystem("git commit -m \"Use a single stocksoftware jfrog repository that also mirrors maven central. This works around rate limiting issues on TravisCI.\"")
-  end
-end
-
-command(:remove_thirdparty_local_repository) do
-  patched = patch_file('build.yaml') do |content|
-    content.
-      gsub("   # TODO: Remove thirdparty-local once payara is no longer version 5.192-rf\n", '').
-      gsub("  # TODO: Remove thirdparty-local repository once payara is no longer version 5.192-rf\n", '').
-      gsub("   - https://stocksoftware.artifactoryonline.com/stocksoftware/thirdparty-local\n", '').
-      gsub("   - https://stocksoftware.jfrog.io/stocksoftware/thirdparty-local\n", '')
-  end
-  if patched
-    mysystem("git commit -m \"Remove thirdparty-local repository as it is now included in aggregate repository list\"")
-  end
-end
-
-command(:update_travisci_dist) do
-  patched = patch_file('.travis.yml') do |content|
-    content =~ /oraclejdk8/ && !(content =~ /^dist: /) ? "# Lock down dist to ensure that builds run on a distribution that supports oraclejdk8\ndist: trusty\n" + content : content
-  end
-  if patched
-    mysystem("git commit -m \"Lock down dist to ensure that builds run on a distribution that supports oraclejdk8\"")
-  end
-end
-
-desc 'Move to org.realityforge variants of elemental and upgrade version'
-command(:upgrade_elemental2) do |app|
-  patch_versions(app, %w(
-    org.realityforge.com.google.elemental2:elemental2-core:jar
-    org.realityforge.com.google.elemental2:elemental2-dom:jar
-    org.realityforge.com.google.elemental2:elemental2-promise:jar
-    org.realityforge.com.google.elemental2:elemental2-media:jar
-    org.realityforge.com.google.elemental2:elemental2-indexeddb:jar
-    org.realityforge.com.google.elemental2:elemental2-svg:jar
-    org.realityforge.com.google.elemental2:elemental2-webgl:jar
-    org.realityforge.com.google.elemental2:elemental2-webgl2:jar
-    org.realityforge.com.google.elemental2:elemental2-webstorage:jar
-    org.realityforge.com.google.elemental2:elemental2-webassembly:jar
-  ), '2.27')
-end
 
 command(:patch_arez_version) do |app|
   patch_versions(app, %w(
@@ -294,118 +144,12 @@ command(:upgrade_javax_annotation) do |app|
   patch_versions(app, %w(org.realityforge.javax.annotation:javax.annotation:jar), '1.0.1')
 end
 
-command(:fix_tags) do |app|
-  bad_tags = `git tag | grep -v -- v`.strip.split("\n").select { |t| t =~ /^[0-9.]+$/ }
-  if !bad_tags.empty? && !(app =~ /^chef-.*/) && app != 'knife-cookbook-doc'
-    puts "#{app}: Contains #{bad_tags.size} malformed tags: #{bad_tags.inspect}"
-    if true
-      bad_tags.each do |tag|
-        mysystem("git checkout #{tag}")
-        mysystem("git tag -f v#{tag}")
-        mysystem("git checkout v#{tag}")
-        mysystem("git tag -d #{tag}")
-        mysystem("git push origin :#{tag}")
-      end
-      mysystem('git push --tags')
-    end
-  end
-end
-
-command(:condense_changelog) do
-  patched = patch_file('CHANGELOG.md') do |content|
-    content.gsub(")\n[Full", ") · [Full")
-  end
-  if patched
-    patch_file('tasks/release.rake') do |content|
-      content.gsub(")\n[Full", ") · [Full")
-    end
-  end
-  if patched
-    mysystem("git commit -m \"Condense the format of the CHANGELOG.\"")
-  end
-end
-
-command(:update_contributing) do
-  if File.exist?('CONTRIBUTING.md')
-    FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/CONTRIBUTING.md", 'CONTRIBUTING.md'
-    begin
-      mysystem('git add CONTRIBUTING.md')
-      mysystem("git commit -m \"Improve the notes on contributing.\"")
-    rescue Exception
-      # ignored
-    end
-  end
-end
-
-command(:update_processor_path_script) do
-  if File.exist?('tasks/processor_path.rake')
-    FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/processor_path.rake", 'tasks/processor_path.rake'
-    begin
-      mysystem('git add tasks/processor_path.rake')
-      mysystem("git commit -m \"Patch the processor to avoid potential null error.\"")
-    rescue Exception
-      # ignored
-    end
-  end
-end
-
-command(:patch_buildr_testng_addon) do
-  if File.exist?('buildfile') && IO.read('buildfile') =~ /:testng/
-    FileUtils.mkdir_p 'tasks'
-    FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/testng_patch.rake", 'tasks/testng_patch.rake'
-    begin
-      mysystem('git add tasks/testng_patch.rake')
-      mysystem("git commit -m \"Patch the TestNG addon to ensure that test failures result in a failed build.\"")
-    rescue Exception
-      # ignored
-    end
-  end
-end
-
 command(:patch_gwt_addons) do
   if File.exist?('tasks/gwt.rake')
     FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/gwt.rake", 'tasks/gwt.rake'
     mysystem('git add tasks/gwt.rake')
     begin
       mysystem("git commit -m \"Fix the GWT addon to work with generated source code.\"")
-    rescue Exception
-      # ignored
-    end
-  end
-end
-
-command(:patch_transport) do
-  if File.exist?('buildfile')
-    FileUtils.mkdir_p 'tasks'
-    FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/transports_patch.rake", 'tasks/transports_patch.rake'
-    mysystem('git add tasks/transports_patch.rake')
-    begin
-      mysystem("git commit -m \"Avoid the use of deprecated URI.unescape.\"")
-    rescue Exception
-      # ignored
-    end
-  end
-end
-
-command(:patch_warn) do
-  if File.exist?('buildfile')
-    FileUtils.mkdir_p 'tasks'
-    FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/warn_patch.rake", 'tasks/warn_patch.rake'
-    mysystem('git add tasks/warn_patch.rake')
-    begin
-      mysystem("git commit -m \"Fix the monkey-patching of warn to work with the latest version of ruby.\"")
-    rescue Exception
-      # ignored
-    end
-  end
-end
-
-command(:patch_gwt_patch) do
-  if File.exist?('tasks/gwt_patch.rake')
-    FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/gwt_patch.rake", 'tasks/gwt_patch.rake'
-    mysystem('git add tasks/gwt_patch.rake')
-    begin
-      mysystem("git commit -m \"Patch gwt_patch addon to move to released version of jsinterop-annotations.\"")
     rescue Exception
       # ignored
     end
@@ -419,48 +163,9 @@ command(:patch_gwt_version) do |app|
   }, '2.9.0')
 end
 
-command(:edit_buildfile_when_changed) do
-  if File.exist?('buildfile') && IO.read('buildfile') =~ /add_gwt_configuration/
-    begin
-      mysystem("git commit -a -m \"Update to support the latest GWT addon.\"")
-    rescue
-      # ignored
-    end
-  end
-end
-
-command(:remove_historic_ignore) do
-  patched = patch_file('.gitignore') do |content|
-    content.gsub("/.bundle\n", '')
-  end
-  if patched
-    mysystem("git commit -m \"Remove historic ignore no longer required\"")
-  end
-end
-
-command(:patch_TODO) do
-  patched = patch_file('TODO.md') do |content|
-    content.gsub("This document is essentially a list of shorthand notes describing work yet to completed.", "This document is essentially a list of shorthand notes describing work yet to be completed.")
-  end
-  if patched
-    mysystem("git commit -m \"Improve grammar in TODO description\"")
-  end
-end
-
 command(:zapwhite_if_configured) do |app|
   if File.exist?('Gemfile') && IO.read('Gemfile') =~ /zapwhite/
     run(:normalize_whitespace, app)
-  end
-end
-
-command(:patch_travis_url) do
-  patched = patch_file('README.md') do |content|
-    content.
-      gsub('https://secure.travis-ci.org/', 'https://api.travis-ci.com/').
-      gsub('http://travis-ci.org/', 'http://travis-ci.com/')
-  end
-  if patched
-    mysystem("git commit -m \"Update the TravisCI urls to point at .com version\"")
   end
 end
 
