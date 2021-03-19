@@ -74,4 +74,18 @@ command(:patch_gwt_addons) do
   end
 end
 
+command(:patch_travis_ruby) do |app|
+  patched = patch_file('.travis.yml') do |content|
+    if content.include?("- 2.7.2\n") && !content.include?("rvm install ruby-2.7.2\n")
+      raise "Missing install section in #{app}" unless content.include?("install:\n")
+      content.gsub("install:\n", "install:\n- rvm install ruby-2.7.2\n- rvm use 2.7.2\n")
+    else
+      content
+    end
+  end
+  if patched
+    mysystem("git commit -m \"Ensure rvm installs the correct ruby version.\"")
+  end
+end
+
 Zim::Belt.load_suites_from_belt
