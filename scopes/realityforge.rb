@@ -83,9 +83,6 @@ Belt.scope('realityforge') do |o|
   o.project('knife-cookbook-doc', :description => 'Knife plugin to document cookbooks', :tags => %w(travis pages issues))
   o.project('ohai-system_packages')
 
-  # External projects that have been forked and patched for use
-  o.project('ant-shade-task', :description => 'Apache Maven Shade Plugin adapter for Apache Ant', :tags => %w(external))
-
   # Personal Music Exploration
   o.project('MusicBook', :description => 'Collections of thoughts on Music Theory', :tags => %w(private))
 
@@ -117,6 +114,9 @@ Belt.scope('realityforge') do |o|
 
   # Historic: Never got to production. Such a shame!
   o.project('reality-idea', :description => 'An ruby model to represent and generate intellij idea project files.', :tags => %w(historic))
+
+  # Historic: Patched project no longer in use
+  o.project('ant-shade-task', :description => 'Apache Maven Shade Plugin adapter for Apache Ant', :tags => %w(historic))
 
   # Historic: Courses that were started but not completed for one reason or another
   o.project('course-rust-lang', :description => 'Coursework for the  "The Rust Programming Language" Udemy course', :tags => %w(historic))
