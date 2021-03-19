@@ -70,18 +70,9 @@ Belt.scope('realityforge') do |o|
 
   o.project('galdr', :description => 'An ECS toolkit', :tags => %w(issues travis))
 
-  # Chef related code still in use until we get rid of chef
-  o.project('chef-archive', :description => 'Chef cookbook that provides utility LWRPs to download and unpack archives.', :tags => %w(travis))
-  o.project('chef-authbind', :description => 'A chef cookbook that installs/configures authbind and defines resources for managing authorization', :tags => %w(travis))
-  o.project('chef-cutlery', :description => 'Cutlery is a Chef cookbook containing a collection useful library code.', :tags => %w(travis))
-  o.project('chef-dbt', :description => 'Simple cookbook that aids in database migrations through dbt', :tags => %w(travis))
+  # Chef related code still in use and maintained (by others?)
   o.project('chef-glassfish', :description => 'A cookbook for managing GlassFish', :tags => %w(travis))
-  o.project('chef-hosts', :description => 'Chef cookbook to manage /etc/hosts file', :tags => %w(travis))
-  o.project('chef-kibana', :description => 'A chef cookbook that installs/configures kibana (the logstash UI)', :tags => %w(issues travis))
-  o.project('chef-sqlshell', :description => 'Simple cookbook to aid in automating database contents', :tags => %w(travis))
-  o.project('chef-winrm', :description => 'Simple winrm cookbook for chef', :tags => %w(travis))
   o.project('knife-cookbook-doc', :description => 'Knife plugin to document cookbooks', :tags => %w(travis pages issues))
-  o.project('ohai-system_packages')
 
   # Personal Music Exploration
   o.project('MusicBook', :description => 'Collections of thoughts on Music Theory', :tags => %w(private))
@@ -117,6 +108,17 @@ Belt.scope('realityforge') do |o|
 
   # Historic: Patched project no longer in use
   o.project('ant-shade-task', :description => 'Apache Maven Shade Plugin adapter for Apache Ant', :tags => %w(historic))
+
+  # Historic: Chef code still in use but hopefully will not need to update these projects directly
+  o.project('chef-archive', :description => 'Chef cookbook that provides utility LWRPs to download and unpack archives.', :tags => %w(historic))
+  o.project('chef-authbind', :description => 'A chef cookbook that installs/configures authbind and defines resources for managing authorization', :tags => %w(historic))
+  o.project('chef-cutlery', :description => 'Cutlery is a Chef cookbook containing a collection useful library code.', :tags => %w(historic))
+  o.project('chef-dbt', :description => 'Simple cookbook that aids in database migrations through dbt', :tags => %w(historic))
+  o.project('chef-hosts', :description => 'Chef cookbook to manage /etc/hosts file', :tags => %w(historic))
+  o.project('chef-kibana', :description => 'A chef cookbook that installs/configures kibana (the logstash UI)', :tags => %w(issues historic))
+  o.project('chef-sqlshell', :description => 'Simple cookbook to aid in automating database contents', :tags => %w(historic))
+  o.project('chef-winrm', :description => 'Simple winrm cookbook for chef', :tags => %w(historic))
+  o.project('ohai-system_packages')
 
   # Historic: Courses that were started but not completed for one reason or another
   o.project('course-rust-lang', :description => 'Coursework for the  "The Rust Programming Language" Udemy course', :tags => %w(historic))
