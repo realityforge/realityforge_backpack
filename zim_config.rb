@@ -163,10 +163,4 @@ command(:patch_gwt_version) do |app|
   }, '2.9.0')
 end
 
-command(:zapwhite_if_configured) do |app|
-  if File.exist?('Gemfile') && IO.read('Gemfile') =~ /zapwhite/
-    run(:normalize_whitespace, app)
-  end
-end
-
 Zim::Belt.load_suites_from_belt
