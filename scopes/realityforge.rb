@@ -58,7 +58,6 @@ Belt.scope('realityforge') do |o|
   o.project('gitattributes', :description => 'Class to parse gitattributes files.', :tags => %w(travis))
   o.project('zapwhite', :description => 'A simple tool to normalize whitespace in git repositories.', :tags => %w(travis))
   o.project('simple-keycloak-service', :description => 'A simple service interface and base classes to be used by keycloak secured services', :tags => %w(travis))
-  o.project('sqlshell', :description => 'A simple cross platform shell used to automate databases', :tags => %w(travis))
   o.project('ssrs-api', :description => 'Generated SOAP interface to SSRS server', :tags => %w(travis))
 
   # Bazel team is developing their own variant. See https://blog.bazel.build/2019/03/31/rules-jvm-external-maven.html
@@ -89,6 +88,9 @@ Belt.scope('realityforge') do |o|
   # Historic: Still in use but hopefully we will never have to update these
   o.project('rest-criteria', :description => 'A simple library for parsing criteria in rest services', :tags => %w(historic))
   o.project('rest-field-filter', :description => 'A simple library parsing field filters in rest APIs.', :tags => %w(historic))
+
+  # Historic: Never used ... but it was a good idea
+  o.project('sqlshell', :description => 'A simple cross platform shell used to automate databases', :tags => %w(historic))
 
   # Historic: Hopefully never need to use again
   o.project('repackr', :description => 'A bunch of scripts for releasing patched versions of OSS projects', :tags => %w(historic))
