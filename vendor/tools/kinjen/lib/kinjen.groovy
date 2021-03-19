@@ -1,3 +1,7 @@
+import hudson.model.Result
+import hudson.model.Run
+import jenkins.model.CauseOfInterruption.UserInterruption
+
 /**
  * Return the branch name that this branch will automatically merge into if any. Return null if branch is not an auotmerge branch.
  */
@@ -227,18 +231,38 @@ static deploy_stage( script, project_key, deployment_environment = 'development'
   }
 }
 
+def static kill_previous_builds( script )
+{
+  def previousBuild = script.currentBuild.previousBuildInProgress
+
+  while (previousBuild != null) {
+    def executor = previousBuild.rawBuild.getExecutor()
+    if (null != executor) {
+      script.echo ">> Aborting older build #${previousBuild.number}"
+      executor.interrupt(Result.ABORTED, new UserInterruption("Aborted by newer build #${script.currentBuild.number}"))
+    }
+    previousBuild = previousBuild.previousBuildInProgress
+  }
+}
+
 @NonCPS
-def static cancel_queued_deploys( script, project_key, deployment_environment = 'development' )
+def static cancel_queued_job( script, job_name )
 {
   def q = Jenkins.instance.queue
   for ( def i = q.items.size() - 1; i >= 0; i-- )
   {
-    if ( q.items[ i ].task.getOwnerTask().getFullName() == "${project_key}/deploy-to-${deployment_environment}" )
+    if ( q.items[ i ].task.getOwnerTask().getFullName() == job_name )
     {
-      script.echo "Cancelling queued deploy job ${q.items[ i ].task.getOwnerTask().getFullName()}"
+      script.echo "Cancelling queued job ${q.items[ i ].task.getOwnerTask().getFullName()}"
       q.cancel( q.items[ i ].task )
     }
   }
+}
+
+@NonCPS
+def static cancel_queued_deploys( script, project_key, deployment_environment = 'development' )
+{
+  cancel_queued_job( script, "${project_key}/deploy-to-${deployment_environment}" )
 }
 
 @NonCPS
@@ -404,7 +428,7 @@ static complete_auto_merge( script, target_branch, Map options = [:] )
       else
       {
         /*
-         * The target branch has been updated but current branch was includes the changes in the target
+         * The target branch has been updated but current branch includes the changes in the target
          * branch. This can occur if branch A was merged into the target branch but the current branch was
          * branched off branch A. In this case it is safe to merge it into master.
          */
