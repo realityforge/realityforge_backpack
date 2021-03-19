@@ -93,11 +93,7 @@ Belt.scope('realityforge') do |o|
   o.project('GameDevBook', :description => 'Collections of thoughts on Game Development', :tags => %w(private))
 
   # Projects created during learning of new technology - incomplete or ongoing
-  o.project('course-rust-lang', :description => 'Coursework for the  "The Rust Programming Language" Udemy course')
-  o.project('course-advanced-css-and-sass', :description => 'Coursework for the "Advanced CSS and Sass" course')
   o.project('course-webgl', :description => 'Coursework for learning WebGL')
-  o.project('course-webxr', :description => 'Coursework for learning WebXR')
-  o.project('course-pcg-roguelike', :description => 'Code written while working through "Procedural Content Generation for C++ Game Development"')
 
   # Old blog that was long ago abandoned...
   o.project('realityforge.github.io', :description => 'My personal website and blog', :tags => %w(homepage=https://realityforge.github.io zapwhite=no historic))
@@ -121,6 +117,12 @@ Belt.scope('realityforge') do |o|
 
   # Historic: Never got to production. Such a shame!
   o.project('reality-idea', :description => 'An ruby model to represent and generate intellij idea project files.', :tags => %w(historic))
+
+  # Historic: Courses that were started but not completed for one reason or another
+  o.project('course-rust-lang', :description => 'Coursework for the  "The Rust Programming Language" Udemy course', :tags => %w(historic))
+  o.project('course-advanced-css-and-sass', :description => 'Coursework for the "Advanced CSS and Sass" course', :tags => %w(historic))
+  o.project('course-webxr', :description => 'Coursework for learning WebXR', :tags => %w(historic))
+  o.project('course-pcg-roguelike', :description => 'Code written while working through "Procedural Content Generation for C++ Game Development"', :tags => %w(historic))
 
   # Historic: Projects created during learning of new technology. No longer relevant
   o.project('wasm-contract-experiments', :description => 'Experiments using eWasm and Parity', :tags => %w(historic))
