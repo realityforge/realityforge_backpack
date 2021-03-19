@@ -243,6 +243,17 @@ module Zim # nodoc
       false
     end
 
+    # Add a task to patch the java artifact specified in build.yaml to a version.
+    # e.g.
+    #
+    #    patch_artifact(:guava, %w(com.google.guava:guava:jar), '27.1-jre')
+    #
+    def patch_artifact(name, dependencies, target_version, options = {})
+      command(:"patch_#{name}_version") do |app|
+        patch_versions(app, dependencies, target_version, options)
+      end
+    end
+
     # Add a task to patch the gem specified in Gemfile from a version to a version.
     # e.g.
     #
