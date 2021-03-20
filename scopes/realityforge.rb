@@ -14,7 +14,6 @@ Belt.scope('realityforge') do |o|
   o.project('gir', :description => 'Library to perform mechanical operations across codebases', :tags => %w(codecov travis))
   o.project('braincheck', :description => 'BrainCheck: A very simply invariant verification library', :tags => %w(travis pages))
   o.project('zemeckis', :description => 'A library to unify scheduling tasks inside a browser', :tags => %w(travis pages))
-  o.project('mcrt', :description => 'Maven Central Release Tool: A ruby tool to close, promote and drop staging repositories', :tags => %w(travis))
   o.project('javax.annotation', :description => 'A minimal, J2CL compatible javax.annotation library', :tags => %w(travis))
   o.project('org.jetbrains.annotations', :description => 'A minimal, J2CL compatible org.jetbrains.annotations library', :tags => %w(travis))
   o.project('proton', :description => 'Utilities for building annotation processors', :tags => %w(travis))
@@ -85,6 +84,9 @@ Belt.scope('realityforge') do |o|
   # Historic: Still in use but hopefully we will never have to update these
   o.project('rest-criteria', :description => 'A simple library for parsing criteria in rest services', :tags => %w(historic))
   o.project('rest-field-filter', :description => 'A simple library parsing field filters in rest APIs.', :tags => %w(historic))
+
+  # Historic: Merged into buildr
+  o.project('mcrt', :description => 'Maven Central Release Tool: A ruby tool to close, promote and drop staging repositories', :tags => %w(historic))
 
   # Historic: Never used ... but it was a good idea
   o.project('sqlshell', :description => 'A simple cross platform shell used to automate databases', :tags => %w(historic))
