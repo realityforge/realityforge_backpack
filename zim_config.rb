@@ -88,4 +88,15 @@ command(:patch_travis_ruby) do |app|
   end
 end
 
+command(:patch_pom_developer) do |app|
+  patched = patch_file('buildfile') do |content|
+    content.
+      gsub("pom.add_developer('realityforge', 'Peter Donald', 'peter@realityforge.org', ['Developer'])\n", "pom.add_developer('realityforge', 'Peter Donald')\n").
+      gsub("pom.add_developer('realityforge', 'Peter Donald', 'peter@realityforge.org')\n", "pom.add_developer('realityforge', 'Peter Donald')\n")
+  end
+  if patched
+    mysystem("git commit -m \"Remove email from release pom.\"")
+  end
+end
+
 Zim::Belt.load_suites_from_belt
