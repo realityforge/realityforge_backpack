@@ -63,6 +63,19 @@ patch_artifact(:symbolmap, %w(org.realityforge.gwt.symbolmap:gwt-symbolmap:jar),
 patch_artifact(:truth, %w(com.google.truth:truth:jar), '0.45')
 patch_artifact(:zemeckis, %w(org.realityforge.zemeckis:zemeckis-core:jar), '0.08')
 
+command(:remove_mcrt_gem) do
+  if File.exist?('tasks/publish.rake')
+    mysystem("git rm tasks/publish.rake")
+    patch_file('buildfile') do |content|
+      content.gsub(/(require '[^']+'\n)\n/m, "\\1\nBuildr::MavenCentral.define_publish_tasks(:profile_name => 'org.realityforge', :username => 'realityforge')\n\n")
+    end
+    mysystem("git commit -m \"Move to Maven publish tool now included with Buildr.\"")
+  end
+  patch_gemfile("Remove dependency on mcrt gem") do |content|
+    content.gsub("gem 'mcrt', '= 1.15.0'\n", '')
+  end
+end
+
 command(:patch_gwt_addons) do
   if File.exist?('tasks/gwt.rake')
     FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/gwt.rake", 'tasks/gwt.rake'
