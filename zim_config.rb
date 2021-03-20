@@ -46,7 +46,7 @@ patch_artifact(:compile_testing, %w(com.google.testing.compile:compile-testing:j
 patch_artifact(:galdr, %w(org.realityforge.galdr:galdr-core:jar org.realityforge.galdr:galdr-processor:jar), '0.03')
 patch_artifact(:getopt4j, %w(org.realityforge.getopt4j:getopt4j:jar), '1.3')
 patch_artifact(:gir, %w(org.realityforge.gir:gir-core:jar), '0.11')
-patch_artifact(:grim, %w(org.realityforge.grim:grim-annotations:jar org.realityforge.grim:grim-asserts:jar org.realityforge.grim:grim-processor:jar), '0.04')
+patch_artifact(:grim, %w(org.realityforge.grim:grim-annotations:jar org.realityforge.grim:grim-asserts:jar org.realityforge.grim:grim-processor:jar), '0.05')
 patch_artifact(:guava, %w(com.google.guava:guava:jar), '27.1-jre')
 patch_artifact(:guiceyloops, %w(org.realityforge.guiceyloops:guiceyloops:jar), '0.106')
 patch_artifact(:gwt_cache_filter, %w(org.realityforge.gwt.cache-filter:gwt-cache-filter:jar), '0.9')
