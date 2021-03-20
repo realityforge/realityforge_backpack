@@ -1,3 +1,4 @@
+add_standard_util_tasks
 add_standard_info_tasks
 add_standard_git_tasks
 add_standard_buildr_plus_tasks

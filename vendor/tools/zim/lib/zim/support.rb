@@ -1038,5 +1038,12 @@ module Zim # nodoc
         end
       end
     end
+
+    def add_standard_util_tasks
+      desc 'Fail the zim run with an exception'
+      command(:die, :in_app_dir => false) do |app|
+        raise "Failing command for #{app} due to explicit die task"
+      end
+    end
   end
 end
