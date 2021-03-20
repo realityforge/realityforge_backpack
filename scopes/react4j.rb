@@ -12,8 +12,4 @@ Belt.scope('react4j') do |o|
   # Historic projects
   o.project('react4j-widget', :description => 'React4j interoperability with GWT Widget API', :tags => %w(historic))
   o.project('react4j-windowportal', :description => 'React4j portal that renders into a Window', :tags => %w(historic))
-
-  o.projects.each do |project|
-    project.tags << "name=#{project.name}"
-  end
 end

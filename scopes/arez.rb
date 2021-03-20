@@ -17,8 +17,4 @@ Belt.scope('arez') do |o|
   o.project('arez-ticker', :description => 'Arez component that ticks at a specified interval', :tags => %w(historic))
   o.project('arez-timeddisposer', :description => 'Arez utility that will dispose specified node after a delay', :tags => %w(historic))
   o.project('arez-when', :description => 'Arez component that waits until a condition is true and then runs an effect action', :tags => %w(historic))
-
-  o.projects.each do |project|
-    project.tags << "name=#{project.name}"
-  end
 end
