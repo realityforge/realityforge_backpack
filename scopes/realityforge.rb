@@ -120,7 +120,7 @@ Belt.scope('realityforge') do |o|
   o.project('chef-kibana', :description => 'A chef cookbook that installs/configures kibana (the logstash UI)', :tags => %w(issues historic))
   o.project('chef-sqlshell', :description => 'Simple cookbook to aid in automating database contents', :tags => %w(historic))
   o.project('chef-winrm', :description => 'Simple winrm cookbook for chef', :tags => %w(historic))
-  o.project('ohai-system_packages')
+  o.project('ohai-system_packages', :tags => %w(historic))
 
   # Historic: Courses that were started but not completed for one reason or another
   o.project('course-rust-lang', :description => 'Coursework for the  "The Rust Programming Language" Udemy course', :tags => %w(historic))
