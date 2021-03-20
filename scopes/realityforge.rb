@@ -79,9 +79,6 @@ Belt.scope('realityforge') do |o|
   # Personal GameDev Exploration
   o.project('GameDevBook', :description => 'Collections of thoughts on Game Development', :tags => %w(private))
 
-  # Projects created during learning of new technology - incomplete or ongoing
-  o.project('course-webgl', :description => 'Coursework for learning WebGL')
-
   # Old blog that was long ago abandoned...
   o.project('realityforge.github.io', :description => 'My personal website and blog', :tags => %w(homepage=https://realityforge.github.io zapwhite=no historic))
 
@@ -129,6 +126,7 @@ Belt.scope('realityforge') do |o|
   o.project('course-pcg-roguelike', :description => 'Code written while working through "Procedural Content Generation for C++ Game Development"', :tags => %w(historic))
 
   # Historic: Projects created during learning of new technology. No longer relevant
+  o.project('course-webgl', :description => 'Coursework for learning WebGL', :tags => %w(historic))
   o.project('wasm-contract-experiments', :description => 'Experiments using eWasm and Parity', :tags => %w(historic))
   o.project('course-learn-a-frame', :description => 'Coursework for the "Coursework for the "Learn A-Frame And Get Ready For WebVR" course" course', :tags => %w(historic))
   o.project('course-vue-js-course', :description => 'Coursework for "Vue JS Essentials with Vuex and Vue Router" Udemy course', :tags => %w(historic))
