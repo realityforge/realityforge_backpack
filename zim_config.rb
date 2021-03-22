@@ -37,6 +37,7 @@ command(:patch_jsinterop_version) do |app|
   patch_versions(app, %w(com.google.jsinterop:jsinterop-annotations:jar), version)
 end
 
+patch_artifact(:akasha, %w(org.realityforge.akasha:akasha-java:jar), '0.01')
 patch_artifact(:arez, %w(org.realityforge.arez:arez-core:jar org.realityforge.arez:arez-processor:jar), '0.183')
 patch_artifact(:arez_dom, %w(org.realityforge.arez.dom:arez-dom:jar), '0.70')
 patch_artifact(:arez_spytools, %w(org.realityforge.arez.spytools:arez-spytools:jar), '0.110')
