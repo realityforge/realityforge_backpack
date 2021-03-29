@@ -37,6 +37,8 @@ command(:patch_jsinterop_version) do |app|
   patch_versions(app, %w(com.google.jsinterop:jsinterop-annotations:jar), version)
 end
 
+# Move arez-* into arez as "extras"
+
 patch_artifact(:akasha, %w(org.realityforge.akasha:akasha-java:jar), '0.05')
 patch_artifact(:arez, %w(org.realityforge.arez:arez-core:jar org.realityforge.arez:arez-processor:jar), '0.193')
 patch_artifact(:arez_dom, %w(org.realityforge.arez.dom:arez-dom:jar), '0.81')
@@ -103,7 +105,7 @@ command(:patch_travis_ruby) do |app|
   end
 end
 
-command(:patch_pom_developer) do |app|
+command(:patch_pom_developer) do
   patched = patch_file('buildfile') do |content|
     content.
       gsub("pom.add_developer('realityforge', 'Peter Donald', 'peter@realityforge.org', ['Developer'])\n", "pom.add_developer('realityforge', 'Peter Donald')\n").
