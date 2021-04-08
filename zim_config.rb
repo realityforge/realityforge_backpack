@@ -44,7 +44,7 @@ patch_artifact(:arez, %w(org.realityforge.arez:arez-core:jar org.realityforge.ar
 patch_artifact(:arez_dom, %w(org.realityforge.arez.dom:arez-dom:jar), '0.81')
 patch_artifact(:arez_spytools, %w(org.realityforge.arez.spytools:arez-spytools:jar), '0.121')
 patch_artifact(:arez_testng, %w(org.realityforge.arez.testng:arez-testng:jar), '0.15')
-patch_artifact(:braincheck, %w(org.realityforge.braincheck:braincheck:jar), '1.29.0')
+patch_artifact(:braincheck, %w(org.realityforge.braincheck:braincheck:jar), '1.30.0')
 patch_artifact(:compile_testing, %w(com.google.testing.compile:compile-testing:jar), '0.18-rf')
 patch_artifact(:galdr, %w(org.realityforge.galdr:galdr-core:jar org.realityforge.galdr:galdr-processor:jar), '0.03')
 patch_artifact(:getopt4j, %w(org.realityforge.getopt4j:getopt4j:jar), '1.3')
