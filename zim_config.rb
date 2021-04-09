@@ -61,7 +61,7 @@ patch_artifact(:jetbrains_annotations, %w(org.realityforge.org.jetbrains.annotat
 patch_artifact(:proton, %w(org.realityforge.proton:proton-core:jar org.realityforge.proton:proton-qa:jar), '0.51')
 patch_artifact(:react4j, %w(org.realityforge.react4j:react4j-core:jar org.realityforge.react4j:react4j-dom:jar org.realityforge.react4j:react4j-processor:jar), '0.181')
 patch_artifact(:revapi, %w(org.realityforge.revapi.diff:revapi-diff:jar:all), '0.08')
-patch_artifact(:sting, %w(org.realityforge.sting:sting-core:jar org.realityforge.sting:sting-processor:jar), '0.17')
+patch_artifact(:sting, %w(org.realityforge.sting:sting-core:jar org.realityforge.sting:sting-processor:jar), '0.18')
 patch_artifact(:symbolmap, %w(org.realityforge.gwt.symbolmap:gwt-symbolmap:jar), '0.09')
 patch_artifact(:truth, %w(com.google.truth:truth:jar), '0.45')
 patch_artifact(:zemeckis, %w(org.realityforge.zemeckis:zemeckis-core:jar), '0.09')
