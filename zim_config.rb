@@ -40,10 +40,10 @@ end
 # Move arez-* into arez as "extras"
 
 patch_artifact(:akasha, %w(org.realityforge.akasha:akasha-java:jar), '0.05')
-patch_artifact(:arez, %w(org.realityforge.arez:arez-core:jar org.realityforge.arez:arez-processor:jar), '0.193')
-patch_artifact(:arez_dom, %w(org.realityforge.arez.dom:arez-dom:jar), '0.81')
-patch_artifact(:arez_spytools, %w(org.realityforge.arez.spytools:arez-spytools:jar), '0.121')
-patch_artifact(:arez_testng, %w(org.realityforge.arez.testng:arez-testng:jar), '0.15')
+patch_artifact(:arez, %w(org.realityforge.arez:arez-core:jar org.realityforge.arez:arez-processor:jar), '0.195')
+patch_artifact(:arez_dom, %w(org.realityforge.arez.dom:arez-dom:jar), '0.84')
+patch_artifact(:arez_spytools, %w(org.realityforge.arez.spytools:arez-spytools:jar), '0.125')
+patch_artifact(:arez_testng, %w(org.realityforge.arez.testng:arez-testng:jar), '0.27')
 patch_artifact(:braincheck, %w(org.realityforge.braincheck:braincheck-core:jar), '1.30.0')
 patch_artifact(:compile_testing, %w(com.google.testing.compile:compile-testing:jar), '0.18-rf')
 patch_artifact(:galdr, %w(org.realityforge.galdr:galdr-core:jar org.realityforge.galdr:galdr-processor:jar), '0.03')
