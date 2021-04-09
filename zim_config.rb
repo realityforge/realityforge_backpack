@@ -39,7 +39,7 @@ end
 
 # Move arez-* into arez as "extras"
 
-patch_artifact(:akasha, %w(org.realityforge.akasha:akasha-java:jar), '0.05')
+patch_artifact(:akasha, %w(org.realityforge.akasha:akasha-java:jar), '0.06')
 patch_artifact(:arez, %w(org.realityforge.arez:arez-core:jar org.realityforge.arez:arez-processor:jar), '0.195')
 patch_artifact(:arez_dom, %w(org.realityforge.arez.dom:arez-dom:jar), '0.84')
 patch_artifact(:arez_spytools, %w(org.realityforge.arez.spytools:arez-spytools:jar), '0.125')
