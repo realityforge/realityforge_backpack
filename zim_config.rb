@@ -66,6 +66,16 @@ patch_artifact(:symbolmap, %w(org.realityforge.gwt.symbolmap:gwt-symbolmap:jar),
 patch_artifact(:truth, %w(com.google.truth:truth:jar), '0.45')
 patch_artifact(:zemeckis, %w(org.realityforge.zemeckis:zemeckis-core:jar), '0.09')
 
+command(:fix_braincheck_coords) do
+  patched = patch_file('build.yaml') do |content|
+      content.gsub('org.realityforge.braincheck:braincheck:jar:1.30.0',
+                   'org.realityforge.braincheck:braincheck-core:jar:1.30.0')
+  end
+  if patched
+    mysystem("git commit -m \"Correct coordinates of new braincheck version.\"")
+  end
+end
+
 command(:remove_mcrt_gem) do
   if File.exist?('tasks/publish.rake')
     mysystem("git rm tasks/publish.rake")
