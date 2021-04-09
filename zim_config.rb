@@ -101,6 +101,18 @@ command(:patch_gwt_addons) do
   end
 end
 
+command(:patch_release_tool) do
+  if File.exist?('tasks/release_tool.rb')
+    FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/release_tool.rb", 'tasks/release_tool.rb'
+    mysystem('git add tasks/release_tool.rb')
+    begin
+      mysystem("git commit -m \"Update the release_tool source code.\"")
+    rescue Exception
+      # ignored
+    end
+  end
+end
+
 command(:patch_travis_ruby) do |app|
   patched = patch_file('.travis.yml') do |content|
     if content.include?("- 2.7.2\n") && !content.include?("rvm install ruby-2.7.2\n")
