@@ -101,6 +101,18 @@ command(:patch_gwt_addons) do
   end
 end
 
+command(:patch_api_diff_tool) do
+  if File.exist?('tasks/api_diff_tool.rb')
+    FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/api_diff_tool.rb", 'tasks/api_diff_tool.rb'
+    mysystem('git add tasks/api_diff_tool.rb')
+    begin
+      mysystem("git commit -m \"Update the api_diff_tool source code.\"")
+    rescue Exception
+      # ignored
+    end
+  end
+end
+
 command(:patch_release_tool) do
   if File.exist?('tasks/release_tool.rb')
     FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/release_tool.rb", 'tasks/release_tool.rb'
