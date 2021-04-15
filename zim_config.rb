@@ -76,6 +76,24 @@ command(:fix_braincheck_coords) do
   end
 end
 
+command(:patch_release_tool) do
+  if File.exist?('tasks/release.rake')
+    patched = patch_file('tasks/release.rake') do |content|
+      content.gsub("require 'buildr/release_tool.rb')", "require 'buildr/release_tool.rb'")
+    end
+    mysystem("git commit -m \"Fixup release tool require.\"") if patched
+  end
+end
+
+command(:patch_api_diff_tool) do
+  if File.exist?('api_diff_tool.rake')
+    patched = patch_file('tasks/api_diff_tool.rake') do |content|
+      content.gsub("require 'buildr/api_diff_tool.rb')", "require 'buildr/api_diff_tool.rb'")
+    end
+    mysystem("git commit -m \"Fixup api diff tool require.\"") if patched
+  end
+end
+
 command(:update_release_tool) do
   if File.exist?('tasks/release_tool.rb')
     patched = true
@@ -109,30 +127,6 @@ command(:patch_gwt_addons) do
     mysystem('git add tasks/gwt.rake')
     begin
       mysystem("git commit -m \"Fix the GWT addon to work with generated source code.\"")
-    rescue Exception
-      # ignored
-    end
-  end
-end
-
-command(:patch_api_diff_tool) do
-  if File.exist?('tasks/api_diff_tool.rb')
-    FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/api_diff_tool.rb", 'tasks/api_diff_tool.rb'
-    mysystem('git add tasks/api_diff_tool.rb')
-    begin
-      mysystem("git commit -m \"Update the api_diff_tool source code.\"")
-    rescue Exception
-      # ignored
-    end
-  end
-end
-
-command(:patch_release_tool) do
-  if File.exist?('tasks/release_tool.rb')
-    FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/release_tool.rb", 'tasks/release_tool.rb'
-    mysystem('git add tasks/release_tool.rb')
-    begin
-      mysystem("git commit -m \"Update the release_tool source code.\"")
     rescue Exception
       # ignored
     end
