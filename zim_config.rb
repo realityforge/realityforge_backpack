@@ -79,7 +79,7 @@ end
 command(:patch_release_tool) do
   if File.exist?('tasks/release.rake')
     patched = patch_file('tasks/release.rake') do |content|
-      content.gsub("require 'buildr/release_tool.rb')", "require 'buildr/release_tool.rb'")
+      content.gsub("require 'buildr/release_tool.rb'", "require 'buildr/release_tool'")
     end
     mysystem("git commit -m \"Fixup release tool require.\"") if patched
   end
@@ -90,7 +90,8 @@ command(:patch_api_diff_tool) do
     patched = patch_file('tasks/api_diff.rake') do |content|
       content.
         gsub("require File.expand_path(File.dirname(__FILE__) + '/api_diff_tool')", "require 'buildr/api_diff_tool.rb'").
-        gsub("require 'buildr/api_diff_tool.rb')", "require 'buildr/api_diff_tool.rb'")
+        gsub("require 'buildr/api_diff_tool.rb')", "require 'buildr/api_diff_tool.rb'").
+        gsub("require 'buildr/api_diff_tool.rb'", "require 'buildr/api_diff_tool'")
     end
     mysystem("git commit -m \"Fixup api diff tool require.\"") if patched
   end
