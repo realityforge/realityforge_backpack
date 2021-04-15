@@ -24,7 +24,7 @@ braid_tasks('way_of_stock' => 'vendor/docs/way_of_stock',
 ruby_upgrade('2.6.6', '2.7.2')
 bazel_update('2.1.1', '2.2.0')
 
-patch_gem('realityforge-buildr', %w(1.5.9 1.5.10 1.5.11 1.5.12 1.5.13 1.5.14), '1.5.15')
+patch_gem('realityforge-buildr', %w(1.5.9 1.5.10 1.5.11 1.5.12 1.5.13 1.5.14 1.5.15), '1.5.16')
 patch_gem('braid', %w(1.0.18 1.0.19 1.0.20 1.0.21 1.0.22 1.0.3 1.1.0), '1.1.0')
 patch_gem('zapwhite', %w(2.9.0 2.10.0 2.11.0 2.12.0 2.13.0 2.14.0 2.15.0 2.16.0 2.17.0 2.18.0), '2.19.0')
 patch_gem('mcrt', %w(1.9.0 1.10.0 1.11.0 1.12.0 1.13.0 1.14.0), '1.15.0')
@@ -76,17 +76,31 @@ command(:fix_braincheck_coords) do
   end
 end
 
-command(:remove_mcrt_gem) do
-  if File.exist?('tasks/publish.rake')
-    mysystem("git rm tasks/publish.rake")
-    patch_file('buildfile') do |content|
-      content.gsub(/(require '[^']+'\n)\n/m, "\\1\nBuildr::MavenCentral.define_publish_tasks(:profile_name => 'org.realityforge', :username => 'realityforge')\n\n")
+command(:update_release_tool) do
+  if File.exist?('tasks/release_tool.rb')
+    patched = true
+    mysystem("git rm tasks/release_tool.rb")
+    patch_file('tasks/release.rake') do |content|
+      content.gsub("require File.expand_path(File.dirname(__FILE__) + '/release_tool.rb')", "require 'buildr/release_tool.rb')")
     end
-    mysystem("git commit -m \"Move to Maven publish tool now included with Buildr.\"")
+    mysystem("git commit -m \"Move to release tool included with Buildr.\"")
   end
-  patch_gemfile("Remove dependency on mcrt gem") do |content|
-    content.gsub("gem 'mcrt', '= 1.15.0'\n", '')
+end
+
+command(:update_api_diff_tool) do
+  if File.exist?('tasks/api_diff_tool.rb')
+    mysystem("git rm tasks/api_diff_tool.rb")
+    patch_file('tasks/api_diff_tool.rake') do |content|
+      content.gsub("require File.expand_path(File.dirname(__FILE__) + '/api_diff_tool.rb')", "require 'buildr/api_diff_tool.rb')")
+    end
+    mysystem("git commit -m \"Move to api diff tool included with Buildr.\"")
   end
+end
+
+command(:upgrade_buildr_version) do |app|
+  run('patch_realityforge-buildr_gem', app)
+  run(:update_release_tool, app)
+  run(:update_api_diff_tool, app)
 end
 
 command(:patch_gwt_addons) do
