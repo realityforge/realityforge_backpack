@@ -39,11 +39,11 @@ end
 
 # Move arez-* into arez as "extras"
 
-patch_artifact(:akasha, %w(org.realityforge.akasha:akasha-java:jar), '0.07')
-patch_artifact(:arez, %w(org.realityforge.arez:arez-core:jar org.realityforge.arez:arez-processor:jar), '0.196')
-patch_artifact(:arez_dom, %w(org.realityforge.arez.dom:arez-dom:jar), '0.85')
-patch_artifact(:arez_spytools, %w(org.realityforge.arez.spytools:arez-spytools:jar), '0.126')
-patch_artifact(:arez_testng, %w(org.realityforge.arez.testng:arez-testng:jar), '0.28')
+patch_artifact(:akasha, %w(org.realityforge.akasha:akasha-java:jar), '0.10')
+patch_artifact(:arez, %w(org.realityforge.arez:arez-core:jar org.realityforge.arez:arez-processor:jar), '0.197')
+patch_artifact(:arez_dom, %w(org.realityforge.arez.dom:arez-dom:jar), '0.86')
+patch_artifact(:arez_spytools, %w(org.realityforge.arez.spytools:arez-spytools:jar), '0.128')
+patch_artifact(:arez_testng, %w(org.realityforge.arez.testng:arez-testng:jar), '0.29')
 patch_artifact(:braincheck, %w(org.realityforge.braincheck:braincheck-core:jar org.realityforge.braincheck:braincheck-jre:jar org.realityforge.braincheck:braincheck-testng:jar), '1.31.0')
 patch_artifact(:compile_testing, %w(com.google.testing.compile:compile-testing:jar), '0.18-rf')
 patch_artifact(:galdr, %w(org.realityforge.galdr:galdr-core:jar org.realityforge.galdr:galdr-processor:jar), '0.03')
@@ -61,10 +61,10 @@ patch_artifact(:jetbrains_annotations, %w(org.realityforge.org.jetbrains.annotat
 patch_artifact(:proton, %w(org.realityforge.proton:proton-core:jar org.realityforge.proton:proton-qa:jar), '0.51')
 patch_artifact(:react4j, %w(org.realityforge.react4j:react4j-core:jar org.realityforge.react4j:react4j-dom:jar org.realityforge.react4j:react4j-processor:jar), '0.181')
 patch_artifact(:revapi, %w(org.realityforge.revapi.diff:revapi-diff:jar:all), '0.08')
-patch_artifact(:sting, %w(org.realityforge.sting:sting-core:jar org.realityforge.sting:sting-processor:jar), '0.18')
+patch_artifact(:sting, %w(org.realityforge.sting:sting-core:jar org.realityforge.sting:sting-processor:jar), '0.19')
 patch_artifact(:symbolmap, %w(org.realityforge.gwt.symbolmap:gwt-symbolmap:jar), '0.09')
 patch_artifact(:truth, %w(com.google.truth:truth:jar), '0.45')
-patch_artifact(:zemeckis, %w(org.realityforge.zemeckis:zemeckis-core:jar), '0.10')
+patch_artifact(:zemeckis, %w(org.realityforge.zemeckis:zemeckis-core:jar), '0.11')
 
 command(:fix_braincheck_coords) do
   patched = patch_file('build.yaml') do |content|
