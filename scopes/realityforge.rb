@@ -15,9 +15,11 @@ Belt.scope('realityforge') do |o|
   o.project('braincheck', :description => 'BrainCheck: A very simply invariant verification library', :tags => %w(travis pages))
   o.project('zemeckis', :description => 'A library to unify scheduling tasks inside a browser', :tags => %w(travis pages))
   o.project('javax.annotation', :description => 'A minimal, J2CL compatible javax.annotation library', :tags => %w(travis))
+  o.project('javaemul.internal.annotations', :description => 'A copy of the javaemul.internal.annotations package to make build isolated apps easier', :tags => %w(travis))
   o.project('org.jetbrains.annotations', :description => 'A minimal, J2CL compatible org.jetbrains.annotations library', :tags => %w(travis))
   o.project('proton', :description => 'Utilities for building annotation processors', :tags => %w(travis))
   o.project('vecmath', :description => 'A Java vector math library', :tags => %w(travis))
+  o.project('shade-cli', :description => 'CLI Wrapper For Maven Shade tool', :tags => %w(travis))
 
   o.project('guiceyloops', :description => 'GuiceyLoops is a minimalistic library for aiding the testing of JEE applications using Guice.', :tags => %w(codecov notify:stock travis))
 
@@ -130,6 +132,8 @@ Belt.scope('realityforge') do |o|
 
   # Historic: Projects created during learning of new technology. No longer relevant
   o.project('course-webgl', :description => 'Coursework for learning WebGL', :tags => %w(historic))
+  o.project('GraphicShaders', :description => 'A code repository of the Graphic Shaders book', :tags => %w(historic))
+  o.project('Fabmedical', :description => 'Workshop for Azure container repository', :tags => %w(historic))
   o.project('wasm-contract-experiments', :description => 'Experiments using eWasm and Parity', :tags => %w(historic))
   o.project('course-learn-a-frame', :description => 'Coursework for the "Coursework for the "Learn A-Frame And Get Ready For WebVR" course" course', :tags => %w(historic))
   o.project('course-vue-js-course', :description => 'Coursework for "Vue JS Essentials with Vuex and Vue Router" Udemy course', :tags => %w(historic))
