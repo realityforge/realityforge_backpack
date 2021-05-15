@@ -74,6 +74,7 @@ Belt.scope('realityforge') do |o|
   o.project('knife-cookbook-doc', :description => 'Knife plugin to document cookbooks', :tags => %w(travis pages issues))
 
   o.project('j2cl', :description => 'Java to closure style javascript transpiler', :tags => %w(external travis))
+  o.project('closure-compiler', :description => 'A JavaScript checker and optimizer.', :tags => %w(external homepage=https://developers.google.com/closure/compiler/ travis))
 
   # Personal Music Exploration
   o.project('MusicBook', :description => 'Collections of thoughts on Music Theory', :tags => %w(private))
@@ -180,7 +181,6 @@ Belt.scope('realityforge') do |o|
   o.project('gwt-boot-jsinterop-lili', :tags => %w(external historic))
   o.project('jsinterop-simple-jsframework-example', :tags => %w(external historic))
   o.project('react', :description => 'A declarative, efficient, and flexible JavaScript library for building user interfaces.', :tags => %w(external homepage=https://reactjs.org historic))
-  o.project('closure-compiler', :description => 'A JavaScript checker and optimizer.', :tags => %w(external homepage=https://developers.google.com/closure/compiler/ travis historic))
   o.project('graphql-java', :description => 'GraphQL Java implementation', :tags => %w(external historic))
   o.project('elemental2', :description => 'Type checked access to browser APIs for Java code.', :tags => %w(external travis historic))
   o.project('jsinterop-generator', :description => 'Generates Java annotated with JsInterop from JavaScript extern sources', :tags => %w(external travis historic))
