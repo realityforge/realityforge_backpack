@@ -37,7 +37,7 @@ command(:patch_jsinterop_version) do |app|
   patch_versions(app, %w(com.google.jsinterop:jsinterop-annotations:jar), version)
 end
 
-# Move arez-* into arez as "extras"
+# Move arez-* into arez as "extras" and make sure these versions are updated as part of arez release?
 
 patch_artifact(:akasha, %w(org.realityforge.akasha:akasha-java:jar), '0.10')
 patch_artifact(:arez, %w(org.realityforge.arez:arez-core:jar org.realityforge.arez:arez-processor:jar), '0.197')
