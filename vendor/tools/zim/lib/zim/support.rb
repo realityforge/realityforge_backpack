@@ -642,7 +642,7 @@ module Zim # nodoc
 
     # Garbage collect repository
     def git_gc
-      mysystem('git gc')
+      mysystem('git gc --prune=now --aggressive')
     end
 
     # Reset branch to origin if there is no changes
@@ -844,6 +844,7 @@ module Zim # nodoc
 
       command(:clean, :in_app_dir => false) do |app|
         run(:clone, app)
+        run(:git_gc, app)
         run(:fetch, app)
         run(:reset, app)
         run(:goto_master, app)
