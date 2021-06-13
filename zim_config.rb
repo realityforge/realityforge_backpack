@@ -37,15 +37,9 @@ command(:patch_jsinterop_version) do |app|
   patch_versions(app, %w(com.google.jsinterop:jsinterop-annotations:jar), version)
 end
 
-command(:patch_akasha_version2) do |app|
-  version = '0.11'
-  patch_dependency_coordinates(app, { 'org.realityforge.akasha:akasha-java:jar' => 'org.realityforge.akasha:akasha-gwt:jar' }, version)
-  patch_versions(app, %w(org.realityforge.akasha:akasha-gwt:jar), version)
-end
-
 # Move arez-* into arez as "extras" and make sure these versions are updated as part of arez release?
 
-patch_artifact(:akasha, %w(org.realityforge.akasha:akasha-gwt:jar org.realityforge.akasha:akasha-j2cl:jar), '0.10')
+patch_artifact(:akasha, %w(org.realityforge.akasha:akasha-gwt:jar org.realityforge.akasha:akasha-j2cl:jar), '0.12')
 patch_artifact(:arez, %w(org.realityforge.arez:arez-core:jar org.realityforge.arez:arez-processor:jar), '0.197')
 patch_artifact(:arez_dom, %w(org.realityforge.arez.dom:arez-dom:jar), '0.86')
 patch_artifact(:arez_spytools, %w(org.realityforge.arez.spytools:arez-spytools:jar), '0.128')
