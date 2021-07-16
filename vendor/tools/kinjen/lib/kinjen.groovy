@@ -207,18 +207,6 @@ static zim_stage( script, name, dependencies )
   }
 }
 
-static publish_stage( script, upload_prefix = '' )
-{
-  script.stage( 'Publish' ) {
-    script.sh """export DOWNLOAD_REPO=${script.env.UPLOAD_REPO}
-export UPLOAD_REPO=${script.env."EXTERNAL_${upload_prefix}UPLOAD_REPO"}
-export UPLOAD_USER=${script.env."EXTERNAL_${upload_prefix}UPLOAD_USER"}
-export UPLOAD_PASSWORD=${script.env."EXTERNAL_${upload_prefix}UPLOAD_PASSWORD"}
-export PUBLISH_VERSION=${script.PUBLISH_VERSION}
-bundle exec buildr ci:publish"""
-  }
-}
-
 static deploy_stage( script, project_key, deployment_environment = 'development' )
 {
   script.stage( 'Deploy' ) {
