@@ -76,6 +76,9 @@ Belt.scope('realityforge') do |o|
   o.project('j2cl', :description => 'Java to closure style javascript transpiler', :tags => %w(external travis))
   o.project('closure-compiler', :description => 'A JavaScript checker and optimizer.', :tags => %w(external homepage=https://developers.google.com/closure/compiler/ travis))
 
+  # Courses that are ongoing or still used for experiments
+  o.project('course-webgl', :description => 'Coursework for learning WebGL')
+
   # Personal Music Exploration
   o.project('MusicBook', :description => 'Collections of thoughts on Music Theory', :tags => %w(private))
 
@@ -132,7 +135,6 @@ Belt.scope('realityforge') do |o|
   o.project('course-pcg-roguelike', :description => 'Code written while working through "Procedural Content Generation for C++ Game Development"', :tags => %w(historic))
 
   # Historic: Projects created during learning of new technology. No longer relevant
-  o.project('course-webgl', :description => 'Coursework for learning WebGL', :tags => %w(historic))
   o.project('GraphicShaders', :description => 'A code repository of the Graphic Shaders book', :tags => %w(historic))
   o.project('Fabmedical', :description => 'Workshop for Azure container repository', :tags => %w(historic))
   o.project('wasm-contract-experiments', :description => 'Experiments using eWasm and Parity', :tags => %w(historic))
