@@ -39,7 +39,7 @@ end
 
 # Move arez-* into arez as "extras" and make sure these versions are updated as part of arez release?
 
-patch_artifact(:akasha, %w(org.realityforge.akasha:akasha-gwt:jar org.realityforge.akasha:akasha-j2cl:jar), '0.12')
+patch_artifact(:akasha, %w(org.realityforge.akasha:akasha-gwt:jar org.realityforge.akasha:akasha-j2cl:jar), '0.15')
 patch_artifact(:arez, %w(org.realityforge.arez:arez-core:jar org.realityforge.arez:arez-processor:jar), '0.197')
 patch_artifact(:arez_dom, %w(org.realityforge.arez.dom:arez-dom:jar), '0.86')
 patch_artifact(:arez_spytools, %w(org.realityforge.arez.spytools:arez-spytools:jar), '0.128')
