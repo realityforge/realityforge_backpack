@@ -37,10 +37,16 @@ command(:patch_jsinterop_version) do |app|
   patch_versions(app, %w(com.google.jsinterop:jsinterop-annotations:jar), version)
 end
 
+command(:patch_arez_testng) do |app|
+  version = '0.198'
+  patch_dependency_coordinates(app, { 'org.realityforge.arez.testng:arez-testng:jar' => 'org.realityforge.arez:arez-extras-testng:jar' }, version)
+  patch_versions(app, %w(org.realityforge.arez:arez-extras-testng:jar), version)
+end
+
 # Move arez-* into arez as "extras" and make sure these versions are updated as part of arez release?
 
 patch_artifact(:akasha, %w(org.realityforge.akasha:akasha-gwt:jar org.realityforge.akasha:akasha-j2cl:jar), '0.15')
-patch_artifact(:arez, %w(org.realityforge.arez:arez-core:jar org.realityforge.arez:arez-processor:jar), '0.197')
+patch_artifact(:arez, %w(org.realityforge.arez:arez-core:jar org.realityforge.arez:arez-processor:jar), '0.198')
 patch_artifact(:arez_spytools, %w(org.realityforge.arez.spytools:arez-spytools:jar), '0.128')
 patch_artifact(:braincheck, %w(org.realityforge.braincheck:braincheck-core:jar org.realityforge.braincheck:braincheck-jre:jar org.realityforge.braincheck:braincheck-testng:jar), '1.31.0')
 patch_artifact(:compile_testing, %w(com.google.testing.compile:compile-testing:jar), '0.18-rf')
