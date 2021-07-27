@@ -107,10 +107,11 @@ module Zim # nodoc
         patch_dependencies_in_file('build.yaml', dependencies, source_versions, target_version) ||
           patch_dependencies_in_file('README.md', dependencies, source_versions, target_version)
       if patched
-        pattern = Regexp.compile(Regexp.escape("Upgrade the `#{name}` artifact#{dependencies.size == 1 ? '' : 's'} to version `") + '.*' + Regexp.escape('`.'))
-        patch_changelog("Upgrade the `#{name}` artifact#{dependencies.size == 1 ? '' : 's'} to version `#{target_version}`.", pattern)
-        mysystem("git commit -m \"Update the #{name} dependency.\"")
-        puts "Update the #{name} dependency in #{app}"
+        pattern = Regexp.compile(Regexp.escape("Update the `#{name}` artifact#{dependencies.size == 1 ? '' : 's'} to version `") + '.*' + Regexp.escape('`.'))
+        message = "Update the `#{name}` artifact#{dependencies.size == 1 ? '' : 's'} to version `#{target_version}`."
+        patch_changelog(message, pattern)
+        mysystem("git commit -m \"#{message}\"")
+        puts "#{app}: #{message}"
       end
 
       patched
