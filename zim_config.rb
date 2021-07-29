@@ -67,16 +67,6 @@ patch_artifact(:symbolmap, %w(org.realityforge.gwt.symbolmap:gwt-symbolmap:jar),
 patch_artifact(:truth, %w(com.google.truth:truth:jar), '0.45')
 patch_artifact(:zemeckis, %w(org.realityforge.zemeckis:zemeckis-core:jar), '0.11')
 
-command(:fix_braincheck_coords) do
-  patched = patch_file('build.yaml') do |content|
-      content.gsub('org.realityforge.braincheck:braincheck:jar:1.30.0',
-                   'org.realityforge.braincheck:braincheck-core:jar:1.30.0')
-  end
-  if patched
-    mysystem("git commit -m \"Correct coordinates of new braincheck version.\"")
-  end
-end
-
 command(:patch_release_tool) do
   if File.exist?('tasks/release.rake')
     patched = patch_file('tasks/release.rake') do |content|
@@ -84,45 +74,6 @@ command(:patch_release_tool) do
     end
     mysystem("git commit -m \"Fixup release tool require.\"") if patched
   end
-end
-
-command(:patch_api_diff_tool) do
-  if File.exist?('tasks/api_diff.rake')
-    patched = patch_file('tasks/api_diff.rake') do |content|
-      content.
-        gsub("require File.expand_path(File.dirname(__FILE__) + '/api_diff_tool')", "require 'buildr/api_diff_tool.rb'").
-        gsub("require 'buildr/api_diff_tool.rb')", "require 'buildr/api_diff_tool.rb'").
-        gsub("require 'buildr/api_diff_tool.rb'", "require 'buildr/api_diff_tool'")
-    end
-    mysystem("git commit -m \"Fixup api diff tool require.\"") if patched
-  end
-end
-
-command(:update_release_tool) do
-  if File.exist?('tasks/release_tool.rb')
-    patched = true
-    mysystem("git rm tasks/release_tool.rb")
-    patch_file('tasks/release.rake') do |content|
-      content.gsub("require File.expand_path(File.dirname(__FILE__) + '/release_tool.rb')", "require 'buildr/release_tool.rb')")
-    end
-    mysystem("git commit -m \"Move to release tool included with Buildr.\"")
-  end
-end
-
-command(:update_api_diff_tool) do
-  if File.exist?('tasks/api_diff_tool.rb')
-    mysystem("git rm tasks/api_diff_tool.rb")
-    patch_file('tasks/api_diff_tool.rake') do |content|
-      content.gsub("require File.expand_path(File.dirname(__FILE__) + '/api_diff_tool.rb')", "require 'buildr/api_diff_tool.rb')")
-    end
-    mysystem("git commit -m \"Move to api diff tool included with Buildr.\"")
-  end
-end
-
-command(:upgrade_buildr_version) do |app|
-  run('patch_realityforge-buildr_gem', app)
-  run(:update_release_tool, app)
-  run(:update_api_diff_tool, app)
 end
 
 command(:patch_gwt_addons) do
@@ -148,17 +99,6 @@ command(:patch_travis_ruby) do |app|
   end
   if patched
     mysystem("git commit -m \"Ensure rvm installs the correct ruby version.\"")
-  end
-end
-
-command(:patch_pom_developer) do
-  patched = patch_file('buildfile') do |content|
-    content.
-      gsub("pom.add_developer('realityforge', 'Peter Donald', 'peter@realityforge.org', ['Developer'])\n", "pom.add_developer('realityforge', 'Peter Donald')\n").
-      gsub("pom.add_developer('realityforge', 'Peter Donald', 'peter@realityforge.org')\n", "pom.add_developer('realityforge', 'Peter Donald')\n")
-  end
-  if patched
-    mysystem("git commit -m \"Remove email from release pom.\"")
   end
 end
 
