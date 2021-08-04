@@ -135,6 +135,7 @@ Belt.scope('realityforge') do |o|
   o.project('course-pcg-roguelike', :description => 'Code written while working through "Procedural Content Generation for C++ Game Development"', :tags => %w(historic))
 
   # Historic: Projects created during learning of new technology. No longer relevant
+  o.project('elemental2-webgpu-example', :description => 'An experiment for combining Elemental2 and Akasha within the same application', :tags => %w(historic))
   o.project('GraphicShaders', :description => 'A code repository of the Graphic Shaders book', :tags => %w(historic))
   o.project('Fabmedical', :description => 'Workshop for Azure container repository', :tags => %w(historic))
   o.project('wasm-contract-experiments', :description => 'Experiments using eWasm and Parity', :tags => %w(historic))
