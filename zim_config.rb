@@ -37,12 +37,6 @@ command(:patch_jsinterop_version) do |app|
   patch_versions(app, %w(com.google.jsinterop:jsinterop-annotations:jar), version)
 end
 
-command(:patch_arez_spytools) do |app|
-  version = '0.199'
-  patch_dependency_coordinates(app, { 'org.realityforge.arez.spytools:arez-spytools:jar' => 'org.realityforge.arez:arez-extras-spytools:jar' }, version)
-  patch_versions(app, %w(org.realityforge.arez:arez-extras-spytools:jar), version)
-end
-
 patch_artifact(:akasha, %w(org.realityforge.akasha:akasha-gwt:jar org.realityforge.akasha:akasha-j2cl:jar), '0.18')
 patch_artifact(:arez, %w(org.realityforge.arez:arez-core:jar org.realityforge.arez:arez-processor:jar), '0.199')
 patch_artifact(:braincheck, %w(org.realityforge.braincheck:braincheck-core:jar org.realityforge.braincheck:braincheck-jre:jar org.realityforge.braincheck:braincheck-testng:jar), '1.31.0')
@@ -73,32 +67,6 @@ command(:patch_release_tool) do
       content.gsub("require 'buildr/release_tool.rb'", "require 'buildr/release_tool'")
     end
     mysystem("git commit -m \"Fixup release tool require.\"") if patched
-  end
-end
-
-command(:patch_gwt_addons) do
-  if File.exist?('tasks/gwt.rake')
-    FileUtils.cp "#{File.expand_path(File.dirname(__FILE__))}/tmp/gwt.rake", 'tasks/gwt.rake'
-    mysystem('git add tasks/gwt.rake')
-    begin
-      mysystem("git commit -m \"Fix the GWT addon to work with generated source code.\"")
-    rescue Exception
-      # ignored
-    end
-  end
-end
-
-command(:patch_travis_ruby) do |app|
-  patched = patch_file('.travis.yml') do |content|
-    if content.include?("- 2.7.2\n") && !content.include?("rvm install ruby-2.7.2\n")
-      raise "Missing install section in #{app}" unless content.include?("install:\n")
-      content.gsub("install:\n", "install:\n- rvm install ruby-2.7.2\n- rvm use 2.7.2\n")
-    else
-      content
-    end
-  end
-  if patched
-    mysystem("git commit -m \"Ensure rvm installs the correct ruby version.\"")
   end
 end
 
