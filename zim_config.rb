@@ -60,6 +60,7 @@ patch_artifact(:sting, %w(org.realityforge.sting:sting-core:jar org.realityforge
 patch_artifact(:symbolmap, %w(org.realityforge.gwt.symbolmap:gwt-symbolmap:jar), '0.09')
 patch_artifact(:truth, %w(com.google.truth:truth:jar), '0.45')
 patch_artifact(:zemeckis, %w(org.realityforge.zemeckis:zemeckis-core:jar), '0.11')
+patch_artifact(:vecmath, %w(org.realityforge.vecmath:vecmath:jar), '0.10')
 
 command(:patch_release_tool) do
   if File.exist?('tasks/release.rake')
