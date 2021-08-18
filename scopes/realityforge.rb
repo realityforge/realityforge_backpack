@@ -182,7 +182,7 @@ Belt.scope('realityforge') do |o|
 
   # External projects that have been forked to submit pull requests
   o.project('gwt-boot-jsinterop-lili', :tags => %w(external historic))
-  o.project('jsinterop-simple-jsframework-example', :tags => %w(external historic))
+  o.project('jsinterop-simple-jsframework-example', :tags => %w(external))
   o.project('react', :description => 'A declarative, efficient, and flexible JavaScript library for building user interfaces.', :tags => %w(external homepage=https://reactjs.org historic))
   o.project('graphql-java', :description => 'GraphQL Java implementation', :tags => %w(external historic))
   o.project('elemental2', :description => 'Type checked access to browser APIs for Java code.', :tags => %w(external travis historic))
