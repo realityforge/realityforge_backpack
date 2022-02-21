@@ -153,7 +153,7 @@ module Zim # nodoc
 
         if all_suites
           Zim.suites.each do |suite|
-            puts "Processing Application Suites: #{suite.key}" if Zim::Config.verbose?
+            puts "Processing Application Suites: #{suite.name}" if Zim::Config.verbose?
             Zim.current_suite = suite
             process_suite_directory(args)
           end
