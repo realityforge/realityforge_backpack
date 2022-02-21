@@ -110,7 +110,8 @@ module Zim # nodoc
         pattern = Regexp.compile(Regexp.escape("Update the `#{name}` artifact#{dependencies.size == 1 ? '' : 's'} to version `") + '.*' + Regexp.escape('`.'))
         message = "Update the `#{name}` artifact#{dependencies.size == 1 ? '' : 's'} to version `#{target_version}`."
         patch_changelog(message, pattern)
-        mysystem("git commit -m \"#{message}\"")
+        commit_message = "Update the #{name} artifact#{dependencies.size == 1 ? '' : 's'} to version #{target_version}."
+        mysystem("git commit -m \"#{commit_message}\"")
         puts "#{app}: #{message}"
       end
 
@@ -737,17 +738,18 @@ module Zim # nodoc
     end
 
     # Helper method that updates a dependency in an automerge branch
-    def propose_dependency_update(app, branch_key, dependencies, target_version)
-      dependency_name = get_shortest_group_name(dependencies)
-      branch_name = '' == branch_key ? "AM_update_#{dependency_name}" : "AM_#{branch_key}"
+    def propose_dependency_update(app, branch_key, dependencies, target_version, base_branch)
+      am_suffix = 'master' == base_branch ? '' : "-#{base_branch}"
+      branch_name = '' == branch_key ? "AM#{am_suffix}_update_#{get_shortest_group_name(dependencies)}" : "AM#{am_suffix}_#{branch_key}"
       merge_origin = git_local_branch_list.include?(branch_name)
+      git_checkout(base_branch)
       git_checkout(branch_name, true)
-      git_merge('origin/master') if merge_origin
+      git_merge("origin/#{base_branch}") if merge_origin
 
       if patch_versions(app, dependencies, target_version)
         git_push
       else
-        git_checkout('master')
+        git_checkout(base_branch)
         mysystem("git branch -D #{branch_name} 2> /dev/null 1> /dev/null")
       end
     end
@@ -760,6 +762,14 @@ module Zim # nodoc
     # Add standard set of commands for interacting with git
     # repositories that applicable to all users of zim
     def add_standard_git_tasks
+      command(:remove_cache, :in_app_dir => false) do |app|
+        directory = dir_for_app(app)
+        if File.exists?(directory)
+          puts "Removing cached app #{app} at #{directory}"
+          FileUtils.rm_rf directory
+        end
+      end
+
       command(:clone, :in_app_dir => false) do |app|
         url = Zim.current_suite.application_by_name(app).git_url
 
@@ -919,7 +929,11 @@ module Zim # nodoc
 
         run(:real_clean, app)
         in_app_dir(app) do
-          propose_dependency_update(app, branch_key, dependencies, target_version)
+          branches = (Zim.current_suite.application_by_name(app).tag_value('zim:branches') || 'master').split(',')
+          branches.each do |branch|
+            git_checkout(branch)
+            propose_dependency_update(app, branch_key, dependencies, target_version, branch)
+          end
         end
       end
     end
@@ -980,18 +994,6 @@ module Zim # nodoc
         end
       end
 
-      desc 'Normalize the github configuration based on buildr_plus rules'
-      command(:normalize_github) do |app|
-        if File.exist?('.github/workflows')
-          git_clean_filesystem
-          bundle_exec('buildr github:fix')
-          git_reset_index
-          git_add_all_files
-          mysystem('git add --all --force .github 2> /dev/null > /dev/null')
-          git_commit('Normalize github configuration', false)
-        end
-      end
-
       desc 'Normalize the jenkins configuration based on buildr_plus rules'
       command(:normalize_jenkins) do |app|
         if File.exist?('vendor/tools/buildr_plus') && File.exist?('Jenkinsfile')
@@ -1025,7 +1027,6 @@ module Zim # nodoc
         run(:normalize_whitespace, app)
         run(:normalize_travisci, app)
         run(:normalize_jenkins, app)
-        run(:normalize_github, app)
       end
     end
 
