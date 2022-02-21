@@ -17,7 +17,7 @@ module Zim
 
     # Run system command and raise an exception if it returns a non-zero exit status
     def mysystem(command, fail_on_error = true)
-      puts "system (#{Dir.pwd}): #{command}" if @verbose
+      puts "system (#{Dir.pwd}): #{command}" if Zim::Config.verbose?
       system(command) || !fail_on_error || (raise "Error executing #{command} in #{Dir.pwd}")
     end
 
