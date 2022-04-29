@@ -38,7 +38,7 @@ command(:patch_jsinterop_version) do |app|
 end
 
 patch_artifact(:akasha, %w(org.realityforge.akasha:akasha-gwt:jar org.realityforge.akasha:akasha-j2cl:jar), '0.30')
-patch_artifact(:arez, %w(org.realityforge.arez:arez-core:jar org.realityforge.arez:arez-processor:jar org.realityforge.arez:arez-extras-dom:jar org.realityforge.arez:arez-extras-promise:jar org.realityforge.arez:arez-extras-spytools:jar org.realityforge.arez:arez-extras-testng:jar), '0.204')
+patch_artifact(:arez, %w(org.realityforge.arez:arez-core:jar org.realityforge.arez:arez-processor:jar org.realityforge.arez:arez-extras-dom:jar org.realityforge.arez:arez-extras-promise:jar org.realityforge.arez:arez-extras-spytools:jar org.realityforge.arez:arez-extras-testng:jar), '0.205')
 patch_artifact(:braincheck, %w(org.realityforge.braincheck:braincheck-core:jar org.realityforge.braincheck:braincheck-jre:jar org.realityforge.braincheck:braincheck-testng:jar), '1.31.0')
 patch_artifact(:galdr, %w(org.realityforge.galdr:galdr-core:jar org.realityforge.galdr:galdr-processor:jar), '0.03')
 patch_artifact(:getopt4j, %w(org.realityforge.getopt4j:getopt4j:jar), '1.3')
