@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'braid', '= 1.1.5'
+gem 'braid', '= 1.1.6'
 gem 'reality-belt', '>= 1.0.0'
 gem 'zapwhite', '= 2.20.0'
 

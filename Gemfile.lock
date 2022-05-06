@@ -20,7 +20,7 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (5.2.7)
+    activesupport (5.2.7.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
@@ -29,7 +29,7 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     arrayfields (4.9.2)
     backports (3.23.0)
-    braid (1.1.5)
+    braid (1.1.6)
       json
       main (>= 4.7.3)
     chronic (0.10.2)
@@ -110,7 +110,7 @@ PLATFORMS
 
 DEPENDENCIES
   backpack (= 0.1.0.dev)!
-  braid (= 1.1.5)
+  braid (= 1.1.6)
   reality-belt (>= 1.0.0)
   zapwhite (= 2.20.0)
   zim (= 0.1.0.dev)!
