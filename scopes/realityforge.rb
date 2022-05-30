@@ -71,6 +71,9 @@ Belt.scope('realityforge') do |o|
 
   o.project('galdr', :description => 'An ECS toolkit', :tags => %w(issues travis))
 
+  # The "game" project to keep me sane
+  o.project('Quake-III-Arena', :tags => %w(homepage=realityforge.org/quake-iii-arena/))
+
   # Chef related code still in use and maintained (by others?)
   o.project('chef-glassfish', :description => 'A cookbook for managing GlassFish', :tags => %w(travis))
   o.project('knife-cookbook-doc', :description => 'Knife plugin to document cookbooks', :tags => %w(travis pages issues))
