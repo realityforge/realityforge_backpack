@@ -91,7 +91,7 @@ Belt.scope('realityforge') do |o|
   # Projects that purely exist so that I can keep a copy of source for reference purposes
   o.project('3zb2', :description => '3rd Zigock Bot II for Yamagi Quake II', :tags => %w(external historic))
   o.project('OpenWolf-Engine', :description => 'Heavy modified idTech3 engine', :tags => %w(external historic))
-  o.project('q3d3d12', :description => 'Quake III Arena: Ported to D3D12, Xbox One, HoloLens', :tags => %w(external historic))
+  o.project('q3d3d12', :description => 'Quake III Arena: Ported to D3D12, Xbox One, HoloLens', :tags => %w(external historic default_branch=main))
   # This project's goal is to re-write the bot code in Quake 3 Arena, to use recast navmesh, and make the code generally easier to read and follow.
   o.project('Quake3AI', :description => 'New AI Bot Project for Quake 3 Arena.', :tags => %w(external historic))
   o.project('PreyDoom', :tags => %w(external historic))
