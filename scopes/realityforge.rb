@@ -79,9 +79,6 @@ Belt.scope('realityforge') do |o|
   o.project('chef-glassfish', :description => 'A cookbook for managing GlassFish', :tags => %w(travis))
   o.project('knife-cookbook-doc', :description => 'Knife plugin to document cookbooks', :tags => %w(travis pages issues))
 
-  o.project('j2cl', :description => 'Java to closure style javascript transpiler', :tags => %w(external travis))
-  o.project('closure-compiler', :description => 'A JavaScript checker and optimizer.', :tags => %w(external homepage=https://developers.google.com/closure/compiler/ travis))
-
   # Courses that are ongoing or still used for experiments
   o.project('course-webgl', :description => 'Coursework for learning WebGL')
 
@@ -90,6 +87,10 @@ Belt.scope('realityforge') do |o|
 
   # Personal GameDev Exploration
   o.project('GameDevBook', :description => 'Collections of thoughts on Game Development', :tags => %w(private))
+
+  # historic as no need to patch these in the future ... or so it is hoped
+  o.project('j2cl', :description => 'Java to closure style javascript transpiler', :tags => %w(external travis historic))
+  o.project('closure-compiler', :description => 'A JavaScript checker and optimizer.', :tags => %w(external homepage=https://developers.google.com/closure/compiler/ travis historic))
 
   # Oh - the glory days!
   o.project('q2java', :description => 'Embedding of a Java VM in Quake2 to run games written in Java', :tags => %w(external historic))
