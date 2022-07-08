@@ -82,9 +82,6 @@ Belt.scope('realityforge') do |o|
   o.project('j2cl', :description => 'Java to closure style javascript transpiler', :tags => %w(external travis))
   o.project('closure-compiler', :description => 'A JavaScript checker and optimizer.', :tags => %w(external homepage=https://developers.google.com/closure/compiler/ travis))
 
-  # Oh - the glory days!
-  o.project('q2java', :description => 'Embedding of a Java VM in Quake2 to run games written in Java', :tags => %w(external historic))
-
   # Courses that are ongoing or still used for experiments
   o.project('course-webgl', :description => 'Coursework for learning WebGL')
 
@@ -93,6 +90,9 @@ Belt.scope('realityforge') do |o|
 
   # Personal GameDev Exploration
   o.project('GameDevBook', :description => 'Collections of thoughts on Game Development', :tags => %w(private))
+
+  # Oh - the glory days!
+  o.project('q2java', :description => 'Embedding of a Java VM in Quake2 to run games written in Java', :tags => %w(external historic))
 
   # Old blog that was long ago abandoned...
   o.project('realityforge.github.io', :description => 'My personal website and blog', :tags => %w(homepage=https://realityforge.github.io zapwhite=no historic))
