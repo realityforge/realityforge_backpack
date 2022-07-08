@@ -3,7 +3,7 @@ Belt.scope('realityforge') do |o|
   o.project('bash.d', :description => 'A set of bash scripts that run on shell startup.')
 
   o.project('gla', :description => 'An OpenGL Loading Library.')
-  o.project('braincheck-c', :description => 'A tiny C library to verify invariants and simplify debugging without leaving a trace in production code.')
+  o.project('braincheck-c', :description => 'A tiny C library to verify invariants and simplify debugging without leaving a trace in production code.', :tags => %w(default_branch=main))
 
   o.project('buildr', :description => 'A stripped down fork of Buildr that works in modern environments.')
   o.project('buildr_plus', :description => 'A simple set of extensions that patch and customize buildr to our requirements.', :tags => %w(notify:stock))
