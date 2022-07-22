@@ -115,7 +115,7 @@ GEM
       json_pure (~> 2.3)
       launchy (~> 2.1, < 2.5.0)
       pusher-client (~> 0.4)
-    tzinfo (1.2.9)
+    tzinfo (1.2.10)
       thread_safe (~> 0.1)
     websocket (1.2.9)
     zapwhite (2.20.0)
