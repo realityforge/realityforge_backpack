@@ -79,12 +79,17 @@ Belt.scope('realityforge') do |o|
 
   # Courses that are ongoing or still used for experiments
   o.project('course-webgl', :description => 'Coursework for learning WebGL')
+  o.project('course-unreal-engine-the-ultimate-shooter', :description => 'Course work for "Unreal Engine C++ The Ultimate Shooter Course"')
+  o.project('glfw-test')
 
   # Personal Music Exploration
   o.project('MusicBook', :description => 'Collections of thoughts on Music Theory', :tags => %w(private))
 
   # Personal GameDev Exploration
   o.project('GameDevBook', :description => 'Collections of thoughts on Game Development', :tags => %w(private))
+
+  # Notes about people I have met on the Journey
+  o.project('peopledb', :tags => %w(private))
 
   # historic as no need to patch these in the future ... or so it is hoped
   o.project('j2cl', :description => 'Java to closure style javascript transpiler', :tags => %w(external travis historic))
