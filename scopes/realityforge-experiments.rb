@@ -14,7 +14,7 @@ Belt.scope('realityforge-experiments') do |o|
   o.project('Quake3AI', :description => 'New AI Bot Project for Quake 3 Arena.', :tags => %w(external historic))
   o.project('PreyDoom', :tags => %w(external historic))
   o.project('quake3-brainworks', :tags => %w(external historic))
-  o.project('DNF-IcedTech', :description => 'Duke Nukem Forever IcedTech Branch', :tags => %w(external historic))
+  o.project('DNF-IcedTech', :description => 'Duke Nukem Forever IcedTech Branch', :tags => %w(external historic default_branch=main))
   o.project('Quake4BSE', :tags => %w(external historic))
   o.project('baseq3a', :description => 'Unofficial Quake III Arena gamecode patch', :tags => %w(external historic))
   o.project('urbanterror-slim', :description => 'Improved Quake III Arena engine', :tags => %w(external historic))
