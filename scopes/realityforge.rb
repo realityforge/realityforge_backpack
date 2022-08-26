@@ -79,7 +79,7 @@ Belt.scope('realityforge') do |o|
 
   # Courses that are ongoing or still used for experiments
   o.project('course-webgl', :description => 'Coursework for learning WebGL')
-  o.project('course-unreal-engine-the-ultimate-shooter', :description => 'Course work for "Unreal Engine C++ The Ultimate Shooter Course"')
+  o.project('course-unreal-engine-the-ultimate-shooter', :description => 'Course work for "Unreal Engine C++ The Ultimate Shooter Course"', :tags => %w(default_branch=main))
   o.project('glfw-test')
 
   # Personal Music Exploration
