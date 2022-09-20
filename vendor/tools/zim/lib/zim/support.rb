@@ -23,7 +23,7 @@ module Zim # nodoc
       branch = git_current_branch
       # If there is no target branch to merge to then changes need to be pushed
       if git_has_remote_branch?(branch)
-        changes_between_refs?('origin/master', branch)
+        changes_between_refs?("origin/#{current_default_branch}", branch)
       else
         changes_between_refs?("origin/#{branch}", branch)
       end
@@ -340,7 +340,7 @@ module Zim # nodoc
         begin
           bundle_exec("braid update #{path}")
         rescue
-          mysystem("git remote rm master/braid/#{path} >/dev/null 2>/dev/null") rescue
+          mysystem("git remote rm #{current_default_branch}/braid/#{path} >/dev/null 2>/dev/null") rescue
             rbenv_exec("braid update #{path}")
         end
         puts "Upgraded #{path} in #{app}"
@@ -628,12 +628,12 @@ module Zim # nodoc
     end
 
     # Diff against a specific branch
-    def git_diff(branch = 'origin/master')
+    def git_diff(branch = "origin/#{current_default_branch}")
       mysystem("git diff #{branch}")
     end
 
     # Merge in specified branch
-    def git_merge(branch = 'origin/master')
+    def git_merge(branch = "origin/#{current_default_branch}")
       mysystem("git merge #{branch}")
     end
 
@@ -678,12 +678,16 @@ module Zim # nodoc
     end
 
     # Checkout specified branch, creating branch if create is enabled
-    def git_checkout(branch = 'master', create = false)
+    def git_checkout(branch = current_default_branch, create = false)
       if !create || `git branch -a`.split.collect {|l| l.gsub('remotes/origin/', '')}.sort.uniq.include?(branch)
         mysystem("git checkout #{branch} > /dev/null 2> /dev/null")
       else
         mysystem("git checkout -b #{branch} > /dev/null 2> /dev/null")
       end
+    end
+
+    def current_default_branch
+      Zim::Driver.current_app.tag_value('default_branch') || 'master'
     end
 
     # We should somehow check whether this is needed
@@ -739,7 +743,7 @@ module Zim # nodoc
 
     # Helper method that updates a dependency in an automerge branch
     def propose_dependency_update(app, branch_key, dependencies, target_version, base_branch)
-      am_suffix = 'master' == base_branch ? '' : "-#{base_branch}"
+      am_suffix = current_default_branch == base_branch ? '' : "-#{base_branch}"
       branch_name = '' == branch_key ? "AM#{am_suffix}_update_#{get_shortest_group_name(dependencies)}" : "AM#{am_suffix}_#{branch_key}"
       merge_origin = git_local_branch_list.include?(branch_name)
       git_checkout(base_branch)
@@ -811,7 +815,7 @@ module Zim # nodoc
       end
 
       command(:reset_origin) do
-        git_reset_branch('origin/master')
+        git_reset_branch("origin/#{current_default_branch}")
       end
 
       command(:git_reset_if_unchanged) do
@@ -826,7 +830,7 @@ module Zim # nodoc
         hub_pull_request(Zim::Config.parameter_by_name('PR_MESSAGE'))
       end
 
-      command(:goto_master) do
+      command(:goto_default_branch) do
         git_checkout
       end
 
@@ -848,7 +852,7 @@ module Zim # nodoc
       end
 
       command(:remove_local_branches) do |app|
-        git_local_branch_list.select {|b| b != 'master'}.each do |branch|
+        git_local_branch_list.select {|b| b != current_default_branch}.each do |branch|
           mysystem("git branch -D #{branch}")
         end
       end
@@ -858,7 +862,7 @@ module Zim # nodoc
         run(:git_gc, app)
         run(:fetch, app)
         run(:reset, app)
-        run(:goto_master, app)
+        run(:goto_default_branch, app)
         run(:remove_local_branches, app)
         run(:pull, app)
       end
@@ -881,7 +885,7 @@ module Zim # nodoc
       desc 'Run following commands for each branch in the tag zim:branches (comma separated)'
       command(:each_zim_branch, :block_command => true) do |app_key|
         app = Zim.current_suite.application_by_name(app_key)
-        branches = (app.tag_value('zim:branches') || 'master').split(',')
+        branches = (app.tag_value('zim:branches') || current_default_branch).split(',')
         branches.each do |branch|
           git_checkout(branch)
           Zim::Driver.run_commands(app, Zim.current_commands)
@@ -929,7 +933,7 @@ module Zim # nodoc
 
         run(:real_clean, app)
         in_app_dir(app) do
-          branches = (Zim.current_suite.application_by_name(app).tag_value('zim:branches') || 'master').split(',')
+          branches = (Zim.current_suite.application_by_name(app).tag_value('zim:branches') || current_default_branch).split(',')
           branches.each do |branch|
             git_checkout(branch)
             propose_dependency_update(app, branch_key, dependencies, target_version, branch)

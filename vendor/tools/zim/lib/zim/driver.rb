@@ -18,6 +18,8 @@ module Zim # nodoc
   class Driver
     class << self
 
+      attr_accessor :current_app
+
       def process(args)
         Zim.initial_args = args.dup
 
@@ -222,17 +224,23 @@ module Zim # nodoc
       end
 
       def run_commands(app, commands)
-        commands = commands.dup
-        commands.each_with_index do |key, index|
-          Zim.push_current_commands(commands.dup[index + 1, 1000000])
-          begin
-            keep_running = Zim.run(key, app.name)
-            return unless keep_running
-          rescue Exception => e
-            Zim::Driver.print_command_error(app.name, "Error processing stage #{key} on application '#{app.name}'.")
-            raise e
+        begin
+          last_app = Zim::Driver.current_app
+          Zim::Driver.current_app = app
+          commands = commands.dup
+          commands.each_with_index do |key, index|
+            Zim.push_current_commands(commands.dup[index + 1, 1000000])
+            begin
+              keep_running = Zim.run(key, app.name)
+              return unless keep_running
+            rescue Exception => e
+              Zim::Driver.print_command_error(app.name, "Error processing stage #{key} on application '#{app.name}'.")
+              raise e
+            end
+            Zim.pop_current_commands
           end
-          Zim.pop_current_commands
+        ensure
+          Zim::Driver.current_app = last_app
         end
       end
 
