@@ -281,13 +281,14 @@ module Zim # nodoc
     #    bazel_update('1.1.0', '1.2.0')
     #
     def bazel_update(from_version, to_version)
-      desc "Update the bazel version from #{from_version} to #{to_version}"
-      command(:"patch_bazel_version_#{from_version}") do |app|
+      upgrade_description = "Update the bazel version #{from_version.nil? ? '' : "from #{from_version} "}to #{to_version}"
+      desc upgrade_description
+      command(:"patch_bazel_version_to_#{to_version}") do |app|
         patched = patch_file('.bazelversion') do |content|
-          content.gsub(from_version, to_version)
+          from_version.nil? ? "#{to_version}\n" : content.gsub(from_version, to_version)
         end
         if patched
-          mysystem("git commit -m \"Update the bazel version from #{from_version} to #{to_version}\"")
+          mysystem("git commit -m \"#{upgrade_description}\"")
         end
       end
     end
