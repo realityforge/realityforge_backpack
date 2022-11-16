@@ -91,6 +91,11 @@ Belt.scope('realityforge') do |o|
   # Notes about people I have met on the Journey
   o.project('peopledb', :tags => %w(private default_branch=main))
 
+  # Documents and code relating to my phd
+  o.project('phd-whirlwind-article', :tags => %w(private default_branch=main))
+  o.project('phd-progress-reports', :tags => %w(private default_branch=main))
+  o.project('phd-historic', :tags => %w(private default_branch=main))
+
   # historic as no need to patch these in the future ... or so it is hoped
   o.project('j2cl', :description => 'Java to closure style javascript transpiler', :tags => %w(external travis historic))
   o.project('closure-compiler', :description => 'A JavaScript checker and optimizer.', :tags => %w(external homepage=https://developers.google.com/closure/compiler/ travis historic))
