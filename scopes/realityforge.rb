@@ -416,7 +416,7 @@ Belt.scope('realityforge') do |o|
 
   # Historic - Not needed since PhD days
   o.project('packetspy', :description => 'Java wrapper for packet capture library', :tags => %w(historic))
-  o.project('magenta', :description => 'Experimental interpreter', :tags => %w(historic))
+  o.project('magenta', :description => 'Experimental interpreter', :tags => %w(default_branch=main historic))
 
   # Historic: Experiments that were either aborted or migrated elsewhere
   o.project('repository', :description => 'A maven repository containing binaries from various projects', :tags => %w(historic))
