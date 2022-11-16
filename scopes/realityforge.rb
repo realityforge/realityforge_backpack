@@ -98,7 +98,7 @@ Belt.scope('realityforge') do |o|
   o.project('phd-historic', :tags => %w(private default_branch=main historic))
   o.project('phd-thesis', :tags => %w(private default_branch=main historic))
   o.project('phd-code', :tags => %w(private default_branch=main historic))
-  o.project('phd-phd-framework-presentation', :tags => %w(default_branch=main historic))
+  o.project('phd-framework-presentation', :tags => %w(default_branch=main historic))
   o.project('phd-whirlwind-article-micc', :tags => %w(default_branch=main historic))
   o.project('phd-seminar-may-2005', :tags => %w(default_branch=main historic))
 
