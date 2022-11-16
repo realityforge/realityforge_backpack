@@ -98,6 +98,8 @@ Belt.scope('realityforge') do |o|
   o.project('phd-historic', :tags => %w(private default_branch=main historic))
   o.project('phd-thesis', :tags => %w(private default_branch=main historic))
   o.project('phd-code', :tags => %w(private default_branch=main historic))
+  o.project('phd-phd-framework-presentation', :tags => %w(default_branch=main historic))
+  o.project('phd-whirlwind-article-micc', :tags => %w(default_branch=main historic))
 
   # historic as no need to patch these in the future ... or so it is hoped
   o.project('j2cl', :description => 'Java to closure style javascript transpiler', :tags => %w(external travis historic))
