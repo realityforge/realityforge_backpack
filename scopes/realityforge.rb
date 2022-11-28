@@ -78,7 +78,6 @@ Belt.scope('realityforge') do |o|
   o.project('knife-cookbook-doc', :description => 'Knife plugin to document cookbooks', :tags => %w(travis pages issues))
 
   # Courses that are ongoing or still used for experiments
-  o.project('course-webgl', :description => 'Coursework for learning WebGL')
   o.project('course-unreal-engine-the-ultimate-shooter', :description => 'Course work for "Unreal Engine C++ The Ultimate Shooter Course"', :tags => %w(default_branch=main))
   o.project('glfw-test', :tags => %w(default_branch=main))
 
@@ -158,6 +157,7 @@ Belt.scope('realityforge') do |o|
   o.project('course-pcg-roguelike', :description => 'Code written while working through "Procedural Content Generation for C++ Game Development"', :tags => %w(historic))
 
   # Historic: Projects created during learning of new technology. No longer relevant
+  o.project('course-webgl', :description => 'Coursework for learning WebGL', :tags => %w(historic))
   o.project('raktek', :description => 'Experiment in WebGL', :tags => %w(travis issues historic))
   o.project('elemental2-webgpu-example', :description => 'An experiment for combining Elemental2 and Akasha within the same application', :tags => %w(historic))
   o.project('GraphicShaders', :description => 'A code repository of the Graphic Shaders book', :tags => %w(historic))
