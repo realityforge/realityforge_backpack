@@ -81,6 +81,7 @@ Belt.scope('realityforge') do |o|
   o.project('course-webgl', :description => 'Coursework for learning WebGL')
   o.project('course-unreal-engine-the-ultimate-shooter', :description => 'Course work for "Unreal Engine C++ The Ultimate Shooter Course"', :tags => %w(default_branch=main))
   o.project('course-blender-sculpting-rune-sword', :description => 'Course work for "Blender Sculpting - Rune Sword"', :tags => %w(default_branch=main))
+  o.project('course-substance-painter-rune-sword', :description => 'Course work for "Substance Painter - Rune Sword"', :tags => %w(default_branch=main))
   o.project('glfw-test', :tags => %w(default_branch=main))
 
   # Personal Music Exploration
