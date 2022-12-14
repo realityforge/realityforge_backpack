@@ -40,6 +40,7 @@ module Backpack # nodoc
             tags = project.tags.dup
             private = project.tags.include?('private')
             issues = project.tags.include?('issues')
+            discussions = project.tags.include?('discussions')
             projects = project.tags.include?('projects')
             wiki = project.tags.include?('wiki')
             homepage = project.tag_value('homepage')
@@ -51,6 +52,7 @@ module Backpack # nodoc
                          :default_branch => default_branch,
                          :issues => issues,
                          :projects => projects,
+                         :discussions => discussions,
                          :wiki => wiki,
                          :tags => tags)
           end
