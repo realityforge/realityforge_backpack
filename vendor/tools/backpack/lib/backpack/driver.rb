@@ -190,6 +190,7 @@ module Backpack #nodoc
         update = true if remote_repository['allow_squash_merge'].to_s != repository.allow_squash_merge?.to_s
         update = true if remote_repository['allow_merge_commit'].to_s != repository.allow_merge_commit?.to_s
         update = true if remote_repository['allow_rebase_merge'].to_s != repository.allow_rebase_merge?.to_s
+        update = true if remote_repository['allow_auto_merge'].to_s != repository.allow_auto_merge?.to_s
         update = true if remote_repository['delete_branch_on_merge'].to_s != repository.delete_branch_on_merge?.to_s
         if remote_repository['archived'].to_s != repository.archived?.to_s
           if 'true' == remote_repository['archived'].to_s
@@ -214,6 +215,7 @@ module Backpack #nodoc
                                  :archived => repository.archived?,
                                  :allow_squash_merge => repository.allow_squash_merge?,
                                  :allow_merge_commit => repository.allow_merge_commit?,
+                                 :allow_auto_merge => repository.allow_auto_merge?,
                                  :allow_rebase_merge => repository.allow_rebase_merge?,
                                  :delete_branch_on_merge => repository.delete_branch_on_merge?,
                                  :has_wiki => repository.wiki? }

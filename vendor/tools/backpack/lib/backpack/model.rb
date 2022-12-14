@@ -254,6 +254,12 @@ module Backpack
       @allow_merge_commit.nil? ? true : !!@allow_merge_commit
     end
 
+    attr_writer :allow_auto_merge
+
+    def allow_auto_merge?
+      @allow_auto_merge.nil? ? false : !!@allow_auto_merge
+    end
+
     attr_writer :allow_rebase_merge
 
     def allow_rebase_merge?
