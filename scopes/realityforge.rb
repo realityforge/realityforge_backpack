@@ -80,7 +80,6 @@ Belt.scope('realityforge') do |o|
   # Courses that are ongoing or still used for experiments
   o.project('course-webgl', :description => 'Coursework for learning WebGL')
   o.project('course-unreal-engine-the-ultimate-shooter', :description => 'Course work for "Unreal Engine C++ The Ultimate Shooter Course"', :tags => %w(default_branch=main))
-  o.project('course-substance-painter-rune-sword', :description => 'Course work for "Substance Painter - Rune Sword"', :tags => %w(default_branch=main))
   o.project('glfw-test', :tags => %w(default_branch=main))
 
   # Personal Music Exploration
@@ -166,6 +165,7 @@ Belt.scope('realityforge') do |o|
   o.project('wasm-contract-experiments', :description => 'Experiments using eWasm and Parity', :tags => %w(historic))
   o.project('course-blender-fundamentals-modeling', :description => 'Course work for "Blender Fundamentals - Modeling"', :tags => %w(default_branch=main historic))
   o.project('course-blender-sculpting-rune-sword', :description => 'Course work for "Blender Sculpting - Rune Sword"', :tags => %w(default_branch=main historic))
+  o.project('course-substance-painter-rune-sword', :description => 'Course work for "Substance Painter - Rune Sword"', :tags => %w(default_branch=main historic))
   o.project('course-learn-a-frame', :description => 'Coursework for the "Coursework for the "Learn A-Frame And Get Ready For WebVR" course" course', :tags => %w(historic))
   o.project('course-vue-js-course', :description => 'Coursework for "Vue JS Essentials with Vuex and Vue Router" Udemy course', :tags => %w(historic))
   o.project('course-get-started-using-webassembly-wasm', :description => 'Coursework for "Get Started Using WebAssembly" course', :tags => %w(historic))
