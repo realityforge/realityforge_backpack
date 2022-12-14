@@ -103,8 +103,8 @@ Belt.scope('realityforge') do |o|
   o.project('phd-seminar-may-2005', :tags => %w(default_branch=main historic))
 
   # historic as no need to patch these in the future ... or so it is hoped
-  o.project('j2cl', :description => 'Java to closure style javascript transpiler', :tags => %w(external travis historic))
-  o.project('closure-compiler', :description => 'A JavaScript checker and optimizer.', :tags => %w(external homepage=https://developers.google.com/closure/compiler/ travis historic))
+  o.project('j2cl', :description => 'Java to closure style javascript transpiler', :tags => %w(external historic))
+  o.project('closure-compiler', :description => 'A JavaScript checker and optimizer.', :tags => %w(external homepage=https://developers.google.com/closure/compiler/ historic))
 
   # Oh - the glory days!
   o.project('q2java', :description => 'Embedding of a Java VM in Quake2 to run games written in Java', :tags => %w(external historic))
@@ -147,7 +147,7 @@ Belt.scope('realityforge') do |o|
   o.project('chef-cutlery', :description => 'Cutlery is a Chef cookbook containing a collection useful library code.', :tags => %w(historic))
   o.project('chef-dbt', :description => 'Simple cookbook that aids in database migrations through dbt', :tags => %w(historic))
   o.project('chef-hosts', :description => 'Chef cookbook to manage /etc/hosts file', :tags => %w(historic))
-  o.project('chef-kibana', :description => 'A chef cookbook that installs/configures kibana (the logstash UI)', :tags => %w(issues historic))
+  o.project('chef-kibana', :description => 'A chef cookbook that installs/configures kibana (the logstash UI)', :tags => %w(historic))
   o.project('chef-sqlshell', :description => 'Simple cookbook to aid in automating database contents', :tags => %w(historic))
   o.project('chef-winrm', :description => 'Simple winrm cookbook for chef', :tags => %w(historic))
   o.project('ohai-system_packages', :tags => %w(historic))
@@ -159,7 +159,7 @@ Belt.scope('realityforge') do |o|
   o.project('course-pcg-roguelike', :description => 'Code written while working through "Procedural Content Generation for C++ Game Development"', :tags => %w(historic))
 
   # Historic: Projects created during learning of new technology. No longer relevant
-  o.project('raktek', :description => 'Experiment in WebGL', :tags => %w(travis issues historic))
+  o.project('raktek', :description => 'Experiment in WebGL', :tags => %w(historic))
   o.project('elemental2-webgpu-example', :description => 'An experiment for combining Elemental2 and Akasha within the same application', :tags => %w(historic))
   o.project('GraphicShaders', :description => 'A code repository of the Graphic Shaders book', :tags => %w(historic))
   o.project('Fabmedical', :description => 'Workshop for Azure container repository', :tags => %w(historic))
@@ -211,9 +211,9 @@ Belt.scope('realityforge') do |o|
   o.project('jsinterop-simple-jsframework-example', :tags => %w(external historic))
   o.project('react', :description => 'A declarative, efficient, and flexible JavaScript library for building user interfaces.', :tags => %w(external homepage=https://reactjs.org historic))
   o.project('graphql-java', :description => 'GraphQL Java implementation', :tags => %w(external historic))
-  o.project('elemental2', :description => 'Type checked access to browser APIs for Java code.', :tags => %w(external travis historic))
-  o.project('jsinterop-generator', :description => 'Generates Java annotated with JsInterop from JavaScript extern sources', :tags => %w(external travis historic))
-  o.project('jsinterop-base', :description => 'Utilities for GWT and J2CL to interact with JavaScript beyond JsInterop', :tags => %w(external travis historic))
+  o.project('elemental2', :description => 'Type checked access to browser APIs for Java code.', :tags => %w(external historic))
+  o.project('jsinterop-generator', :description => 'Generates Java annotated with JsInterop from JavaScript extern sources', :tags => %w(external historic))
+  o.project('jsinterop-base', :description => 'Utilities for GWT and J2CL to interact with JavaScript beyond JsInterop', :tags => %w(external historic))
   o.project('gwt', :description => 'GWT Open Source Project', :tags => %w(external homepage=http://www.gwtproject.org historic))
   o.project('bazel', :description => 'a fast, scalable, multi-language and extensible build system', :tags => %w(external homepage=https://bazel.build historic))
   o.project('nodes', :description => 'A GraphQL JVM Client - Java, Kotlin, Scala, etc.', :tags => %w(external historic))
@@ -224,7 +224,7 @@ Belt.scope('realityforge') do |o|
   o.project('pwasm-tutorial', :description => 'A step-by-step tutorial on how to write contracts in Wasm for Kovan', :tags => %w(external historic))
   o.project('javapoet', :description => 'A Java API for generating .java source files.', :tags => %w(external historic))
   o.project('domino-ui', :description => 'Domino-UI', :tags => %w(external historic))
-  o.project('endless-sky', :description => 'Space exploration, trading, and combat game.', :tags => %w(external travis homepage=http://endless-sky.github.io/ historic))
+  o.project('endless-sky', :description => 'Space exploration, trading, and combat game.', :tags => %w(external homepage=http://endless-sky.github.io/ historic))
   o.project('awesome-endless-sky', :description => 'A curated list of all things Endless Sky.', :tags => %w(external historic))
   o.project('gwt-react', :description => 'GWT Java bindings for React', :tags => %w(external historic))
   o.project('auto', :description => 'A collection of source code generators for Java.', :tags => %w(external historic))
@@ -337,8 +337,8 @@ Belt.scope('realityforge') do |o|
   o.project('gwt-webpoller-example', :description => 'A simple application demonstrating the use of the gwt-webpoller library', :tags => %w(historic))
 
   # Historic: Moved to using a simpler + GWT 3.0 compatible strategy of System.getProperty() instead
-  o.project('gwt-property-source', :description => 'Provides a convenient way of compiling GWT property values into your module.', :tags => %w(issues historic))
-  o.project('gwt-property-source-example', :description => 'A sample application that demonstrates the use of the gwt-property-source', :tags => %w(issues historic))
+  o.project('gwt-property-source', :description => 'Provides a convenient way of compiling GWT property values into your module.', :tags => %w(historic))
+  o.project('gwt-property-source-example', :description => 'A sample application that demonstrates the use of the gwt-property-source', :tags => %w(historic))
 
   # Historic: Inlined the code into all downstream libraries
   o.project('simple-session-filter', :description => 'A simple servlet filter for implementing custom session management', :tags => %w(historic))
