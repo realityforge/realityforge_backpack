@@ -177,7 +177,6 @@ module Backpack #nodoc
         if 'true' == remote_repository['archived'].to_s && repository.organization.skip_updates_on_archived_repositories?
           return
         end
-        puts remote_repository.to_h.to_json
 
         update = false
         update = true if remote_repository['description'].to_s != repository.description.to_s
