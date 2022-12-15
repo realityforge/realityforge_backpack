@@ -202,6 +202,7 @@ module Backpack
 
     attr_writer :default_branch
 
+    # the default branch for this repository.
     def default_branch
       @default_branch || 'master'
     end
@@ -244,18 +245,21 @@ module Backpack
 
     attr_writer :allow_squash_merge
 
+    # Either true to allow squash-merging pull requests, or false to prevent squash-merging.
     def allow_squash_merge?
       @allow_squash_merge.nil? ? true : !!@allow_squash_merge
     end
 
     attr_writer :allow_merge_commit
 
+    # Either true to allow merging pull requests with a merge commit, or false to prevent merging pull requests with merge commits.
     def allow_merge_commit?
       @allow_merge_commit.nil? ? true : !!@allow_merge_commit
     end
 
     attr_writer :allow_auto_merge
 
+    # Either true to allow auto-merge on pull requests, or false to disallow auto-merge.
     def allow_auto_merge?
       @allow_auto_merge.nil? ? false : !!@allow_auto_merge
     end
@@ -270,6 +274,7 @@ module Backpack
 
     attr_writer :allow_rebase_merge
 
+    # Either true to allow rebase-merging pull requests, or false to prevent rebase-merging.
     def allow_rebase_merge?
       @allow_rebase_merge.nil? ? true : !!@allow_rebase_merge
     end
