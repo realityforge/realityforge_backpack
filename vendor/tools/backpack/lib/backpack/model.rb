@@ -260,6 +260,14 @@ module Backpack
       @allow_auto_merge.nil? ? false : !!@allow_auto_merge
     end
 
+    # Always suggest updating pull request branches
+    # Whenever there are new changes available in the base branch, present an “update branch” option in the pull request.
+    attr_writer :allow_update_branch
+
+    def allow_update_branch?
+      @allow_update_branch.nil? ? true : !!@allow_update_branch
+    end
+
     attr_writer :allow_rebase_merge
 
     def allow_rebase_merge?

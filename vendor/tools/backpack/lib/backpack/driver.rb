@@ -177,6 +177,7 @@ module Backpack #nodoc
         if 'true' == remote_repository['archived'].to_s && repository.organization.skip_updates_on_archived_repositories?
           return
         end
+        puts remote_repository.to_h.to_json
 
         update = false
         update = true if remote_repository['description'].to_s != repository.description.to_s
@@ -190,6 +191,7 @@ module Backpack #nodoc
         update = true if remote_repository['allow_squash_merge'].to_s != repository.allow_squash_merge?.to_s
         update = true if remote_repository['allow_merge_commit'].to_s != repository.allow_merge_commit?.to_s
         update = true if remote_repository['allow_rebase_merge'].to_s != repository.allow_rebase_merge?.to_s
+        update = true if remote_repository['allow_update_branch'].to_s != repository.allow_update_branch?.to_s
         update = true if remote_repository['allow_auto_merge'].to_s != repository.allow_auto_merge?.to_s
         update = true if remote_repository['delete_branch_on_merge'].to_s != repository.delete_branch_on_merge?.to_s
         if remote_repository['archived'].to_s != repository.archived?.to_s
@@ -217,6 +219,7 @@ module Backpack #nodoc
                                  :allow_merge_commit => repository.allow_merge_commit?,
                                  :allow_auto_merge => repository.allow_auto_merge?,
                                  :allow_rebase_merge => repository.allow_rebase_merge?,
+                                 :allow_update_branch => repository.allow_update_branch?,
                                  :delete_branch_on_merge => repository.delete_branch_on_merge?,
                                  :has_wiki => repository.wiki? }
           # Can not specify has_projects option if repository projects are disabled, even if setting it to false
