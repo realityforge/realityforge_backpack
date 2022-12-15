@@ -178,6 +178,8 @@ module Backpack #nodoc
           return
         end
 
+        $stderr.puts remote_repository.to_h.to_json
+
         update = false
         update = true if remote_repository['description'].to_s != repository.description.to_s
         update = true if remote_repository['homepage'].to_s != repository.homepage.to_s
@@ -237,6 +239,18 @@ module Backpack #nodoc
           end
           client.edit_repository(remote_repository['full_name'], repository_options)
         end
+
+        vulnerability_alerts_enabled = client.vulnerability_alerts_enabled?(repository.qualified_name)
+        if vulnerability_alerts_enabled != repository.vulnerability_alerts?
+          if repository.vulnerability_alerts?
+            puts "Enabling vulnerability alerts on repository #{repository.qualified_name}"
+            client.enable_vulnerability_alerts(repository.qualified_name)
+          else
+            puts "Disabling vulnerability alerts on repository #{repository.qualified_name}"
+            client.disable_vulnerability_alerts(repository.qualified_name)
+          end
+        end
+
         remote_branches = client.branches(repository.qualified_name)
         remote_branches.each do |remote_branch|
           branch_name = remote_branch['name']

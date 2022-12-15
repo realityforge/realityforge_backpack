@@ -219,6 +219,12 @@ module Backpack
       @issues.nil? ? false : !!@issues
     end
 
+    attr_writer :vulnerability_alerts
+
+    def vulnerability_alerts?
+      @vulnerability_alerts.nil? ? false : !!@vulnerability_alerts
+    end
+
     attr_writer :projects
 
     def projects?
