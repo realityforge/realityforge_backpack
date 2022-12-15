@@ -26,6 +26,8 @@ else
   exit 1
 end
 
+ENV['OCTOKIT_DEFAULT_MEDIA_TYPE'] = 'application/vnd.github+json'
+
 Backpack.organizations.each do |organization|
   Backpack::Driver.converge(Backpack.context, organization)
 end
