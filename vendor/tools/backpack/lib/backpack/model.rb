@@ -261,7 +261,7 @@ module Backpack
 
     # Either true to allow auto-merge on pull requests, or false to disallow auto-merge.
     def allow_auto_merge?
-      @allow_auto_merge.nil? ? false : !!@allow_auto_merge
+      @allow_auto_merge.nil? ? true : !!@allow_auto_merge
     end
 
     # Always suggest updating pull request branches
