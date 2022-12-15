@@ -319,7 +319,6 @@ module Backpack
       @squash_merge_commit_message.nil? ? 'COMMIT_MESSAGES' : @squash_merge_commit_message
     end
 
-
     attr_writer :merge_commit_title
 
     # The default value for a merge commit title.
