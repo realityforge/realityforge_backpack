@@ -37,24 +37,18 @@ module Backpack # nodoc
         ::Backpack.organization(scope.name) do |o|
           scope.projects.each do |project|
             next if project.tags.include?('backpack=no')
-            tags = project.tags.dup
-            private = project.tags.include?('private')
-            issues = project.tags.include?('issues')
-            discussions = project.tags.include?('discussions')
-            projects = project.tags.include?('projects')
-            wiki = project.tags.include?('wiki')
-            homepage = project.tag_value('homepage')
-            default_branch = project.tag_value('default_branch') || 'master'
-            o.repository(project.name,
-                         :description => project.description,
-                         :private => private,
-                         :homepage => homepage,
-                         :default_branch => default_branch,
-                         :issues => issues,
-                         :projects => projects,
-                         :discussions => discussions,
-                         :wiki => wiki,
-                         :tags => tags)
+            methods = Repository.instance_methods(false)
+            options = {}
+            methods.each do |method|
+              key = method.to_s.sub(/\?$/, '')
+              if method.to_s.end_with?('?') && methods.include?("#{key}=".to_sym)
+                options[key] = true if project.tags.include?(key)
+              elsif methods.include?("#{key}=".to_sym)
+                value = project.tag_value(key)
+                options[key] = value if value
+              end
+            end
+            o.repository(project.name, options.merge({:tags => project.tags.dup}))
           end
         end
       end
