@@ -289,7 +289,7 @@ module Backpack
 
     # Either true to allow private forks, or false to prevent private forks.
     def allow_forking?
-      @allow_forking.nil? ? false : !!@allow_forking
+      @allow_forking.nil? ? true : !!@allow_forking
     end
 
     attr_writer :delete_branch_on_merge

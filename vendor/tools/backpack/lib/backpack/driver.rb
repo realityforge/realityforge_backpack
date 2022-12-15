@@ -219,6 +219,7 @@ module Backpack #nodoc
                                  :has_projects => repository.projects?,
                                  :has_discussions => repository.discussions?,
                                  :archived => repository.archived?,
+                                 :allow_forking => repository.allow_forking?,
                                  :allow_squash_merge => repository.allow_squash_merge?,
                                  :allow_merge_commit => repository.allow_merge_commit?,
                                  :allow_auto_merge => repository.allow_auto_merge?,
@@ -230,10 +231,7 @@ module Backpack #nodoc
                                  :merge_commit_title => repository.merge_commit_title,
                                  :merge_commit_message => repository.merge_commit_message,
                                  :has_wiki => repository.wiki? }
-          if repository.organization.repository_projects?
-            # Allow forks can only be changed on org-owned repositories
-            repository_options[:allow_forking] = repository.allow_forking?
-          else
+          unless repository.organization.repository_projects?
             # Can not specify has_projects option if repository projects are disabled, even if setting it to false
             repository_options[:has_projects] = repository.projects?
           end
