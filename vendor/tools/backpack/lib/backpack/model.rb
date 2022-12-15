@@ -204,7 +204,7 @@ module Backpack
 
     # the default branch for this repository.
     def default_branch
-      @default_branch || 'master'
+      @default_branch.nil? ? 'master' : @default_branch
     end
 
     attr_writer :private
