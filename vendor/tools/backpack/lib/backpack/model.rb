@@ -292,12 +292,6 @@ module Backpack
       @allow_forking.nil? ? true : !!@allow_forking
     end
 
-    attr_writer :delete_branch_on_merge
-
-    def delete_branch_on_merge?
-      @delete_branch_on_merge.nil? ? true : !!@delete_branch_on_merge
-    end
-
     attr_writer :squash_merge_commit_title
 
     # The default value for a squash merge commit title:
