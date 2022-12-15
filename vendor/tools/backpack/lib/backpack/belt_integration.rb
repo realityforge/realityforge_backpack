@@ -45,6 +45,7 @@ module Backpack # nodoc
                 options[key] = true if project.tags.include?(key)
               elsif methods.include?("#{key}=".to_sym)
                 value = project.tag_value(key)
+                value = value.split(',') if value && key == 'topics'
                 options[key] = value if value
               end
             end

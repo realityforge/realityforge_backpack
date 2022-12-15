@@ -249,6 +249,12 @@ module Backpack
       @wiki.nil? ? false : !!@wiki
     end
 
+    attr_writer :topics
+
+    def topics
+      @topics.nil? ? [] : @topics
+    end
+
     attr_writer :allow_squash_merge
 
     # Either true to allow squash-merging pull requests, or false to prevent squash-merging.

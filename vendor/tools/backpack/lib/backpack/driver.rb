@@ -251,6 +251,11 @@ module Backpack #nodoc
           end
         end
 
+        if (remote_repository['topics'] || []).sort != repository.topics.sort
+          puts "Updating topics on repository #{repository.qualified_name} from #{(remote_repository['topics'] || []).sort} to #{repository.topics.sort}"
+          client.replace_all_topics(repository.qualified_name, repository.topics)
+        end
+
         remote_branches = client.branches(repository.qualified_name)
         remote_branches.each do |remote_branch|
           branch_name = remote_branch['name']
