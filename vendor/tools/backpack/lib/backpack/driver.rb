@@ -193,6 +193,11 @@ module Backpack #nodoc
         update = true if remote_repository['allow_update_branch'].to_s != repository.allow_update_branch?.to_s
         update = true if remote_repository['allow_auto_merge'].to_s != repository.allow_auto_merge?.to_s
         update = true if remote_repository['delete_branch_on_merge'].to_s != repository.delete_branch_on_merge?.to_s
+        update = true if remote_repository['allow_forking'].to_s != repository.allow_forking?.to_s
+        update = true if remote_repository['squash_merge_commit_title'].to_s != repository.squash_merge_commit_title.to_s
+        update = true if remote_repository['squash_merge_commit_message'].to_s != repository.squash_merge_commit_message.to_s
+        update = true if remote_repository['merge_commit_title'].to_s != repository.merge_commit_title.to_s
+        update = true if remote_repository['merge_commit_message'].to_s != repository.merge_commit_message.to_s
         if remote_repository['archived'].to_s != repository.archived?.to_s
           if 'true' == remote_repository['archived'].to_s
             raise "Can not un-archive repository #{repository.name} via the API"
@@ -220,9 +225,18 @@ module Backpack #nodoc
                                  :allow_rebase_merge => repository.allow_rebase_merge?,
                                  :allow_update_branch => repository.allow_update_branch?,
                                  :delete_branch_on_merge => repository.delete_branch_on_merge?,
+                                 :squash_merge_commit_title => repository.squash_merge_commit_title,
+                                 :squash_merge_commit_message => repository.squash_merge_commit_message,
+                                 :merge_commit_title => repository.merge_commit_title,
+                                 :merge_commit_message => repository.merge_commit_message,
                                  :has_wiki => repository.wiki? }
-          # Can not specify has_projects option if repository projects are disabled, even if setting it to false
-          repository_options[:has_projects] = repository.projects? unless repository.organization.repository_projects?
+          if repository.organization.repository_projects?
+            # Allow forks can only be changed on org-owned repositories
+            repository_options[:allow_forking] = repository.allow_forking?
+          else
+            # Can not specify has_projects option if repository projects are disabled, even if setting it to false
+            repository_options[:has_projects] = repository.projects?
+          end
           client.edit_repository(remote_repository['full_name'], repository_options)
         end
         remote_branches = client.branches(repository.qualified_name)
