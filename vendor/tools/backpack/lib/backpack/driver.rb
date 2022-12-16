@@ -193,7 +193,7 @@ module Backpack #nodoc
         update = true if remote_repository['allow_update_branch'].to_s != repository.allow_update_branch?.to_s
         update = true if remote_repository['allow_auto_merge'].to_s != repository.allow_auto_merge?.to_s
         update = true if remote_repository['delete_branch_on_merge'].to_s != repository.delete_branch_on_merge?.to_s
-        update = true if repository.organization.private_forks? && remote_repository['allow_forking'].to_s != repository.allow_forking?.to_s
+        update = true if repository.organization.private_forks? && !repository.organization.is_user_account? && remote_repository['allow_forking'].to_s != repository.allow_forking?.to_s
         update = true if remote_repository['squash_merge_commit_title'].to_s != repository.squash_merge_commit_title.to_s
         update = true if remote_repository['squash_merge_commit_message'].to_s != repository.squash_merge_commit_message.to_s
         update = true if remote_repository['merge_commit_title'].to_s != repository.merge_commit_title.to_s
@@ -230,7 +230,7 @@ module Backpack #nodoc
                                  :merge_commit_title => repository.merge_commit_title,
                                  :merge_commit_message => repository.merge_commit_message,
                                  :has_wiki => repository.wiki? }
-          unless repository.organization.private_forks?
+          unless repository.organization.private_forks? && !repository.organization.is_user_account?
             repository_options[:allow_forking] = repository.allow_forking?
           end
           unless repository.organization.repository_projects?
