@@ -230,7 +230,7 @@ module Backpack #nodoc
                                  :merge_commit_title => repository.merge_commit_title,
                                  :merge_commit_message => repository.merge_commit_message,
                                  :has_wiki => repository.wiki? }
-          unless repository.organization.private_forks? && !repository.organization.is_user_account?
+          if repository.organization.private_forks? && !repository.organization.is_user_account?
             repository_options[:allow_forking] = repository.allow_forking?
           end
           unless repository.organization.repository_projects?
