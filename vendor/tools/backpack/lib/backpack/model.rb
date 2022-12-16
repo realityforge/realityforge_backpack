@@ -42,6 +42,13 @@ module Backpack
       @repository_projects.nil? ? false : !!@repository_projects
     end
 
+    attr_writer :private_forks
+
+    # Allow forking of private repositories
+    def private_forks?
+      @private_forks.nil? ? true : !!@private_forks
+    end
+
     attr_writer :skip_updates_on_archived_repositories
 
     def skip_updates_on_archived_repositories?

@@ -178,8 +178,6 @@ module Backpack #nodoc
           return
         end
 
-        $stderr.puts remote_repository.to_h.to_json
-
         update = false
         update = true if remote_repository['description'].to_s != repository.description.to_s
         update = true if remote_repository['homepage'].to_s != repository.homepage.to_s
@@ -195,7 +193,7 @@ module Backpack #nodoc
         update = true if remote_repository['allow_update_branch'].to_s != repository.allow_update_branch?.to_s
         update = true if remote_repository['allow_auto_merge'].to_s != repository.allow_auto_merge?.to_s
         update = true if remote_repository['delete_branch_on_merge'].to_s != repository.delete_branch_on_merge?.to_s
-        update = true if remote_repository['allow_forking'].to_s != repository.allow_forking?.to_s
+        update = true if repository.organization.private_forks? && remote_repository['allow_forking'].to_s != repository.allow_forking?.to_s
         update = true if remote_repository['squash_merge_commit_title'].to_s != repository.squash_merge_commit_title.to_s
         update = true if remote_repository['squash_merge_commit_message'].to_s != repository.squash_merge_commit_message.to_s
         update = true if remote_repository['merge_commit_title'].to_s != repository.merge_commit_title.to_s
@@ -221,7 +219,6 @@ module Backpack #nodoc
                                  :has_projects => repository.projects?,
                                  :has_discussions => repository.discussions?,
                                  :archived => repository.archived?,
-                                 :allow_forking => repository.allow_forking?,
                                  :allow_squash_merge => repository.allow_squash_merge?,
                                  :allow_merge_commit => repository.allow_merge_commit?,
                                  :allow_auto_merge => repository.allow_auto_merge?,
@@ -233,6 +230,9 @@ module Backpack #nodoc
                                  :merge_commit_title => repository.merge_commit_title,
                                  :merge_commit_message => repository.merge_commit_message,
                                  :has_wiki => repository.wiki? }
+          unless repository.organization.private_forks?
+            repository_options[:allow_forking] = repository.allow_forking?
+          end
           unless repository.organization.repository_projects?
             # Can not specify has_projects option if repository projects are disabled, even if setting it to false
             repository_options[:has_projects] = repository.projects?
