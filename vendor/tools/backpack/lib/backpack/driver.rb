@@ -129,7 +129,7 @@ module Backpack #nodoc
             repository_full_name = "#{organization.name}/#{repository_name}"
             remote_teams =
               begin
-                context.client.repository_teams(repository_full_name, :accept => 'application/vnd.github.hellcat-preview+json')
+                context.client.repository_teams(repository_full_name)
               rescue Octokit::NotFound
                 []
               end
@@ -179,7 +179,6 @@ module Backpack #nodoc
           return
         end
 
-        update = false
         updated_features = []
         updated_features << "description => #{repository.description}" if remote_repository['description'].to_s != repository.description.to_s
         updated_features << "homepage => #{repository.homepage}" if remote_repository['homepage'].to_s != repository.homepage.to_s
@@ -208,7 +207,7 @@ module Backpack #nodoc
           updated_features << 'archive_status'
         end
 
-        if !updated_features.empty?
+        unless updated_features.empty?
           if 'true' == remote_repository['archived'].to_s
             raise "Can not modify repository #{repository.name} as it is archived."
           end
@@ -266,7 +265,7 @@ module Backpack #nodoc
 
           protection =
             begin
-              client.branch_protection(repository.qualified_name, branch_name, :accept => 'application/vnd.github.luke-cage-preview+json')
+              client.branch_protection(repository.qualified_name, branch_name)
             rescue Octokit::BranchNotProtected
               nil
             rescue Octokit::Forbidden
@@ -297,7 +296,7 @@ module Backpack #nodoc
 
             if protect
               puts "Updating protection on branch #{branch.name} in repository #{repository.qualified_name}"
-              config = { :accept => 'application/vnd.github.luke-cage-preview+json' }
+              config = {}
               config[:required_status_checks] = { :strict => branch.strict_status_checks?, :contexts => branch.status_check_contexts } if branch.require_status_check?
               config[:required_pull_request_reviews] = branch.require_reviews? ? {} : nil
               config[:enforce_admins] = branch.enforce_admins?
@@ -305,7 +304,7 @@ module Backpack #nodoc
             end
           elsif protection
             puts "Un-protecting branch #{branch_name} in repository #{repository.qualified_name}"
-            client.unprotect_branch(repository.qualified_name, branch_name, :accept => Octokit::Preview::PREVIEW_TYPES[:branch_protection])
+            client.unprotect_branch(repository.qualified_name, branch_name)
           end
         end
       end
