@@ -27,12 +27,12 @@ module Backpack #nodoc
       def converge_organization(context, organization)
         remote_organization = context.client.organization(organization.name)
 
-        update = false
-        update = true if remote_organization['has_organization_projects'].to_s != organization.organization_projects?.to_s
-        update = true if remote_organization['has_repository_projects'].to_s != organization.repository_projects?.to_s
+        updated_features = []
+        updated_features << "organization_projects => #{organization.organization_projects?}" if remote_organization['has_organization_projects'].to_s != organization.organization_projects?.to_s
+        updated_features << "repository_projects => #{organization.repository_projects?}" if remote_organization['has_repository_projects'].to_s != organization.repository_projects?.to_s
 
-        if update
-          puts "Updating organization #{organization.name}"
+        unless updated_features.empty?
+          puts "Updating organization #{organization.name}. Features updated: #{updated_features.inspect}"
           context.client.update_organization(organization.name,
                                              :has_organization_projects => organization.organization_projects?,
                                              :has_repository_projects => organization.repository_projects?)
@@ -68,7 +68,7 @@ module Backpack #nodoc
         update = true if remote_team['permission'] != team.permission
 
         if update
-          puts "Updating team #{team.name}"
+          puts "Updating team #{team.name} to permission #{team.permission}"
           context.client.update_team(team.github_id, :permission => team.permission)
         end
       end
@@ -139,7 +139,8 @@ module Backpack #nodoc
                 permission =
                   repository.admin_team_by_name?(name) ? 'admin' :
                     repository.push_team_by_name?(name) ? 'push' :
-                      repository.pull_team_by_name?(name) ? 'pull' : 'triage'
+                      repository.pull_team_by_name?(name) ? 'pull' :
+                        'triage'
 
                 team = organization.team_by_name(name)
                 update = false
@@ -152,7 +153,7 @@ module Backpack #nodoc
                 update = true if (permission == 'triage' && !(permissions[:triage]))
 
                 if update
-                  puts "Updating repository team #{team.name} on #{repository_full_name}"
+                  puts "Updating repository team #{team.name} on #{repository_full_name} to permission #{permission}"
                   context.client.add_team_repository(team.github_id, repository_full_name, :permission => permission)
                 end
               else
@@ -179,38 +180,40 @@ module Backpack #nodoc
         end
 
         update = false
-        update = true if remote_repository['description'].to_s != repository.description.to_s
-        update = true if remote_repository['homepage'].to_s != repository.homepage.to_s
-        update = true if remote_repository['private'].to_s != repository.private?.to_s
-        update = true if remote_repository['has_issues'].to_s != repository.issues?.to_s
-        update = true if remote_repository['has_discussions'].to_s != repository.discussions?.to_s
-        update = true if repository.organization.repository_projects? && remote_repository['has_projects'].to_s != repository.projects?.to_s
-        update = true if remote_repository['has_wiki'].to_s != repository.wiki?.to_s
-        update = true if remote_repository['default_branch'].to_s != repository.default_branch.to_s
-        update = true if remote_repository['allow_squash_merge'].to_s != repository.allow_squash_merge?.to_s
-        update = true if remote_repository['allow_merge_commit'].to_s != repository.allow_merge_commit?.to_s
-        update = true if remote_repository['allow_rebase_merge'].to_s != repository.allow_rebase_merge?.to_s
-        update = true if remote_repository['allow_update_branch'].to_s != repository.allow_update_branch?.to_s
-        update = true if remote_repository['allow_auto_merge'].to_s != repository.allow_auto_merge?.to_s
-        update = true if remote_repository['delete_branch_on_merge'].to_s != repository.delete_branch_on_merge?.to_s
-        update = true if repository.organization.private_forks? && !repository.organization.is_user_account? && remote_repository['allow_forking'].to_s != repository.allow_forking?.to_s
-        update = true if remote_repository['squash_merge_commit_title'].to_s != repository.squash_merge_commit_title.to_s
-        update = true if remote_repository['squash_merge_commit_message'].to_s != repository.squash_merge_commit_message.to_s
-        update = true if remote_repository['merge_commit_title'].to_s != repository.merge_commit_title.to_s
-        update = true if remote_repository['merge_commit_message'].to_s != repository.merge_commit_message.to_s
+        updated_features = []
+        updated_features << "description => #{repository.description}" if remote_repository['description'].to_s != repository.description.to_s
+        updated_features << "homepage => #{repository.homepage}" if remote_repository['homepage'].to_s != repository.homepage.to_s
+        updated_features << "private_status => #{repository.private?}" if remote_repository['private'].to_s != repository.private?.to_s
+        updated_features << "issues => #{repository.issues?}" if remote_repository['has_issues'].to_s != repository.issues?.to_s
+        updated_features << "discussions => #{repository.discussions?}" if remote_repository['has_discussions'].to_s != repository.discussions?.to_s
+        updated_features << "projects => #{repository.organization.repository_projects? && repository.projects?}" if repository.organization.repository_projects? && remote_repository['has_projects'].to_s != repository.projects?.to_s
+        updated_features << "wiki => #{repository.wiki?}" if remote_repository['has_wiki'].to_s != repository.wiki?.to_s
+        updated_features << "default_branch => #{repository.default_branch}" if remote_repository['default_branch'].to_s != repository.default_branch.to_s
+        updated_features << "allow_squash_merge => #{repository.allow_squash_merge?}" if remote_repository['allow_squash_merge'].to_s != repository.allow_squash_merge?.to_s
+        updated_features << "allow_merge_commit => #{repository.allow_merge_commit?}" if remote_repository['allow_merge_commit'].to_s != repository.allow_merge_commit?.to_s
+        updated_features << "allow_rebase_merge => #{repository.allow_rebase_merge?}" if remote_repository['allow_rebase_merge'].to_s != repository.allow_rebase_merge?.to_s
+        updated_features << "allow_update_branch => #{repository.allow_update_branch?}" if remote_repository['allow_update_branch'].to_s != repository.allow_update_branch?.to_s
+        updated_features << "allow_auto_merge => #{repository.allow_auto_merge?}" if remote_repository['allow_auto_merge'].to_s != repository.allow_auto_merge?.to_s
+        updated_features << "delete_branch_on_merge => #{repository.delete_branch_on_merge?}" if remote_repository['delete_branch_on_merge'].to_s != repository.delete_branch_on_merge?.to_s
+        updated_features << "allow_forking => #{repository.organization.private_forks? && repository.allow_forking?}" if repository.organization.private_forks? && !repository.organization.is_user_account? && remote_repository['allow_forking'].to_s != repository.allow_forking?.to_s
+        updated_features << "squash_merge_commit_title => #{repository.squash_merge_commit_title}" if remote_repository['squash_merge_commit_title'].to_s != repository.squash_merge_commit_title.to_s
+        updated_features << "squash_merge_commit_message => #{repository.squash_merge_commit_message}" if remote_repository['squash_merge_commit_message'].to_s != repository.squash_merge_commit_message.to_s
+        updated_features << "merge_commit_title => #{repository.merge_commit_title}" if remote_repository['merge_commit_title'].to_s != repository.merge_commit_title.to_s
+        updated_features << "merge_commit_message => #{repository.merge_commit_message}" if remote_repository['merge_commit_message'].to_s != repository.merge_commit_message.to_s
+
         if remote_repository['archived'].to_s != repository.archived?.to_s
           if 'true' == remote_repository['archived'].to_s
             raise "Can not un-archive repository #{repository.name} via the API"
           end
-          update = true
+          updated_features << 'archive_status'
         end
 
-        if update
+        if !updated_features.empty?
           if 'true' == remote_repository['archived'].to_s
             raise "Can not modify repository #{repository.name} as it is archived."
           end
 
-          puts "Updating repository #{repository.name}"
+          puts "Updating repository #{repository.name}. Features updated: #{updated_features.inspect}"
           repository_options = { :description => repository.description,
                                  :homepage => repository.homepage,
                                  :default_branch => repository.default_branch,
