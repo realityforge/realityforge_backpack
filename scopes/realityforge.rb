@@ -64,7 +64,6 @@ Belt.scope('realityforge') do |o|
   o.project('ssrs-api', :description => 'Generated SOAP interface to SSRS server', :tags => %w(travis))
 
   o.project('bazel-depgen', :description => 'Generate Bazel dependency scripts by traversing Maven repositories', :tags => %w(issues travis))
-  o.project('giggle', :description => 'Generate source code and artifacts from a GraphQL schema and operations', :tags => %w(issues travis))
 
   o.project('grim', :description => 'Ensure dead code is eliminated', :tags => %w(travis))
 
@@ -114,6 +113,9 @@ Belt.scope('realityforge') do |o|
   # Historic: Still in use but hopefully we will never have to update these
   o.project('rest-criteria', :description => 'A simple library for parsing criteria in rest services', :tags => %w(historic))
   o.project('rest-field-filter', :description => 'A simple library parsing field filters in rest APIs.', :tags => %w(historic))
+
+  # Historic: Still in use but one step away from being completely expunged from infra
+  o.project('giggle', :description => 'Generate source code and artifacts from a GraphQL schema and operations', :tags => %w(historic))
 
   # Historic: Merged into buildr
   o.project('mcrt', :description => 'Maven Central Release Tool: A ruby tool to close, promote and drop staging repositories', :tags => %w(historic))
