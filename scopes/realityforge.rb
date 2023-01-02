@@ -78,7 +78,6 @@ Belt.scope('realityforge') do |o|
 
   # Courses that are ongoing or still used for experiments
   #o.project('course-unreal-engine-the-ultimate-shooter', :description => 'Course work for "Unreal Engine C++ The Ultimate Shooter Course"', :tags => %w(default_branch=main))
-  o.project('course-intro-to-3d-animation', :description => 'Coursework for "Introduction to 3D Animation"', :tags => %w(default_branch=main))
   o.project('glfw-test', :tags => %w(default_branch=main))
 
   # Personal Music Exploration
@@ -167,6 +166,7 @@ Belt.scope('realityforge') do |o|
   o.project('Fabmedical', :description => 'Workshop for Azure container repository', :tags => %w(historic))
   o.project('wasm-contract-experiments', :description => 'Experiments using eWasm and Parity', :tags => %w(historic))
   o.project('course-blender-fundamentals-modeling', :description => 'Course work for "Blender Fundamentals - Modeling"', :tags => %w(default_branch=main historic))
+  o.project('course-intro-to-3d-animation', :description => 'Coursework for "Introduction to 3D Animation"', :tags => %w(default_branch=main historic))
   o.project('course-blender-sculpting-rune-sword', :description => 'Course work for "Blender Sculpting - Rune Sword"', :tags => %w(default_branch=main historic))
   o.project('course-substance-painter-rune-sword', :description => 'Course work for "Substance Painter - Rune Sword"', :tags => %w(default_branch=main historic))
   o.project('course-learn-a-frame', :description => 'Coursework for the "Coursework for the "Learn A-Frame And Get Ready For WebVR" course" course', :tags => %w(historic))
