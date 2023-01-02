@@ -263,6 +263,17 @@ module Backpack #nodoc
           branch_name = remote_branch['name']
           branch = repository.branch_by_name?(branch_name) ? repository.branch_by_name(branch_name) : nil
 
+          unless branch
+            repository.branches.each do |b|
+              if %w(* . [ +).any? { |ch| b.name.include?(ch) }
+                if /#{b.name}/.match(branch_name)
+                  branch = b
+                  break
+                end
+              end
+            end
+          end
+
           protection =
             begin
               client.branch_protection(repository.qualified_name, branch_name)
@@ -295,12 +306,12 @@ module Backpack #nodoc
             protect = true if (protection && protection[:enforce_admins] && protection[:enforce_admins][:enabled]) != branch.enforce_admins?
 
             if protect
-              puts "Updating protection on branch #{branch.name} in repository #{repository.qualified_name}"
+              puts "Updating protection on branch #{branch_name} in repository #{repository.qualified_name}"
               config = {}
               config[:required_status_checks] = { :strict => branch.strict_status_checks?, :contexts => branch.status_check_contexts } if branch.require_status_check?
               config[:required_pull_request_reviews] = branch.require_reviews? ? {} : nil
               config[:enforce_admins] = branch.enforce_admins?
-              client.protect_branch(repository.qualified_name, branch.name, config)
+              client.protect_branch(repository.qualified_name, branch_name, config)
             end
           elsif protection
             puts "Un-protecting branch #{branch_name} in repository #{repository.qualified_name}"
