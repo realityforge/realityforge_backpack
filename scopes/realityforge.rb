@@ -78,6 +78,7 @@ Belt.scope('realityforge') do |o|
 
   # Courses that are ongoing or still used for experiments
   #o.project('course-unreal-engine-the-ultimate-shooter', :description => 'Course work for "Unreal Engine C++ The Ultimate Shooter Course"', :tags => %w(default_branch=main))
+  o.project('course-blendertutorial', :description => 'Coursework for "Complete Blender Creator: Learn 3D Modelling for Beginners"', :tags => %w(default_branch=main))
 
   # Personal Music Exploration
   o.project('MusicBook', :description => 'Collections of thoughts on Music Theory', :tags => %w(private))
