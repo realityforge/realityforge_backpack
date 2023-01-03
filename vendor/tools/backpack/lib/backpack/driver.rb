@@ -192,7 +192,7 @@ module Backpack #nodoc
         updated_features << "allow_merge_commit => #{repository.allow_merge_commit?}" if remote_repository['allow_merge_commit'].to_s != repository.allow_merge_commit?.to_s
         updated_features << "allow_rebase_merge => #{repository.allow_rebase_merge?}" if remote_repository['allow_rebase_merge'].to_s != repository.allow_rebase_merge?.to_s
         updated_features << "allow_update_branch => #{repository.allow_update_branch?}" if remote_repository['allow_update_branch'].to_s != repository.allow_update_branch?.to_s
-        updated_features << "allow_auto_merge => #{repository.allow_auto_merge?}" if remote_repository['allow_auto_merge'].to_s != repository.allow_auto_merge?.to_s
+        updated_features << "allow_auto_merge => #{repository.allow_auto_merge?}" if !repository.private? && remote_repository['allow_auto_merge'].to_s != repository.allow_auto_merge?.to_s
         updated_features << "delete_branch_on_merge => #{repository.delete_branch_on_merge?}" if remote_repository['delete_branch_on_merge'].to_s != repository.delete_branch_on_merge?.to_s
         updated_features << "allow_forking => #{repository.organization.private_forks? && repository.allow_forking?}" if repository.organization.private_forks? && !repository.organization.is_user_account? && remote_repository['allow_forking'].to_s != repository.allow_forking?.to_s
         updated_features << "squash_merge_commit_title => #{repository.squash_merge_commit_title}" if remote_repository['squash_merge_commit_title'].to_s != repository.squash_merge_commit_title.to_s
