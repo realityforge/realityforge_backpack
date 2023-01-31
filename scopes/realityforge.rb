@@ -47,7 +47,6 @@ Belt.scope('realityforge') do |o|
   o.project('gwt-serviceworker-linker', :description => 'A GWT linker that generates a serviceworker.', :tags => %w(travis codecov))
   o.project('housekeeping-scripts', :description => 'Sets of scripts used to perform housekeeping at home and in the wild')
 
-  o.project('jndikit', :description => 'a toolkit designed to help with the construction of JNDI providers', :tags => %w(travis))
   o.project('timeservice', :description => 'A simple EE service to get constant now within transaction', :tags => %w(travis))
   o.project('proxy-servlet', :description => 'A servlet for creating proxy services', :tags => %w(travis))
   o.project('reality-mda', :description => 'The glue that blends reality-core, reality-model, reality-generators and reality-facets into an model driven application.', :tags => %w(travis))
@@ -112,6 +111,7 @@ Belt.scope('realityforge') do |o|
   # Historic: Still in use but hopefully we will never have to update these
   o.project('rest-criteria', :description => 'A simple library for parsing criteria in rest services', :tags => %w(historic))
   o.project('rest-field-filter', :description => 'A simple library parsing field filters in rest APIs.', :tags => %w(historic))
+  o.project('jndikit', :description => 'a toolkit designed to help with the construction of JNDI providers', :tags => %w(historic))
 
   # Historic: Still in use but one step away from being completely expunged from infra
   o.project('giggle', :description => 'Generate source code and artifacts from a GraphQL schema and operations', :tags => %w(historic))
