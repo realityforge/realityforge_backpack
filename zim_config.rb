@@ -22,7 +22,7 @@ braid_tasks('way_of_stock' => 'vendor/docs/way_of_stock',
             'rptman' => 'vendor/tools/rptman')
 
 ruby_upgrade('2.6.6', '2.7.2')
-bazel_update(nil, '6.1.0')
+bazel_update(nil, '6.1.1')
 
 patch_gem('realityforge-buildr', %w(1.5.9 1.5.10 1.5.11 1.5.12 1.5.13 1.5.14 1.5.15 1.5.16 1.5.17 1.5.18 1.5.19 1.5.20), '1.5.21')
 patch_gem('braid', %w(1.0.18 1.0.19 1.0.20 1.0.21 1.0.22 1.0.3 1.1.0 1.1.1 1.1.2 1.1.3 1.1.4 1.1.5), '1.1.6')
