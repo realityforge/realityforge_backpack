@@ -79,7 +79,6 @@ Belt.scope('realityforge') do |o|
   #o.project('course-unreal-engine-the-ultimate-shooter', :description => 'Course work for "Unreal Engine C++ The Ultimate Shooter Course"', :tags => %w(default_branch=main))
   o.project('course-unreal-cinematic', :description => 'Course work for "Unreal Engine Cinematic Creator: Video Game Design Course"', :tags => %w(default_branch=main))
   o.project('course-blendertutorial', :description => 'Coursework for "Complete Blender Creator: Learn 3D Modelling for Beginners"', :tags => %w(default_branch=main))
-  o.project('course-learn-stylized-game-art-creation-blender-and-painter', :description => 'Coursework for "Learn Stylized Game Art Creation : Blender and Painter"', :tags => %w(default_branch=main))
   o.project('aie_course', :description => 'Coursework for "AIE Art Course"', :tags => %w(default_branch=main))
 
   # Personal Music Exploration
@@ -169,6 +168,7 @@ Belt.scope('realityforge') do |o|
   o.project('GraphicShaders', :description => 'A code repository of the Graphic Shaders book', :tags => %w(historic))
   o.project('Fabmedical', :description => 'Workshop for Azure container repository', :tags => %w(historic))
   o.project('wasm-contract-experiments', :description => 'Experiments using eWasm and Parity', :tags => %w(historic))
+  o.project('course-learn-stylized-game-art-creation-blender-and-painter', :description => 'Coursework for "Learn Stylized Game Art Creation : Blender and Painter"', :tags => %w(default_branch=main historic))
   o.project('course-blender-fundamentals-modeling', :description => 'Course work for "Blender Fundamentals - Modeling"', :tags => %w(default_branch=main historic))
   o.project('course-intro-to-3d-animation', :description => 'Coursework for "Introduction to 3D Animation"', :tags => %w(default_branch=main historic))
   o.project('course-blender-sculpting-rune-sword', :description => 'Course work for "Blender Sculpting - Rune Sword"', :tags => %w(default_branch=main historic))
