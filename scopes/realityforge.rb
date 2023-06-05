@@ -76,11 +76,15 @@ Belt.scope('realityforge') do |o|
   o.project('knife-cookbook-doc', :description => 'Knife plugin to document cookbooks', :tags => %w(travis pages issues))
 
   # Courses that are ongoing or still used for experiments
-  #o.project('course-unreal-engine-the-ultimate-shooter', :description => 'Course work for "Unreal Engine C++ The Ultimate Shooter Course"', :tags => %w(default_branch=main))
+  o.project('course-unreal-engine-the-ultimate-shooter', :description => 'Course work for "Unreal Engine C++ The Ultimate Shooter Course"', :tags => %w(default_branch=main))
+  o.project('course-rigging-basics-for-games', :description => 'Coursework for "Rigging 101 For Games | Maya 2020"', :tags => %w(default_branch=main))
   o.project('course-unreal-cinematic', :description => 'Course work for "Unreal Engine Cinematic Creator: Video Game Design Course"', :tags => %w(default_branch=main))
   o.project('course-complete-guide-to-zbrush-2022', :description => 'Course work for "Complete Guide to Zbrush 2022"', :tags => %w(default_branch=main))
   o.project('course-blendertutorial', :description => 'Coursework for "Complete Blender Creator: Learn 3D Modelling for Beginners"', :tags => %w(default_branch=main))
   o.project('aie_course', :description => 'Coursework for "AIE Art Course"', :tags => %w(default_branch=main))
+
+  o.project('maya-experiments', :description => 'A repository containing modelling experiments', :tags => %w(default_branch=main))
+  o.project('MayaAutomation', :description => 'A repository to experiment with Python+Maya+Bazel automation', :tags => %w(default_branch=main))
 
   # Personal Music Exploration
   o.project('MusicBook', :description => 'Collections of thoughts on Music Theory', :tags => %w(private))
@@ -204,6 +208,11 @@ Belt.scope('realityforge') do |o|
   # External projects that have been forked to keep a copy of source
   o.project('gwt-cal', :tags => %w(external historic))
   o.project('Piano-Trainer', :description => 'A web-app for training sheet reading skills by using your MIDI-enabled piano.', :tags => %w(external historic))
+  o.project('maya', :description => 'Various small scripts I use regularly.', :tags => %w(external historic))
+  o.project('UE5-Dream', :description => 'UE5Dream - Local version', :tags => %w(external historic))
+  o.project('uassets', :description => 'A content plugin for Unreal Engine filled with miscellaneous useful assets.', :tags => %w(external historic))
+  o.project('UnrealEditorPythonScripts', :tags => %w(external historic))
+  o.project('UnrealImporterRules-Python', :tags => %w(external historic))
 
   # External Game projects that exist to keep a copy of source
   o.project('quake2-gwt-port', :description => 'Automatically exported from https://code.google.com/p/quake2-gwt-port', :tags => %w(external historic))
