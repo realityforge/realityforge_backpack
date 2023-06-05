@@ -209,10 +209,10 @@ Belt.scope('realityforge') do |o|
   o.project('gwt-cal', :tags => %w(external historic))
   o.project('Piano-Trainer', :description => 'A web-app for training sheet reading skills by using your MIDI-enabled piano.', :tags => %w(external historic))
   o.project('maya', :description => 'Various small scripts I use regularly.', :tags => %w(external historic))
-  o.project('UE5-Dream', :description => 'UE5Dream - Local version', :tags => %w(external historic))
+  o.project('UE5-Dream', :description => 'UE5Dream - Local version', :tags => %w(external historic default_branch=main))
   o.project('uassets', :description => 'A content plugin for Unreal Engine filled with miscellaneous useful assets.', :tags => %w(external historic))
   o.project('UnrealEditorPythonScripts', :tags => %w(external historic))
-  o.project('UnrealImporterRules-Python', :tags => %w(external historic))
+  o.project('UnrealImporterRules-Python', :tags => %w(external historic default_branch=main))
 
   # External Game projects that exist to keep a copy of source
   o.project('quake2-gwt-port', :description => 'Automatically exported from https://code.google.com/p/quake2-gwt-port', :tags => %w(external historic))
