@@ -84,6 +84,7 @@ Belt.scope('realityforge') do |o|
   o.project('aie_course', :description => 'Coursework for "AIE Art Course"', :tags => %w(default_branch=main))
 
   o.project('maya-experiments', :description => 'A repository containing modelling experiments', :tags => %w(default_branch=main))
+  o.project('maya-example-rigs', :description => 'A repository containing good examples of maya rigs that are freely available', :tags => %w(default_branch=main))
   o.project('MayaAutomation', :description => 'A repository to experiment with Python+Maya+Bazel automation', :tags => %w(default_branch=main))
 
   # Personal Music Exploration
