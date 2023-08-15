@@ -210,6 +210,7 @@ Belt.scope('realityforge') do |o|
 
   # External projects that have been forked to keep a copy of source
   o.project('gwt-cal', :tags => %w(external historic))
+  o.project('master-of-puppets', :description => 'Simple and fast modular autorig for maya.', :tags => %w(external historic))
   o.project('Piano-Trainer', :description => 'A web-app for training sheet reading skills by using your MIDI-enabled piano.', :tags => %w(external historic))
   o.project('maya', :description => 'Various small scripts I use regularly.', :tags => %w(external historic))
   o.project('UE5-Dream', :description => 'UE5Dream - Local version', :tags => %w(external historic default_branch=main))
