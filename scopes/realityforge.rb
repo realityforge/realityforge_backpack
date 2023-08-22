@@ -5,6 +5,8 @@ Belt.scope('realityforge') do |o|
   o.project('gla', :description => 'An OpenGL Loading Library.')
   o.project('braincheck-c', :description => 'A tiny C library to verify invariants and simplify debugging without leaving a trace in production code.', :tags => %w(default_branch=main))
 
+  o.project('way_of_realityforge', :tags => %w(homepage=https://realityforge.org/way_of_realityforge/ default_branch=main))
+
   o.project('buildr', :description => 'A stripped down fork of Buildr that works in modern environments.')
   o.project('buildr_plus', :description => 'A simple set of extensions that patch and customize buildr to our requirements.', :tags => %w(notify:stock))
   o.project('dbt', :description => 'A simple tool designed to simplify the creation, migration and deletion of databases.', :tags => %w(notify:stock travis pages))
@@ -209,6 +211,7 @@ Belt.scope('realityforge') do |o|
 
   # External projects that have been forked to keep a copy of source
   o.project('gwt-cal', :tags => %w(external historic))
+  o.project('master-of-puppets', :description => 'Simple and fast modular autorig for maya.', :tags => %w(external historic))
   o.project('Piano-Trainer', :description => 'A web-app for training sheet reading skills by using your MIDI-enabled piano.', :tags => %w(external historic))
   o.project('maya', :description => 'Various small scripts I use regularly.', :tags => %w(external historic))
   o.project('UE5-Dream', :description => 'UE5Dream - Local version', :tags => %w(external historic default_branch=main))
