@@ -80,7 +80,6 @@ Belt.scope('realityforge') do |o|
   # Courses that are ongoing or still used for experiments
   o.project('course-unreal-engine-the-ultimate-shooter', :description => 'Coursework for "Unreal Engine C++ The Ultimate Shooter Course"', :tags => %w(default_branch=main))
   o.project('course-advanced-unreal-engine-5-multiplayer-gameplay-programming', :description => 'Coursework for "Advanced Unreal Engine 5 Multiplayer Gameplay Programming"', :tags => %w(default_branch=main))
-  o.project('course-animateprowalks', :description => 'Coursework for "Animate a Professional Looking Walk in Autodesk Maya"', :tags => %w(default_branch=main))
   o.project('course-rigging-basics-for-games', :description => 'Coursework for "Rigging 101 For Games | Maya 2020"', :tags => %w(default_branch=main))
   o.project('course-unreal-cinematic', :description => 'Course work for "Unreal Engine Cinematic Creator: Video Game Design Course"', :tags => %w(default_branch=main))
   o.project('course-complete-guide-to-zbrush-2022', :description => 'Course work for "Complete Guide to Zbrush 2022"', :tags => %w(default_branch=main))
@@ -178,6 +177,7 @@ Belt.scope('realityforge') do |o|
   o.project('GraphicShaders', :description => 'A code repository of the Graphic Shaders book', :tags => %w(historic))
   o.project('Fabmedical', :description => 'Workshop for Azure container repository', :tags => %w(historic))
   o.project('wasm-contract-experiments', :description => 'Experiments using eWasm and Parity', :tags => %w(historic))
+  o.project('course-animateprowalks', :description => 'Coursework for "Animate a Professional Looking Walk in Autodesk Maya"', :tags => %w(default_branch=main historic))
   o.project('course-learn-stylized-game-art-creation-blender-and-painter', :description => 'Coursework for "Learn Stylized Game Art Creation : Blender and Painter"', :tags => %w(default_branch=main historic))
   o.project('course-blender-fundamentals-modeling', :description => 'Course work for "Blender Fundamentals - Modeling"', :tags => %w(default_branch=main historic))
   o.project('course-intro-to-3d-animation', :description => 'Coursework for "Introduction to 3D Animation"', :tags => %w(default_branch=main historic))
