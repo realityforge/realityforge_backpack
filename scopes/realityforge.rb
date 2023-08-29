@@ -80,6 +80,7 @@ Belt.scope('realityforge') do |o|
   # Courses that are ongoing or still used for experiments
   o.project('course-unreal-engine-5-cpp-multiplayer-shooter', :description => 'Coursework for "Unreal Engine 5 C++ Multiplayer Shooter"', :tags => %w(default_branch=main))
   o.project('course-unreal-engine-the-ultimate-shooter', :description => 'Coursework for "Unreal Engine C++ The Ultimate Shooter Course"', :tags => %w(default_branch=main))
+  o.project('course-procedural-animation', :description => 'Coursework for "Procedural animation for humans in Unreal Engine 5"', :tags => %w(default_branch=main))
   o.project('course-advanced-unreal-engine-5-multiplayer-gameplay-programming', :description => 'Coursework for "Advanced Unreal Engine 5 Multiplayer Gameplay Programming"', :tags => %w(default_branch=main))
   o.project('course-unreal-cinematic', :description => 'Course work for "Unreal Engine Cinematic Creator: Video Game Design Course"', :tags => %w(default_branch=main))
   o.project('course-complete-guide-to-zbrush-2022', :description => 'Course work for "Complete Guide to Zbrush 2022"', :tags => %w(default_branch=main))
