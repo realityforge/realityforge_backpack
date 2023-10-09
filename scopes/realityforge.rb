@@ -78,6 +78,7 @@ Belt.scope('realityforge') do |o|
   o.project('knife-cookbook-doc', :description => 'Knife plugin to document cookbooks', :tags => %w(travis pages issues))
 
   # Courses that are ongoing or still used for experiments
+  o.project('RuleRanger', :description => 'Enforce Rules, Elevate Artistry', :tags => %w(default_branch=main))
   o.project('course-unreal-engine-5-cpp-multiplayer-shooter', :description => 'Coursework for "Unreal Engine 5 C++ Multiplayer Shooter"', :tags => %w(default_branch=main))
   o.project('course-unreal-engine-the-ultimate-shooter', :description => 'Coursework for "Unreal Engine C++ The Ultimate Shooter Course"', :tags => %w(default_branch=main))
   o.project('course-procedural-animation', :description => 'Coursework for "Procedural animation for humans in Unreal Engine 5"', :tags => %w(default_branch=main))
@@ -213,6 +214,7 @@ Belt.scope('realityforge') do |o|
   o.project('artemis-framework', :description => 'A mirror of https://code.google.com/p/artemis-framework', :tags => %w(external historic))
 
   # External projects that have been forked to keep a copy of source
+  o.project('compiling-unreal', :tags => %w(external historic))
   o.project('gwt-cal', :tags => %w(external historic))
   o.project('master-of-puppets', :description => 'Simple and fast modular autorig for maya.', :tags => %w(external historic))
   o.project('Piano-Trainer', :description => 'A web-app for training sheet reading skills by using your MIDI-enabled piano.', :tags => %w(external historic))
