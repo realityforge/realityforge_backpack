@@ -79,6 +79,7 @@ Belt.scope('realityforge') do |o|
 
   # Courses that are ongoing or still used for experiments
   o.project('RuleRanger', :description => 'Enforce Rules, Elevate Artistry', :tags => %w(default_branch=main))
+  o.project('MaterialMelody', :description => 'Material Functions for your Master Materials', :tags => %w(default_branch=main))
   o.project('course-unreal-engine-5-cpp-multiplayer-shooter', :description => 'Coursework for "Unreal Engine 5 C++ Multiplayer Shooter"', :tags => %w(default_branch=main))
   o.project('course-unreal-engine-the-ultimate-shooter', :description => 'Coursework for "Unreal Engine C++ The Ultimate Shooter Course"', :tags => %w(default_branch=main))
   o.project('course-procedural-animation', :description => 'Coursework for "Procedural animation for humans in Unreal Engine 5"', :tags => %w(default_branch=main))
@@ -87,6 +88,7 @@ Belt.scope('realityforge') do |o|
   o.project('course-complete-guide-to-zbrush-2022', :description => 'Course work for "Complete Guide to Zbrush 2022"', :tags => %w(default_branch=main))
   o.project('aie_course', :description => 'Coursework for "AIE Art Course"', :tags => %w(default_branch=main))
 
+  o.project('substance-designer-experiments', :description => 'A repository containing Substance Designer experiments', :tags => %w(default_branch=main))
   o.project('blender-experiments', :description => 'A repository containing Blender modelling experiments', :tags => %w(default_branch=main))
   o.project('maya-experiments', :description => 'A repository containing Maya modelling experiments', :tags => %w(default_branch=main))
   o.project('maya-example-rigs', :description => 'A repository containing good examples of maya rigs that are freely available', :tags => %w(default_branch=main))
@@ -110,6 +112,8 @@ Belt.scope('realityforge') do |o|
   o.project('phd-framework-presentation', :tags => %w(default_branch=main historic))
   o.project('phd-whirlwind-article-micc', :tags => %w(default_branch=main historic))
   o.project('phd-seminar-may-2005', :tags => %w(default_branch=main historic))
+
+  o.project('MumShortFilm', :description => 'The scene developed for Virtual Production usage in the short film "Mum"', :tags => %w(private default_branch=main historic))
 
   # historic as no need to patch these in the future ... or so it is hoped
   o.project('j2cl', :description => 'Java to closure style javascript transpiler', :tags => %w(external historic))
@@ -215,7 +219,7 @@ Belt.scope('realityforge') do |o|
   o.project('artemis-framework', :description => 'A mirror of https://code.google.com/p/artemis-framework', :tags => %w(external historic))
 
   # External projects that have been forked to keep a copy of source
-  o.project('compiling-unreal', :tags => %w(external historic))
+  o.project('Portal_ProjectV3', :description => 'This project is a recreation of the portal mechanics with Unreal Engine 5.0', :tags => %w(external historic default_branch=main))
   o.project('gwt-cal', :tags => %w(external historic))
   o.project('master-of-puppets', :description => 'Simple and fast modular autorig for maya.', :tags => %w(external historic))
   o.project('Piano-Trainer', :description => 'A web-app for training sheet reading skills by using your MIDI-enabled piano.', :tags => %w(external historic))
