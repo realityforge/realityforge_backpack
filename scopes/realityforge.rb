@@ -2,6 +2,8 @@ Belt.scope('realityforge') do |o|
   o.project('realityforge_backpack', :description => 'Project for managing realityforge repositories.', :tags => %w(zapwhite=no))
   o.project('bash.d', :description => 'A set of bash scripts that run on shell startup.')
 
+  o.project('substance-designer-materials', :description => 'A collection of potentially reusable materials extracted from various projects', :tags => %w(default_branch=main))
+
   o.project('gla', :description => 'An OpenGL Loading Library.')
   o.project('braincheck-c', :description => 'A tiny C library to verify invariants and simplify debugging without leaving a trace in production code.', :tags => %w(default_branch=main))
 
@@ -72,6 +74,7 @@ Belt.scope('realityforge') do |o|
 
   # The "game" project to keep me sane
   o.project('Quake-III-Arena', :tags => %w(homepage=https://realityforge.org/Quake-III-Arena/ projects issues))
+
 
   # Chef related code still in use and maintained (by others?)
   o.project('chef-glassfish', :description => 'A cookbook for managing GlassFish', :tags => %w(travis))
