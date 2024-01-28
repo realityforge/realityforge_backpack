@@ -88,7 +88,6 @@ Belt.scope('realityforge') do |o|
   o.project('course-advanced-unreal-engine-5-multiplayer-gameplay-programming', :description => 'Coursework for "Advanced Unreal Engine 5 Multiplayer Gameplay Programming"', :tags => %w(default_branch=main))
   o.project('course-unreal-cinematic', :description => 'Course work for "Unreal Engine Cinematic Creator: Video Game Design Course"', :tags => %w(default_branch=main))
   o.project('course-complete-guide-to-zbrush-2022', :description => 'Course work for "Complete Guide to Zbrush 2022"', :tags => %w(default_branch=main))
-  o.project('aie_course', :description => 'Coursework for "AIE Art Course"', :tags => %w(default_branch=main))
 
   o.project('substance-designer-experiments', :description => 'A repository containing Substance Designer experiments', :tags => %w(default_branch=main))
   o.project('blender-experiments', :description => 'A repository containing Blender modelling experiments', :tags => %w(default_branch=main))
@@ -104,6 +103,9 @@ Belt.scope('realityforge') do |o|
 
   # Notes about people I have met on the Journey
   o.project('peopledb', :tags => %w(private default_branch=main))
+
+  # AIE course
+  o.project('aie_course', :description => 'Coursework for "AIE Art Course"', :tags => %w(private default_branch=main historic))
 
   # Documents and code relating to my phd
   o.project('phd-whirlwind-article', :tags => %w(private default_branch=main historic))
