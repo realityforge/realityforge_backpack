@@ -105,6 +105,7 @@ Belt.scope('realityforge') do |o|
   o.project('peopledb', :tags => %w(private default_branch=main))
 
   # AIE course
+  o.project('aie_course_year2', :description => 'Coursework for "AIE Art Course Year 2"', :tags => %w(private default_branch=main))
   o.project('aie_course', :description => 'Coursework for "AIE Art Course"', :tags => %w(private default_branch=main historic))
 
   # Documents and code relating to my phd
