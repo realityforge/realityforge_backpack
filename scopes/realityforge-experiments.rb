@@ -7,7 +7,7 @@ Belt.scope('realityforge-experiments') do |o|
   o.project('recastnavigation', :description => 'Navigation-mesh Toolset for Games', :tags => %w(external))
 
   # Projects that purely exist so that I can keep a copy of source for reference purposes
-  o.project('compiling-unreal', :description => 'A man''s notes as he discovers how Unreal Engine compiles things', :tags => %w(external historic))
+  o.project('compiling-unreal', :description => 'A man''s notes as he discovers how Unreal Engine compiles things', :tags => %w(external default_branch=main historic))
   o.project('3zb2', :description => '3rd Zigock Bot II for Yamagi Quake II', :tags => %w(external historic))
   o.project('OpenWolf-Engine', :description => 'Heavy modified idTech3 engine', :tags => %w(external historic))
   o.project('q3d3d12', :description => 'Quake III Arena: Ported to D3D12, Xbox One, HoloLens', :tags => %w(external historic default_branch=main))
