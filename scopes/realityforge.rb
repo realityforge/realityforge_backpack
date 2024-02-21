@@ -2,7 +2,7 @@ Belt.scope('realityforge') do |o|
   o.project('realityforge_backpack', :description => 'Project for managing realityforge repositories.', :tags => %w(zapwhite=no))
   o.project('bash.d', :description => 'A set of bash scripts that run on shell startup.')
 
-  o.project('substance-designer-materials', :description => 'A collection of potentially reusable materials extracted from various projects', :tags => %w(default_branch=main))
+  o.project('substance-designer-materials', :description => 'A collection of potentially reusable materials extracted from various projects', :tags => %w(default_branch=main zim=no))
   o.project('RuleRanger', :description => 'Enforce Rules, Elevate Artistry', :tags => %w(default_branch=main))
   o.project('MaterialMelody', :description => 'Material Functions for your Master Materials', :tags => %w(default_branch=main))
 
@@ -81,8 +81,8 @@ Belt.scope('realityforge') do |o|
   o.project('knife-cookbook-doc', :description => 'Knife plugin to document cookbooks', :tags => %w(travis pages issues))
 
   # Courses that are ongoing or still used for experiments
-  o.project('course-art-tools-using-geometry-nodes', :description => 'Coursework for "Creating Art Tools using Blender Geometry Nodes"', :tags => %w(default_branch=main))
-  o.project('course-advanced-trim-sheets', :description => 'Coursework for "Creating Advanced Trim Sheet Textures for Games"', :tags => %w(default_branch=main))
+  o.project('course-art-tools-using-geometry-nodes', :description => 'Coursework for "Creating Art Tools using Blender Geometry Nodes"', :tags => %w(default_branch=main zim=no))
+  o.project('course-advanced-trim-sheets', :description => 'Coursework for "Creating Advanced Trim Sheet Textures for Games"', :tags => %w(default_branch=main zim=no))
   o.project('course-unreal-engine-5-cpp-multiplayer-shooter', :description => 'Coursework for "Unreal Engine 5 C++ Multiplayer Shooter"', :tags => %w(default_branch=main))
   o.project('course-unreal-engine-the-ultimate-shooter', :description => 'Coursework for "Unreal Engine C++ The Ultimate Shooter Course"', :tags => %w(default_branch=main))
   o.project('course-procedural-animation', :description => 'Coursework for "Procedural animation for humans in Unreal Engine 5"', :tags => %w(default_branch=main))
@@ -90,24 +90,24 @@ Belt.scope('realityforge') do |o|
   o.project('course-unreal-cinematic', :description => 'Course work for "Unreal Engine Cinematic Creator: Video Game Design Course"', :tags => %w(default_branch=main))
   o.project('course-complete-guide-to-zbrush-2022', :description => 'Course work for "Complete Guide to Zbrush 2022"', :tags => %w(default_branch=main))
 
-  o.project('substance-designer-experiments', :description => 'A repository containing Substance Designer experiments', :tags => %w(default_branch=main))
-  o.project('blender-experiments', :description => 'A repository containing Blender modelling experiments', :tags => %w(default_branch=main))
-  o.project('maya-experiments', :description => 'A repository containing Maya modelling experiments', :tags => %w(default_branch=main))
-  o.project('maya-example-rigs', :description => 'A repository containing good examples of maya rigs that are freely available', :tags => %w(default_branch=main))
-  o.project('MayaAutomation', :description => 'A repository to experiment with Python+Maya+Bazel automation', :tags => %w(default_branch=main))
+  o.project('substance-designer-experiments', :description => 'A repository containing Substance Designer experiments', :tags => %w(default_branch=main zim=no))
+  o.project('blender-experiments', :description => 'A repository containing Blender modelling experiments', :tags => %w(default_branch=main zim=no))
+  o.project('maya-experiments', :description => 'A repository containing Maya modelling experiments', :tags => %w(default_branch=main zim=no))
+  o.project('maya-example-rigs', :description => 'A repository containing good examples of maya rigs that are freely available', :tags => %w(default_branch=main zim=no))
+  o.project('MayaAutomation', :description => 'A repository to experiment with Python+Maya+Bazel automation', :tags => %w(default_branch=main zim=no))
 
   # Personal Music Exploration
-  o.project('MusicBook', :description => 'Collections of thoughts on Music Theory', :tags => %w(private))
+  o.project('MusicBook', :description => 'Collections of thoughts on Music Theory', :tags => %w(private zim=no))
 
   # Personal GameDev Exploration
-  o.project('GameDevBook', :description => 'Collections of thoughts on Game Development', :tags => %w(private))
+  o.project('GameDevBook', :description => 'Collections of thoughts on Game Development', :tags => %w(private zim=no))
 
   # Notes about people I have met on the Journey
-  o.project('peopledb', :tags => %w(private default_branch=main))
+  o.project('peopledb', :tags => %w(private default_branch=main zim=no))
 
   # AIE course
-  o.project('aie_course_year2', :description => 'Coursework for "AIE Art Course Year 2"', :tags => %w(private default_branch=main))
-  o.project('aie_course', :description => 'Coursework for "AIE Art Course"', :tags => %w(private default_branch=main historic))
+  o.project('aie_course_year2', :description => 'Coursework for "AIE Art Course Year 2"', :tags => %w(private default_branch=main zim=no))
+  o.project('aie_course', :description => 'Coursework for "AIE Art Course"', :tags => %w(private default_branch=main historic zim=no))
 
   # Documents and code relating to my phd
   o.project('phd-whirlwind-article', :tags => %w(private default_branch=main historic))
