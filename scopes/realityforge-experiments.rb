@@ -1,10 +1,10 @@
 Belt.scope('realityforge-experiments') do |o|
   # Projects that purely exist so that I can keep a copy of source for reference purposes that are still active
-  o.project('Quake2Game', :description => 'A WIP fork of Quake 2 intended to add features more commonly seen in modern game engines.', :tags => %w(external))
-  o.project('planet_quake', :description => 'Combination of graphics and features from many different games.', :tags => %w(external))
-  o.project('planet_quake_game', :description => 'Game QVMs for many different game dynamics.', :tags => %w(external))
-  o.project('RBDOOM-3-BFG', :description => 'Doom 3 BFG Edition with modern engine features (2021) like PBR, Baked Global Illumination, Soft Shadows, Cleaned up source, Linux and 64 bit Support', :tags => %w(external))
-  o.project('recastnavigation', :description => 'Navigation-mesh Toolset for Games', :tags => %w(external))
+  o.project('Quake2Game', :description => 'A WIP fork of Quake 2 intended to add features more commonly seen in modern game engines.', :tags => %w(external zim=no))
+  o.project('planet_quake', :description => 'Combination of graphics and features from many different games.', :tags => %w(external zim=no))
+  o.project('planet_quake_game', :description => 'Game QVMs for many different game dynamics.', :tags => %w(external zim=no))
+  o.project('RBDOOM-3-BFG', :description => 'Doom 3 BFG Edition with modern engine features (2021) like PBR, Baked Global Illumination, Soft Shadows, Cleaned up source, Linux and 64 bit Support', :tags => %w(external zim=no))
+  o.project('recastnavigation', :description => 'Navigation-mesh Toolset for Games', :tags => %w(external zim=no))
 
   # Projects that purely exist so that I can keep a copy of source for reference purposes
   o.project('compiling-unreal', :description => 'A man''s notes as he discovers how Unreal Engine compiles things', :tags => %w(external default_branch=main historic))
