@@ -80,7 +80,6 @@ Belt.scope('realityforge') do |o|
   o.project('knife-cookbook-doc', :description => 'Knife plugin to document cookbooks', :tags => %w(travis pages issues))
 
   # Courses that are ongoing or still used for experiments
-  o.project('course-hard-surface-modeling-jumpstart', :description => 'Coursework for "Hard Surface Modeling Jumpstart"', :tags => %w(default_branch=main zim=no))
   o.project('course-creating-custom-decals-for-games', :description => 'Coursework for "Creating Custom Decals for Games"', :tags => %w(default_branch=main zim=no))
   o.project('course-hard-surface-modeling-jumpstart', :description => 'Coursework for "Hard Surface Modeling Jumpstart"', :tags => %w(default_branch=main zim=no))
   o.project('course-art-tools-using-geometry-nodes', :description => 'Coursework for "Creating Art Tools using Blender Geometry Nodes"', :tags => %w(default_branch=main zim=no))
