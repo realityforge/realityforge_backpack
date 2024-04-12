@@ -82,7 +82,6 @@ Belt.scope('realityforge') do |o|
   # Courses that are ongoing or still used for experiments
   o.project('course-creating-custom-decals-for-games', :description => 'Coursework for "Creating Custom Decals for Games"', :tags => %w(default_branch=main zim=no))
   o.project('course-art-tools-using-geometry-nodes', :description => 'Coursework for "Creating Art Tools using Blender Geometry Nodes"', :tags => %w(default_branch=main zim=no))
-  o.project('course-advanced-trim-sheets', :description => 'Coursework for "Creating Advanced Trim Sheet Textures for Games"', :tags => %w(default_branch=main zim=no))
   o.project('course-unreal-engine-5-cpp-multiplayer-shooter', :description => 'Coursework for "Unreal Engine 5 C++ Multiplayer Shooter"', :tags => %w(default_branch=main))
   o.project('course-unreal-engine-the-ultimate-shooter', :description => 'Coursework for "Unreal Engine C++ The Ultimate Shooter Course"', :tags => %w(default_branch=main))
   o.project('course-procedural-animation', :description => 'Coursework for "Procedural animation for humans in Unreal Engine 5"', :tags => %w(default_branch=main))
@@ -189,6 +188,7 @@ Belt.scope('realityforge') do |o|
   o.project('GraphicShaders', :description => 'A code repository of the Graphic Shaders book', :tags => %w(historic))
   o.project('Fabmedical', :description => 'Workshop for Azure container repository', :tags => %w(historic))
   o.project('wasm-contract-experiments', :description => 'Experiments using eWasm and Parity', :tags => %w(historic))
+  o.project('course-advanced-trim-sheets', :description => 'Coursework for "Creating Advanced Trim Sheet Textures for Games"', :tags => %w(default_branch=main zim=no historic))
   o.project('course-blendertutorial', :description => 'Coursework for "Complete Blender Creator: Learn 3D Modelling for Beginners"', :tags => %w(default_branch=main historic))
   o.project('course-rigging-basics-for-games', :description => 'Coursework for "Rigging 101 For Games | Maya 2020"', :tags => %w(default_branch=main historic))
   o.project('course-animateprowalks', :description => 'Coursework for "Animate a Professional Looking Walk in Autodesk Maya"', :tags => %w(default_branch=main historic))
