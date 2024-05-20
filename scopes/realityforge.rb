@@ -90,7 +90,6 @@ Belt.scope('realityforge') do |o|
   o.project('course-unreal-engine-the-ultimate-shooter', :description => 'Coursework for "Unreal Engine C++ The Ultimate Shooter Course"', :tags => %w(default_branch=main zim=no))
   o.project('course-procedural-animation', :description => 'Coursework for "Procedural animation for humans in Unreal Engine 5"', :tags => %w(default_branch=main zim=no))
   o.project('course-advanced-unreal-engine-5-multiplayer-gameplay-programming', :description => 'Coursework for "Advanced Unreal Engine 5 Multiplayer Gameplay Programming"', :tags => %w(default_branch=main zim=no))
-  o.project('course-unreal-cinematic', :description => 'Course work for "Unreal Engine Cinematic Creator: Video Game Design Course"', :tags => %w(default_branch=main zim=no))
   o.project('course-complete-guide-to-zbrush-2022', :description => 'Course work for "Complete Guide to Zbrush 2022"', :tags => %w(default_branch=main zim=no))
 
   o.project('substance-designer-experiments', :description => 'A repository containing Substance Designer experiments', :tags => %w(default_branch=main zim=no))
@@ -192,6 +191,7 @@ Belt.scope('realityforge') do |o|
   o.project('GraphicShaders', :description => 'A code repository of the Graphic Shaders book', :tags => %w(historic))
   o.project('Fabmedical', :description => 'Workshop for Azure container repository', :tags => %w(historic))
   o.project('wasm-contract-experiments', :description => 'Experiments using eWasm and Parity', :tags => %w(historic))
+  o.project('course-unreal-cinematic', :description => 'Course work for "Unreal Engine Cinematic Creator: Video Game Design Course"', :tags => %w(default_branch=main zim=no historic))
   o.project('course-controlrig', :description => 'Coursework for "Control Rig for Unreal Engine 5"', :tags => %w(zim=no historic))
   o.project('course-hard-surface-modeling-jumpstart', :description => 'Coursework for "Hard Surface Modeling Jumpstart"', :tags => %w(default_branch=main zim=no historic))
   o.project('course-advanced-trim-sheets', :description => 'Coursework for "Creating Advanced Trim Sheet Textures for Games"', :tags => %w(default_branch=main zim=no historic))
