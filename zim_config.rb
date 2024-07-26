@@ -50,7 +50,7 @@ patch_artifact(:gwt_cache_filter, %w(org.realityforge.gwt.cache-filter:gwt-cache
 patch_artifact(:idea_codestyle, %w(au.com.stocksoftware.idea.codestyle:idea-codestyle:xml), '1.17')
 patch_artifact(:javaee_api, %w(javax:javaee-api:jar), '8.0')
 patch_artifact(:javapoet, %w(com.squareup:javapoet:jar), '1.13.0')
-patch_artifact(:javax_annotation, %w(org.realityforge.javax.annotation:javax.annotation:jar), '1.0.1')
+patch_artifact(:javax_annotation, %w(org.realityforge.javax.annotation:javax.annotation:jar), '1.1.1')
 patch_artifact(:jetbrains_annotations, %w(org.realityforge.org.jetbrains.annotations:org.jetbrains.annotations:jar), '1.7.0')
 patch_artifact(:proton, %w(org.realityforge.proton:proton-core:jar org.realityforge.proton:proton-qa:jar), '0.64')
 patch_artifact(:react4j, %w(org.realityforge.react4j:react4j-core:jar org.realityforge.react4j:react4j-dom:jar org.realityforge.react4j:react4j-processor:jar), '0.196')
