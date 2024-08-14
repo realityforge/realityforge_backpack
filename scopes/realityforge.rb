@@ -1,7 +1,7 @@
 Belt.scope('realityforge') do |o|
   o.project('realityforge_backpack', :description => 'Project for managing realityforge repositories.', :tags => %w(zapwhite=no))
   o.project('bash.d', :description => 'A set of bash scripts that run on shell startup.')
-  o.project('lifetracker', :description => 'A project used to track arbitrary learning goals.', :tags => %w(default_branch=main zim=no private issues))
+  o.project('lifetracker', :description => 'A project used to track arbitrary learning goals.', :tags => %w(default_branch=main zim=no private projects issues))
   
   o.project('perimeter', :description => 'A project containing the art assets I created for perimeter, the final assessment', :tags => %w(default_branch=main zim=no private issues projects))
 
