@@ -3,7 +3,7 @@ Belt.scope('realityforge') do |o|
   o.project('bash.d', :description => 'A set of bash scripts that run on shell startup.')
   o.project('lifetracker', :description => 'A project used to track arbitrary learning goals.', :tags => %w(default_branch=main zim=no private issues))
   
-  o.project('perimeter', :description => 'A project containing the art assets I created for perimeter, the final assessment', :tags => %w(default_branch=main zim=no private issues))
+  o.project('perimeter', :description => 'A project containing the art assets I created for perimeter, the final assessment', :tags => %w(default_branch=main zim=no private issues projects))
 
   o.project('bluemeanie', :description => 'A backup of data from the bluemeanie Smugmug account', :tags => %w(default_branch=main zim=no))
 
