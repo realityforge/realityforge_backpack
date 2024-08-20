@@ -98,6 +98,7 @@ Belt.scope('realityforge') do |o|
   o.project('course-procedural-animation', :description => 'Coursework for "Procedural animation for humans in Unreal Engine 5"', :tags => %w(default_branch=main zim=no))
   o.project('course-advanced-unreal-engine-5-multiplayer-gameplay-programming', :description => 'Coursework for "Advanced Unreal Engine 5 Multiplayer Gameplay Programming"', :tags => %w(default_branch=main zim=no))
   o.project('course-complete-guide-to-zbrush-2022', :description => 'Course work for "Complete Guide to Zbrush 2022"', :tags => %w(default_branch=main zim=no))
+  o.project('course-easy-foliage-for-games', :description => 'Coursework for "Easy Foliage for Games - in-Depth Tutorial Course"', :tags => %w(default_branch=main zim=no))
 
   o.project('substance-designer-experiments', :description => 'A repository containing Substance Designer experiments', :tags => %w(default_branch=main zim=no))
   o.project('blender-experiments', :description => 'A repository containing Blender modelling experiments', :tags => %w(default_branch=main zim=no))
