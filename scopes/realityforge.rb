@@ -2,6 +2,7 @@ Belt.scope('realityforge') do |o|
   o.project('realityforge_backpack', :description => 'Project for managing realityforge repositories.', :tags => %w(zapwhite=no))
   o.project('bash.d', :description => 'A set of bash scripts that run on shell startup.')
   o.project('lifetracker', :description => 'A project used to track arbitrary learning goals.', :tags => %w(default_branch=main zim=no private projects issues))
+  o.project('blender-workspace', :description => 'Personal library of assets and support files used for Blender', :tags => %w(default_branch=main zim=no private))
   
   o.project('perimeter', :description => 'A project containing the art assets I created for perimeter, the final assessment', :tags => %w(default_branch=main zim=no private issues projects))
 
@@ -132,6 +133,8 @@ Belt.scope('realityforge') do |o|
   o.project('phd-seminar-may-2005', :tags => %w(default_branch=main historic))
 
   o.project('MumShortFilm', :description => 'The scene developed for Virtual Production usage in the short film "Mum"', :tags => %w(private default_branch=main historic))
+
+  o.project('smugmug-extractor', :description => 'A simple tool to extract data from Smugmug', :tags => %w(default_branch=main historic))
 
   # historic as no need to patch these in the future ... or so it is hoped
   o.project('j2cl', :description => 'Java to closure style javascript transpiler', :tags => %w(external historic))
