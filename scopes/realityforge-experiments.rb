@@ -1,5 +1,6 @@
 Belt.scope('realityforge-experiments') do |o|
   # Projects that purely exist so that I can keep a copy of source for reference purposes that are still active
+  o.project('Narxim-GAS-Example', :description => 'A basic setup for using Epic''s Gameplay Ability System.', :tags => %w(external zim=no))
   o.project('Quake2Game', :description => 'A WIP fork of Quake 2 intended to add features more commonly seen in modern game engines.', :tags => %w(external zim=no))
   o.project('planet_quake', :description => 'Combination of graphics and features from many different games.', :tags => %w(external zim=no))
   o.project('planet_quake_game', :description => 'Game QVMs for many different game dynamics.', :tags => %w(external zim=no))
