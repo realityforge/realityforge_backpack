@@ -88,7 +88,7 @@ Belt.scope('realityforge') do |o|
 
   # Courses that are ongoing or still used for experiments
   o.project('course-blender-complete-animator', :description => 'Coursework for "Blender Animation & Rigging: Bring Your Creations To Life"', :tags => %w(default_branch=main zim=no))
-  o.project('course-unreal-engine-5-advanced-action-rpg', :description => 'Coursework for "Unreal Engine 5 C++: Advanced Action RPG"', :tags => %w(default_branch=main zim=no))
+  o.project('course-unreal-engine-5-advanced-action-rpg', :description => 'Coursework for "Unreal Engine 5 C++: Advanced Action RPG"', :tags => %w(default_branch=main zim=no issues))
   o.project('course-unreal-5-materials-part-1-environments', :description => 'Coursework for "Unreal 5 Materials - Part 1 Environments', :tags => %w(default_branch=main zim=no))
   
   o.project('course-unreal-engine-one-course-solution-for-sky-weather-system', :description => 'Coursework for "Unreal Engine 5: One Course Solution For Dynamic Sky System"', :tags => %w(default_branch=main zim=no))
