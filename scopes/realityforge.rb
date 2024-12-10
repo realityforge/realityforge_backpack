@@ -204,6 +204,7 @@ Belt.scope('realityforge') do |o|
   o.project('elemental2-webgpu-example', :description => 'An experiment for combining Elemental2 and Akasha within the same application', :tags => %w(historic))
   o.project('GraphicShaders', :description => 'A code repository of the Graphic Shaders book', :tags => %w(historic))
   o.project('Fabmedical', :description => 'Workshop for Azure container repository', :tags => %w(historic))
+  o.project('CommonUITest', :description => 'Experimenting with CommonUI', :tags => %w(historic))
   o.project('wasm-contract-experiments', :description => 'Experiments using eWasm and Parity', :tags => %w(historic))
   o.project('course-unreal-cinematic', :description => 'Course work for "Unreal Engine Cinematic Creator: Video Game Design Course"', :tags => %w(default_branch=main zim=no historic))
   o.project('course-controlrig', :description => 'Coursework for "Control Rig for Unreal Engine 5"', :tags => %w(zim=no historic))
