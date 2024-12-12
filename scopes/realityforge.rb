@@ -105,10 +105,7 @@ Belt.scope('realityforge') do |o|
 
   o.project('substance-designer-experiments', :description => 'A repository containing Substance Designer experiments', :tags => %w(default_branch=main zim=no))
   o.project('blender-experiments', :description => 'A repository containing Blender modelling experiments', :tags => %w(default_branch=main zim=no))
-  o.project('maya-experiments', :description => 'A repository containing Maya modelling experiments', :tags => %w(default_branch=main zim=no))
-  o.project('maya-example-rigs', :description => 'A repository containing good examples of maya rigs that are freely available', :tags => %w(default_branch=main zim=no))
-  o.project('MayaAutomation', :description => 'A repository to experiment with Python+Maya+Bazel automation', :tags => %w(default_branch=main zim=no))
-
+  
   # Personal Music Exploration
   o.project('MusicBook', :description => 'Collections of thoughts on Music Theory', :tags => %w(private zim=no))
 
@@ -132,6 +129,11 @@ Belt.scope('realityforge') do |o|
   o.project('phd-framework-presentation', :tags => %w(default_branch=main historic))
   o.project('phd-whirlwind-article-micc', :tags => %w(default_branch=main historic))
   o.project('phd-seminar-may-2005', :tags => %w(default_branch=main historic))
+
+  # Projects that are no longer relevant now that I have moved away from Maya
+  o.project('MayaAutomation', :description => 'A repository to experiment with Python+Maya+Bazel automation', :tags => %w(default_branch=main zim=no historic))
+  o.project('maya-example-rigs', :description => 'A repository containing good examples of maya rigs that are freely available', :tags => %w(default_branch=main zim=no historic))
+  o.project('maya-experiments', :description => 'A repository containing Maya modelling experiments', :tags => %w(default_branch=main zim=no historic))
 
   o.project('MumShortFilm', :description => 'The scene developed for Virtual Production usage in the short film "Mum"', :tags => %w(private default_branch=main historic))
 
