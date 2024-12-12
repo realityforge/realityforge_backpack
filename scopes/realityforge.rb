@@ -30,7 +30,6 @@ Belt.scope('realityforge') do |o|
   o.project('javaemul.internal.annotations', :description => 'A copy of the javaemul.internal.annotations package to make build isolated apps easier', :tags => %w(travis))
   o.project('org.jetbrains.annotations', :description => 'A minimal, J2CL compatible org.jetbrains.annotations library', :tags => %w(travis))
   o.project('proton', :description => 'Utilities for building annotation processors', :tags => %w(travis))
-  o.project('vecmath', :description => 'A Java vector math library', :tags => %w(travis))
   o.project('shade-cli', :description => 'CLI Wrapper For Maven Shade tool', :tags => %w(travis))
 
   o.project('guiceyloops', :description => 'GuiceyLoops is a minimalistic library for aiding the testing of JEE applications using Guice.', :tags => %w(codecov notify:stock travis))
@@ -73,8 +72,6 @@ Belt.scope('realityforge') do |o|
   o.project('bazel-depgen', :description => 'Generate Bazel dependency scripts by traversing Maven repositories', :tags => %w(issues travis))
 
   o.project('grim', :description => 'Ensure dead code is eliminated', :tags => %w(travis))
-
-  o.project('galdr', :description => 'An ECS toolkit', :tags => %w(issues travis))
 
   # The "game" project to keep me sane
   o.project('Quake-III-Arena', :tags => %w(homepage=https://realityforge.org/Quake-III-Arena/ projects issues))
@@ -151,6 +148,12 @@ Belt.scope('realityforge') do |o|
 
   # Oh - the glory days!
   o.project('q2java', :description => 'Embedding of a Java VM in Quake2 to run games written in Java', :tags => %w(external historic))
+
+  # No longer needed but was an interesting port..
+  o.project('vecmath', :description => 'A Java vector math library', :tags => %w(travis))
+
+  # A pretty interesting experiment that is probably not relevant
+  o.project('galdr', :description => 'An ECS toolkit', :tags => %w(issues travis historic))
 
   # Old blog that was long ago abandoned...
   o.project('realityforge.github.io', :description => 'My personal website and blog', :tags => %w(homepage=https://realityforge.github.io zapwhite=no historic))
