@@ -69,7 +69,6 @@ Belt.scope('realityforge') do |o|
   o.project('gitattributes', :description => 'Class to parse gitattributes files.', :tags => %w(travis))
   o.project('zapwhite', :description => 'A simple tool to normalize whitespace in git repositories.', :tags => %w(travis))
   o.project('simple-keycloak-service', :description => 'A simple service interface and base classes to be used by keycloak secured services', :tags => %w(travis))
-  o.project('ssrs-api', :description => 'Generated SOAP interface to SSRS server', :tags => %w(travis))
 
   o.project('bazel-depgen', :description => 'Generate Bazel dependency scripts by traversing Maven repositories', :tags => %w(issues travis))
 
@@ -155,6 +154,7 @@ Belt.scope('realityforge') do |o|
   o.project('rest-criteria', :description => 'A simple library for parsing criteria in rest services', :tags => %w(historic))
   o.project('rest-field-filter', :description => 'A simple library parsing field filters in rest APIs.', :tags => %w(historic))
   o.project('jndikit', :description => 'a toolkit designed to help with the construction of JNDI providers', :tags => %w(historic))
+  o.project('ssrs-api', :description => 'Generated SOAP interface to SSRS server', :tags => %w(historic))
 
   # Historic: Still in use but one step away from being completely expunged from infra
   o.project('giggle', :description => 'Generate source code and artifacts from a GraphQL schema and operations', :tags => %w(historic))
