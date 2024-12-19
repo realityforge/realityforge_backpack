@@ -8,7 +8,7 @@ Belt.scope('realityforge') do |o|
 
   o.project('substance-painter-library', :description => 'A collection of Substance Painter Assets', :tags => %w(default_branch=main private zim=no))
   o.project('substance-designer-materials', :description => 'A collection of potentially reusable materials extracted from various projects', :tags => %w(default_branch=main zim=no))
-  o.project('RuleRanger', :description => 'Enforce Rules, Elevate Artistry', :tags => %w(default_branch=main))
+  o.project('RuleRanger', :description => 'Enforce Rules, Elevate Artistry', :tags => %w(default_branch=main issues projects))
   o.project('MaterialMelody', :description => 'Material Functions for your Master Materials', :tags => %w(default_branch=main))
 
   o.project('gla', :description => 'An OpenGL Loading Library.')
