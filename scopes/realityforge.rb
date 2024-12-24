@@ -43,6 +43,8 @@ Belt.scope('realityforge') do |o|
 
   o.project('backpack', :description => '🎒 A simple tool to manage GitHub organisations using declarative DSL', :tags => %w(zapwhite=no))
 
+  o.project('LyraPlugins', :description => 'Plugins directory exported from UnrealEngine repository', :tags => %w(default_branch=main zim=no))
+  
   o.project('router-fu', :description => 'A framework agnostic, state producing router', :tags => %w(protect=master travis issues))
   o.project('revapi-diff', :description => 'Report differences between Java APIs', :tags => %w(travis))
   o.project('revapi-viewer', :description => 'Online RevAPI Diff Viewer')
