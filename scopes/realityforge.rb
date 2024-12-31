@@ -11,7 +11,7 @@ Belt.scope('realityforge') do |o|
   o.project('RuleRanger', :description => 'Enforce Rules, Elevate Artistry', :tags => %w(default_branch=main issues projects))
   o.project('MaterialMelody', :description => 'Material Functions for your Master Materials', :tags => %w(default_branch=main))
   o.project('ModularGasGameplayActors', :description => 'Base classes blending capabilities of the Modular Gameplay plugin and the Gameplay Ability System', :tags => %w(default_branch=main))
-  o.project('Aeon', :description => 'Support classes for building an Unreal project using the Gameplay Ability System', :tags => %w(default_branch=main wiki))
+  o.project('Aeon', :description => 'Support classes for building an Unreal project using the Gameplay Ability System', :tags => %w(default_branch=main wiki issues projects))
 
   o.project('gla', :description => 'An OpenGL Loading Library.')
   o.project('braincheck-c', :description => 'A tiny C library to verify invariants and simplify debugging without leaving a trace in production code.', :tags => %w(default_branch=main))
