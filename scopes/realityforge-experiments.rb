@@ -9,6 +9,9 @@ Belt.scope('realityforge-experiments') do |o|
   o.project('BakeMaster-Blender-Addon', :description => 'Welcome to BakeMaster, a powerful and feature-packed baking solution created for Blender - an open-source 3D Computer graphics software.', :tags => %w(external zim=no))
   o.project('WarriorRPG', :description => 'a c++ project showcasing best practices of building complex RPG combat experiences', :tags => %w(external zim=no default_branch=main))
 
+  # Example using a GAS-like mechanism for 
+  o.project('Level-Zero', :description => 'CS193U - Videogame Development in Unreal - Project', :tags => %w(external historic zim=no))
+
   # Projects that purely exist so that I can keep a copy of source for reference purposes
   o.project('compiling-unreal', :description => 'A man''s notes as he discovers how Unreal Engine compiles things', :tags => %w(external default_branch=main historic))
   o.project('3zb2', :description => '3rd Zigock Bot II for Yamagi Quake II', :tags => %w(external historic))
