@@ -91,7 +91,7 @@ Belt.scope('realityforge') do |o|
   o.project('shokada-docs', :description => 'Documentation pages for Shokada', :tags => %w(default_branch=main zim=no pages))
   o.project('course-unreal-5-materials-part-1-environments', :description => 'Coursework for "Unreal 5 Materials - Part 1 Environments', :tags => %w(default_branch=main zim=no))
 
-  o.project('course-submarine-interior', :description => 'Coursework for  "Submarine Interior Game Environment Creation in Blender"', :tags => %w(default_branch=main zim=no))
+  o.project('course-submarine-interior', :description => 'Coursework for  "Submarine Interior Game Environment Creation in Blender"', :tags => %w(default_branch=main zim=no private))
   o.project('course-cubicity', :description => 'Coursework for "Cubicity: Creating & Utilizing Asset Libraries With Blender"', :tags => %w(default_branch=main zim=no))
   o.project('course-unreal-engine-one-course-solution-for-sky-weather-system', :description => 'Coursework for "Unreal Engine 5: One Course Solution For Dynamic Sky System"', :tags => %w(default_branch=main zim=no))
   o.project('course-unreal-engin5-one-course-solution-for-material', :description => 'Coursework for "Unreal Engine 5: One Course Solution For Material"', :tags => %w(default_branch=main zim=no))
