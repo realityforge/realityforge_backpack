@@ -91,6 +91,7 @@ Belt.scope('realityforge') do |o|
   o.project('shokada-docs', :description => 'Documentation pages for Shokada', :tags => %w(default_branch=main zim=no pages))
   o.project('course-unreal-5-materials-part-1-environments', :description => 'Coursework for "Unreal 5 Materials - Part 1 Environments', :tags => %w(default_branch=main zim=no))
 
+  o.project('course-submarine-interior', :description => 'Coursework for  "Submarine Interior Game Environment Creation in Blender"', :tags => %w(default_branch=main zim=no private))
   o.project('course-cubicity', :description => 'Coursework for "Cubicity: Creating & Utilizing Asset Libraries With Blender"', :tags => %w(default_branch=main zim=no))
   o.project('course-fontforge-tutorial', :description => 'Coursework for various FontForge tutorials', :tags => %w(default_branch=main zim=no))
   o.project('course-unreal-engine-one-course-solution-for-sky-weather-system', :description => 'Coursework for "Unreal Engine 5: One Course Solution For Dynamic Sky System"', :tags => %w(default_branch=main zim=no))
@@ -119,6 +120,7 @@ Belt.scope('realityforge') do |o|
   o.project('aie_course_year2', :description => 'Coursework for "AIE Art Course Year 2"', :tags => %w(private default_branch=main zim=no))
   o.project('aie_course', :description => 'Coursework for "AIE Art Course"', :tags => %w(private default_branch=main historic zim=no))
   o.project('perimeter', :description => 'A project containing the art assets I created for perimeter, the final assessment', :tags => %w(default_branch=main historic zim=no private issues projects))
+  o.project('CrabTank', :description => 'A repository to extract the CrabTank and polish for portfolio', :tags => %w(default_branch=main zim=no))
 
   # Documents and code relating to my phd
   o.project('phd-whirlwind-article', :tags => %w(private default_branch=main historic))
