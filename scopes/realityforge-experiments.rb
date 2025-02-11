@@ -20,6 +20,8 @@ Belt.scope('realityforge-experiments') do |o|
   
   # Gas Multiplayer example
   o.project('ue5_gas_multiplayer', :description => 'CS193U - Videogame Development in Unreal - Project', :tags => %w(external historic homepade=https://www.udemy.com/course/advanced-unreal-engine-5-multiplayer-gameplay-programming/))
+  o.project('GASMultiplayer', :description => '[UE 5.1] Multiplayer action game using GAS', :tags => %w(external historic homepade=https://www.udemy.com/course/advanced-unreal-engine-5-multiplayer-gameplay-programming/))
+  o.project('GASMP', :tags => %w(external historic homepade=https://www.udemy.com/course/advanced-unreal-engine-5-multiplayer-gameplay-programming/))
 
   # Projects that purely exist so that I can keep a copy of source for reference purposes
   o.project('compiling-unreal', :description => 'A man''s notes as he discovers how Unreal Engine compiles things', :tags => %w(external default_branch=main historic))
