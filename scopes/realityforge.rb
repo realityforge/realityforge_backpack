@@ -3,7 +3,7 @@ Belt.scope('realityforge') do |o|
   o.project('bash.d', :description => 'A set of bash scripts that run on shell startup.')
   o.project('lifetracker', :description => 'A project used to track arbitrary learning goals.', :tags => %w(default_branch=main zim=no private projects issues))
   o.project('blender-workspace', :description => 'Personal library of assets and support files used for Blender', :tags => %w(default_branch=main zim=no private))
-  
+
   o.project('bluemeanie', :description => 'A backup of data from the bluemeanie Smugmug account', :tags => %w(default_branch=main zim=no))
 
   o.project('substance-painter-library', :description => 'A collection of Substance Painter Assets', :tags => %w(default_branch=main private zim=no))
@@ -46,7 +46,7 @@ Belt.scope('realityforge') do |o|
   o.project('backpack', :description => '🎒 A simple tool to manage GitHub organisations using declarative DSL', :tags => %w(zapwhite=no))
 
   o.project('LyraPlugins', :description => 'Plugins directory exported from UnrealEngine repository', :tags => %w(default_branch=main zim=no))
-  
+
   o.project('router-fu', :description => 'A framework agnostic, state producing router', :tags => %w(protect=master travis issues))
   o.project('revapi-diff', :description => 'Report differences between Java APIs', :tags => %w(travis))
   o.project('revapi-viewer', :description => 'Online RevAPI Diff Viewer')
@@ -106,7 +106,7 @@ Belt.scope('realityforge') do |o|
   o.project('course-easy-foliage-for-games', :description => 'Coursework for "Easy Foliage for Games - in-Depth Tutorial Course"', :tags => %w(default_branch=main zim=no))
 
   o.project('substance-designer-experiments', :description => 'A repository containing Substance Designer experiments', :tags => %w(default_branch=main zim=no))
-  
+
   # Personal Music Exploration
   o.project('MusicBook', :description => 'Collections of thoughts on Music Theory', :tags => %w(private zim=no))
 
@@ -141,7 +141,7 @@ Belt.scope('realityforge') do |o|
   # Projects that are no longer relevant now that I have moved away from Maya
   o.project('MayaAutomation', :description => 'A repository to experiment with Python+Maya+Bazel automation', :tags => %w(default_branch=main zim=no historic))
   o.project('maya-example-rigs', :description => 'A repository containing good examples of maya rigs that are freely available', :tags => %w(default_branch=main zim=no historic))
-  
+
   # Experiments from one time or another. No longer relevant...
   o.project('maya-experiments', :description => 'A repository containing Maya modelling experiments', :tags => %w(default_branch=main zim=no historic))
 
