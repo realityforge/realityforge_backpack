@@ -102,7 +102,6 @@ Belt.scope('realityforge') do |o|
   o.project('course-unreal-engine-5-cpp-multiplayer-shooter', :description => 'Coursework for "Unreal Engine 5 C++ Multiplayer Shooter"', :tags => %w(default_branch=main zim=no))
   o.project('course-unreal-engine-the-ultimate-shooter', :description => 'Coursework for "Unreal Engine C++ The Ultimate Shooter Course"', :tags => %w(default_branch=main zim=no))
   o.project('course-procedural-animation', :description => 'Coursework for "Procedural animation for humans in Unreal Engine 5"', :tags => %w(default_branch=main zim=no))
-  o.project('course-advanced-unreal-engine-5-multiplayer-gameplay-programming', :description => 'Coursework for "Advanced Unreal Engine 5 Multiplayer Gameplay Programming"', :tags => %w(default_branch=main zim=no))
   o.project('course-easy-foliage-for-games', :description => 'Coursework for "Easy Foliage for Games - in-Depth Tutorial Course"', :tags => %w(default_branch=main zim=no))
 
   o.project('substance-designer-experiments', :description => 'A repository containing Substance Designer experiments', :tags => %w(default_branch=main zim=no))
@@ -233,6 +232,7 @@ Belt.scope('realityforge') do |o|
   o.project('course-controlrig', :description => 'Coursework for "Control Rig for Unreal Engine 5"', :tags => %w(zim=no historic))
   o.project('course-hard-surface-modeling-jumpstart', :description => 'Coursework for "Hard Surface Modeling Jumpstart"', :tags => %w(default_branch=main zim=no historic))
   o.project('course-cgboost-blender-beginners-course', :description => 'Coursework for "Blender Beginners Course"', :tags => %w(default_branch=main zim=no historic))
+  o.project('course-advanced-unreal-engine-5-multiplayer-gameplay-programming', :description => 'Coursework for "Advanced Unreal Engine 5 Multiplayer Gameplay Programming"', :tags => %w(default_branch=main zim=no historic homepage=https://www.udemy.com/course/advanced-unreal-engine-5-multiplayer-gameplay-programming/))
   o.project('course-advanced-trim-sheets', :description => 'Coursework for "Creating Advanced Trim Sheet Textures for Games"', :tags => %w(default_branch=main zim=no historic))
   o.project('course-blendertutorial', :description => 'Coursework for "Complete Blender Creator: Learn 3D Modelling for Beginners"', :tags => %w(default_branch=main historic))
   o.project('course-rigging-basics-for-games', :description => 'Coursework for "Rigging 101 For Games | Maya 2020"', :tags => %w(default_branch=main historic))
