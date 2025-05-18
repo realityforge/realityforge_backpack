@@ -7,7 +7,6 @@ Belt.scope('realityforge-experiments') do |o|
   o.project('RBDOOM-3-BFG', :description => 'Doom 3 BFG Edition with modern engine features (2021) like PBR, Baked Global Illumination, Soft Shadows, Cleaned up source, Linux and 64 bit Support', :tags => %w(external zim=no))
   o.project('recastnavigation', :description => 'Navigation-mesh Toolset for Games', :tags => %w(external zim=no))
   o.project('BakeMaster-Blender-Addon', :description => 'Welcome to BakeMaster, a powerful and feature-packed baking solution created for Blender - an open-source 3D Computer graphics software.', :tags => %w(external zim=no))
-  o.project('WarriorRPG', :description => 'a c++ project showcasing best practices of building complex RPG combat experiences', :tags => %w(external zim=no default_branch=main))
 
   # External project that tried to extract Lyra as a bunch of Plugins
   o.project('ModularGameplayData', :description => 'Provides Data Asset and other classes that hold modular gameplay data that can be applied at runtime.', :tags => %w(external zim=no))
@@ -17,11 +16,6 @@ Belt.scope('realityforge-experiments') do |o|
 
   # Example using a GAS-like mechanism for
   o.project('Level-Zero', :description => 'CS193U - Videogame Development in Unreal - Project', :tags => %w(external historic zim=no))
-
-  # Gas Multiplayer example
-  o.project('ue5_gas_multiplayer', :description => 'CS193U - Videogame Development in Unreal - Project', :tags => %w(external historic homepage=https://www.udemy.com/course/advanced-unreal-engine-5-multiplayer-gameplay-programming/))
-  o.project('GASMultiplayer', :description => '[UE 5.1] Multiplayer action game using GAS', :tags => %w(external historic homepage=https://www.udemy.com/course/advanced-unreal-engine-5-multiplayer-gameplay-programming/))
-  o.project('GASMP', :tags => %w(external historic default_branch=main homepage=https://www.udemy.com/course/advanced-unreal-engine-5-multiplayer-gameplay-programming/))
 
   # Projects that purely exist so that I can keep a copy of source for reference purposes
   o.project('compiling-unreal', :description => 'A man''s notes as he discovers how Unreal Engine compiles things', :tags => %w(external default_branch=main historic))

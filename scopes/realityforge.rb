@@ -115,8 +115,11 @@ Belt.scope('realityforge') do |o|
   # Notes about people I have met on the Journey
   o.project('peopledb', :tags => %w(private default_branch=main zim=no))
 
+  # External projects in active use that I need to keep a reference to
+  o.project('MDMetaDataEditor', :description => 'Unreal Engine 5.1+ plugin to enable editing meta data of Blueprint Properties, Functions, and Function and Event Parameters', :tags => %w(default_branch=main external))
+
   # AIE course
-  o.project('aie_course_year2', :description => 'Coursework for "AIE Art Course Year 2"', :tags => %w(private default_branch=main zim=no))
+  o.project('aie_course_year2', :description => 'Coursework for "AIE Art Course Year 2"', :tags => %w(private default_branch=main historic zim=no))
   o.project('aie_course', :description => 'Coursework for "AIE Art Course"', :tags => %w(private default_branch=main historic zim=no))
   o.project('perimeter', :description => 'A project containing the art assets I created for perimeter, the final assessment', :tags => %w(default_branch=main historic zim=no private issues projects))
   o.project('CrabTank', :description => 'A repository to extract the CrabTank and polish for portfolio', :tags => %w(default_branch=main zim=no))
@@ -130,9 +133,6 @@ Belt.scope('realityforge') do |o|
   o.project('phd-framework-presentation', :tags => %w(default_branch=main historic))
   o.project('phd-whirlwind-article-micc', :tags => %w(default_branch=main historic))
   o.project('phd-seminar-may-2005', :tags => %w(default_branch=main historic))
-
-  # External projects in active use that I need to keep a reference to
-  o.project('MDMetaDataEditor', :description => 'Unreal Engine 5.1+ plugin to enable editing meta data of Blueprint Properties, Functions, and Function and Event Parameters', :tags => %w(default_branch=main external))
 
   # "Completed" Courses or at least courses I am done with
   o.project('course-cubicity', :description => 'Coursework for "Cubicity: Creating & Utilizing Asset Libraries With Blender"', :tags => %w(default_branch=main historic zim=no))
