@@ -16,6 +16,8 @@ Belt.scope('realityforge-experiments') do |o|
   o.project('ModularGameplayExperiences', :description => 'Unreal plugin replacement to the Game Mode system that lets you build data-driven Experiences for Gameplay Features. They can be loaded at runtime to allow new modes, rules, input, and more.', :tags => %w(default_branch=main external zim=no))
   o.project('ModalCamera', :description => 'Unreal plugin that provides a Camera system supporting transitions between modes on the camera responsibility chain.', :tags => %w(default_branch=main external zim=no))
 
+  o.project('GameplayAbilitySystem_Aura', :description => 'Online repo for Gameplay Ability System Course', :tags => %w(default_branch=main external zim=no))
+
   # Example using a GAS-like mechanism for
   o.project('Level-Zero', :description => 'CS193U - Videogame Development in Unreal - Project', :tags => %w(external historic zim=no))
 
