@@ -91,7 +91,7 @@ Belt.scope('realityforge') do |o|
   o.project('shokada', :description => 'Coursework for "Unreal Engine 5 C++: Advanced Action RPG"', :tags => %w(default_branch=main zim=no issues projects private homepage=http://realityforge.org/shokada-docs))
   o.project('shokada-docs', :description => 'Documentation pages for Shokada', :tags => %w(default_branch=main zim=no pages))
   o.project('course-unreal-5-materials-part-1-environments', :description => 'Coursework for "Unreal 5 Materials - Part 1 Environments', :tags => %w(default_branch=main zim=no))
-  o.project('course-unreal-engine-5-gas-top-down-rpg', :description => 'Coursework for "Unreal Engine 5 - Gameplay Ability System - Top Down RPG', :tags => %w(default_branch=main zim=no homepage=https://www.udemy.com/course/unreal-engine-5-gas-top-down-rpg/))
+  o.project('course-unreal-engine-5-gas-top-down-rpg', :description => 'Coursework for "Unreal Engine 5 - Gameplay Ability System - Top Down RPG', :tags => %w(default_branch=main zim=no private homepage=https://www.udemy.com/course/unreal-engine-5-gas-top-down-rpg/))
 
   o.project('course-submarine-interior', :description => 'Coursework for  "Submarine Interior Game Environment Creation in Blender"', :tags => %w(default_branch=main zim=no private))
   o.project('course-fontforge-tutorial', :description => 'Coursework for various FontForge tutorials', :tags => %w(default_branch=main zim=no))
