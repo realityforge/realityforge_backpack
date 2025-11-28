@@ -124,7 +124,7 @@ GEM
 PLATFORMS
   arm64-darwin-21
   arm64-darwin-24
-  x64-mingw-ucrt
+  x64-unknown
 
 DEPENDENCIES
   backpack (= 0.1.0.dev)!
