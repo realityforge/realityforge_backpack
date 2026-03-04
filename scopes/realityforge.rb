@@ -22,7 +22,6 @@ Belt.scope('realityforge') do |o|
 
   o.project('jdbt', :description => 'A simple tool designed to simplify the creation, migration and deletion of databases.', :tags => %w(default_branch=main issues))
   o.project('buildr', :description => 'A stripped down fork of Buildr that works in modern environments.')
-  o.project('buildr_plus', :description => 'A simple set of extensions that patch and customize buildr to our requirements.', :tags => %w(notify:stock))
   o.project('dbt', :description => 'A simple tool designed to simplify the creation, migration and deletion of databases.', :tags => %w(notify:stock travis pages))
   o.project('domgen', :description => 'Domgen generates code from a simple domain model leaving the developer to focus on implementing high-value features of the application.', :tags => %w(notify:stock pages))
   o.project('kinjen', :description => 'A library of groovy scripts to use from a Jenkinsfile', :tags => %w(notify:stock))
@@ -175,6 +174,7 @@ Belt.scope('realityforge') do |o|
   o.project('realityforge.github.io', :description => 'My personal website and blog', :tags => %w(homepage=https://realityforge.github.io zapwhite=no historic))
 
   # Historic: Tools no longer in use
+  o.project('buildr_plus', :description => 'A simple set of extensions that patch and customize buildr to our requirements.', :tags => %w(historic))
   o.project('gitattributes', :description => 'Class to parse gitattributes files.', :tags => %w(historic))
   o.project('zapwhite', :description => 'A simple tool to normalize whitespace in git repositories.', :tags => %w(historic))
 
