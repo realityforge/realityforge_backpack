@@ -72,7 +72,6 @@ Belt.scope('realityforge') do |o|
   o.project('reality-model', :description => 'Utility classes for defining a domain model.', :tags => %w(travis))
   o.project('reality-naming', :description => 'A library to convert names between different naming conventions.', :tags => %w(travis))
   o.project('reality-belt', :description => 'A super simple domain model to represent projects.', :tags => %w(travis))
-  o.project('simple-keycloak-service', :description => 'A simple service interface and base classes to be used by keycloak secured services', :tags => %w(travis))
 
   o.project('bazel-depgen', :description => 'Generate Bazel dependency scripts by traversing Maven repositories', :tags => %w(issues travis))
 
@@ -182,6 +181,9 @@ Belt.scope('realityforge') do |o|
   o.project('rest-field-filter', :description => 'A simple library parsing field filters in rest APIs.', :tags => %w(historic))
   o.project('jndikit', :description => 'a toolkit designed to help with the construction of JNDI providers', :tags => %w(historic))
   o.project('ssrs-api', :description => 'Generated SOAP interface to SSRS server', :tags => %w(historic))
+
+  # Historic: Inlined into remaining application
+  o.project('simple-keycloak-service', :description => 'A simple service interface and base classes to be used by keycloak secured services', :tags => %w(historic))
 
   # Historic: Still in use but one step away from being completely expunged from infra
   o.project('giggle', :description => 'Generate source code and artifacts from a GraphQL schema and operations', :tags => %w(historic))
