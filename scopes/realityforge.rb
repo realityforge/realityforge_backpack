@@ -38,8 +38,6 @@ Belt.scope('realityforge') do |o|
   o.project('proton', :description => 'Utilities for building annotation processors', :tags => %w(travis))
   o.project('shade-cli', :description => 'CLI Wrapper For Maven Shade tool', :tags => %w(travis))
 
-  o.project('guiceyloops', :description => 'GuiceyLoops is a minimalistic library for aiding the testing of JEE applications using Guice.', :tags => %w(codecov notify:stock travis))
-
   o.project('keycloak-jaxrs-client-authfilter', :description => 'Filter for accessing keycloak secured services', :tags => %w(travis))
   o.project('keycloak-converger', :description => 'Converge the state of a keycloak realm', :tags => %w(travis))
   o.project('keycloak-domgen-support', :description => 'KeyCloak Domgen Support', :tags => %w(travis))
@@ -182,8 +180,11 @@ Belt.scope('realityforge') do |o|
   o.project('jndikit', :description => 'a toolkit designed to help with the construction of JNDI providers', :tags => %w(historic))
   o.project('ssrs-api', :description => 'Generated SOAP interface to SSRS server', :tags => %w(historic))
 
-  # Historic: Inlined into remaining application
+  # Historic: Inlined into remaining applications
   o.project('simple-keycloak-service', :description => 'A simple service interface and base classes to be used by keycloak secured services', :tags => %w(historic))
+
+  # Historic: Inlined into remaining applications
+  o.project('guiceyloops', :description => 'GuiceyLoops is a minimalistic library for aiding the testing of JEE applications using Guice.', :tags => %w(historic))
 
   # Historic: Still in use but one step away from being completely expunged from infra
   o.project('giggle', :description => 'Generate source code and artifacts from a GraphQL schema and operations', :tags => %w(historic))
