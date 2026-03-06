@@ -17,9 +17,6 @@ Belt.scope('realityforge') do |o|
   o.project('Aeon', :description => 'Support classes for building an Unreal project using the Gameplay Ability System', :tags => %w(default_branch=main wiki issues projects))
   o.project('Blaze', :description => 'A lightweight UI framework that builds on CommonUI to manage per-player layouts, layered widgets, and input suspension.', :tags => %w(default_branch=main issues projects))
 
-  o.project('gla', :description => 'An OpenGL Loading Library.')
-  o.project('braincheck-c', :description => 'A tiny C library to verify invariants and simplify debugging without leaving a trace in production code.', :tags => %w(default_branch=main))
-
   o.project('jdbt', :description => 'A simple tool designed to simplify the creation, migration and deletion of databases.', :tags => %w(default_branch=main issues))
   o.project('buildr', :description => 'A stripped down fork of Buildr that works in modern environments.')
   o.project('dbt', :description => 'A simple tool designed to simplify the creation, migration and deletion of databases.', :tags => %w(notify:stock travis pages))
@@ -109,9 +106,6 @@ Belt.scope('realityforge') do |o|
   # Personal GameDev Exploration
   o.project('GameDevBook', :description => 'Collections of thoughts on Game Development', :tags => %w(private zim=no))
 
-  # Notes about people I have met on the Journey
-  o.project('peopledb', :tags => %w(private default_branch=main zim=no))
-
   # External projects in active use that I need to keep a reference to
   o.project('MDMetaDataEditor', :description => 'Unreal Engine 5.1+ plugin to enable editing meta data of Blueprint Properties, Functions, and Function and Event Parameters', :tags => %w(default_branch=main external))
 
@@ -131,8 +125,15 @@ Belt.scope('realityforge') do |o|
   o.project('phd-whirlwind-article-micc', :tags => %w(default_branch=main historic))
   o.project('phd-seminar-may-2005', :tags => %w(default_branch=main historic))
 
+  # Historic: Not maintained - Notes about people I have met on the Journey
+  o.project('peopledb', :tags => %w(private default_branch=main zim=no historic))
+
+  # Historic: Experiments that no longer in development
+  o.project('gla', :description => 'An OpenGL Loading Library.', :tags => %w(historic))
+  o.project('braincheck-c', :description => 'A tiny C library to verify invariants and simplify debugging without leaving a trace in production code.', :tags => %w(default_branch=main historic))
+
   # "Completed" Courses or at least courses I am done with
-  o.project('course-cubicity', :description => 'Coursework for "Cubicity: Creating & Utilizing Asset Libraries With Blender"', :tags => %w(default_branch=main historic zim=no))
+  o.project('course-cubicity', :description => 'Coursework for "Cubicity: Creating & Utilizing Asset Libraries With Blender"', :tags => %w(default_branch=main historic))
 
   # Archived project as I have moved away from zBrush
   o.project('course-complete-guide-to-zbrush-2022', :description => 'Course work for "Complete Guide to Zbrush 2022"', :tags => %w(default_branch=main zim=no historic))
