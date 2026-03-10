@@ -52,7 +52,6 @@ Belt.scope('realityforge') do |o|
 
   o.project('gwt-keycloak', :description => 'A simple library to provide keycloak support to GWT', :tags => %w(travis issues))
   o.project('gwt-symbolmap', :description => 'GWT SymbolMap Assertions Library.', :tags => %w(travis codecov))
-  o.project('gwt-serviceworker-linker', :description => 'A GWT linker that generates a serviceworker.', :tags => %w(travis codecov))
   o.project('housekeeping-scripts', :description => 'Sets of scripts used to perform housekeeping at home and in the wild')
 
   o.project('timeservice', :description => 'A simple EE service to get constant now within transaction', :tags => %w(travis))
@@ -130,6 +129,9 @@ Belt.scope('realityforge') do |o|
 
   # Historic: Decommissioned and inlined
   o.project('proxy-servlet', :description => 'A servlet for creating proxy services', :tags => %w(historic))
+
+  # Historic: Inlined into the project that was using it
+  o.project('gwt-serviceworker-linker', :description => 'A GWT linker that generates a serviceworker.', :tags => %w(historic))
 
   # Historic: Experiments that no longer in development
   o.project('gla', :description => 'An OpenGL Loading Library.', :tags => %w(historic))
