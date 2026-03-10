@@ -50,7 +50,6 @@ Belt.scope('realityforge') do |o|
   o.project('revapi-viewer', :description => 'Online RevAPI Diff Viewer')
   o.project('getopt4j', :description => 'A library to parse command line arguments according to the GNU style', :tags => %w(travis))
 
-  o.project('gwt-cache-filter', :description => 'A servlet filter that adds the appropriate http caching headers to GWT generated files based on *.cache.* and *.nocache.* naming patterns.', :tags => %w(travis issues))
   o.project('gwt-keycloak', :description => 'A simple library to provide keycloak support to GWT', :tags => %w(travis issues))
   o.project('gwt-symbolmap', :description => 'GWT SymbolMap Assertions Library.', :tags => %w(travis codecov))
   o.project('gwt-serviceworker-linker', :description => 'A GWT linker that generates a serviceworker.', :tags => %w(travis codecov))
@@ -352,7 +351,10 @@ Belt.scope('realityforge') do |o|
   o.project('graphql-domgen-support', :description => 'GraphQL Domgen Support', :tags => %w(historic))
   o.project('graphql-java-scalars', :description => 'graphql-java scalar types', :tags => %w(historic))
 
-  # Historic: Example inlined into source project
+  # Historic: Inlined into downstream projects
+  o.project('gwt-cache-filter', :description => 'A servlet filter that adds the appropriate http caching headers to GWT generated files based on *.cache.* and *.nocache.* naming patterns.', :tags => %w(historic))
+
+  # Historic: Example inlined into main repository
   o.project('gwt-cache-filter-example', :description => 'A simple application demonstrating the use of the gwt-cache-filter library', :tags => %w(historic))
 
   # Historic: Browser discontinued support so need to rapidly move away from library
