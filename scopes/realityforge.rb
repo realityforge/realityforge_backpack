@@ -56,8 +56,6 @@ Belt.scope('realityforge') do |o|
   o.project('housekeeping-scripts', :description => 'Sets of scripts used to perform housekeeping at home and in the wild')
 
   o.project('timeservice', :description => 'A simple EE service to get constant now within transaction', :tags => %w(travis))
-  o.project('proxy-servlet', :description => 'A servlet for creating proxy services', :tags => %w(travis))
-  o.project('reality-mda', :description => 'The glue that blends reality-core, reality-model, reality-generators and reality-facets into an model driven application.', :tags => %w(travis))
   o.project('reality-core', :description => 'Basic classes used to help defining libraries.', :tags => %w(travis))
   o.project('reality-facets', :description => 'A basic toolkit for binding facets or extensions to model objects.', :tags => %w(travis))
   o.project('reality-generators', :description => 'A basic toolkit for abstracting the generation of files from model objects.', :tags => %w(travis))
@@ -126,6 +124,12 @@ Belt.scope('realityforge') do |o|
 
   # Historic: Not maintained - Notes about people I have met on the Journey
   o.project('peopledb', :tags => %w(private default_branch=main zim=no historic))
+
+  # Historic: Ruby modules no longer in use or development
+  o.project('reality-mda', :description => 'The glue that blends reality-core, reality-model, reality-generators and reality-facets into an model driven application.', :tags => %w(historic))
+
+  # Historic: Decommissioned and inlined
+  o.project('proxy-servlet', :description => 'A servlet for creating proxy services', :tags => %w(travis))
 
   # Historic: Experiments that no longer in development
   o.project('gla', :description => 'An OpenGL Loading Library.', :tags => %w(historic))
