@@ -129,7 +129,7 @@ Belt.scope('realityforge') do |o|
   o.project('reality-mda', :description => 'The glue that blends reality-core, reality-model, reality-generators and reality-facets into an model driven application.', :tags => %w(historic))
 
   # Historic: Decommissioned and inlined
-  o.project('proxy-servlet', :description => 'A servlet for creating proxy services', :tags => %w(travis))
+  o.project('proxy-servlet', :description => 'A servlet for creating proxy services', :tags => %w(historic))
 
   # Historic: Experiments that no longer in development
   o.project('gla', :description => 'An OpenGL Loading Library.', :tags => %w(historic))
