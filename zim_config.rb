@@ -59,13 +59,4 @@ patch_artifact(:symbolmap, %w(org.realityforge.gwt.symbolmap:gwt-symbolmap:jar),
 patch_artifact(:zemeckis, %w(org.realityforge.zemeckis:zemeckis-core:jar), '0.14')
 patch_artifact(:vecmath, %w(org.realityforge.vecmath:vecmath:jar), '0.11')
 
-command(:patch_release_tool) do
-  if File.exist?('tasks/release.rake')
-    patched = patch_file('tasks/release.rake') do |content|
-      content.gsub("require 'buildr/release_tool.rb'", "require 'buildr/release_tool'")
-    end
-    mysystem("git commit -m \"Fixup release tool require.\"") if patched
-  end
-end
-
 Zim::Belt.load_suites_from_belt
