@@ -9,17 +9,11 @@ command(:standard_update) do |app|
   run(:clean_whitespace, app)
 end
 
-braid_tasks('way_of_stock' => 'vendor/docs/way_of_stock',
-            'dbt' => 'vendor/tools/dbt',
-            'buildr_plus' => 'vendor/tools/buildr_plus',
+braid_tasks('dbt' => 'vendor/tools/dbt',
             'redfish' => 'vendor/tools/redfish',
             'zim' => 'vendor/tools/zim',
             'backpack' => 'vendor/tools/backpack',
-            'noft' => 'vendor/tools/noft',
-            'domgen' => 'vendor/tools/domgen',
-            'resgen' => 'vendor/tools/resgen',
-            'kinjen' => 'vendor/tools/kinjen',
-            'rptman' => 'vendor/tools/rptman')
+            'domgen' => 'vendor/tools/domgen')
 
 ruby_upgrade('2.6.6', '2.7.2')
 bazel_update(nil, '6.3.2')
