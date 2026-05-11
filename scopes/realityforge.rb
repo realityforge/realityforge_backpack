@@ -40,7 +40,6 @@ Belt.scope('realityforge') do |o|
 
   o.project('keycloak-jaxrs-client-authfilter', :description => 'Filter for accessing keycloak secured services', :tags => %w(travis))
   o.project('keycloak-converger', :description => 'Converge the state of a keycloak realm', :tags => %w(travis))
-  o.project('keycloak-domgen-support', :description => 'KeyCloak Domgen Support', :tags => %w(travis))
   o.project('glassfish-domain-patcher', :description => 'GlassFish Domain Patcher', :tags => %w(travis))
   o.project('glassfish-timers', :description => 'GlassFish timers database sql', :tags => %w(travis))
 
@@ -132,6 +131,7 @@ Belt.scope('realityforge') do |o|
   # Historic: Decommissioned and inlined
   o.project('proxy-servlet', :description => 'A servlet for creating proxy services', :tags => %w(historic))
   o.project('gwt-keycloak', :description => 'A simple library to provide keycloak support to GWT', :tags => %w(historic))
+  o.project('keycloak-domgen-support', :description => 'KeyCloak Domgen Support', :tags => %w(historic))
 
   # Historic: Inlined into the project that was using it
   o.project('gwt-serviceworker-linker', :description => 'A GWT linker that generates a serviceworker.', :tags => %w(historic))
