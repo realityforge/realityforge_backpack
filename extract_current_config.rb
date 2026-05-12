@@ -23,8 +23,6 @@ client.repositories('realityforge').sort { |v1, v2| v1['name'].to_s <=> v2['name
     hooks.each do |hook|
       if hook[:name] == 'email'
         tags << 'notify:stock'
-      elsif hook[:name] == 'travis'
-        tags << 'travis'
       elsif hook[:name] == 'docker'
         tags << 'docker-hub'
       else

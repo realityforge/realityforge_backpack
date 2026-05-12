@@ -1,7 +1,7 @@
 Belt.scope('arez') do |o|
-  o.project('arez', :description => 'Fast, easy, reactive state', :tags => %w(codecov travis issues homepage=https://arez.github.io))
+  o.project('arez', :description => 'Fast, easy, reactive state', :tags => %w(issues homepage=https://arez.github.io))
   o.project('arez.github.io', :description => 'Arez website', :tags => %w(pages homepage=https://arez.github.io zim=no))
-  o.project('arez-table', :description => 'An Arez-powered Headless UI library for building tables and data grids', :tags => %w(travis issues default_branch=main))
+  o.project('arez-table', :description => 'An Arez-powered Headless UI library for building tables and data grids', :tags => %w(issues default_branch=main))
 
   # Historic projects
   o.project('arez-persist', :description => 'Arez extension for persisting observable properties', :tags => %w(historic))

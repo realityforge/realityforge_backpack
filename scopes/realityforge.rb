@@ -22,57 +22,57 @@ Belt.scope('realityforge') do |o|
 
   o.project('jdbt', :description => 'A simple tool designed to simplify the creation, migration and deletion of databases.', :tags => %w(default_branch=main issues))
   o.project('buildr', :description => 'A stripped down fork of Buildr that works in modern environments.')
-  o.project('dbt', :description => 'A simple tool designed to simplify the creation, migration and deletion of databases.', :tags => %w(notify:stock travis pages))
+  o.project('dbt', :description => 'A simple tool designed to simplify the creation, migration and deletion of databases.', :tags => %w(notify:stock pages))
   o.project('domgen', :description => 'Domgen generates code from a simple domain model leaving the developer to focus on implementing high-value features of the application.', :tags => %w(notify:stock pages))
   o.project('kinjen', :description => 'A library of groovy scripts to use from a Jenkinsfile', :tags => %w(notify:stock))
-  o.project('redfish', :description => 'A lightweight library for configuring GlassFish/Payara servers.', :tags => %w(notify:stock travis))
+  o.project('redfish', :description => 'A lightweight library for configuring GlassFish/Payara servers.', :tags => %w(notify:stock))
   o.project('rptman', :description => 'This tool includes code and a suite of rake tasks for uploading SSRS reports to a server. The tool can also generate project files for the "SQL Server Business Intelligence Development Studio".', :tags => %w(notify:stock))
-  o.project('resgen', :description => 'A tool to generate resource descriptors from resource assets.', :tags => %w(notify:stock travis))
+  o.project('resgen', :description => 'A tool to generate resource descriptors from resource assets.', :tags => %w(notify:stock))
   o.project('zim', :description => 'Simple tool that performs mass transformations across codebases')
-  o.project('gir', :description => 'Library to perform mechanical operations across codebases', :tags => %w(codecov travis))
-  o.project('braincheck', :description => 'BrainCheck: A very simply invariant verification library', :tags => %w(travis pages))
-  o.project('zemeckis', :description => 'A library to unify scheduling tasks inside a browser', :tags => %w(travis pages))
-  o.project('javax.annotation', :description => 'A minimal, J2CL compatible javax.annotation library', :tags => %w(travis))
-  o.project('javaemul.internal.annotations', :description => 'A copy of the javaemul.internal.annotations package to make build isolated apps easier', :tags => %w(travis))
-  o.project('org.jetbrains.annotations', :description => 'A minimal, J2CL compatible org.jetbrains.annotations library', :tags => %w(travis))
-  o.project('proton', :description => 'Utilities for building annotation processors', :tags => %w(travis))
-  o.project('shade-cli', :description => 'CLI Wrapper For Maven Shade tool', :tags => %w(travis))
+  o.project('gir', :description => 'Library to perform mechanical operations across codebases')
+  o.project('braincheck', :description => 'BrainCheck: A very simply invariant verification library', :tags => %w(pages))
+  o.project('zemeckis', :description => 'A library to unify scheduling tasks inside a browser', :tags => %w(pages))
+  o.project('javax.annotation', :description => 'A minimal, J2CL compatible javax.annotation library')
+  o.project('javaemul.internal.annotations', :description => 'A copy of the javaemul.internal.annotations package to make build isolated apps easier')
+  o.project('org.jetbrains.annotations', :description => 'A minimal, J2CL compatible org.jetbrains.annotations library')
+  o.project('proton', :description => 'Utilities for building annotation processors')
+  o.project('shade-cli', :description => 'CLI Wrapper For Maven Shade tool')
 
-  o.project('keycloak-jaxrs-client-authfilter', :description => 'Filter for accessing keycloak secured services', :tags => %w(travis))
-  o.project('keycloak-converger', :description => 'Converge the state of a keycloak realm', :tags => %w(travis))
-  o.project('glassfish-domain-patcher', :description => 'GlassFish Domain Patcher', :tags => %w(travis))
-  o.project('glassfish-timers', :description => 'GlassFish timers database sql', :tags => %w(travis))
+  o.project('keycloak-jaxrs-client-authfilter', :description => 'Filter for accessing keycloak secured services')
+  o.project('keycloak-converger', :description => 'Converge the state of a keycloak realm')
+  o.project('glassfish-domain-patcher', :description => 'GlassFish Domain Patcher')
+  o.project('glassfish-timers', :description => 'GlassFish timers database sql')
 
   o.project('backpack', :description => '🎒 A simple tool to manage GitHub organisations using declarative DSL', :tags => %w(zapwhite=no))
 
   o.project('LyraPlugins', :description => 'Plugins directory exported from UnrealEngine repository', :tags => %w(default_branch=main zim=no))
 
-  o.project('router-fu', :description => 'A framework agnostic, state producing router', :tags => %w(protect=master travis issues))
-  o.project('revapi-diff', :description => 'Report differences between Java APIs', :tags => %w(travis))
+  o.project('router-fu', :description => 'A framework agnostic, state producing router', :tags => %w(protect=master issues))
+  o.project('revapi-diff', :description => 'Report differences between Java APIs')
   o.project('revapi-viewer', :description => 'Online RevAPI Diff Viewer')
-  o.project('getopt4j', :description => 'A library to parse command line arguments according to the GNU style', :tags => %w(travis))
+  o.project('getopt4j', :description => 'A library to parse command line arguments according to the GNU style')
 
-  o.project('gwt-symbolmap', :description => 'GWT SymbolMap Assertions Library.', :tags => %w(travis codecov))
+  o.project('gwt-symbolmap', :description => 'GWT SymbolMap Assertions Library.')
   o.project('housekeeping-scripts', :description => 'Sets of scripts used to perform housekeeping at home and in the wild')
 
-  o.project('reality-core', :description => 'Basic classes used to help defining libraries.', :tags => %w(travis))
-  o.project('reality-facets', :description => 'A basic toolkit for binding facets or extensions to model objects.', :tags => %w(travis))
-  o.project('reality-generators', :description => 'A basic toolkit for abstracting the generation of files from model objects.', :tags => %w(travis))
-  o.project('reality-mash', :description => 'A library providing the mash data type.', :tags => %w(travis))
-  o.project('reality-model', :description => 'Utility classes for defining a domain model.', :tags => %w(travis))
-  o.project('reality-naming', :description => 'A library to convert names between different naming conventions.', :tags => %w(travis))
-  o.project('reality-belt', :description => 'A super simple domain model to represent projects.', :tags => %w(travis))
+  o.project('reality-core', :description => 'Basic classes used to help defining libraries.')
+  o.project('reality-facets', :description => 'A basic toolkit for binding facets or extensions to model objects.')
+  o.project('reality-generators', :description => 'A basic toolkit for abstracting the generation of files from model objects.')
+  o.project('reality-mash', :description => 'A library providing the mash data type.')
+  o.project('reality-model', :description => 'Utility classes for defining a domain model.')
+  o.project('reality-naming', :description => 'A library to convert names between different naming conventions.')
+  o.project('reality-belt', :description => 'A super simple domain model to represent projects.')
 
-  o.project('bazel-depgen', :description => 'Generate Bazel dependency scripts by traversing Maven repositories', :tags => %w(issues travis))
+  o.project('bazel-depgen', :description => 'Generate Bazel dependency scripts by traversing Maven repositories', :tags => %w(issues))
 
-  o.project('grim', :description => 'Ensure dead code is eliminated', :tags => %w(travis))
+  o.project('grim', :description => 'Ensure dead code is eliminated')
 
   # The "game" project to keep me sane
   o.project('Quake-III-Arena', :tags => %w(homepage=https://realityforge.org/Quake-III-Arena/ projects issues))
 
   # Chef related code still in use and maintained (by others?)
-  o.project('chef-glassfish', :description => 'A cookbook for managing GlassFish', :tags => %w(travis))
-  o.project('knife-cookbook-doc', :description => 'Knife plugin to document cookbooks', :tags => %w(travis pages issues))
+  o.project('chef-glassfish', :description => 'A cookbook for managing GlassFish')
+  o.project('knife-cookbook-doc', :description => 'Knife plugin to document cookbooks', :tags => %w(pages issues))
 
   # Courses that are ongoing or still used for experiments
   o.project('course-blender-complete-animator', :description => 'Coursework for "Blender Animation & Rigging: Bring Your Creations To Life"', :tags => %w(default_branch=main zim=no))
@@ -169,10 +169,10 @@ Belt.scope('realityforge') do |o|
   o.project('q2java', :description => 'Embedding of a Java VM in Quake2 to run games written in Java', :tags => %w(external historic))
 
   # No longer needed but was an interesting port.
-  o.project('vecmath', :description => 'A Java vector math library', :tags => %w(travis historic))
+  o.project('vecmath', :description => 'A Java vector math library', :tags => %w(historic))
 
   # A pretty interesting experiment that is probably not relevant
-  o.project('galdr', :description => 'An ECS toolkit', :tags => %w(issues travis historic))
+  o.project('galdr', :description => 'An ECS toolkit', :tags => %w(issues historic))
 
   # Old blog that was long ago abandoned...
   o.project('realityforge.github.io', :description => 'My personal website and blog', :tags => %w(homepage=https://realityforge.github.io zapwhite=no historic))
@@ -556,6 +556,5 @@ Belt.scope('realityforge') do |o|
     project.tags << 'chef' if project.name =~ /^chef-/
     project.tags << 'chef' if project.name =~ /^knife-/
     project.tags << 'docker-hub' if project.name =~ /^docker-/
-    project.tags << 'travis' if project.tags.include?('docker-hub') && !project.tags.include?('historic')
   end
 end

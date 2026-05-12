@@ -61,4 +61,21 @@ command(:remove_jfrog) do |app|
   end
 end
 
+command(:remove_travis) do |app|
+  patched = false
+  if File.exist?('README.md')
+    patched = patch_file('README.md') do |content|
+      content.
+        gsub(/\[!\[Build Status\]\(https:\/\/api\.travis-ci\.com\/.*\)\]\(http:\/\/travis-ci\.com\/.*\)\n$/, '')
+    end
+  end
+  if File.exist?('.travis.yaml')
+    mysystem('git rm -f .travis.yaml')
+    patched = true
+  end
+  if patched
+    mysystem('git commit -m "Remove references to historic TravisCI infrastructure."')
+  end
+end
+
 Zim::Belt.load_suites_from_belt
