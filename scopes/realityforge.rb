@@ -38,7 +38,6 @@ Belt.scope('realityforge') do |o|
   o.project('proton', :description => 'Utilities for building annotation processors')
   o.project('shade-cli', :description => 'CLI Wrapper For Maven Shade tool')
 
-  o.project('keycloak-jaxrs-client-authfilter', :description => 'Filter for accessing keycloak secured services')
   o.project('keycloak-converger', :description => 'Converge the state of a keycloak realm')
   o.project('glassfish-domain-patcher', :description => 'GlassFish Domain Patcher')
   o.project('glassfish-timers', :description => 'GlassFish timers database sql')
@@ -129,6 +128,7 @@ Belt.scope('realityforge') do |o|
   # Historic: Decommissioned and inlined
   o.project('proxy-servlet', :description => 'A servlet for creating proxy services', :tags => %w(historic))
   o.project('gwt-keycloak', :description => 'A simple library to provide keycloak support to GWT', :tags => %w(historic))
+  o.project('keycloak-jaxrs-client-authfilter', :description => 'Filter for accessing keycloak secured services', :tags => %w(historic))
   o.project('keycloak-domgen-support', :description => 'KeyCloak Domgen Support', :tags => %w(historic))
   o.project('timeservice', :description => 'A simple EE service to get constant now within transaction', :tags => %w(historic))
 
