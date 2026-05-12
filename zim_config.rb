@@ -41,4 +41,24 @@ patch_artifact(:sting, %w(org.realityforge.sting:sting-core:jar org.realityforge
 patch_artifact(:symbolmap, %w(org.realityforge.gwt.symbolmap:gwt-symbolmap:jar), '0.09')
 patch_artifact(:zemeckis, %w(org.realityforge.zemeckis:zemeckis-core:jar), '0.14')
 
+command(:remove_jfrog) do |app|
+  if File.exist?('build.yaml')
+    patched = patch_file('build.yaml') do |content|
+      content.
+        gsub("   - https://stocksoftware.jfrog.io/stocksoftware/maven2\n", '').
+        gsub("   - https://stocksoftware.jfrog.io/stocksoftware/staging\n", '')
+    end
+    if File.exist?('tasks/release.rake')
+      patched |= patch_file('tasks/release.rake') do |content|
+        content.
+          gsub("  t.stage_release(:release_to => { :url => 'https://stocksoftware.jfrog.io/stocksoftware/staging', :username => ENV['STAGING_USERNAME'], :password => ENV['STAGING_PASSWORD'] })\n", '').
+          gsub("  t.cleanup_staging\n", '')
+      end
+    end
+    if patched
+      mysystem('git commit -m "Remove references to historic jfrog repositories."')
+    end
+  end
+end
+
 Zim::Belt.load_suites_from_belt
