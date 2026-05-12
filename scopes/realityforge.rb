@@ -168,8 +168,8 @@ Belt.scope('realityforge') do |o|
   # Oh - the glory days!
   o.project('q2java', :description => 'Embedding of a Java VM in Quake2 to run games written in Java', :tags => %w(external historic))
 
-  # No longer needed but was an interesting port..
-  o.project('vecmath', :description => 'A Java vector math library', :tags => %w(travis))
+  # No longer needed but was an interesting port.
+  o.project('vecmath', :description => 'A Java vector math library', :tags => %w(travis historic))
 
   # A pretty interesting experiment that is probably not relevant
   o.project('galdr', :description => 'An ECS toolkit', :tags => %w(issues travis historic))
