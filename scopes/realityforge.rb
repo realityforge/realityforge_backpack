@@ -72,7 +72,6 @@ Belt.scope('realityforge') do |o|
 
   # Chef related code still in use and maintained (by others?)
   o.project('chef-glassfish', :description => 'A cookbook for managing GlassFish')
-  o.project('knife-cookbook-doc', :description => 'Knife plugin to document cookbooks', :tags => %w(pages issues))
 
   # Courses that are ongoing or still used for experiments
   o.project('course-blender-complete-animator', :description => 'Coursework for "Blender Animation & Rigging: Bring Your Creations To Life"', :tags => %w(default_branch=main zim=no))
@@ -132,6 +131,9 @@ Belt.scope('realityforge') do |o|
   o.project('gwt-keycloak', :description => 'A simple library to provide keycloak support to GWT', :tags => %w(historic))
   o.project('keycloak-domgen-support', :description => 'KeyCloak Domgen Support', :tags => %w(historic))
   o.project('timeservice', :description => 'A simple EE service to get constant now within transaction', :tags => %w(historic))
+
+  # Historic: No longer used and no longer has external maintainers
+  o.project('knife-cookbook-doc', :description => 'Knife plugin to document cookbooks', :tags => %w(pages issues historic))
 
   # Historic: Inlined into the project that was using it
   o.project('gwt-serviceworker-linker', :description => 'A GWT linker that generates a serviceworker.', :tags => %w(historic))
