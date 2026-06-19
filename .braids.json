@@ -6,11 +6,6 @@
       "branch": "master",
       "revision": "1a7f630db6faa699e4b2a3f63f9f7e33fd52a2cf"
     },
-    "vendor/tools/kinjen": {
-      "url": "https://github.com/realityforge/kinjen.git",
-      "branch": "master",
-      "revision": "3acdc2bbd71b3ca0c9df3edeec87ce98370067c9"
-    },
     "vendor/tools/zim": {
       "url": "https://github.com/realityforge/zim.git",
       "branch": "master",
