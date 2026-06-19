@@ -23,7 +23,7 @@ module Backpack # nodoc
       end
 
       def copy_organizations_from_belt_scopes
-        ::Belt.scopes.each do |scope|
+        ::Belt.scopes.select { |scope| scope.projects.any? { |project| !project.tags.include?('backpack=no') } }.each do |scope|
           copy_organization_from_belt_scope(scope)
         end
       end
