@@ -38,7 +38,7 @@ module Backpack # nodoc
           scope.projects.each do |project|
             next if project.tags.include?('backpack=no')
             methods = Repository.instance_methods(false)
-            options = {}
+            options = {:description => project.description}
             methods.each do |method|
               key = method.to_s.sub(/\?$/, '')
               if method.to_s.end_with?('?') && methods.include?("#{key}=".to_sym)
