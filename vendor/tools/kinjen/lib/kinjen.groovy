@@ -1,5 +1,5 @@
+//file:noinspection unused
 import hudson.model.Result
-import hudson.model.Run
 import jenkins.model.CauseOfInterruption.UserInterruption
 
 /**
@@ -23,8 +23,10 @@ static extract_auto_merge_target( script )
 
 /**
  * The standard prepare stage that cleans up repository and downloads/installs java/ruby dependencies.
+ *
+ * This stage will also abort the build if the project only builds commits which have an associated pull request.
  */
-static prepare_stage( script, Map options = [:] )
+static prepare_stage( script, project_key, Map options = [:] )
 {
   script.stage( 'Prepare' ) {
     script.sh 'git reset --hard'
@@ -33,6 +35,7 @@ static prepare_stage( script, Map options = [:] )
     {
       script.sh 'git clean -ffdx'
     }
+
     def versions_envs = options.versions_envs == null ? true : options.versions_envs
     if ( versions_envs )
     {
@@ -51,10 +54,28 @@ static prepare_stage( script, Map options = [:] )
     def include_ruby = options.ruby == null ? true : options.ruby
     if ( include_ruby )
     {
-      script.sh 'echo "gem: --no-ri --no-rdoc" > ~/.gemrc'
+      script.sh 'echo "gem: --no-document --silent" > ~/.gemrc'
       script.retry( 2 ) { script.sh 'gem install octokit -v 4.6.2' }
+
+      def require_pr = options.require_pull_request == null ? false : options.require_pull_request
+      if ( script.env.BRANCH_NAME != 'master' && '' == script.env.AUTO_MERGE_TARGET_BRANCH && require_pr )
+      {
+        def isTriggeredByUser = script.currentBuild.getBuildCauses('hudson.model.Cause$UserIdCause').size()
+        if ( !isTriggeredByUser )
+        {
+          script.echo "Checking to ensure commit ${script.env.GIT_SHORT_HASH} is included in a PR before continuing"
+          def has_pr = has_github_open_pullrequest(script, project_key, script.env.GIT_SHORT_HASH)
+          if (!has_pr)
+          {
+            script.error( "Not building as no pull requests exist for commit ${script.env.GIT_SHORT_HASH}" )
+          }
+        } else {
+          script.echo "Build was triggered by a user, so proceeding without checking for a PR"
+        }
+      }
+
       script.retry( 2 ) { script.sh 'gem install netrc -v 0.11.0' }
-      script.retry( 2 ) { script.sh 'bundle install; rbenv rehash' }
+      script.retry( 2 ) { script.sh 'bundle install --quiet; rbenv rehash' }
       def include_buildr = options.buildr == null ? true : options.buildr
       if ( include_buildr )
       {
@@ -172,13 +193,70 @@ static pg_package_stage( script )
 }
 
 /**
+ * Guard a set of import actions.
+ * Does nothing if there has been no change in the database directory since the last successful build.
+ * We only go back 25 commits when looking for a successful build.
+ * If a successful build can not be found for the past 25 commits (or back until a commit was part of master)
+ * then a comparison is done against master to determine if the actions should run.
+ */
+static guard_import_stage( script, actions )
+{
+  // find changes in db directory compared to master
+  def changes = script.sh(script: "git diff --name-only origin/master database", returnStdout: true).trim()
+  if ( changes ) {
+    script.echo 'There are changes in the database directory, compared to master'
+    script.echo changes
+
+    // Is there a successful build we can use instead
+    def build_required = true
+    def stop_looking = false
+    def previous_commits = script.sh(script: "git rev-list HEAD~25..HEAD~1", returnStdout: true).trim().split()
+    previous_commits.each { git_commit ->
+      if ( !stop_looking ) {
+        def previous_status = get_success_status_description_for_commit( script, [git_commit: git_commit] )
+        if ( previous_status ) {
+          script.echo "Found historically successful build for ${git_commit}"
+          stop_looking = true
+          if ( script.sh(script: "git diff --name-only ${git_commit} database", returnStdout: true).trim() ) {
+            script.echo "Changes exist since successful build for ${git_commit}"
+            build_required = true
+          } else {
+            script.echo "No changes exist since successful build for ${git_commit}"
+            build_required = false
+          }
+        } else {
+          script.echo "No successful build for ${git_commit}"
+          if ( script.sh(script: "git branch --contains ${git_commit}", returnStdout: true).trim().contains("master") ){
+            script.echo "Reached master branch without a successful build: ${git_commit}"
+            build_required = true
+            stop_looking = true
+          } else {
+            script.echo "Commit is not on master, continuing to check history: ${git_commit}"
+          }
+        }
+      }
+    }
+
+    if (build_required) {
+      script.echo 'Running DB Import as no historically successful build could be found with no subsequent changes'
+      actions()
+    } else {
+      script.echo 'Skipping db import stage'
+    }
+  } else {
+    script.echo 'Skipping db import stage, no changes in database directory compared to master'
+  }
+}
+
+/**
  * The basic database import task.
+ * Will only run if guard_import_stage allows it to
  */
 static import_stage( script )
 {
-  script.stage( 'DB Import' ) {
+  guard_import_stage( script, { actions ->
     script.sh 'xvfb-run -a bundle exec buildr ci:import'
-  }
+  } )
 }
 
 /**
@@ -188,22 +266,6 @@ static import_variant_stage( script, variant )
 {
   script.stage( "DB ${variant} Import" ) {
     script.sh "xvfb-run -a bundle exec buildr ci:import:${variant}"
-  }
-}
-
-/**
- * A task that triggers the zimming out of dependencies to downstream projects.
- */
-static zim_stage( script, name, dependencies )
-{
-  script.stage( 'Zim' ) {
-    cancel_queued_zims( script, name )
-    script.build job: 'zim/upgrade_dependency',
-                 parameters: [script.string( name: 'DEPENDENCIES', value: dependencies ),
-                              script.string( name: 'NAME', value: name ),
-                              script.string( name: 'BRANCH_KEY', value: 'upgrade_dependencies' ),
-                              script.string( name: 'VERSION', value: "${script.env.PRODUCT_VERSION}" )],
-                 wait: false
   }
 }
 
@@ -253,21 +315,6 @@ def static cancel_queued_deploys( script, project_key, deployment_environment = 
   cancel_queued_job( script, "${project_key}/deploy-to-${deployment_environment}" )
 }
 
-@NonCPS
-def static cancel_queued_zims( script, name )
-{
-  def q = Jenkins.instance.queue
-  for ( def i = q.items.size() - 1; i >= 0; i-- )
-  {
-    if ( q.items[ i ].task.getOwnerTask().getFullName() == "zim/upgrade_dependency" &&
-         ( q.items[ i ].params + "\n" ).contains( "NAME=${name}\n" ) )
-    {
-      script.echo "Cancelling queued zim update job: ${q.items[ i ].params}"
-      q.cancel( q.items[ i ].task )
-    }
-  }
-}
-
 /**
  * The builtin jenkins capabilities do not deal well with api rate limiting, as a result jenkins believes
  * the status has been set but it has not been. Hence the need for custom ruby code.
@@ -284,11 +331,25 @@ static set_github_status( script, state, message, Map options = [:] )
 }
 
 /**
+ * Return true if there is an open, non-draft, pull request that includes the commit.
+ * As it uses the installed octokit it can only be run after the initial prepare phase.
+ */
+static has_github_open_pullrequest( script, git_project, git_commit )
+{
+  def present = script.sh(
+    script: "ruby -e \"require 'octokit';puts Octokit::Client.new(:netrc => true).get('/repos/stocksoftware/${git_project}/commits/${git_commit}/pulls').any?{|pr| pr[:state] != 'closed' && !pr[:draft]}\"",
+    returnStdout: true ).trim()
+
+  present.equals( 'true' )
+}
+
+/**
  * Return true if status for specified context is successful.
  * As it uses the installed octokit it can only be run after the initial prepare phase.
  */
-static is_github_status_success( script, build_context, Map options = [:] )
+static is_github_status_success( script, Map options = [:] )
 {
+  def build_context = options.build_context == null ? 'jenkins' : options.build_context
   def git_commit = options.git_commit == null ? script.env.GIT_COMMIT : options.git_commit
   def git_project = options.git_project == null ? script.env.GIT_PROJECT : options.git_project
 
@@ -299,33 +360,141 @@ static is_github_status_success( script, build_context, Map options = [:] )
   present.equals( 'true' )
 }
 
+/**
+ * Return true of the given commit had any changes
+ */
+static git_commit_has_changes( script, Map options = [:]  )
+{
+  def git_commit = options.git_commit == null ? script.env.GIT_COMMIT : options.git_commit
+  return script.sh( script: "git show ${git_commit}", returnStdout: true ).contains('diff --git')
+}
+
+/*
+ * Return hashes of all parents for a given commit
+ */
+static git_parent_commit_hashes(script, Map options = [:]) {
+  def git_commit = options.git_commit == null ? script.env.GIT_COMMIT : options.git_commit
+  return script.sh( script: "git log --pretty=%P -n 1 ${git_commit}", returnStdout: true ).trim().split()
+}
+
+/**
+ * Return the description of the 'success' status, from the given commit.
+ * As it uses the installed octokit it can only be run after the initial prepare phase.
+ */
+static get_success_status_description_for_commit( script, Map options = [:] )
+{
+  def build_context = options.build_context == null ? 'jenkins' : options.build_context
+  def git_commit = options.git_commit == null ? script.env.GIT_COMMIT : options.git_commit
+  def git_project = options.git_project == null ? script.env.GIT_PROJECT : options.git_project
+
+  script.sh(
+    script: "ruby -e \"require 'octokit';x=(Octokit::Client.new(:netrc => true).statuses('${git_project}', '${git_commit}').find{|s| s[:state] == 'success' && s[:context] == '${build_context}'}); x.respond_to?('description') ? puts(x['description']) : nil\"",
+    returnStdout: true ).trim()
+}
+
 static complete_downstream_actions( script )
 {
-  set_github_status( script, 'success', 'Downstream actions completed', [build_context: 'downstream_updated'] )
+  set_github_status( script, 'success', "Downstream actions completed: ${script.env.PRODUCT_VERSION}", [build_context: 'downstream_updated'] )
+}
+
+static get_artifact_from_previous_status( previous_status ) {
+  if (previous_status.startsWith("Successfully built: ") || previous_status.startsWith("Build skipped, using artifact: ")) {
+    return previous_status.replace( "Successfully built: ", "" ).replace( "Build skipped, using artifact: ", "" )
+  }
+  return null
 }
 
 static do_guard_build( script, Map options = [:], actions )
 {
   def notify_github = options.notify_github == null ? true : options.notify_github
-  def build_context = options.build_context == null ? 'jenkins' : options.build_context
   def email = options.email == null ? true : options.email
   def always_run = options.always_run == null ? false : options.always_run
   def err = null
 
-  if ( !always_run && is_github_status_success( script, 'downstream_updated' ) )
-  {
-    script.echo 'Build already occurred (on automerge branch?). Marking build as successful and terminating build.'
-    script.currentBuild.result = 'SUCCESS'
-    script.env.SKIP_DOWNSTREAM = 'true'
-    send_notifications( script )
-    return
+  def git_commit = options.git_commit == null ? script.env.GIT_COMMIT : options.git_commit
+  if ( !always_run ) {
+    def build_is_automerge = is_github_status_success( script, ['build_context': 'downstream_updated'] )
+    if ( build_is_automerge ) {
+      script.echo 'Build already occurred on downstream automerge branch'
+      def previous_status = get_success_status_description_for_commit( script, [git_commit: git_commit] )
+      def previous_artifact = get_artifact_from_previous_status(previous_status)
+      if ( previous_artifact ) {
+        script.echo "Previous build artifact was ${previous_artifact}, skipping build"
+        script.env.PRODUCT_VERSION = previous_artifact
+        script.currentBuild.result = 'SUCCESS'
+        script.env.SKIP_DOWNSTREAM = 'true'
+        send_notifications( script )
+        return
+      } else {
+        script.echo "Unable to determine previous build artifact from `${previous_status}`"
+      }
+    } else {
+      // No need to build if this has already built
+      def previous_build_hash = ""
+      def already_built = is_github_status_success( script, [git_commit: git_commit] )
+      if ( already_built ) {
+        script.echo "Commit is already marked as successfully built"
+        previous_build_hash = git_commit
+      } else {
+        // No need to build if all parent branches were built successfully and there are no changes
+        if ( git_commit_has_changes( script ) ) {
+          script.echo "Commit has changes, triggering build"
+        } else {
+          def parent_hashes = git_parent_commit_hashes( script )
+
+          if ( parent_hashes.size() > 1 )  {
+              script.echo "Build is a merge commit"
+              // Determine if there is a single parent with no changes which was a successful build, use it if so.
+              def parents_with_no_changes = []
+              parent_hashes.each  { parent_hash ->
+                if ( script.sh(script: "git diff --name-only ${parent_hash}..${git_commit}", returnStdout: true).trim().isEmpty() ) {
+                  parents_with_no_changes.add(parent_hash)
+                }
+              }
+              if ( parents_with_no_changes.size() == 1 ) {
+                script.echo "Parent ${parents_with_no_changes[ 0 ]} contains all changes, checking if it was a successful build"
+                if ( get_success_status_description_for_commit( script, [git_commit: parents_with_no_changes[0]] ) ) {
+                  script.echo "Parent ${parents_with_no_changes[ 0 ]} was a successful build, using it"
+                  previous_build_hash = parents_with_no_changes[ 0 ]
+                } else {
+                  script.echo "Parent ${parents_with_no_changes[ 0 ]} was not a successful build, triggering build"
+                }
+              } else {
+                script.echo "Unable to find a suitable parent, triggering build.  Number of parents with 0 changes: ${parents_with_no_changes.size()}"
+              }
+          } else {
+            if ( get_success_status_description_for_commit( script, [git_commit: parent_hashes[0]] ) ) {
+              script.echo "Build is not a merge commit, but the only parent ${parent_hashes[ 0 ]} was a success"
+              previous_build_hash = parent_hashes[ 0 ]
+            } else {
+              script
+                .echo "Build is not a merge branch, the only parent ${parent_hashes[ 0 ]} did not build successfully, triggering build"
+            }
+          }
+        }
+      }
+      if ( previous_build_hash ) {
+        def previous_status = get_success_status_description_for_commit( script, [git_commit: previous_build_hash] )
+        def previous_artifact = get_artifact_from_previous_status(previous_status)
+        if ( previous_artifact ) {
+          script.env.PRODUCT_VERSION = previous_artifact
+          script.echo "Previous successful build artifact was ${script.env.PRODUCT_VERSION} for commit ${previous_build_hash}"
+          script.currentBuild.result = 'SUCCESS'
+          set_github_status( script, 'success', "Build skipped, using artifact: ${script.env.PRODUCT_VERSION}" )
+          send_notifications( script )
+          return
+        } else {
+          script.echo "No build artifact defined in status \"${previous_status}\" on commit ${previous_build_hash}, triggering build"
+        }
+      }
+    }
   }
   try
   {
     script.currentBuild.result = 'SUCCESS'
     if ( notify_github )
     {
-      set_github_status( script, 'pending', 'Building in jenkins', [build_context: build_context] )
+      set_github_status( script, 'pending', "Building in jenkins: ${script.env.PRODUCT_VERSION}" )
     }
 
     actions()
@@ -341,11 +510,11 @@ static do_guard_build( script, Map options = [:], actions )
     {
       if ( script.currentBuild.result == 'SUCCESS' )
       {
-        set_github_status( script, 'success', 'Successfully built', [build_context: build_context] )
+        set_github_status( script, 'success', "Successfully built: ${script.env.PRODUCT_VERSION}" )
       }
       else
       {
-        set_github_status( script, 'failure', 'Failed to build', [build_context: build_context] )
+        set_github_status( script, 'failure', "Failed to build: ${script.env.PRODUCT_VERSION}" )
       }
     }
 
@@ -391,10 +560,8 @@ static prepare_auto_merge( script, target_branch )
   script.sh( "git merge origin/${target_branch}" )
 }
 
-static complete_auto_merge( script, target_branch, Map options = [:] )
+static complete_auto_merge( script, target_branch )
 {
-  def build_context = options.build_context == null ? 'jenkins' : options.build_context
-
   script.sh( 'git fetch --prune' )
   script.env.LATEST_REMOTE_MASTER_GIT_COMMIT =
     script.sh( script: "git show-ref --hash refs/remotes/origin/${target_branch}", returnStdout: true ).trim()
@@ -420,17 +587,17 @@ static complete_auto_merge( script, target_branch, Map options = [:] )
          * branch. This can occur if branch A was merged into the target branch but the current branch was
          * branched off branch A. In this case it is safe to merge it into master.
          */
-        perform_auto_merge( script, target_branch, build_context )
+        perform_auto_merge( script, target_branch )
       }
     }
   }
   else if ( script.env.GIT_COMMIT == script.env.LATEST_REMOTE_GIT_COMMIT )
   {
-    perform_auto_merge( script, target_branch, build_context )
+    perform_auto_merge( script, target_branch )
   }
 }
 
-static perform_auto_merge( script, target_branch, build_context )
+static perform_auto_merge( script, target_branch )
 {
   script.echo "Merging automerge branch ${script.env.BRANCH_NAME}."
   def git_commit = script.sh( script: 'git rev-parse HEAD', returnStdout: true ).trim()
@@ -439,8 +606,8 @@ static perform_auto_merge( script, target_branch, build_context )
     script.sh( "git push origin HEAD:${script.env.BRANCH_NAME}" )
     set_github_status( script,
                        'success',
-                       'Successfully built',
-                       [build_context: build_context, git_commit: git_commit] )
+                       "Successfully built: ${script.env.PRODUCT_VERSION}",
+                       [git_commit: git_commit] )
   }
   script.sh( "git push origin HEAD:${target_branch}" )
   /*
