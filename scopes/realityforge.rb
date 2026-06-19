@@ -56,10 +56,6 @@ Belt.scope('realityforge') do |o|
   o.project('housekeeping-scripts', :description => 'Sets of scripts used to perform housekeeping at home and in the wild')
 
   o.project('reality-core', :description => 'Basic classes used to help defining libraries.')
-  o.project('reality-facets', :description => 'A basic toolkit for binding facets or extensions to model objects.')
-  o.project('reality-generators', :description => 'A basic toolkit for abstracting the generation of files from model objects.')
-  o.project('reality-mash', :description => 'A library providing the mash data type.')
-  o.project('reality-model', :description => 'Utility classes for defining a domain model.')
   o.project('reality-naming', :description => 'A library to convert names between different naming conventions.')
   o.project('reality-belt', :description => 'A super simple domain model to represent projects.')
 
@@ -124,6 +120,10 @@ Belt.scope('realityforge') do |o|
   o.project('peopledb', :tags => %w(private default_branch=main zim=no historic))
 
   # Historic: Ruby modules no longer in use or development
+  o.project('reality-facets', :description => 'A basic toolkit for binding facets or extensions to model objects.', :tags => %w(historic))
+  o.project('reality-generators', :description => 'A basic toolkit for abstracting the generation of files from model objects.', :tags => %w(historic))
+  o.project('reality-mash', :description => 'A library providing the mash data type.', :tags => %w(historic))
+  o.project('reality-model', :description => 'Utility classes for defining a domain model.', :tags => %w(historic))
   o.project('reality-mda', :description => 'The glue that blends reality-core, reality-model, reality-generators and reality-facets into an model driven application.', :tags => %w(historic))
 
   # Historic: Decommissioned and inlined
