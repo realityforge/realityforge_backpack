@@ -26,9 +26,7 @@ Belt.scope('realityforge') do |o|
   o.project('buildr', :description => 'A stripped down fork of Buildr that works in modern environments.')
   o.project('dbt', :description => 'A simple tool designed to simplify the creation, migration and deletion of databases.', :tags => %w(notify:stock pages))
   o.project('domgen', :description => 'Domgen generates code from a simple domain model leaving the developer to focus on implementing high-value features of the application.', :tags => %w(notify:stock pages))
-  o.project('kinjen', :description => 'A library of groovy scripts to use from a Jenkinsfile', :tags => %w(notify:stock))
   o.project('redfish', :description => 'A lightweight library for configuring GlassFish/Payara servers.', :tags => %w(notify:stock))
-  o.project('rptman', :description => 'This tool includes code and a suite of rake tasks for uploading SSRS reports to a server. The tool can also generate project files for the "SQL Server Business Intelligence Development Studio".', :tags => %w(notify:stock))
   o.project('resgen', :description => 'A tool to generate resource descriptors from resource assets.', :tags => %w(notify:stock))
   o.project('zim', :description => 'Simple tool that performs mass transformations across codebases')
   o.project('gir', :description => 'Library to perform mechanical operations across codebases')
@@ -55,10 +53,6 @@ Belt.scope('realityforge') do |o|
 
   o.project('gwt-symbolmap', :description => 'GWT SymbolMap Assertions Library.')
   o.project('housekeeping-scripts', :description => 'Sets of scripts used to perform housekeeping at home and in the wild')
-
-  o.project('reality-core', :description => 'Basic classes used to help defining libraries.')
-  o.project('reality-naming', :description => 'A library to convert names between different naming conventions.')
-  o.project('reality-belt', :description => 'A super simple domain model to represent projects.')
 
   o.project('bazel-depgen', :description => 'Generate Bazel dependency scripts by traversing Maven repositories', :tags => %w(issues))
 
@@ -121,6 +115,9 @@ Belt.scope('realityforge') do |o|
   o.project('peopledb', :tags => %w(private default_branch=main zim=no historic))
 
   # Historic: Ruby modules no longer in use or development
+  o.project('reality-core', :description => 'Basic classes used to help defining libraries.', :tags => %w(historic))
+  o.project('reality-naming', :description => 'A library to convert names between different naming conventions.', :tags => %w(historic))
+  o.project('reality-belt', :description => 'A super simple domain model to represent projects.', :tags => %w(historic))
   o.project('reality-facets', :description => 'A basic toolkit for binding facets or extensions to model objects.', :tags => %w(historic))
   o.project('reality-generators', :description => 'A basic toolkit for abstracting the generation of files from model objects.', :tags => %w(historic))
   o.project('reality-mash', :description => 'A library providing the mash data type.', :tags => %w(historic))
@@ -133,6 +130,10 @@ Belt.scope('realityforge') do |o|
   o.project('keycloak-jaxrs-client-authfilter', :description => 'Filter for accessing keycloak secured services', :tags => %w(historic))
   o.project('keycloak-domgen-support', :description => 'KeyCloak Domgen Support', :tags => %w(historic))
   o.project('timeservice', :description => 'A simple EE service to get constant now within transaction', :tags => %w(historic))
+
+  # Historic: Ruby Decommissioned and inlined
+  o.project('kinjen', :description => 'A library of groovy scripts to use from a Jenkinsfile', :tags => %w(historic))
+  o.project('rptman', :description => 'This tool includes code and a suite of rake tasks for uploading SSRS reports to a server. The tool can also generate project files for the "SQL Server Business Intelligence Development Studio".', :tags => %w(historic))
 
   # Historic: No longer used and no longer has external maintainers
   o.project('knife-cookbook-doc', :description => 'Knife plugin to document cookbooks', :tags => %w(pages issues historic))
