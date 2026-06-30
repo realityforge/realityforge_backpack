@@ -24,7 +24,6 @@ Belt.scope('realityforge') do |o|
 
   o.project('jdbt', :description => 'A simple tool designed to simplify the creation, migration and deletion of databases.', :tags => %w(default_branch=main issues))
   o.project('buildr', :description => 'A stripped down fork of Buildr that works in modern environments.')
-  o.project('dbt', :description => 'A simple tool designed to simplify the creation, migration and deletion of databases.', :tags => %w(notify:stock pages))
   o.project('domgen', :description => 'Domgen generates code from a simple domain model leaving the developer to focus on implementing high-value features of the application.', :tags => %w(notify:stock pages))
   o.project('redfish', :description => 'A lightweight library for configuring GlassFish/Payara servers.', :tags => %w(notify:stock))
   o.project('resgen', :description => 'A tool to generate resource descriptors from resource assets.', :tags => %w(notify:stock))
@@ -123,6 +122,9 @@ Belt.scope('realityforge') do |o|
   o.project('reality-mash', :description => 'A library providing the mash data type.', :tags => %w(historic))
   o.project('reality-model', :description => 'Utility classes for defining a domain model.', :tags => %w(historic))
   o.project('reality-mda', :description => 'The glue that blends reality-core, reality-model, reality-generators and reality-facets into an model driven application.', :tags => %w(historic))
+
+  # Historic: Decommissioned
+  o.project('dbt', :description => 'A simple tool designed to simplify the creation, migration and deletion of databases.', :tags => %w(historic))
 
   # Historic: Decommissioned and inlined
   o.project('proxy-servlet', :description => 'A servlet for creating proxy services', :tags => %w(historic))
