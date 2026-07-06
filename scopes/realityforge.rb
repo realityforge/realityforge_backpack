@@ -33,7 +33,7 @@ Belt.scope('realityforge') do |o|
   o.project('javax.annotation', :description => 'A minimal, J2CL compatible javax.annotation library')
   o.project('javaemul.internal.annotations', :description => 'A copy of the javaemul.internal.annotations package to make build isolated apps easier')
   o.project('org.jetbrains.annotations', :description => 'A minimal, J2CL compatible org.jetbrains.annotations library')
-  o.project('proton', :description => 'Utilities for building annotation processors')
+  o.project('proton', :description => 'Utilities for building annotation processors', :tags => %w(issues))
   o.project('shade-cli', :description => 'CLI Wrapper For Maven Shade tool')
 
   o.project('keycloak-converger', :description => 'Converge the state of a keycloak realm')
