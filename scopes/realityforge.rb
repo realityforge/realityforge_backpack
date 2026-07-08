@@ -93,6 +93,8 @@ Belt.scope('realityforge') do |o|
   # External projects in active use that I need to keep a reference to
   o.project('MDMetaDataEditor', :description => 'Unreal Engine 5.1+ plugin to enable editing meta data of Blueprint Properties, Functions, and Function and Event Parameters', :tags => %w(default_branch=main external))
 
+  o.project('ai-session-warehouse', :description => 'A store of AI sessions for future analysis', :tags => %w(default_branch=main zim=no private))
+
   # AIE course
   o.project('aie_course_year2', :description => 'Coursework for "AIE Art Course Year 2"', :tags => %w(private default_branch=main historic zim=no))
   o.project('aie_course', :description => 'Coursework for "AIE Art Course"', :tags => %w(private default_branch=main historic zim=no))
