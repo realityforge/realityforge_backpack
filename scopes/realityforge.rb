@@ -7,6 +7,8 @@ Belt.scope('realityforge') do |o|
   o.project('lifetracker', :description => 'A project used to track arbitrary learning goals.', :tags => %w(default_branch=main zim=no private projects issues))
   o.project('blender-workspace', :description => 'Personal library of assets and support files used for Blender', :tags => %w(default_branch=main zim=no private))
 
+  o.project('PatchHarbour', :description => 'A Chrome side-panel extension for bulk-managing Viewed files in GitHub pull requests using patterns, saved filters, and generated-file detection.', :tags => %w(default_branch=main zim=no issues))
+
   o.project('skills', :description => 'Personal agent skills', :tags => %w(default_branch=main zim=no issues private))
 
   o.project('anki-japanese-cli', :description => 'Support tool for managing Anki decks for japanese learning.', :tags => %w(default_branch=main zim=no issues private))
