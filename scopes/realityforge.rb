@@ -12,6 +12,8 @@ Belt.scope('realityforge') do |o|
 
   o.project('skills', :description => 'Personal agent skills', :tags => %w(default_branch=main zim=no issues private))
 
+  o.project('learning-webassembly', :description => 'Repository for state used by learn skill for learning WebAssembly', :tags => %w(default_branch=main zim=no private))
+
   o.project('anki-japanese-cli', :description => 'Support tool for managing Anki decks for japanese learning.', :tags => %w(default_branch=main zim=no issues private))
 
   o.project('bluemeanie', :description => 'A backup of data from the bluemeanie Smugmug account', :tags => %w(default_branch=main zim=no))
