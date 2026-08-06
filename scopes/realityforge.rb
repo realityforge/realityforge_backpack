@@ -64,9 +64,6 @@ Belt.scope('realityforge') do |o|
   # The "game" project to keep me sane
   o.project('Quake-III-Arena', :tags => %w(homepage=https://realityforge.org/Quake-III-Arena/ projects issues))
 
-  # Chef related code still in use and maintained (by others?)
-  o.project('chef-glassfish', :description => 'A cookbook for managing GlassFish')
-
   # Courses that are ongoing or still used for experiments
   o.project('course-blender-complete-animator', :description => 'Coursework for "Blender Animation & Rigging: Bring Your Creations To Life"', :tags => %w(default_branch=main zim=no))
   # The next project was originally course-unreal-engine-5-advanced-action-rpg
@@ -133,6 +130,9 @@ Belt.scope('realityforge') do |o|
   o.project('dbt', :description => 'A simple tool designed to simplify the creation, migration and deletion of databases.', :tags => %w(historic))
   o.project('resgen', :description => 'A tool to generate resource descriptors from resource assets.', :tags => %w(historic))
   o.project('glassfish-timers', :description => 'GlassFish timers database sql', :tags => %w(historic))
+
+  # Historic: We use local patched version, seems ono one else maintains fork anymore
+  o.project('chef-glassfish', :description => 'A cookbook for managing GlassFish', :tags => %w(historic))
 
   # Historic: Decommissioned and inlined
   o.project('proxy-servlet', :description => 'A servlet for creating proxy services', :tags => %w(historic))
