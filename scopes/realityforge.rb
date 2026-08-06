@@ -40,7 +40,6 @@ Belt.scope('realityforge') do |o|
   o.project('javaemul.internal.annotations', :description => 'A copy of the javaemul.internal.annotations package to make build isolated apps easier')
   o.project('org.jetbrains.annotations', :description => 'A minimal, J2CL compatible org.jetbrains.annotations library')
   o.project('proton', :description => 'Utilities for building annotation processors', :tags => %w(issues))
-  o.project('shade-cli', :description => 'CLI Wrapper For Maven Shade tool')
 
   o.project('keycloak-converger', :description => 'Converge the state of a keycloak realm')
   o.project('glassfish-domain-patcher', :description => 'GlassFish Domain Patcher')
@@ -131,9 +130,6 @@ Belt.scope('realityforge') do |o|
   o.project('resgen', :description => 'A tool to generate resource descriptors from resource assets.', :tags => %w(historic))
   o.project('glassfish-timers', :description => 'GlassFish timers database sql', :tags => %w(historic))
 
-  # Historic: We use local patched version, seems ono one else maintains fork anymore
-  o.project('chef-glassfish', :description => 'A cookbook for managing GlassFish', :tags => %w(historic))
-
   # Historic: Decommissioned and inlined
   o.project('proxy-servlet', :description => 'A servlet for creating proxy services', :tags => %w(historic))
   o.project('gwt-keycloak', :description => 'A simple library to provide keycloak support to GWT', :tags => %w(historic))
@@ -145,8 +141,12 @@ Belt.scope('realityforge') do |o|
   o.project('kinjen', :description => 'A library of groovy scripts to use from a Jenkinsfile', :tags => %w(historic))
   o.project('rptman', :description => 'This tool includes code and a suite of rake tasks for uploading SSRS reports to a server. The tool can also generate project files for the "SQL Server Business Intelligence Development Studio".', :tags => %w(historic))
 
+  # Historic: Still in use but in the process of decomissioning
+  o.project('shade-cli', :description => 'CLI Wrapper For Maven Shade tool', :tags => %w(historic))
+
   # Historic: No longer used and no longer has external maintainers
   o.project('knife-cookbook-doc', :description => 'Knife plugin to document cookbooks', :tags => %w(pages issues historic))
+  o.project('chef-glassfish', :description => 'A cookbook for managing GlassFish', :tags => %w(historic))
 
   # Historic: Inlined into the project that was using it
   o.project('gwt-serviceworker-linker', :description => 'A GWT linker that generates a serviceworker.', :tags => %w(historic))
