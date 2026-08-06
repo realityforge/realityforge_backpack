@@ -13,6 +13,7 @@ Belt.scope('realityforge') do |o|
   o.project('skills', :description => 'Personal agent skills', :tags => %w(default_branch=main zim=no issues private))
 
   o.project('learning-webassembly', :description => 'Repository for state used by learn skill for learning WebAssembly', :tags => %w(default_branch=main zim=no private))
+  o.project('learning-rust', :description => 'Repository for state used by learn skill for learning Rust', :tags => %w(default_branch=main zim=no private))
 
   o.project('anki-japanese-cli', :description => 'Support tool for managing Anki decks for japanese learning.', :tags => %w(default_branch=main zim=no issues private))
 
@@ -43,7 +44,6 @@ Belt.scope('realityforge') do |o|
 
   o.project('keycloak-converger', :description => 'Converge the state of a keycloak realm')
   o.project('glassfish-domain-patcher', :description => 'GlassFish Domain Patcher')
-  o.project('glassfish-timers', :description => 'GlassFish timers database sql')
 
   o.project('backpack', :description => '🎒 A simple tool to manage GitHub organisations using declarative DSL', :tags => %w(zapwhite=no))
 
@@ -132,6 +132,7 @@ Belt.scope('realityforge') do |o|
   # Historic: Decommissioned
   o.project('dbt', :description => 'A simple tool designed to simplify the creation, migration and deletion of databases.', :tags => %w(historic))
   o.project('resgen', :description => 'A tool to generate resource descriptors from resource assets.', :tags => %w(historic))
+  o.project('glassfish-timers', :description => 'GlassFish timers database sql', :tags => %w(historic))
 
   # Historic: Decommissioned and inlined
   o.project('proxy-servlet', :description => 'A servlet for creating proxy services', :tags => %w(historic))
