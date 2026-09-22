@@ -1,4 +1,5 @@
 Belt.scope('realityforge') do |o|
+  o.project('j2cl', :description => 'Java to closure style javascript transpiler', :tags => %w(external))
   o.project('GameEngineNG', :description => 'Experimental game engine.', :tags => %w(default_branch=main protect=main zim=no private issues))
   o.project('ariake', :description => 'Lightweight Java server toolkit with Helidon-backed HTTP/WebSocket routing, config, metrics, JPA, and transaction modules.', :tags => %w(default_branch=main zim=no issues))
   o.project('braid', :description => 'Simple tool to help track git vendor branches in a git repository.', :tags => %w(default_branch=main zim=no issues protect=main))
@@ -177,7 +178,6 @@ Belt.scope('realityforge') do |o|
   o.project('smugmug-extractor', :description => 'A simple tool to extract data from Smugmug', :tags => %w(default_branch=main historic))
 
   # historic as no need to patch these in the future ... or so it is hoped
-  o.project('j2cl', :description => 'Java to closure style javascript transpiler', :tags => %w(external historic))
   o.project('closure-compiler', :description => 'A JavaScript checker and optimizer.', :tags => %w(external homepage=https://developers.google.com/closure/compiler/ historic))
 
   # Oh - the glory days!
