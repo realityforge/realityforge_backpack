@@ -50,8 +50,6 @@ Belt.scope('realityforge') do |o|
   o.project('LyraPlugins', :description => 'Plugins directory exported from UnrealEngine repository', :tags => %w(default_branch=main zim=no))
 
   o.project('router-fu', :description => 'A framework agnostic, state producing router', :tags => %w(protect=master issues))
-  o.project('revapi-diff', :description => 'Report differences between Java APIs')
-  o.project('revapi-viewer', :description => 'Online RevAPI Diff Viewer')
   o.project('getopt4j', :description => 'A library to parse command line arguments according to the GNU style')
 
   o.project('gwt-symbolmap', :description => 'GWT SymbolMap Assertions Library.')
@@ -96,6 +94,10 @@ Belt.scope('realityforge') do |o|
   o.project('MDMetaDataEditor', :description => 'Unreal Engine 5.1+ plugin to enable editing meta data of Blueprint Properties, Functions, and Function and Event Parameters', :tags => %w(default_branch=main external))
 
   o.project('ai-session-warehouse', :description => 'A store of AI sessions for future analysis', :tags => %w(default_branch=main zim=no private))
+
+  # No plans to continue using
+  o.project('revapi-diff', :description => 'Report differences between Java APIs', :tags => %w(historic))
+  o.project('revapi-viewer', :description => 'Online RevAPI Diff Viewer', :tags => %w(historic))
 
   # AIE course
   o.project('aie_course_year2', :description => 'Coursework for "AIE Art Course Year 2"', :tags => %w(private default_branch=main historic zim=no))
