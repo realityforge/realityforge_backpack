@@ -1,5 +1,4 @@
 Belt.scope('realityforge') do |o|
-  o.project('j2cl', :description => 'Java to closure style javascript transpiler', :tags => %w(external))
   o.project('GameEngineNG', :description => 'Experimental game engine.', :tags => %w(default_branch=main protect=main zim=no private issues))
   o.project('ariake', :description => 'Lightweight Java server toolkit with Helidon-backed HTTP/WebSocket routing, config, metrics, JPA, and transaction modules.', :tags => %w(default_branch=main zim=no issues))
   o.project('braid', :description => 'Simple tool to help track git vendor branches in a git repository.', :tags => %w(default_branch=main zim=no issues protect=main))
@@ -89,6 +88,11 @@ Belt.scope('realityforge') do |o|
 
   # Personal GameDev Exploration
   o.project('GameDevBook', :description => 'Collections of thoughts on Game Development', :tags => %w(private zim=no))
+
+  # External projects kept to supply patches to upstream projects
+  o.project('ahab', :description => 'Advanced hermeticity analyzer for Bazel', :tags => %w(external))
+  o.project('rules_java', :description => 'Java rules for Bazel', :tags => %w(external))
+  o.project('j2cl', :description => 'Java to closure style javascript transpiler', :tags => %w(external))
 
   # External projects in active use that I need to keep a reference to
   o.project('MDMetaDataEditor', :description => 'Unreal Engine 5.1+ plugin to enable editing meta data of Blueprint Properties, Functions, and Function and Event Parameters', :tags => %w(default_branch=main external))
