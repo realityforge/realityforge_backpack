@@ -1,5 +1,7 @@
 Belt.scope('realityforge') do |o|
   o.project('GameEngineNG', :description => 'Experimental game engine.', :tags => %w(default_branch=main protect=main zim=no private issues))
+  o.project('WorldBuilder', :description => 'Build connected fictional worlds with consistent timelines.', :tags => %w(default_branch=main protect=main zim=no private issues))
+  o.project('SymbolGenerator', :description => 'A procedural Glyph Symbol generator.', :tags => %w(default_branch=main protect=main zim=no private issues))
   o.project('StateReplicationEngine', :description => 'A real-time state replication engine for client/server applications.', :tags => %w(default_branch=main protect=main zim=no private issues))
 
   o.project('rules_palantir_java_format', :description => 'Bazel rules and tools for Palantir Java Format', :tags => %w(default_branch=main zim=no issues))
