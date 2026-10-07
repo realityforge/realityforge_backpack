@@ -34,7 +34,4 @@ Belt.scope('realityforge-experiments') do |o|
   o.project('Quake4BSE', :tags => %w(external historic))
   o.project('baseq3a', :description => 'Unofficial Quake III Arena gamecode patch', :tags => %w(external historic))
   o.project('urbanterror-slim', :description => 'Improved Quake III Arena engine', :tags => %w(external historic))
-
-  o.project('bazel_rules_unreal', :description => 'This repository is the home of the unreal 5 bazel rules', :tags => %w(external historic))
-  o.project('bazel-ue5-test-project', :description => 'This project contains data to test the bazel unreal rules', :tags => %w(external historic))
 end
