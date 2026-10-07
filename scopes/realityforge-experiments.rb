@@ -17,6 +17,7 @@ Belt.scope('realityforge-experiments') do |o|
   o.project('ModalCamera', :description => 'Unreal plugin that provides a Camera system supporting transitions between modes on the camera responsibility chain.', :tags => %w(default_branch=main external zim=no))
 
   o.project('GameplayAbilitySystem_Aura', :description => 'Online repo for Gameplay Ability System Course', :tags => %w(default_branch=main external zim=no))
+  o.project('htn_planner', :description => 'Ahead-of-time compiled HTN planner and C++ SDK for game AI.', :tags => %w(default_branch=main external zim=no))
 
   # Example using a GAS-like mechanism for
   o.project('Level-Zero', :description => 'CS193U - Videogame Development in Unreal - Project', :tags => %w(external historic zim=no))
