@@ -91,9 +91,9 @@ Belt.scope('realityforge') do |o|
   o.project('GameDevBook', :description => 'Collections of thoughts on Game Development', :tags => %w(private zim=no))
 
   # External projects kept to supply patches to upstream projects
-  o.project('ahab', :description => 'Advanced hermeticity analyzer for Bazel', :tags => %w(external))
-  o.project('rules_java', :description => 'Java rules for Bazel', :tags => %w(external))
-  o.project('j2cl', :description => 'Java to closure style javascript transpiler', :tags => %w(external))
+  o.project('ahab', :description => 'Advanced hermeticity analyzer for Bazel', :tags => %w(external patcher))
+  o.project('rules_java', :description => 'Java rules for Bazel', :tags => %w(external patcher))
+  o.project('j2cl', :description => 'Java to closure style javascript transpiler', :tags => %w(external patcher))
 
   # Interesting AI experiment that I never finished
   o.project('PatchHarbour', :description => 'A Chrome side-panel extension for bulk-managing Viewed files in GitHub pull requests using patterns, saved filters, and generated-file detection.', :tags => %w(default_branch=main zim=no issues historic))
