@@ -14,8 +14,6 @@ Belt.scope('realityforge') do |o|
   o.project('lifetracker', :description => 'A project used to track arbitrary learning goals.', :tags => %w(default_branch=main zim=no private projects issues))
   o.project('blender-workspace', :description => 'Personal library of assets and support files used for Blender', :tags => %w(default_branch=main zim=no private))
 
-  o.project('PatchHarbour', :description => 'A Chrome side-panel extension for bulk-managing Viewed files in GitHub pull requests using patterns, saved filters, and generated-file detection.', :tags => %w(default_branch=main zim=no issues))
-
   o.project('skills', :description => 'Personal agent skills', :tags => %w(default_branch=main zim=no issues private))
 
   o.project('learning-webassembly', :description => 'Repository for state used by learn skill for learning WebAssembly', :tags => %w(default_branch=main zim=no private))
@@ -96,6 +94,9 @@ Belt.scope('realityforge') do |o|
   o.project('ahab', :description => 'Advanced hermeticity analyzer for Bazel', :tags => %w(external))
   o.project('rules_java', :description => 'Java rules for Bazel', :tags => %w(external))
   o.project('j2cl', :description => 'Java to closure style javascript transpiler', :tags => %w(external))
+
+  # Interesting AI experiment that I never finished
+  o.project('PatchHarbour', :description => 'A Chrome side-panel extension for bulk-managing Viewed files in GitHub pull requests using patterns, saved filters, and generated-file detection.', :tags => %w(default_branch=main zim=no issues historic))
 
   # External projects in active use that I need to keep a reference to
   o.project('MDMetaDataEditor', :description => 'Unreal Engine 5.1+ plugin to enable editing meta data of Blueprint Properties, Functions, and Function and Event Parameters', :tags => %w(default_branch=main external))
