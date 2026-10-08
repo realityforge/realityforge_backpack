@@ -64,9 +64,6 @@ Belt.scope('realityforge') do |o|
 
   o.project('grim', :description => 'Ensure dead code is eliminated')
 
-  # The "game" project to keep me sane
-  o.project('Quake-III-Arena', :tags => %w(homepage=https://realityforge.org/Quake-III-Arena/ projects issues))
-
   # Courses that are ongoing or still used for experiments
   o.project('course-blender-complete-animator', :description => 'Coursework for "Blender Animation & Rigging: Bring Your Creations To Life"', :tags => %w(default_branch=main zim=no))
   # The next project was originally course-unreal-engine-5-advanced-action-rpg
@@ -104,6 +101,9 @@ Belt.scope('realityforge') do |o|
   o.project('MDMetaDataEditor', :description => 'Unreal Engine 5.1+ plugin to enable editing meta data of Blueprint Properties, Functions, and Function and Event Parameters', :tags => %w(default_branch=main external))
 
   o.project('ai-session-warehouse', :description => 'A store of AI sessions for future analysis', :tags => %w(default_branch=main zim=no private))
+
+  # Historic: The "game" project to keep me sane
+  o.project('Quake-III-Arena', :tags => %w(homepage=https://realityforge.org/Quake-III-Arena/ projects issues historic))
 
   # No plans to continue using
   o.project('revapi-diff', :description => 'Report differences between Java APIs', :tags => %w(historic))
