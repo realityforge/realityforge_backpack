@@ -20,10 +20,6 @@ Belt.scope('realityforge') do |o|
 
   o.project('anki-japanese-cli', :description => 'Support tool for managing Anki decks for japanese learning.', :tags => %w(default_branch=main zim=no issues private))
 
-  o.project('bluemeanie', :description => 'A backup of data from the bluemeanie Smugmug account', :tags => %w(default_branch=main zim=no))
-
-  o.project('substance-painter-library', :description => 'A collection of Substance Painter Assets', :tags => %w(default_branch=main private zim=no))
-  o.project('substance-designer-materials', :description => 'A collection of potentially reusable materials extracted from various projects', :tags => %w(default_branch=main zim=no))
   o.project('RuleRanger', :description => 'Enforce Rules, Elevate Artistry', :tags => %w(default_branch=main issues projects))
   o.project('MetaWeaver', :description => 'Typed, validated, bulk-editable asset metadata editors for Unreal Engine', :tags => %w(default_branch=main issues projects homepage=https://realityforge.org/MetaWeaver/ topics=unreal-engine,unreal-plugin,editor-utility,metadata,ue5,ue5-plugin))
   o.project('ModularGasGameplayActors', :description => 'Base classes blending capabilities of the Modular Gameplay plugin and the Gameplay Ability System', :tags => %w(default_branch=main))
@@ -85,11 +81,18 @@ Belt.scope('realityforge') do |o|
 
   o.project('ai-session-warehouse', :description => 'A store of AI sessions for future analysis', :tags => %w(default_branch=main zim=no private))
 
+  # Historic: Historic snapshot
+  o.project('bluemeanie', :description => 'A backup of data from the bluemeanie Smugmug account', :tags => %w(default_branch=main zim=no))
+
   # Historic: The "game" project to keep me sane
   o.project('Quake-III-Arena', :tags => %w(homepage=https://realityforge.org/Quake-III-Arena/ projects issues historic))
 
   # Historic: Interesting experiment that was abandoned
   o.project('MaterialMelody', :description => 'Material Functions for your Master Materials', :tags => %w(default_branch=main historic))
+
+  # Historic: No longer actively using
+  o.project('substance-painter-library', :description => 'A collection of Substance Painter Assets', :tags => %w(default_branch=main private zim=no))
+  o.project('substance-designer-materials', :description => 'A collection of potentially reusable materials extracted from various projects', :tags => %w(default_branch=main zim=no))
 
   # Historic: No longer actively using
   o.project('substance-designer-experiments', :description => 'A repository containing Substance Designer experiments', :tags => %w(default_branch=main zim=no))
