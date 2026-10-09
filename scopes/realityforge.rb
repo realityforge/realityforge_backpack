@@ -82,9 +82,6 @@ Belt.scope('realityforge') do |o|
   o.project('rules_java', :description => 'Java rules for Bazel', :tags => %w(external patcher))
   o.project('j2cl', :description => 'Java to closure style javascript transpiler', :tags => %w(external patcher))
 
-  # Interesting AI experiment that I never finished
-  o.project('PatchHarbour', :description => 'A Chrome side-panel extension for bulk-managing Viewed files in GitHub pull requests using patterns, saved filters, and generated-file detection.', :tags => %w(default_branch=main zim=no issues historic))
-
   # External projects in active use that I need to keep a reference to
   o.project('MDMetaDataEditor', :description => 'Unreal Engine 5.1+ plugin to enable editing meta data of Blueprint Properties, Functions, and Function and Event Parameters', :tags => %w(default_branch=main external))
 
@@ -102,6 +99,9 @@ Belt.scope('realityforge') do |o|
 
   # Historic: No longer worked upon
   o.project('blender-workspace', :description => 'Personal library of assets and support files used for Blender', :tags => %w(default_branch=main zim=no private))
+
+  # Historic: Interesting AI experiment that I never finished
+  o.project('PatchHarbour', :description => 'A Chrome side-panel extension for bulk-managing Viewed files in GitHub pull requests using patterns, saved filters, and generated-file detection.', :tags => %w(default_branch=main zim=no issues historic))
 
   # AIE course
   o.project('aie_course_year2', :description => 'Coursework for "AIE Art Course Year 2"', :tags => %w(private default_branch=main historic zim=no))
