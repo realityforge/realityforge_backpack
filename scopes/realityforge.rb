@@ -1,6 +1,7 @@
 Belt.scope('realityforge') do |o|
   o.project('GameEngineNG', :description => 'Experimental game engine.', :tags => %w(default_branch=main protect=main zim=no private issues))
   o.project('WorldBuilder', :description => 'Build connected fictional worlds with consistent timelines.', :tags => %w(default_branch=main protect=main zim=no private issues))
+  o.project('WorldDesign', :description => 'A project to track the world design.', :tags => %w(default_branch=main zim=no private projects issues))
   o.project('SymbolGenerator', :description => 'A procedural Glyph Symbol generator.', :tags => %w(default_branch=main protect=main zim=no private issues))
   o.project('StateReplicationEngine', :description => 'A real-time state replication engine for client/server applications.', :tags => %w(default_branch=main protect=main zim=no private issues))
 
@@ -8,7 +9,6 @@ Belt.scope('realityforge') do |o|
 
   o.project('ariake', :description => 'Lightweight Java server toolkit with Helidon-backed HTTP/WebSocket routing, config, metrics, JPA, and transaction modules.', :tags => %w(default_branch=main zim=no issues))
   o.project('braid', :description => 'Simple tool to help track git vendor branches in a git repository.', :tags => %w(default_branch=main zim=no issues protect=main))
-  o.project('WorldDesign', :description => 'A project to track the world design.', :tags => %w(default_branch=main zim=no private projects issues))
   o.project('realityforge_backpack', :description => 'Project for managing realityforge repositories.', :tags => %w(zapwhite=no))
   o.project('bash.d', :description => 'A set of bash scripts that run on shell startup.', :tags => %w(private))
   o.project('lifetracker', :description => 'A project used to track arbitrary learning goals.', :tags => %w(default_branch=main zim=no private projects issues))
