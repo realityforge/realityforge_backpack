@@ -62,24 +62,13 @@ Belt.scope('realityforge') do |o|
   o.project('grim', :description => 'Ensure dead code is eliminated')
 
   # Courses that are ongoing or still used for experiments
-  o.project('course-blender-complete-animator', :description => 'Coursework for "Blender Animation & Rigging: Bring Your Creations To Life"', :tags => %w(default_branch=main zim=no))
   # The next project was originally course-unreal-engine-5-advanced-action-rpg
   o.project('shokada', :description => 'Coursework for "Unreal Engine 5 C++: Advanced Action RPG"', :tags => %w(default_branch=main zim=no issues projects private homepage=http://realityforge.org/shokada-docs))
   o.project('shokada-docs', :description => 'Documentation pages for Shokada', :tags => %w(default_branch=main zim=no pages))
-  o.project('course-unreal-5-materials-part-1-environments', :description => 'Coursework for "Unreal 5 Materials - Part 1 Environments', :tags => %w(default_branch=main zim=no))
   o.project('course-unreal-engine-5-gas-top-down-rpg', :description => 'Coursework for "Unreal Engine 5 - Gameplay Ability System - Top Down RPG', :tags => %w(default_branch=main zim=no private homepage=https://www.udemy.com/course/unreal-engine-5-gas-top-down-rpg/))
 
   o.project('course-submarine-interior', :description => 'Coursework for  "Submarine Interior Game Environment Creation in Blender"', :tags => %w(default_branch=main zim=no private))
-  o.project('course-fontforge-tutorial', :description => 'Coursework for various FontForge tutorials', :tags => %w(default_branch=main zim=no))
-  o.project('course-unreal-engine-one-course-solution-for-sky-weather-system', :description => 'Coursework for "Unreal Engine 5: One Course Solution For Dynamic Sky System"', :tags => %w(default_branch=main zim=no))
-  o.project('course-unreal-engin5-one-course-solution-for-material', :description => 'Coursework for "Unreal Engine 5: One Course Solution For Material"', :tags => %w(default_branch=main zim=no))
-  o.project('course-creating-custom-decals-for-games', :description => 'Coursework for "Creating Custom Decals for Games"', :tags => %w(default_branch=main zim=no))
-  o.project('course-sci-fi-weapon-design', :description => 'Coursework for "SciFi Weapon Design in Blender"', :tags => %w(default_branch=main zim=no))
-  o.project('course-art-tools-using-geometry-nodes', :description => 'Coursework for "Creating Art Tools using Blender Geometry Nodes"', :tags => %w(default_branch=main zim=no))
-  o.project('course-unreal-engine-5-cpp-multiplayer-shooter', :description => 'Coursework for "Unreal Engine 5 C++ Multiplayer Shooter"', :tags => %w(default_branch=main zim=no))
   o.project('course-unreal-engine-the-ultimate-shooter', :description => 'Coursework for "Unreal Engine C++ The Ultimate Shooter Course"', :tags => %w(default_branch=main zim=no))
-  o.project('course-procedural-animation', :description => 'Coursework for "Procedural animation for humans in Unreal Engine 5"', :tags => %w(default_branch=main zim=no))
-  o.project('course-easy-foliage-for-games', :description => 'Coursework for "Easy Foliage for Games - in-Depth Tutorial Course"', :tags => %w(default_branch=main zim=no))
 
   o.project('substance-designer-experiments', :description => 'A repository containing Substance Designer experiments', :tags => %w(default_branch=main zim=no))
 
@@ -117,6 +106,19 @@ Belt.scope('realityforge') do |o|
   o.project('aie_course', :description => 'Coursework for "AIE Art Course"', :tags => %w(private default_branch=main historic zim=no))
   o.project('perimeter', :description => 'A project containing the art assets I created for perimeter, the final assessment', :tags => %w(default_branch=main historic zim=no private issues projects))
   o.project('CrabTank', :description => 'A repository to extract the CrabTank and polish for portfolio', :tags => %w(default_branch=main zim=no))
+
+  # Historic: Courses that Decided not to go back to or implemented elsewhere and never backed up to github
+  o.project('course-art-tools-using-geometry-nodes', :description => 'Coursework for "Creating Art Tools using Blender Geometry Nodes"', :tags => %w(default_branch=main zim=no historic))
+  o.project('course-unreal-engine-5-cpp-multiplayer-shooter', :description => 'Coursework for "Unreal Engine 5 C++ Multiplayer Shooter"', :tags => %w(default_branch=main zim=no historic))
+  o.project('course-unreal-5-materials-part-1-environments', :description => 'Coursework for "Unreal 5 Materials - Part 1 Environments', :tags => %w(default_branch=main zim=no historic))
+  o.project('course-blender-complete-animator', :description => 'Coursework for "Blender Animation & Rigging: Bring Your Creations To Life"', :tags => %w(default_branch=main zim=no historic))
+  o.project('course-fontforge-tutorial', :description => 'Coursework for various FontForge tutorials', :tags => %w(default_branch=main zim=no historic))
+  o.project('course-unreal-engine-one-course-solution-for-sky-weather-system', :description => 'Coursework for "Unreal Engine 5: One Course Solution For Dynamic Sky System"', :tags => %w(default_branch=main zim=no historic))
+  o.project('course-unreal-engin5-one-course-solution-for-material', :description => 'Coursework for "Unreal Engine 5: One Course Solution For Material"', :tags => %w(default_branch=main zim=no historic))
+  o.project('course-creating-custom-decals-for-games', :description => 'Coursework for "Creating Custom Decals for Games"', :tags => %w(default_branch=main zim=no historic))
+  o.project('course-sci-fi-weapon-design', :description => 'Coursework for "SciFi Weapon Design in Blender"', :tags => %w(default_branch=main zim=no historic))
+  o.project('course-procedural-animation', :description => 'Coursework for "Procedural animation for humans in Unreal Engine 5"', :tags => %w(default_branch=main zim=no historic))
+  o.project('course-easy-foliage-for-games', :description => 'Coursework for "Easy Foliage for Games - in-Depth Tutorial Course"', :tags => %w(default_branch=main zim=no historic))
 
   # Documents and code relating to my phd
   o.project('phd-whirlwind-article', :tags => %w(private default_branch=main historic))
