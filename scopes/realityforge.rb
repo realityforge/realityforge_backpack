@@ -69,8 +69,6 @@ Belt.scope('realityforge') do |o|
   o.project('course-submarine-interior', :description => 'Coursework for  "Submarine Interior Game Environment Creation in Blender"', :tags => %w(default_branch=main zim=no private))
   o.project('course-unreal-engine-the-ultimate-shooter', :description => 'Coursework for "Unreal Engine C++ The Ultimate Shooter Course"', :tags => %w(default_branch=main zim=no))
 
-  o.project('substance-designer-experiments', :description => 'A repository containing Substance Designer experiments', :tags => %w(default_branch=main zim=no))
-
   # Personal Music Exploration
   o.project('MusicBook', :description => 'Collections of thoughts on Music Theory', :tags => %w(private zim=no))
 
@@ -92,6 +90,9 @@ Belt.scope('realityforge') do |o|
 
   # Historic: Interesting experiment that was abandoned
   o.project('MaterialMelody', :description => 'Material Functions for your Master Materials', :tags => %w(default_branch=main historic))
+
+  # Historic: No longer actively using
+  o.project('substance-designer-experiments', :description => 'A repository containing Substance Designer experiments', :tags => %w(default_branch=main zim=no))
 
   # No plans to continue using
   o.project('revapi-diff', :description => 'Report differences between Java APIs', :tags => %w(historic))
