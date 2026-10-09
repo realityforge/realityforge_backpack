@@ -1,28 +1,12 @@
 Belt.scope('realityforge-experiments') do |o|
-  # Projects that purely exist so that I can keep a copy of source for reference purposes that are still active
-  o.project('Narxim-GAS-Example', :description => 'A basic setup for using Epic''s Gameplay Ability System.', :tags => %w(external zim=no))
-  o.project('Quake2Game', :description => 'A WIP fork of Quake 2 intended to add features more commonly seen in modern game engines.', :tags => %w(external zim=no))
-  o.project('planet_quake', :description => 'Combination of graphics and features from many different games.', :tags => %w(external zim=no))
-  o.project('planet_quake_game', :description => 'Game QVMs for many different game dynamics.', :tags => %w(external zim=no))
-  o.project('RBDOOM-3-BFG', :description => 'Doom 3 BFG Edition with modern engine features (2021) like PBR, Baked Global Illumination, Soft Shadows, Cleaned up source, Linux and 64 bit Support', :tags => %w(external zim=no))
   o.project('recastnavigation', :description => 'Navigation-mesh Toolset for Games', :tags => %w(external zim=no))
-  o.project('BakeMaster-Blender-Addon', :description => 'Welcome to BakeMaster, a powerful and feature-packed baking solution created for Blender - an open-source 3D Computer graphics software.', :tags => %w(external zim=no))
-
-  # External project that tried to extract Lyra as a bunch of Plugins
-  o.project('ModularGameplayActors', :description => 'Base Actor classes designed to be used with Game Framework implementing plugins.', :tags => %w(default_branch=main external zim=no))
-  o.project('ModularGameplayData', :description => 'Provides Data Asset and other classes that hold modular gameplay data that can be applied at runtime.', :tags => %w(default_branch=main external zim=no))
-  o.project('ModularGameplayAbilities', :description => 'Unreal plugin enabling modular game framework use of the Gameplay Abilities System.', :tags => %w(default_branch=main external zim=no))
-  o.project('ModularGameplayUI', :description => 'Unreal plugin that provides wrappers for CommonUI development.', :tags => %w(default_branch=main external zim=no))
-  o.project('ModularGameplayExperiences', :description => 'Unreal plugin replacement to the Game Mode system that lets you build data-driven Experiences for Gameplay Features. They can be loaded at runtime to allow new modes, rules, input, and more.', :tags => %w(default_branch=main external zim=no))
-  o.project('ModalCamera', :description => 'Unreal plugin that provides a Camera system supporting transitions between modes on the camera responsibility chain.', :tags => %w(default_branch=main external zim=no))
-
-  o.project('GameplayAbilitySystem_Aura', :description => 'Online repo for Gameplay Ability System Course', :tags => %w(default_branch=main external zim=no))
   o.project('htn_planner', :description => 'Ahead-of-time compiled HTN planner and C++ SDK for game AI.', :tags => %w(default_branch=main external zim=no))
 
-  # Example using a GAS-like mechanism for
-  o.project('Level-Zero', :description => 'CS193U - Videogame Development in Unreal - Project', :tags => %w(external historic zim=no))
-
   # Projects that purely exist so that I can keep a copy of source for reference purposes
+  o.project('Quake2Game', :description => 'A WIP fork of Quake 2 intended to add features more commonly seen in modern game engines.', :tags => %w(external zim=no historic))
+  o.project('planet_quake', :description => 'Combination of graphics and features from many different games.', :tags => %w(external zim=no historic))
+  o.project('planet_quake_game', :description => 'Game QVMs for many different game dynamics.', :tags => %w(external zim=no historic))
+  o.project('RBDOOM-3-BFG', :description => 'Doom 3 BFG Edition with modern engine features (2021) like PBR, Baked Global Illumination, Soft Shadows, Cleaned up source, Linux and 64 bit Support', :tags => %w(external zim=no historic))
   o.project('compiling-unreal', :description => 'A man''s notes as he discovers how Unreal Engine compiles things', :tags => %w(external default_branch=main historic))
   o.project('3zb2', :description => '3rd Zigock Bot II for Yamagi Quake II', :tags => %w(external historic))
   o.project('OpenWolf-Engine', :description => 'Heavy modified idTech3 engine', :tags => %w(external historic))
