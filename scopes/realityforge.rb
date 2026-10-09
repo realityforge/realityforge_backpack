@@ -27,7 +27,6 @@ Belt.scope('realityforge') do |o|
   o.project('substance-designer-materials', :description => 'A collection of potentially reusable materials extracted from various projects', :tags => %w(default_branch=main zim=no))
   o.project('RuleRanger', :description => 'Enforce Rules, Elevate Artistry', :tags => %w(default_branch=main issues projects))
   o.project('MetaWeaver', :description => 'Typed, validated, bulk-editable asset metadata editors for Unreal Engine', :tags => %w(default_branch=main issues projects homepage=https://realityforge.org/MetaWeaver/ topics=unreal-engine,unreal-plugin,editor-utility,metadata,ue5,ue5-plugin))
-  o.project('MaterialMelody', :description => 'Material Functions for your Master Materials', :tags => %w(default_branch=main))
   o.project('ModularGasGameplayActors', :description => 'Base classes blending capabilities of the Modular Gameplay plugin and the Gameplay Ability System', :tags => %w(default_branch=main))
   o.project('Aeon', :description => 'Support classes for building an Unreal project using the Gameplay Ability System', :tags => %w(default_branch=main wiki issues projects))
   o.project('Blaze', :description => 'A lightweight UI framework that builds on CommonUI to manage per-player layouts, layered widgets, and input suspension.', :tags => %w(default_branch=main issues projects))
@@ -105,6 +104,9 @@ Belt.scope('realityforge') do |o|
 
   # Historic: The "game" project to keep me sane
   o.project('Quake-III-Arena', :tags => %w(homepage=https://realityforge.org/Quake-III-Arena/ projects issues historic))
+
+  # Historic: Interesting experiment that was abandoned
+  o.project('MaterialMelody', :description => 'Material Functions for your Master Materials', :tags => %w(default_branch=main historic))
 
   # No plans to continue using
   o.project('revapi-diff', :description => 'Report differences between Java APIs', :tags => %w(historic))
