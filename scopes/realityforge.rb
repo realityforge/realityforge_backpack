@@ -12,7 +12,6 @@ Belt.scope('realityforge') do |o|
   o.project('realityforge_backpack', :description => 'Project for managing realityforge repositories.', :tags => %w(zapwhite=no))
   o.project('bash.d', :description => 'A set of bash scripts that run on shell startup.', :tags => %w(private))
   o.project('lifetracker', :description => 'A project used to track arbitrary learning goals.', :tags => %w(default_branch=main zim=no private projects issues))
-  o.project('blender-workspace', :description => 'Personal library of assets and support files used for Blender', :tags => %w(default_branch=main zim=no private))
 
   o.project('skills', :description => 'Personal agent skills', :tags => %w(default_branch=main zim=no issues private))
 
@@ -100,6 +99,9 @@ Belt.scope('realityforge') do |o|
   # No plans to continue using
   o.project('revapi-diff', :description => 'Report differences between Java APIs', :tags => %w(historic))
   o.project('revapi-viewer', :description => 'Online RevAPI Diff Viewer', :tags => %w(historic))
+
+  # Historic: No longer worked upon
+  o.project('blender-workspace', :description => 'Personal library of assets and support files used for Blender', :tags => %w(default_branch=main zim=no private))
 
   # AIE course
   o.project('aie_course_year2', :description => 'Coursework for "AIE Art Course Year 2"', :tags => %w(private default_branch=main historic zim=no))
