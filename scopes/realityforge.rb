@@ -77,7 +77,7 @@ Belt.scope('realityforge') do |o|
   o.project('ai-session-warehouse', :description => 'A store of AI sessions for future analysis', :tags => %w(default_branch=main zim=no private))
 
   # Historic: Historic snapshot
-  o.project('bluemeanie', :description => 'A backup of data from the bluemeanie Smugmug account', :tags => %w(default_branch=main zim=no))
+  o.project('bluemeanie', :description => 'A backup of data from the bluemeanie Smugmug account', :tags => %w(default_branch=main zim=no historic))
 
   # Historic: The "game" project to keep me sane
   o.project('Quake-III-Arena', :tags => %w(homepage=https://realityforge.org/Quake-III-Arena/ projects issues historic))
