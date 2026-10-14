@@ -1,6 +1,6 @@
 Belt.scope('realityforge-experiments') do |o|
-  o.project('recastnavigation', :description => 'Navigation-mesh Toolset for Games', :tags => %w(external zim=no))
-  o.project('htn_planner', :description => 'Ahead-of-time compiled HTN planner and C++ SDK for game AI.', :tags => %w(default_branch=main external zim=no))
+  o.project('recastnavigation', :description => 'Navigation-mesh Toolset for Games', :tags => %w(external zim=no historic))
+  o.project('htn_planner', :description => 'Ahead-of-time compiled HTN planner and C++ SDK for game AI.', :tags => %w(default_branch=main external zim=no historic))
 
   # Projects that purely exist so that I can keep a copy of source for reference purposes
   o.project('Quake2Game', :description => 'A WIP fork of Quake 2 intended to add features more commonly seen in modern game engines.', :tags => %w(external zim=no historic))
