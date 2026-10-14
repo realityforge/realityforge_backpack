@@ -27,10 +27,7 @@ Belt.scope('realityforge') do |o|
   o.project('Blaze', :description => 'A lightweight UI framework that builds on CommonUI to manage per-player layouts, layered widgets, and input suspension.', :tags => %w(default_branch=main issues projects))
 
   o.project('jdbt', :description => 'A simple tool designed to simplify the creation, migration and deletion of databases.', :tags => %w(default_branch=main issues))
-  o.project('buildr', :description => 'A stripped down fork of Buildr that works in modern environments.')
   o.project('redfish', :description => 'A lightweight library for configuring GlassFish/Payara servers.', :tags => %w(notify:stock))
-  o.project('zim', :description => 'Simple tool that performs mass transformations across codebases')
-  o.project('gir', :description => 'Library to perform mechanical operations across codebases')
   o.project('braincheck', :description => 'BrainCheck: A very simply invariant verification library', :tags => %w(pages))
   o.project('zemeckis', :description => 'A library to unify scheduling tasks inside a browser', :tags => %w(pages))
   o.project('javax.annotation', :description => 'A minimal, J2CL compatible javax.annotation library')
@@ -152,6 +149,9 @@ Belt.scope('realityforge') do |o|
   o.project('resgen', :description => 'A tool to generate resource descriptors from resource assets.', :tags => %w(historic))
   o.project('glassfish-timers', :description => 'GlassFish timers database sql', :tags => %w(historic))
   o.project('domgen', :description => 'Domgen generates code from a simple domain model leaving the developer to focus on implementing high-value features of the application.', :tags => %w(historic))
+  o.project('buildr', :description => 'A stripped down fork of Buildr that works in modern environments.', :tags => %w(historic))
+  o.project('zim', :description => 'Simple tool that performs mass transformations across codebases', :tags => %w(historic))
+  o.project('gir', :description => 'Library to perform mechanical operations across codebases', :tags => %w(historic))
 
   # Historic: Decommissioned and inlined
   o.project('proxy-servlet', :description => 'A servlet for creating proxy services', :tags => %w(historic))
