@@ -35,7 +35,6 @@ Belt.scope('realityforge') do |o|
   o.project('braincheck', :description => 'BrainCheck: A very simply invariant verification library', :tags => %w(pages))
   o.project('zemeckis', :description => 'A library to unify scheduling tasks inside a browser', :tags => %w(pages))
   o.project('javax.annotation', :description => 'A minimal, J2CL compatible javax.annotation library')
-  o.project('javaemul.internal.annotations', :description => 'A copy of the javaemul.internal.annotations package to make build isolated apps easier')
   o.project('org.jetbrains.annotations', :description => 'A minimal, J2CL compatible org.jetbrains.annotations library')
   o.project('proton', :description => 'Utilities for building annotation processors', :tags => %w(issues))
 
@@ -160,6 +159,7 @@ Belt.scope('realityforge') do |o|
   o.project('keycloak-jaxrs-client-authfilter', :description => 'Filter for accessing keycloak secured services', :tags => %w(historic))
   o.project('keycloak-domgen-support', :description => 'KeyCloak Domgen Support', :tags => %w(historic))
   o.project('timeservice', :description => 'A simple EE service to get constant now within transaction', :tags => %w(historic))
+  o.project('javaemul.internal.annotations', :description => 'A copy of the javaemul.internal.annotations package to make build isolated apps easier', :tags => %w(historic))
 
   # Historic: Ruby Decommissioned and inlined
   o.project('kinjen', :description => 'A library of groovy scripts to use from a Jenkinsfile', :tags => %w(historic))
