@@ -71,9 +71,6 @@ Belt.scope('realityforge') do |o|
   o.project('rules_java', :description => 'Java rules for Bazel', :tags => %w(external patcher))
   o.project('j2cl', :description => 'Java to closure style javascript transpiler', :tags => %w(external patcher))
 
-  # External projects in active use that I need to keep a reference to
-  o.project('MDMetaDataEditor', :description => 'Unreal Engine 5.1+ plugin to enable editing meta data of Blueprint Properties, Functions, and Function and Event Parameters', :tags => %w(default_branch=main external))
-
   o.project('ai-session-warehouse', :description => 'A store of AI sessions for future analysis', :tags => %w(default_branch=main zim=no private))
 
   # Historic: Historic snapshot
@@ -84,6 +81,9 @@ Belt.scope('realityforge') do |o|
 
   # Historic: Interesting experiment that was abandoned
   o.project('MaterialMelody', :description => 'Material Functions for your Master Materials', :tags => %w(default_branch=main historic))
+
+  # Historic: External project in use that I need to keep a reference to but don't plan on changing
+  o.project('MDMetaDataEditor', :description => 'Unreal Engine 5.1+ plugin to enable editing meta data of Blueprint Properties, Functions, and Function and Event Parameters', :tags => %w(default_branch=main external historic))
 
   # Historic: No longer actively using
   o.project('substance-painter-library', :description => 'A collection of Substance Painter Assets', :tags => %w(default_branch=main private zim=no))
