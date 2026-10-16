@@ -1,17 +1,10 @@
 Belt.scope('realityforge') do |o|
+  # Tools for new Game Push
   o.project('GameEngineNG', :description => 'Experimental game engine.', :tags => %w(default_branch=main protect=main zim=no private issues))
   o.project('WorldBuilder', :description => 'Build connected fictional worlds with consistent timelines.', :tags => %w(default_branch=main protect=main zim=no private issues))
   o.project('WorldDesign', :description => 'A project to track the world design.', :tags => %w(default_branch=main zim=no private projects issues))
   o.project('SymbolGenerator', :description => 'A procedural Glyph Symbol generator.', :tags => %w(default_branch=main protect=main zim=no private issues))
   o.project('StateReplicationEngine', :description => 'A real-time state replication engine for client/server applications.', :tags => %w(default_branch=main protect=main zim=no private issues))
-
-  o.project('rules_palantir_java_format', :description => 'Bazel rules and tools for Palantir Java Format', :tags => %w(default_branch=main zim=no issues))
-
-  o.project('ariake', :description => 'Lightweight Java server toolkit with Helidon-backed HTTP/WebSocket routing, config, metrics, JPA, and transaction modules.', :tags => %w(default_branch=main zim=no issues))
-  o.project('braid', :description => 'Simple tool to help track git vendor branches in a git repository.', :tags => %w(default_branch=main zim=no issues protect=main))
-  o.project('realityforge_backpack', :description => 'Project for managing realityforge repositories.', :tags => %w(zapwhite=no))
-  o.project('bash.d', :description => 'A set of bash scripts that run on shell startup.', :tags => %w(private))
-  o.project('lifetracker', :description => 'A project used to track arbitrary learning goals.', :tags => %w(default_branch=main zim=no private projects issues))
 
   o.project('skills', :description => 'Personal agent skills', :tags => %w(default_branch=main zim=no issues private))
 
@@ -20,41 +13,46 @@ Belt.scope('realityforge') do |o|
 
   o.project('anki-japanese-cli', :description => 'Support tool for managing Anki decks for japanese learning.', :tags => %w(default_branch=main zim=no issues private))
 
+  # Unreal Engine Related. Keep them until we move off Unreal
   o.project('RuleRanger', :description => 'Enforce Rules, Elevate Artistry', :tags => %w(default_branch=main issues projects))
   o.project('MetaWeaver', :description => 'Typed, validated, bulk-editable asset metadata editors for Unreal Engine', :tags => %w(default_branch=main issues projects homepage=https://realityforge.org/MetaWeaver/ topics=unreal-engine,unreal-plugin,editor-utility,metadata,ue5,ue5-plugin))
   o.project('ModularGasGameplayActors', :description => 'Base classes blending capabilities of the Modular Gameplay plugin and the Gameplay Ability System', :tags => %w(default_branch=main))
   o.project('Aeon', :description => 'Support classes for building an Unreal project using the Gameplay Ability System', :tags => %w(default_branch=main wiki issues projects))
   o.project('Blaze', :description => 'A lightweight UI framework that builds on CommonUI to manage per-player layouts, layered widgets, and input suspension.', :tags => %w(default_branch=main issues projects))
+  o.project('LyraPlugins', :description => 'Plugins directory exported from UnrealEngine repository', :tags => %w(default_branch=main zim=no))
 
+  # Support for work related projects
+  o.project('rules_palantir_java_format', :description => 'Bazel rules and tools for Palantir Java Format', :tags => %w(default_branch=main zim=no issues))
+  o.project('ariake', :description => 'Lightweight Java server toolkit with Helidon-backed HTTP/WebSocket routing, config, metrics, JPA, and transaction modules.', :tags => %w(default_branch=main zim=no issues))
   o.project('jdbt', :description => 'A simple tool designed to simplify the creation, migration and deletion of databases.', :tags => %w(default_branch=main issues))
-  o.project('redfish', :description => 'A lightweight library for configuring GlassFish/Payara servers.', :tags => %w(notify:stock))
   o.project('braincheck', :description => 'BrainCheck: A very simply invariant verification library', :tags => %w(pages))
   o.project('zemeckis', :description => 'A library to unify scheduling tasks inside a browser', :tags => %w(pages))
   o.project('org.jetbrains.annotations', :description => 'A minimal, J2CL compatible org.jetbrains.annotations library')
   o.project('proton', :description => 'Utilities for building annotation processors', :tags => %w(issues))
+  o.project('router-fu', :description => 'A framework agnostic, state producing router', :tags => %w(protect=master issues))
+  o.project('bazel-depgen', :description => 'Generate Bazel dependency scripts by traversing Maven repositories', :tags => %w(issues))
 
+  # Work related but destined for archival in near future
+  o.project('redfish', :description => 'A lightweight library for configuring GlassFish/Payara servers.', :tags => %w(notify:stock))
   o.project('keycloak-converger', :description => 'Converge the state of a keycloak realm')
   o.project('glassfish-domain-patcher', :description => 'GlassFish Domain Patcher')
 
   o.project('backpack', :description => '🎒 A simple tool to manage GitHub organisations using declarative DSL', :tags => %w(zapwhite=no))
-
-  o.project('LyraPlugins', :description => 'Plugins directory exported from UnrealEngine repository', :tags => %w(default_branch=main zim=no))
-
-  o.project('router-fu', :description => 'A framework agnostic, state producing router', :tags => %w(protect=master issues))
-  o.project('getopt4j', :description => 'A library to parse command line arguments according to the GNU style')
-
-  o.project('housekeeping-scripts', :description => 'Sets of scripts used to perform housekeeping at home and in the wild')
-
-  o.project('bazel-depgen', :description => 'Generate Bazel dependency scripts by traversing Maven repositories', :tags => %w(issues))
+  o.project('braid', :description => 'Simple tool to help track git vendor branches in a git repository.', :tags => %w(default_branch=main zim=no issues protect=main))
 
   # Courses that are ongoing or still used for experiments
   # The next project was originally course-unreal-engine-5-advanced-action-rpg
   o.project('shokada', :description => 'Coursework for "Unreal Engine 5 C++: Advanced Action RPG"', :tags => %w(default_branch=main zim=no issues projects private homepage=http://realityforge.org/shokada-docs))
   o.project('shokada-docs', :description => 'Documentation pages for Shokada', :tags => %w(default_branch=main zim=no pages))
   o.project('course-unreal-engine-5-gas-top-down-rpg', :description => 'Coursework for "Unreal Engine 5 - Gameplay Ability System - Top Down RPG', :tags => %w(default_branch=main zim=no private homepage=https://www.udemy.com/course/unreal-engine-5-gas-top-down-rpg/))
-
   o.project('course-submarine-interior', :description => 'Coursework for  "Submarine Interior Game Environment Creation in Blender"', :tags => %w(default_branch=main zim=no private))
   o.project('course-unreal-engine-the-ultimate-shooter', :description => 'Coursework for "Unreal Engine C++ The Ultimate Shooter Course"', :tags => %w(default_branch=main zim=no))
+
+  # Personal Support repositories
+  o.project('realityforge_backpack', :description => 'Project for managing realityforge repositories.', :tags => %w(zapwhite=no))
+  o.project('bash.d', :description => 'A set of bash scripts that run on shell startup.', :tags => %w(private))
+  o.project('lifetracker', :description => 'A project used to track arbitrary learning goals.', :tags => %w(default_branch=main zim=no private projects issues))
+  o.project('housekeeping-scripts', :description => 'Sets of scripts used to perform housekeeping at home and in the wild')
 
   # Personal Music Exploration
   o.project('MusicBook', :description => 'Collections of thoughts on Music Theory', :tags => %w(private zim=no))
@@ -75,6 +73,9 @@ Belt.scope('realityforge') do |o|
 
   # Historic: Historic snapshot
   o.project('bluemeanie', :description => 'A backup of data from the bluemeanie Smugmug account', :tags => %w(default_branch=main zim=no historic))
+
+  # Historic: Fantastic but not longer will be adopted in the time of AI
+  o.project('getopt4j', :description => 'A library to parse command line arguments according to the GNU style')
 
   # Historic: The "game" project to keep me sane
   o.project('Quake-III-Arena', :tags => %w(homepage=https://realityforge.org/Quake-III-Arena/ projects issues historic))
