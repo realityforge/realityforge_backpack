@@ -44,12 +44,9 @@ Belt.scope('realityforge') do |o|
   o.project('router-fu', :description => 'A framework agnostic, state producing router', :tags => %w(protect=master issues))
   o.project('getopt4j', :description => 'A library to parse command line arguments according to the GNU style')
 
-  o.project('gwt-symbolmap', :description => 'GWT SymbolMap Assertions Library.')
   o.project('housekeeping-scripts', :description => 'Sets of scripts used to perform housekeeping at home and in the wild')
 
   o.project('bazel-depgen', :description => 'Generate Bazel dependency scripts by traversing Maven repositories', :tags => %w(issues))
-
-  o.project('grim', :description => 'Ensure dead code is eliminated')
 
   # Courses that are ongoing or still used for experiments
   # The next project was originally course-unreal-engine-5-advanced-action-rpg
@@ -72,6 +69,10 @@ Belt.scope('realityforge') do |o|
   o.project('j2cl', :description => 'Java to closure style javascript transpiler', :tags => %w(external patcher))
 
   o.project('ai-session-warehouse', :description => 'A store of AI sessions for future analysis', :tags => %w(default_branch=main zim=no private))
+
+  # Archived. Should be recreated for j2cl?
+  o.project('grim', :description => 'Ensure dead code is eliminated', :tags => %w(historic))
+  o.project('gwt-symbolmap', :description => 'GWT SymbolMap Assertions Library.', :tags => %w(historic))
 
   # Historic: Historic snapshot
   o.project('bluemeanie', :description => 'A backup of data from the bluemeanie Smugmug account', :tags => %w(default_branch=main zim=no historic))
