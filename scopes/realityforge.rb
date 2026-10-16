@@ -30,7 +30,6 @@ Belt.scope('realityforge') do |o|
   o.project('redfish', :description => 'A lightweight library for configuring GlassFish/Payara servers.', :tags => %w(notify:stock))
   o.project('braincheck', :description => 'BrainCheck: A very simply invariant verification library', :tags => %w(pages))
   o.project('zemeckis', :description => 'A library to unify scheduling tasks inside a browser', :tags => %w(pages))
-  o.project('javax.annotation', :description => 'A minimal, J2CL compatible javax.annotation library')
   o.project('org.jetbrains.annotations', :description => 'A minimal, J2CL compatible org.jetbrains.annotations library')
   o.project('proton', :description => 'Utilities for building annotation processors', :tags => %w(issues))
 
@@ -89,6 +88,9 @@ Belt.scope('realityforge') do |o|
   # Historic: No longer actively using
   o.project('substance-painter-library', :description => 'A collection of Substance Painter Assets', :tags => %w(default_branch=main private zim=no))
   o.project('substance-designer-materials', :description => 'A collection of potentially reusable materials extracted from various projects', :tags => %w(default_branch=main zim=no))
+
+  # Historic: No longer actively using
+  o.project('javax.annotation', :description => 'A minimal, J2CL compatible javax.annotation library', :tags => %w(historic))
 
   # Historic: No longer actively using
   o.project('substance-designer-experiments', :description => 'A repository containing Substance Designer experiments', :tags => %w(default_branch=main zim=no))
