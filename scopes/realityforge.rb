@@ -6,7 +6,7 @@ Belt.scope('realityforge') do |o|
   o.project('SymbolGenerator', :description => 'A procedural Glyph Symbol generator.', :tags => %w(default_branch=main protect=main zim=no private issues))
   o.project('StateReplicationEngine', :description => 'A real-time state replication engine for client/server applications.', :tags => %w(default_branch=main protect=main zim=no private issues))
 
-  o.project('skills', :description => 'Personal agent skills', :tags => %w(default_branch=main zim=no issues private))
+  o.project('skills', :description => 'Personal agent skills', :tags => %w(default_branch=main zim=no issues))
 
   o.project('learning-webassembly', :description => 'Repository for state used by learn skill for learning WebAssembly', :tags => %w(default_branch=main zim=no private))
   o.project('learning-rust', :description => 'Repository for state used by learn skill for learning Rust', :tags => %w(default_branch=main zim=no private))
