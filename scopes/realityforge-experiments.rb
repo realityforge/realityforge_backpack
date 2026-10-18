@@ -5,6 +5,7 @@ Belt.scope('realityforge-experiments') do |o|
   # Interesting AI projects ... one day may look at so keeping a copy around
   o.project('rea', :description => 'Reverse engineer anything with agents, from app behavior down to native binaries.', :tags => %w(default_branch=main external zim=no historic))
   o.project('universal-modder', :description => 'Point Claude at any game. Skills, tools and the fal MCP that let Claude Code mod almost any PC game you own: recon, reverse engineering, fal-generated art/3D/audio, in-game testing, showcase videos.', :tags => %w(default_branch=main external zim=no historic))
+  o.project('clone-app-pat-pro-public', :tags => %w(external zim=no historic))
 
   # Projects that purely exist so that I can keep a copy of source for reference purposes
   o.project('Quake2Game', :description => 'A WIP fork of Quake 2 intended to add features more commonly seen in modern game engines.', :tags => %w(external zim=no historic))
