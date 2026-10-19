@@ -5,6 +5,7 @@ Belt.scope('realityforge') do |o|
   o.project('WorldDesign', :description => 'A project to track the world design.', :tags => %w(default_branch=main zim=no private projects issues))
   o.project('SymbolGenerator', :description => 'A procedural Glyph Symbol generator.', :tags => %w(default_branch=main protect=main zim=no private issues))
   o.project('StateReplicationEngine', :description => 'A real-time state replication engine for client/server applications.', :tags => %w(default_branch=main protect=main zim=no private issues))
+  o.project('OcclusionCulling', :description => 'Occlusion culling research', :tags => %w(default_branch=main protect=main zim=no private issues))
 
   o.project('skills', :description => 'Personal agent skills', :tags => %w(default_branch=main zim=no issues))
 
