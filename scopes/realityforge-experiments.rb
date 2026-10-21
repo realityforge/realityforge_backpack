@@ -2,6 +2,9 @@ Belt.scope('realityforge-experiments') do |o|
   o.project('recastnavigation', :description => 'Navigation-mesh Toolset for Games', :tags => %w(external zim=no historic))
   o.project('htn_planner', :description => 'Ahead-of-time compiled HTN planner and C++ SDK for game AI.', :tags => %w(default_branch=main external zim=no historic))
 
+  # FireHorses stats page. Kept ... just in case
+  o.project('DL-Broadcast-Tool', :description => 'A python project for dash league to calculate player stats and predict match outcomes using current team composition', :tags => %w(default_branch=main external zim=no historic))
+
   # Interesting AI projects ... one day may look at so keeping a copy around
   o.project('rea', :description => 'Reverse engineer anything with agents, from app behavior down to native binaries.', :tags => %w(default_branch=main external zim=no historic))
   o.project('universal-modder', :description => 'Point Claude at any game. Skills, tools and the fal MCP that let Claude Code mod almost any PC game you own: recon, reverse engineering, fal-generated art/3D/audio, in-game testing, showcase videos.', :tags => %w(default_branch=main external zim=no historic))
